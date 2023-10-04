@@ -21,6 +21,16 @@ Les critères sont :
 
 Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice de classement.
 
+Maquettes du problème algorithmique :
+![maquettes/modif_Info_Etudiant.PNG]
+![maquettes/planning_Etudiant.PNG]
+![maquettes/depot_Offre_Entreprise.PNG]
+![maquettes/planning_Entreprise.PNG]
+![maquettes/accueil_Entreprise.PNG]
+![maquettes/info_Offre_Entreprise.PNG]
+![maquettes/candidature_Offre_Entreprise.PNG]
+![maquettes/combinaison_Candidature_Offre_Entreprise.PNG]
+
 
 Organisation du Github : 
 - un dossier Spécification contenant les Spécifications Externes du Problème Algorithmique que vous traitez;
@@ -29,7 +39,6 @@ Organisation du Github :
 - un dossier docs qui contient la documentation Doxygen de votre code source.
 - un dossier maquettes contenant les maquettes du problème algorithmique
 
-![maquettes/modif_Info_Etudiant.PNG]
 
 Voici également les liens vers les différents espaces de travail du projet :
   - OneDrive : https://iutbayonne-my.sharepoint.com/:f:/g/personal/fconstans_iutbayonne_univ-pau_fr/EovhNZzVGndOvF2rT3gX7FIBf3kjm5JaXLEyYosHvQUAbQ?e=mBCStk
