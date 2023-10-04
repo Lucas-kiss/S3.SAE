@@ -23,13 +23,21 @@ Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles 
 
 Maquettes du problème algorithmique :
 ![modif_Info_Etudiant](maquettes/modif_Info_Etudiant.PNG)
+Figure 1 : modif_Info_Etudiant
 ![planning_Etudiant](maquettes/planning_Etudiant.PNG)
+Figure 2 : planning_Etudiant
 ![depot_Offre_Entreprise](maquettes/depot_Offre_Entreprise.PNG)
+Figure 3 : depot_Offre_Entreprise
 ![planning_Entreprise](maquettes/planning_Entreprise.PNG)
+Figure 4 : planning_Entreprise
 ![accueil_Entreprise](maquettes/accueil_Entreprise.PNG)
+Figure 5 : accueil_Entreprise
 ![info_Offre_Entreprise](maquettes/info_Offre_Entreprise.PNG)
+Figure 6 : info_Offre_Entreprise
 ![candidature_Offre_Entreprise](maquettes/candidature_Offre_Entreprise.PNG)
+Figure 7 : candidature_Offre_Entreprise
 ![combinaison_Candidature_Offre_Entreprise](maquettes/combinaison_Candidature_Offre_Entreprise.PNG)
+Figure 8 : combinaison_Candidature_Offre_Entreprise
 
 
 Organisation du Github : 
