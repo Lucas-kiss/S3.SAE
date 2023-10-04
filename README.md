@@ -25,9 +25,11 @@ Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles 
 Organisation du Github : 
 - un dossier Spécification contenant les Spécifications Externes du Problème Algorithmique que vous traitez;
 - un dossier Algorithme contenant votre Algorithme et son Dictionnaire;
-- un dossier src qui hébergera le Code correspondant à votre Algorithme;
-- un dossier docs qui contiendra la documentation Doxygen de votre code source.
+- un dossier src qui héberge le Code correspondant à votre Algorithme;
+- un dossier docs qui contient la documentation Doxygen de votre code source.
+- un dossier maquettes contenant les maquettes du problème algorithmique
 
+![maquettes/modif_Info_Etudiant.PNG]
 
 Voici également les liens vers les différents espaces de travail du projet :
   - OneDrive : https://iutbayonne-my.sharepoint.com/:f:/g/personal/fconstans_iutbayonne_univ-pau_fr/EovhNZzVGndOvF2rT3gX7FIBf3kjm5JaXLEyYosHvQUAbQ?e=mBCStk
