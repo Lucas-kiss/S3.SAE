@@ -22,14 +22,14 @@ Les critères sont :
 Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice de classement.
 
 Maquettes du problème algorithmique :
-![maquettes/modif_Info_Etudiant.PNG]
-![maquettes/planning_Etudiant.PNG]
-![maquettes/depot_Offre_Entreprise.PNG]
-![maquettes/planning_Entreprise.PNG]
-![maquettes/accueil_Entreprise.PNG]
-![maquettes/info_Offre_Entreprise.PNG]
-![maquettes/candidature_Offre_Entreprise.PNG]
-![maquettes/combinaison_Candidature_Offre_Entreprise.PNG]
+![modif_Info_Etudiant](maquettes/modif_Info_Etudiant.PNG)
+![planning_Etudiant](maquettes/planning_Etudiant.PNG)
+![depot_Offre_Entreprise](maquettes/depot_Offre_Entreprise.PNG)
+![planning_Entreprise](maquettes/planning_Entreprise.PNG)
+![accueil_Entreprise](maquettes/accueil_Entreprise.PNG)
+![info_Offre_Entreprise](maquettes/info_Offre_Entreprise.PNG)
+![candidature_Offre_Entreprise](maquettes/candidature_Offre_Entreprise.PNG)
+![combinaison_Candidature_Offre_Entreprise](maquettes/combinaison_Candidature_Offre_Entreprise.PNG)
 
 
 Organisation du Github : 
