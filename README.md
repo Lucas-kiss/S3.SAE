@@ -1,6 +1,6 @@
 # S3.SAE
 
-Pitch de notre application web : 
+**Pitch de notre application web :**
 1P’titJob est un site qui a pour but d’aider les jeunes étudiants à trouver un petit boulot. Grâce à cette application, les étudiants pourront d’ores et déjà commencer à s’insérer dans la vie professionnelle tout en conciliant travail et études. Elle va leur permettre de trouver un job adapté à votre emploi du temps, même pour moins d'une dizaine d'heures par semaine, à travers des échanges directs avec l’entreprise. 
 
 1P’titJob profite à tout le monde, que ce soit aux étudiants ou à l’entreprise elle-même. Grâce à une méthode de communication nous pouvons mettre directement en relation les deux camps. Ensuite, elle a pour but d’aider les étudiants à trouver du travail plus facilement en fonction de leur emploi du temps. 
@@ -8,39 +8,45 @@ Pitch de notre application web :
 1P’titJob apporte tout d’abord de l’expérience professionnelle, qui va permettre aux étudiants d’acquérir des compétences grâce à leur travail. L’application a aussi pour objectif de réduire la précarité chez les étudiants, ce qui, grâce à un salaire, permet aux étudiants de boucler leurs fins de mois par exemple. 1P’titJob aide à lutter contre l’isolement, puisqu’un emploi favorise l’insertion sociale. Et enfin, elle vient aussi en aide aux entreprises ayant un besoin en personnel, disponibles à certaines heures, les étudiants leur permettraient de combler un sous-effectif à cette heure-là. 
 
 
-Pitch de notre problème algorithmique : 
-Lorsqu'une entreprise dépose une offre d'emploi et que de nombreux étudiants y répondent, la question est :
-Comment trouver la combinaison d'étudiants la plus optimale afin de répondre au mieux aux horaires de l'offre ?
+**Pitch de notre problème algorithmique :**
+Lorsqu'une entreprise dépose une offre d'emploi et que de nombreux étudiants y répondent, la question est : 
 
-Afin de répondre à cette question, nous proposons aux entreprises une fonctionnalité leur permettant de lister toutes les combinaisons possibles, de la plus optimale, càd qu'elle répond le mieux aux critères choisis, à la moins optimale
+Comment trouver la combinaison d'étudiants la plus optimale afin de répondre au mieux aux horaires de l'offre ? 
 
-Les critères sont :
-- le nb minimum d'étudiants pour répondre à l'offre (valeur par défaut : 1)
-- le nb minimum d'heures que peut faire un étudiant (valeur par défaut : 1)
-- si la répartition des heures entre les étudiants vise à être égale ou inégale (valeur par défaut : égale)
+Afin de répondre à cette question, nous proposons aux entreprises une fonctionnalité leur permettant de lister toutes les combinaisons possibles, de la plus optimale, càd qu'elle répond le mieux aux critères choisis, à la moins optimale. 
 
-Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice de classement.
+Les critères pour l’entreprise sont : 
 
-Maquettes du problème algorithmique :
-![modif_Info_Etudiant](maquettes/modif_Info_Etudiant.PNG)
+- le nb minimum d'étudiants sélectionnés par jour d’offre 
+
+- le nb minimum d'étudiants total sélectionnés sur toute la durée de l’offre 
+
+- le nb minimum d'heures par jour d’offre que doit faire un étudiant 
+
+- si la répartition des heures entre les étudiants sur un jour d’offre vise à être égale ou inégale (càd environ ou pas le même nombre d’heures par étudiant sur un jour d’offre) 
+
+Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice. 
+
+**Maquettes du problème algorithmique : \n**
+![modif_Info_Etudiant](maquettes/modif_Info_Etudiant.PNG)  
 Figure 1 : modif_Info_Etudiant
-![planning_Etudiant](maquettes/planning_Etudiant.PNG)
+![planning_Etudiant](maquettes/planning_Etudiant.PNG)  
 Figure 2 : planning_Etudiant
-![depot_Offre_Entreprise](maquettes/depot_Offre_Entreprise.PNG)
+![depot_Offre_Entreprise](maquettes/depot_Offre_Entreprise.PNG)  
 Figure 3 : depot_Offre_Entreprise
-![planning_Entreprise](maquettes/planning_Entreprise.PNG)
+![planning_Entreprise](maquettes/planning_Entreprise.PNG)  
 Figure 4 : planning_Entreprise
-![accueil_Entreprise](maquettes/accueil_Entreprise.PNG)
+![accueil_Entreprise](maquettes/accueil_Entreprise.PNG)  
 Figure 5 : accueil_Entreprise
-![info_Offre_Entreprise](maquettes/info_Offre_Entreprise.PNG)
+![info_Offre_Entreprise](maquettes/info_Offre_Entreprise.PNG)  
 Figure 6 : info_Offre_Entreprise
-![candidature_Offre_Entreprise](maquettes/candidature_Offre_Entreprise.PNG)
+![candidature_Offre_Entreprise](maquettes/candidature_Offre_Entreprise.PNG)  
 Figure 7 : candidature_Offre_Entreprise
-![combinaison_Candidature_Offre_Entreprise](maquettes/combinaison_Candidature_Offre_Entreprise.PNG)
+![combinaison_Candidature_Offre_Entreprise](maquettes/combinaison_Candidature_Offre_Entreprise.PNG)  
 Figure 8 : combinaison_Candidature_Offre_Entreprise
 
 
-Organisation du Github : 
+**Organisation du Github :** 
 - un dossier Spécification contenant les Spécifications Externes du Problème Algorithmique que vous traitez;
 - un dossier Algorithme contenant votre Algorithme et son Dictionnaire;
 - un dossier src qui héberge le Code correspondant à votre Algorithme;
@@ -48,7 +54,16 @@ Organisation du Github :
 - un dossier maquettes contenant les maquettes du problème algorithmique
 
 
-Voici également les liens vers les différents espaces de travail du projet :
-  - OneDrive : https://iutbayonne-my.sharepoint.com/:f:/g/personal/fconstans_iutbayonne_univ-pau_fr/EovhNZzVGndOvF2rT3gX7FIBf3kjm5JaXLEyYosHvQUAbQ?e=mBCStk
-  - Teams : https://teams.microsoft.com/l/team/19%3a3mreCso4OCnaFLNI7jH2S9p0HZCPYlN1FgsmTUng-8E1%40thread.tacv2/conversations?groupId=f54bde00-c041-40b5-80dc-2700cdd290a7&tenantId=9bf80234-fabb-4f6c-b646-90604632947a
-  - Trello :  https://trello.com/invite/b/RdGtMf0X/ATTIe53f722afe684112d772d8d1e3513816003867E9/trello-de-lequipe
+**Espaces de travail:**
+Voici également les différents espaces de travail du projet qu'on utilise :
+  - OneDrive 
+  - Teams
+  - Trello
+
+**Membres :**
+Les membres du projet sont :
+  - KISS Lucas (Lucas-kiss)
+  - BÉGUINEL Kévin (Kevin-BEGUINEL)
+  - CONSTANS Fanny (fannyyc)
+  - DE BRITO Luca (LucaDeBrito)
+  - AUDOUARD Raphaël (FlocAud)

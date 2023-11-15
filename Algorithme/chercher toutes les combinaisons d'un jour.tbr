@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>chercher toutes les combinaisons d'un jour</nom>
+  <date_creation>10/11/2023 10:54</date_creation>
+  <Elements>
+    <Action>
+      <Position>457;25</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>uneOffre,
+etuNull,
+itJourOffre,
+combsTsJours</PreAssertion>
+      <PostAssertion>combsTsJours</PostAssertion>
+      <Titre>chercher toutes les combinaisons d'un jour</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>72;170</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>itJourOffre</PreAssertion>
+          <PostAssertion>combUnJour,
+heureDeb,
+heureFin,
+uneCombDUnJour</PostAssertion>
+          <Titre>Initialiser variables</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>20;330</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>créer l'objet combsUnJour
+de type CombComposee</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>216;332</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>heureDeb ← 0</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>349;335</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>heureFin ← 23</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>0</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+            <Action>
+              <Position>472;339</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>∅</PreAssertion>
+              <PostAssertion>∅</PostAssertion>
+              <Titre>créer l'objet 
+uneCombDUnJour de
+type CombSimple</Titre>
+              <DetailsVisible>0</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>508;170</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>uneOffre,
+uneCombDUnJour,
+heureDeb,
+heureFin,
+itJourOffre,
+combsUnJour</PreAssertion>
+          <PostAssertion>combsUnJour</PostAssertion>
+          <Titre>créer toutes les combinaisons du jour</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Procedure>
+              <Position>638;336</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>uneOffre,
+uneCombDUnJour,
+heureDeb,
+heureFin,
+itJourOffre,
+combsUnJour</PreAssertion>
+              <PostAssertion>combsUnJour</PostAssertion>
+              <Titre>combJour()</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Procedure>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>1053;179</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>ajouter combsUnJour
+dans combsTsJours</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>1230;177</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>itJourOffre++</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>

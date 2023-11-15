@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>compter le nb d'etudiants 
+disponibles pour le jourATraiter
+et l'heureDeb</nom>
+  <date_creation>10/11/2023 10:45</date_creation>
+  <Elements>
+    <Action>
+      <Position>381;46</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>jourATraiter,
+itJourEtu,
+cptEtuDispo,
+heureDeb</PreAssertion>
+      <PostAssertion>cptEtuDispo</PostAssertion>
+      <Titre>compter le nb d'etudiants 
+disponibles pour le jourATraiter
+et l'heureDeb</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>335;187</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>cptEtuDispo ← 0</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>0</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Iteration>
+          <Position>698.5;220.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>pour tous étudiants 'etu'</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Action>
+              <Position>319;333</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>jourATraiter</PreAssertion>
+              <PostAssertion>itJourEtu</PostAssertion>
+              <Titre>Faire pointer un itérateur
+sur le jour à traiter</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Iteration>
+                  <Position>499.5;467.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>itJourEtu.getJour() !=
+jourATraiter.getJour()</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Action>
+                      <Position>475;543</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>∅</PreAssertion>
+                      <PostAssertion>∅</PostAssertion>
+                      <Titre>itJourEtu++</Titre>
+                      <DetailsVisible>0</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </Iteration>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>766;339</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>itJourEtu,
+cptEtuDispo,
+heureDeb</PreAssertion>
+              <PostAssertion>cptEtuDispo</PostAssertion>
+              <Titre>vérifier si les horaires 
+de etu correspondent
+aux horaires de l'offre</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Condition>
+                  <Position>847.5;471</Position>
+                  <StyleLien>1</StyleLien>
+                  <estUnique>1</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>itJourEtu.tabDispo[heureDeb]
+== true</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>833;580</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>∅</PreAssertion>
+                          <PostAssertion>∅</PostAssertion>
+                          <Titre>cptEtuDispo ++</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>Sinon</Titre>
+                      <Enfants/>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Iteration>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>

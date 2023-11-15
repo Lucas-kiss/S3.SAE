@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-04T07:03:47.869Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.47" etag="SawTMnlC78VUIgWiMSp_" version="22.0.2" type="onedrive">
+<mxfile host="app.diagrams.net" modified="2023-11-06T09:40:56.047Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.57" etag="AWmHViNRhyvtyYqjpbVh" version="22.0.8" type="onedrive">
   <diagram name="Page-1" id="ZZ-0y-fCKqqXjrsUS_a_">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -25,6 +25,14 @@
             <mxPoint x="1210" y="150" as="targetPoint" />
             <Array as="points">
               <mxPoint x="876" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5Jb0h_-UMzOc_dZSMdP-2" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uia7UCyB_5bbyIWldpqq-35" target="a5Jb0h_-UMzOc_dZSMdP-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="230" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -67,14 +75,6 @@
         </mxCell>
         <mxCell id="uia7UCyB_5bbyIWldpqq-27" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="uia7UCyB_5bbyIWldpqq-38">
           <mxGeometry y="1.25" width="20" height="47.5" as="geometry" />
-        </mxCell>
-        <mxCell id="uia7UCyB_5bbyIWldpqq-39" value="Parcourir la semaine de l&#39;offre" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="1">
-          <mxGeometry x="530" y="251.25" width="100" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="uia7UCyB_5bbyIWldpqq-40" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;" edge="1" parent="1" source="uia7UCyB_5bbyIWldpqq-35" target="uia7UCyB_5bbyIWldpqq-39">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="510" y="211.25" as="sourcePoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="kYf6mvbzfywUMQieAFKw-5" value="" style="group" connectable="0" vertex="1" parent="1">
           <mxGeometry x="1010" y="157.5" width="150" height="50" as="geometry" />
@@ -147,6 +147,9 @@
         </mxCell>
         <mxCell id="kYf6mvbzfywUMQieAFKw-31" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="kYf6mvbzfywUMQieAFKw-28">
           <mxGeometry y="1.25" width="20" height="47.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a5Jb0h_-UMzOc_dZSMdP-3" value="Créer liste des combinaisons jour" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="260" width="150" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

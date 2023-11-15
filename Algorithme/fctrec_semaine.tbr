@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>10/11/2023 09:55</date_creation>
+  <Elements>
+    <Action>
+      <Position>643;13</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>combSemaine(Offre uneOffre,
+CombComposee combsTsJours,
+CombComposee.composants::iterator jourATraiter,
+CombComposee &amp;uneCombOffre, CombComposee &amp;combsOffre)</Titre>
+      <DetailsVisible>0</DetailsVisible>
+      <DetailsVideVisible>0</DetailsVideVisible>
+      <Enfants>
+        <Iteration>
+          <Position>823.5;132.5</Position>
+          <StyleLien>1</StyleLien>
+          <Titre>pour tout element de jourATraiter
+</Titre>
+          <IterationFixe>1</IterationFixe>
+          <Enfants>
+            <Iteration>
+              <Position>784.5;258.5</Position>
+              <StyleLien>1</StyleLien>
+              <Titre>pour tout jour de lstSemaine > element</Titre>
+              <IterationFixe>1</IterationFixe>
+              <Enfants>
+                <Iteration>
+                  <Position>783.5;335.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>pour toute combinaison de lstSemaine[jour]</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Condition>
+                      <Position>942.5;428</Position>
+                      <StyleLien>1</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>si plusieurs combinaisons</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>113;679</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>lstSemaine
+lstInter</PreAssertion>
+                              <PostAssertion>lstInter</PostAssertion>
+                              <Titre>ajouter combinaison dans lstInter</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Procedure>
+                              <Position>368;566</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>lstDupl, lstCombinaison,
+jour+1,</PreAssertion>
+                              <PostAssertion>lstSemaine</PostAssertion>
+                              <Titre>combinaison semaines</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Procedure>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>Sinon</Titre>
+                          <Enfants>
+                            <Procedure>
+                              <Position>1040;683</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>lstSemaine, lstCombinaison,
+jour+1</PreAssertion>
+                              <PostAssertion>lstSemaine</PostAssertion>
+                              <Titre>combinaison semaines</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Procedure>
+                            <Action>
+                              <Position>874;564</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>lstSemaine,
+lstInter</PreAssertion>
+                              <PostAssertion>lstInter</PostAssertion>
+                              <Titre>ajouter combinaison dans lstInter</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
+                  </Enfants>
+                </Iteration>
+              </Enfants>
+            </Iteration>
+            <Action>
+              <Position>1108;243</Position>
+              <StyleLien>1</StyleLien>
+              <PreAssertion>lstInter, lstCombinaison</PreAssertion>
+              <PostAssertion>lstCombinaison</PostAssertion>
+              <Titre>ajouter uneCombOffre dans combsOffre</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants/>
+            </Action>
+          </Enfants>
+        </Iteration>
+      </Enfants>
+    </Action>
+    <Action>
+      <Position>119;499</Position>
+      <StyleLien>1</StyleLien>
+      <PreAssertion>∅</PreAssertion>
+      <PostAssertion>∅</PostAssertion>
+      <Titre>copieUneCombDUnJour ←
+uneCombDUnJour</Titre>
+      <DetailsVisible>0</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants/>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
