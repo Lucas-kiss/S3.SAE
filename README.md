@@ -27,23 +27,15 @@ Les critères pour l’entreprise sont :
 
 Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice. 
 
-**Maquettes du problème algorithmique : \n**
-![modif_Info_Etudiant](maquettes/modif_Info_Etudiant.PNG)  
-Figure 1 : modif_Info_Etudiant
+**Maquettes du problème algorithmique :**  
 ![planning_Etudiant](maquettes/planning_Etudiant.PNG)  
-Figure 2 : planning_Etudiant
-![depot_Offre_Entreprise](maquettes/depot_Offre_Entreprise.PNG)  
-Figure 3 : depot_Offre_Entreprise
-![planning_Entreprise](maquettes/planning_Entreprise.PNG)  
-Figure 4 : planning_Entreprise
-![accueil_Entreprise](maquettes/accueil_Entreprise.PNG)  
-Figure 5 : accueil_Entreprise
+Figure 1 : planning_Etudiant
 ![info_Offre_Entreprise](maquettes/info_Offre_Entreprise.PNG)  
-Figure 6 : info_Offre_Entreprise
+Figure 2 : info_Offre_Entreprise
 ![candidature_Offre_Entreprise](maquettes/candidature_Offre_Entreprise.PNG)  
-Figure 7 : candidature_Offre_Entreprise
+Figure 3 : candidature_Offre_Entreprise
 ![combinaison_Candidature_Offre_Entreprise](maquettes/combinaison_Candidature_Offre_Entreprise.PNG)  
-Figure 8 : combinaison_Candidature_Offre_Entreprise
+Figure 4 : combinaison_Candidature_Offre_Entreprise
 
 
 **Organisation du Github :** 
@@ -54,13 +46,13 @@ Figure 8 : combinaison_Candidature_Offre_Entreprise
 - un dossier maquettes contenant les maquettes du problème algorithmique
 
 
-**Espaces de travail:**
+**Espaces de travail :**  
 Voici également les différents espaces de travail du projet qu'on utilise :
   - OneDrive 
   - Teams
   - Trello
 
-**Membres :**
+**Membres :**  
 Les membres du projet sont :
   - KISS Lucas (Lucas-kiss)
   - BÉGUINEL Kévin (Kevin-BEGUINEL)
