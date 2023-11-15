@@ -20,7 +20,7 @@
 
 class Creneau {
 
-    // ATTRIBUTS 
+    // ATTRIBUTS
 
     private $jour;
     private $tabDispo;
