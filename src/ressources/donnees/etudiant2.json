@@ -1,0 +1,31 @@
+{
+    "Etudiant": {
+        "Etudiant2": {
+            "ine": "1",
+            "nom": "DURANT",
+            "prenom": "Chloé"
+        }
+    },
+    "Jour": {
+        "Jour1": {
+            "jour": "Lundi"
+        },
+        "Jour2": {
+            "jour": "Jeudi"
+        }
+    },
+    "CreneauVacant": {
+        "CreneauVacant1.1": {
+            "heureDeb": 10,
+            "heureFin": 13
+        },
+        "CreneauVacant2.1": {
+            "heureDeb": 10,
+            "heureFin": 11
+        },
+        "CreneauVacant2.2": {
+            "heureDeb": 12,
+            "heureFin": 14
+        }
+    }
+}

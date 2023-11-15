@@ -1,0 +1,39 @@
+{
+    "Offre": {
+        "Offre1": {
+            "num": 11,
+            "intitule": "AA"
+        }
+    },
+    "Critere": {
+        "Critere1": {
+            "nbMinHeureEtudJour": 1,
+            "HeureRepartieJour": true,
+            "nbMinEtudJour": 1,
+            "nbMinEtudTotal": 1
+        }
+    },
+    "Jour": {
+        "Jour1": {
+            "jour": "Lundi"
+        },
+        "Jour2": {
+            "jour": "Mardi"
+        },
+        "Jour3": {
+            "jour": "Jeudi"
+        }
+    },
+    "CreneauVacant": {
+        "CreneauVacant1":{"heureDeb": 10,
+        "heureFin": 13},
+        "CreneauVacant2":{"heureDeb": 11,
+        "heureFin": 14},
+        "CreneauVacant3.1":{"heureDeb": 10,
+        "heureFin": 12},
+        "CreneauVacant3.2":{"heureDeb": 13,
+        "heureFin": 14}
+        
+    }
+
+}
