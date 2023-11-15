@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>13/11/2023 09:14</date_creation>
+  <Elements>
+    <Action>
+      <Position>694;11</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>?</PreAssertion>
+      <PostAssertion>?</PostAssertion>
+      <Titre>combSemaine(Offre uneOffre,
+CombComposee combsTsJours,
+CombComposee.composants::iterator jourATraiter,
+CombComposee &amp;uneCombOffre, CombComposee &amp;combsOffre)</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>0</DetailsVideVisible>
+      <Enfants>
+        <Condition>
+          <Position>759.5;120</Position>
+          <StyleLien>1</StyleLien>
+          <estUnique>1</estUnique>
+          <operationsLogiques>
+            <operation>
+              <Titre>jourATraiter !=
+combsTsJours.getComposants().end()</Titre>
+              <Enfants>
+                <Action>
+                  <Position>165;247</Position>
+                  <StyleLien>2</StyleLien>
+                  <PreAssertion>jourATraiter</PreAssertion>
+                  <PostAssertion>cptPossibilite</PostAssertion>
+                  <Titre>compter le nb de possibilités
+de combinaisons pour le 
+jour courant</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants>
+                    <Action>
+                      <Position>179;371</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>∅</PreAssertion>
+                      <PostAssertion>∅</PostAssertion>
+                      <Titre>cptPossibilite ← 0</Titre>
+                      <DetailsVisible>0</DetailsVisible>
+                      <DetailsVideVisible>0</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                    <Iteration>
+                      <Position>413.5;395.5</Position>
+                      <StyleLien>1</StyleLien>
+                      <Titre>pour tout element 
+de jourATraiter</Titre>
+                      <IterationFixe>1</IterationFixe>
+                      <Enfants>
+                        <Action>
+                          <Position>249;490</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>∅</PreAssertion>
+                          <PostAssertion>∅</PostAssertion>
+                          <Titre>cptPossibilite ++</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </Iteration>
+                  </Enfants>
+                </Action>
+                <Iteration>
+                  <Position>871.5;272.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>pour tout element de jourATraiter
+</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Condition>
+                      <Position>788.5;383</Position>
+                      <StyleLien>1</StyleLien>
+                      <estUnique>0</estUnique>
+                      <operationsLogiques>
+                        <operation>
+                          <Titre>cptPossibilite > 1</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>365;544</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>∅</PreAssertion>
+                              <PostAssertion>∅</PostAssertion>
+                              <Titre>copieUneCombOffre ←
+uneCombOffre</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Action>
+                              <Position>526;547</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>?</PreAssertion>
+                              <PostAssertion>lstInter</PostAssertion>
+                              <Titre>ajouter element dans 
+copieUneCombOffre</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Procedure>
+                              <Position>689;549</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>uneOffre,
+combsTsJours,
+jourATraiter+1,
+copieUneCombOffre,
+combsOffre</PreAssertion>
+                              <PostAssertion>combsOffre</PostAssertion>
+                              <Titre>combSemaine()</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Procedure>
+                          </Enfants>
+                        </operation>
+                        <operation>
+                          <Titre>Sinon</Titre>
+                          <Enfants>
+                            <Action>
+                              <Position>1140;547</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>lstSemaine,
+lstInter</PreAssertion>
+                              <PostAssertion>lstInter</PostAssertion>
+                              <Titre>ajouter element dans
+uneCombOffre</Titre>
+                              <DetailsVisible>0</DetailsVisible>
+                              <DetailsVideVisible>0</DetailsVideVisible>
+                              <Enfants/>
+                            </Action>
+                            <Procedure>
+                              <Position>1308;547</Position>
+                              <StyleLien>1</StyleLien>
+                              <PreAssertion>uneOffre,
+combsTsJours,
+jourATraiter+1,
+uneCombOffre,
+combsOffre</PreAssertion>
+                              <PostAssertion>combsOffre</PostAssertion>
+                              <Titre>combSemaine()</Titre>
+                              <DetailsVisible>1</DetailsVisible>
+                              <DetailsVideVisible>1</DetailsVideVisible>
+                              <Enfants/>
+                            </Procedure>
+                          </Enfants>
+                        </operation>
+                      </operationsLogiques>
+                    </Condition>
+                  </Enfants>
+                </Iteration>
+                <Condition>
+                  <Position>1311.5;255</Position>
+                  <StyleLien>0</StyleLien>
+                  <estUnique>0</estUnique>
+                  <operationsLogiques>
+                    <operation>
+                      <Titre>uneCombOffre.verifNbMinEtud
+(uneOffre) &amp;&amp;
+uneCombOffre.verifNbMinHeureEtud
+(uneOffre)</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1303;375</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>lstInter, lstCombinaison</PreAssertion>
+                          <PostAssertion>combsOffre</PostAssertion>
+                          <Titre>ajouter uneCombOffre
+dans combsOffre</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>1</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                    <operation>
+                      <Titre>Sinon</Titre>
+                      <Enfants>
+                        <Action>
+                          <Position>1600;374</Position>
+                          <StyleLien>1</StyleLien>
+                          <PreAssertion>∅</PreAssertion>
+                          <PostAssertion>∅</PostAssertion>
+                          <Titre>Détruire l'objet
+uneCombOffre</Titre>
+                          <DetailsVisible>0</DetailsVisible>
+                          <DetailsVideVisible>0</DetailsVideVisible>
+                          <Enfants/>
+                        </Action>
+                      </Enfants>
+                    </operation>
+                  </operationsLogiques>
+                </Condition>
+                <Action>
+                  <Position>1083;258</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>calculer nbEtudiants et
+tauxRemplissage de
+uneCombDUnJour</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </operation>
+            <operation>
+              <Titre>?</Titre>
+              <Enfants/>
+            </operation>
+            <operation>
+              <Titre>Sinon</Titre>
+              <Enfants/>
+            </operation>
+          </operationsLogiques>
+        </Condition>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>

@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tabula_Rasa>
+<Algorithme>
+  <nom>Algorithme</nom>
+  <date_creation>13/11/2023 08:41</date_creation>
+  <Elements>
+    <Action>
+      <Position>703;65</Position>
+      <StyleLien>2</StyleLien>
+      <PreAssertion>uneOffre,
+etuNull</PreAssertion>
+      <PostAssertion>combsOffre</PostAssertion>
+      <Titre>faire les combinaisons</Titre>
+      <DetailsVisible>1</DetailsVisible>
+      <DetailsVideVisible>1</DetailsVideVisible>
+      <Enfants>
+        <Action>
+          <Position>438;216</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>créer un objet combsOffre
+de type CombComposee</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+        <Action>
+          <Position>843;212</Position>
+          <StyleLien>2</StyleLien>
+          <PreAssertion>uneOffre,
+etuNull,
+combsTsJours,
+combsOffre</PreAssertion>
+          <PostAssertion>combsOffre</PostAssertion>
+          <Titre>Chercher toutes les combinaisons</Titre>
+          <DetailsVisible>1</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants>
+            <Action>
+              <Position>1088;351</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>uneOffre,
+combsTsJours,
+combsOffre</PreAssertion>
+              <PostAssertion>combsOffre</PostAssertion>
+              <Titre>cherche toutes les combinaisons
+à partir des combinaisons
+de chaque jour</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Procedure>
+                  <Position>1482;479</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>uneOffre,
+combsTsJours,
+jourATraiter,
+uneCombOffre,
+combsOffre</PreAssertion>
+                  <PostAssertion>combsOffre</PostAssertion>
+                  <Titre>combSemaine()</Titre>
+                  <DetailsVisible>1</DetailsVisible>
+                  <DetailsVideVisible>1</DetailsVideVisible>
+                  <Enfants/>
+                </Procedure>
+                <Action>
+                  <Position>1030;479</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>créer l'objet uneCombOffre
+de type CombComposee</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+                <Action>
+                  <Position>1218;479</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>itJourATraiter ← 
+combsTsJours.getComposants().first()</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>256;350</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>uneOffre</PreAssertion>
+              <PostAssertion>itJourOffre</PostAssertion>
+              <Titre>faire pointer itJourOffre
+sur le premier jour de
+la semaine</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Action>
+                  <Position>295;456</Position>
+                  <StyleLien>1</StyleLien>
+                  <PreAssertion>∅</PreAssertion>
+                  <PostAssertion>∅</PostAssertion>
+                  <Titre>itJourOffre ← uneOffre.getPlanning().first()</Titre>
+                  <DetailsVisible>0</DetailsVisible>
+                  <DetailsVideVisible>0</DetailsVideVisible>
+                  <Enfants/>
+                </Action>
+              </Enfants>
+            </Action>
+            <Action>
+              <Position>645;350</Position>
+              <StyleLien>2</StyleLien>
+              <PreAssertion>uneOffre,
+etuNull,
+itJourOffre,
+combsTsJours</PreAssertion>
+              <PostAssertion>combsTsJours</PostAssertion>
+              <Titre>parcourir tous les jours
+de la semaine</Titre>
+              <DetailsVisible>1</DetailsVisible>
+              <DetailsVideVisible>1</DetailsVideVisible>
+              <Enfants>
+                <Iteration>
+                  <Position>788.5;488.5</Position>
+                  <StyleLien>1</StyleLien>
+                  <Titre>itJourOffre !=
+uneOffre.getPlanning.end()</Titre>
+                  <IterationFixe>1</IterationFixe>
+                  <Enfants>
+                    <Action>
+                      <Position>501;564</Position>
+                      <StyleLien>1</StyleLien>
+                      <PreAssertion>uneOffre,
+etuNull,
+itJourOffre,
+combsTsJours</PreAssertion>
+                      <PostAssertion>combsTsJours</PostAssertion>
+                      <Titre>chercher toutes les combinaisons d'un jour</Titre>
+                      <DetailsVisible>1</DetailsVisible>
+                      <DetailsVideVisible>1</DetailsVideVisible>
+                      <Enfants/>
+                    </Action>
+                  </Enfants>
+                </Iteration>
+              </Enfants>
+            </Action>
+          </Enfants>
+        </Action>
+        <Action>
+          <Position>620;217</Position>
+          <StyleLien>1</StyleLien>
+          <PreAssertion>∅</PreAssertion>
+          <PostAssertion>∅</PostAssertion>
+          <Titre>créer l'objet combsTsJours
+de type CombComposee</Titre>
+          <DetailsVisible>0</DetailsVisible>
+          <DetailsVideVisible>1</DetailsVideVisible>
+          <Enfants/>
+        </Action>
+      </Enfants>
+    </Action>
+  </Elements>
+  <Dictionary/>
+</Algorithme>
