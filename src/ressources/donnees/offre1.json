@@ -24,14 +24,14 @@
             "jour": "Jeudi"
         }
     },
-    "CreneauVacant": {
-        "CreneauVacant1":{"heureDeb": 10,
+    "CreneauRecherche": {
+        "CreneauRecherche1":{"heureDeb": 10,
         "heureFin": 13},
-        "CreneauVacant2":{"heureDeb": 11,
+        "CreneauRecherche2":{"heureDeb": 11,
         "heureFin": 14},
-        "CreneauVacant3.1":{"heureDeb": 10,
+        "CreneauRecherche3.1":{"heureDeb": 10,
         "heureFin": 12},
-        "CreneauVacant3.2":{"heureDeb": 13,
+        "CreneauRecherche3.2":{"heureDeb": 13,
         "heureFin": 14}
         
     }

@@ -1,9 +1,9 @@
 {
     "Etudiant": {
-        "Etudiant2": {
-            "ine": "123456786AK",
-            "nom": "DURANT",
-            "prenom": "Chloé"
+        "Etudiant1": {
+            "ine": "000000000N",
+            "nom": "NULL",
+            "prenom": "NULL"
         }
     },
     "Jour": {
@@ -27,20 +27,6 @@
         },
         "Jour7": {
             "jour": "Dimanche"
-        }
-    },
-    "CreneauRecherche": {
-        "CreneauRecherche1.1": {
-            "heureDeb": 10,
-            "heureFin": 13
-        },
-        "CreneauRecherche2.1": {
-            "heureDeb": 10,
-            "heureFin": 11
-        },
-        "CreneauRecherche2.2": {
-            "heureDeb": 12,
-            "heureFin": 14
         }
     }
 }
