@@ -1,21 +1,33 @@
 {
     "Etudiant": {
         "Etudiant1": {
-            "ine": "1",
-            "nom": "DUPONT",
-            "prenom": "Jean"
+            "ine": "1234567890A",
+            "nom": "DELAS",
+            "prenom": "Marie"
         }
     },
     "Jour": {
-        "Jour1": {
-            "jour": "Mardi"
-        },
-        "Jour2": {
-            "jour": "Jeudi"
-        },
-        "Jour3": {
-            "jour": "Vendredi"
-        }
+            "Jour1": {
+                "jour": "Lundi"
+            },
+            "Jour2": {
+                "jour": "Mardi"
+            },
+            "Jour3": {
+                "jour": "Mercredi"
+            },
+            "Jour4": {
+                "jour": "Jeudi"
+            },
+            "Jour5": {
+                "jour": "Vendredi"
+            },
+            "Jour6": {
+                "jour": "Samedi"
+            },
+            "Jour7": {
+                "jour": "Dimanche"
+            }
     },
     "CreneauVacant": {
         "CreneauVacant1": {

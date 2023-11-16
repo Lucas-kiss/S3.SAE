@@ -1,7 +1,7 @@
 {
     "Etudiant": {
         "Etudiant1": {
-            "ine": "1",
+            "ine": "1454567890H",
             "nom": "DUPONT",
             "prenom": "Jean"
         }
@@ -15,6 +15,18 @@
         },
         "Jour3": {
             "jour": "Mercredi"
+        },
+        "Jour4": {
+            "jour": "Jeudi"
+        },
+        "Jour5": {
+            "jour": "Vendredi"
+        },
+        "Jour6": {
+            "jour": "Samedi"
+        },
+        "Jour7": {
+            "jour": "Dimanche"
         }
     },
     "CreneauVacant": {
