@@ -13,6 +13,9 @@ class Offre
     /* ATTRIBUTS */
     private $num;
     private $intitule;
+    private $desJours;
+    private $desEtudiants;
+    private $mesCriteres;
 
     /* CONSTRUCTEUR */
     public function Offre($num, $intitule)
@@ -20,10 +23,10 @@ class Offre
         $this->num = $num;
         $this->intitule = $intitule;
     }
-    public function Offre_copie(Offre $uneOffre)
+    public function Offre_copie(Offre $unJour)
     {
-        $this->num = $uneOffre->num;
-        $this->intitule = $uneOffre->intitule;
+        $this->jour = $unJour->jour;
+        $this->creneaux = $unJour->creneaux;
     }
 
     /* METHODES */
