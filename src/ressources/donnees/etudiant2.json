@@ -8,10 +8,22 @@
     },
     "Jour": {
         "Jour1": {
-            "jour": "Lundi"
+            "jour": "Lundi",
+            "CreneauRecherche1.1": {
+                "heureDeb": 10,
+                "heureFin": 13
+            }
         },
         "Jour2": {
-            "jour": "Mardi"
+            "jour": "Mardi",
+            "CreneauRecherche2.1": {
+                "heureDeb": 10,
+                "heureFin": 11
+            },
+            "CreneauRecherche2.2": {
+                "heureDeb": 12,
+                "heureFin": 14
+            }
         },
         "Jour3": {
             "jour": "Mercredi"
@@ -27,20 +39,6 @@
         },
         "Jour7": {
             "jour": "Dimanche"
-        }
-    },
-    "CreneauRecherche": {
-        "CreneauRecherche1.1": {
-            "heureDeb": 10,
-            "heureFin": 13
-        },
-        "CreneauRecherche2.1": {
-            "heureDeb": 10,
-            "heureFin": 11
-        },
-        "CreneauRecherche2.2": {
-            "heureDeb": 12,
-            "heureFin": 14
         }
     }
 }

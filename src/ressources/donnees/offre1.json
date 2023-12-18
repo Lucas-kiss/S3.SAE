@@ -15,25 +15,29 @@
     },
     "Jour": {
         "Jour1": {
-            "jour": "Lundi"
+            "jour": "Lundi",
+            "CreneauRecherche1": {
+                "heureDeb": 10,
+                "heureFin": 13
+            }
         },
         "Jour2": {
-            "jour": "Mardi"
+            "jour": "Mardi",
+            "CreneauRecherche2": {
+                "heureDeb": 11,
+                "heureFin": 14
+            }
         },
         "Jour3": {
-            "jour": "Jeudi"
+            "jour": "Jeudi",
+            "CreneauRecherche3.1": {
+                "heureDeb": 10,
+                "heureFin": 12
+            },
+            "CreneauRecherche3.2": {
+                "heureDeb": 13,
+                "heureFin": 14
+            }
         }
-    },
-    "CreneauRecherche": {
-        "CreneauRecherche1":{"heureDeb": 10,
-        "heureFin": 13},
-        "CreneauRecherche2":{"heureDeb": 11,
-        "heureFin": 14},
-        "CreneauRecherche3.1":{"heureDeb": 10,
-        "heureFin": 12},
-        "CreneauRecherche3.2":{"heureDeb": 13,
-        "heureFin": 14}
-        
     }
-
 }

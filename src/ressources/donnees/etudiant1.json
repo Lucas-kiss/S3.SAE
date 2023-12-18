@@ -8,43 +8,41 @@
     },
     "Jour": {
         "Jour1": {
-            "jour": "Lundi"
+            "jour": "Lundi",
+            "CreneauRecherche1": {
+                "heureDeb": 10,
+                "heureFin": 12
+            },
+            "CreneauRecherche2": {
+                "heureDeb": 14,
+                "heureFin": 16
+            }
         },
         "Jour2": {
             "jour": "Mardi"
         },
         "Jour3": {
-            "jour": "Mercredi"
+            "jour": "Mercredi",
+            "CreneauRecherche": {
+                "heureDeb": 11,
+                "heureFin": 14
+            }
         },
         "Jour4": {
-            "jour": "Jeudi"
-        },
-        "Jour5": {
-            "jour": "Vendredi"
-        },
-        "Jour6": {
-            "jour": "Samedi"
-        },
-        "Jour7": {
-            "jour": "Dimanche"
-        }
-    },
-    "CreneauRecherche": {
-        "CreneauRecherche1.1": {
-            "heureDeb": 10,
-            "heureFin": 12
-        },
-        "CreneauRecherche1.2": {
-            "heureDeb": 14,
-            "heureFin": 16
-        },
-        "CreneauRecherche3": {
-            "heureDeb": 11,
-            "heureFin": 14
-        },
-        "CreneauRecherche4": {
-            "heureDeb": 10,
-            "heureFin": 14
+            "jour": "Jeudi",
+            "CreneauRecherche": {
+                "heureDeb": 10,
+                "heureFin": 14
+            },
+            "Jour5": {
+                "jour": "Vendredi"
+            },
+            "Jour6": {
+                "jour": "Samedi"
+            },
+            "Jour7": {
+                "jour": "Dimanche"
+            }
         }
     }
 }
