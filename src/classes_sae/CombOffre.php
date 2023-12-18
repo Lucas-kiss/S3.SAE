@@ -31,6 +31,9 @@ class CombOffre {
         $this->set_nbCombinaisons = $uneCombOffre->nbCombinaisons;
     }
 
+    // DESTRUCTEUR
+    public function __destruct() {}
+
     // METHODES
 
     /**

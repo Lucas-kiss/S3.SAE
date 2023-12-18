@@ -3,7 +3,7 @@
 
     function faireComb($uneOffre, $etuNull) {
         $combsOffre = new CombOffre();
-        $combsChaqueJour = array(); // liste  de liste combsUnJour
+        $combsChaqueJour = array(array()); // liste  de liste combsUnJour
 
         // Chercher toutes les combinaisons
 
@@ -14,7 +14,7 @@
         // Chercher toutes les combinaisons à partir des combinaisons de chaque jour
         $uneCombOffre = new CombSemaine();
 
-        $jourATraiter = $combsChqueJour[0];
+        $jourATraiter = $combsChaqueJour[0];
         combSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre);
         
 

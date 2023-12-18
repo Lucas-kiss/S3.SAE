@@ -1,5 +1,6 @@
 <?php
 include './Offre.php';
+
 class Critere
 {
     /* ATTRIBUTS */

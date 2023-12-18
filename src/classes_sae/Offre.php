@@ -7,8 +7,9 @@
  * @date 2023-12-18
  * 
  */
-class Offre
-{
+
+class Offre {
+
     /* ATTRIBUTS */
     private int $num;
     private string $intitule;
