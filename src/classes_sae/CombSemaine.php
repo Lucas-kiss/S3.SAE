@@ -86,14 +86,14 @@ class CombSemaine {
     /**
      * @brief Ajoute le composant passé en paramètre à une CombSemaine
      */
-    public function ajouterComposant(CombSimple $unComposant) {
+    public function ajouterComposant(CombJour $unComposant) {
         $this->mesComposants.add($unComposant);
     }
 
     /**
      * @brief Retire le composant passé en paramètre à une CombSemaine
      */
-    public function retirerComposant(CombSimple $unComposant) {
+    public function retirerComposant(CombJour $unComposant) {
         if ($this->existeComposant($unComposant)) {
             unset($this->mesComposants[$unComposant]);
         }
@@ -102,7 +102,7 @@ class CombSemaine {
     /**
      * @brief Vérifie si le composant passé en paramètre existe dans une CombSemaine
      */
-    public function existeComposant(CombSimple $unComposant) {
+    public function existeComposant(CombJour $unComposant) {
         return isset(this->mesComposants[$unComposant]);
     }
 
