@@ -1,5 +1,5 @@
 <?php
-    function cpt_nb_etu_dispo_à_jourATraiter_et_heureDeb ($uneOffre, $jourATraiter, $heureDeb)
+    function cptNbEtuDispoAJourATraiterHeureDeb ($uneOffre, $jourATraiter, $heureDeb)
     {
         $cptEtuDispo = 0;
         // pour tous les candidats
