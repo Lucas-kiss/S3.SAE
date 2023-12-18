@@ -52,6 +52,8 @@
 
             $uneCombDUnJour->set_nbEtudiants($nbEtudiants);
 
+            $etuDejaVu->__destruct;//A verifier
+
             if($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre))
             {
                 //Ajouter uneCombDUnJour à CombsUnJour
@@ -60,7 +62,7 @@
             else
             {
                 //Détruire uneCombDUnJour
-                $uneCombDUnJour->__destruct;
+                $uneCombDUnJour->__destruct;//A verifier
             }
         }
     }
