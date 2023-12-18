@@ -33,16 +33,16 @@
             "CreneauRecherche": {
                 "heureDeb": 10,
                 "heureFin": 14
-            },
-            "Jour5": {
-                "jour": "Vendredi"
-            },
-            "Jour6": {
-                "jour": "Samedi"
-            },
-            "Jour7": {
-                "jour": "Dimanche"
             }
+        },
+            "Jour5": {
+            "jour": "Vendredi"
+        },
+        "Jour6": {
+            "jour": "Samedi"
+        },
+        "Jour7": {
+            "jour": "Dimanche"
         }
     }
 }
