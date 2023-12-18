@@ -18,10 +18,10 @@
             if($horaireEstRecherche)
             {
                 //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
-                //A ajouter
+                $cptEtuDispo = cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb);
 
                 //Chercher les étudiants qui correspondent àc l'heureDeb
-                //A ajouter
+                chercherEtuHeureDeb($uneOffre, $combsUnJour, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $cptEtuDispo);//A vérifier
             }
             else
             {
@@ -34,7 +34,23 @@
         else
         {
             //Calculer nbEtudiants de uneCombDUnJour
-            //A ajouter
+            $nbEtudiants = 0;
+            //liste temporaire comprenant les étudiants déjà comptés.
+            $etuDejaVu = array();
+            foreach($uneCombDUnJour->get_lstEtudiant() as $etu)
+            {
+                //si pas d'étudiant (null ou etuNull) et nouvel étudiant, alors nbEtudiants++
+                if ($etu != null && $etu != "etuNull")
+                {
+                    if (!in_array($etu, $etuDejaVu))
+                    {
+                        $etuDejaVu[] = $etu;
+                        $nbEtudiants++;
+                    }
+                }
+            }
+
+            $uneCombDUnJour->set_nbEtudiants($nbEtudiants);
 
             if($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre))
             {
