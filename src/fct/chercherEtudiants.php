@@ -4,7 +4,11 @@ function chercherEtudiants($uneOffre,$combsUnJour,$uneCombDUnJour,$heureDeb,$heu
     $trouveEtu = false;
     foreach ($etu in $combsUnJour.getLstEtudiant()) 
     {
-        $jourATraiter
+        $itJourEtu = &$jourATraiter;
+        while ($itJourEtu.getJour() != $jourATraiter.getJour())
+        {
+            $itJourEtu++;
+        } 
     }
 }
 
