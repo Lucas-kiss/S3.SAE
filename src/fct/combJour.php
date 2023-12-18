@@ -1,19 +1,51 @@
 <?php
-    function combJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $combsUnJour)
+    function calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $combsUnJour)
     {
         if($heureDeb != $heureFin)
         {
+            //Verifier si l'entreprise recherche un étudiant pour heureDeb
             $horaireEstRecherche = false;
-            $itCreneauOffre = $itJourOffre.getCreneau().first();
-            while(!$horaireEstRecherche && $itCreneauOffre != $itJourOffre.getCreneau().first())
+            $itCreneauOffre = $jourATraiter->getCreneau()->first();
+            
+            while(!$horaireEstRecherche && $itCreneauOffre != $jourATraiter->getCreneau()->first())
             {
-                if($heureDeb >= $itCreneauOffre.getHeureDeb() && $heureDeb < $itCreneauOffre.getHeureFin())
+                if($heureDeb >= $itCreneauOffre->getHeureDeb() && $heureDeb < $itCreneauOffre->getHeureFin())
                 {
                     $horaireEstRecherche = true;
                 }
             }
 
+            if($horaireEstRecherche)
+            {
+                //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
+
+
+                //Chercher les étudiants qui correspondent àc l'heureDeb
+
+            }
+            else
+            {
+                //Ajouter null à uneCombDUnJour.lstEtudaint
+                $uneCombDUnJour[] = null;
+
+                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb+1, $heureFin, $jourATraiter, $combsUnJour);
+            }
+        }
+        else
+        {
+            //Calculer nbEtudiants de uneCombDUnJour
             
+
+            if($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre))
+            {
+                //Ajouter uneCombDUnJour à CombsUnJour
+                $combsUnJour[] = $uneCombDUnJour;
+            }
+            else
+            {
+                //Détruire uneCombDUnJour
+                $uneCombDUnJour->__destruct;
+            }
         }
     }
 ?>
