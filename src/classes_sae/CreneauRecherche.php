@@ -8,8 +8,8 @@
  * 
  */
 
- /**
- * @brief Cette classe définit un Creneau à partir de son jour et le tableau de ses disponibilités associé.
+/**
+ * @brief Cette classe définit un Creneau à partir de son heureDeb et le tableau de ses disponibilités associé.
  * 
  * @details Au-delà de définir un Creneau, cette classe permet aussi de désigner l'Etudiant associé au Creneau.
  * 
@@ -18,67 +18,66 @@
  * @warning Un Creneau a 1 seul Etudiant associé.
  */
 
-class CreneauRecherche {
+class CreneauRecherche
+{
 
     // ATTRIBUTS
 
-    private $jour;
-    private $tabDispo;
+    private int $heureDeb;
+    private int $heureFin;
 
     // CONSTRUCTEURS
 
     /**
      * @brief Constructeur de Creneau avec passage des variables en paramètres
      */
-    public function CreneauRecherche($unJour, $uneTabDispo) {
-        $this->jour = $unJour;
-        $this->tabDispo = $uneTabDispo;
+    public function CreneauRecherche($uneHeureDeb, $uneheureFin)
+    {
+        $this->heureDeb = $uneHeureDeb;
+        $this->heureFin = $uneheureFin;
     }
 
     /**
      * @brief Constructeur par recopie de Creneau
      */
-    public function CreneauRecherche_copie(CreneauRecherche $unCreneau) {
-        $this->jour = $unCreneau->jour;
-        $this->tabDispo = $unCreneau->tabDispo;
-    }
-
-    /**
-     * @brief Constructeur par défaut de Creneau
-     */
-    public function CreneauRecherche_default($unJour) {
-        $this->jour = $unJour;
-        $this->tabDispo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    public function CreneauRecherche_copie(CreneauRecherche $unCreneau)
+    {
+        $this->heureDeb = $unCreneau->heureDeb;
+        $this->heureFin = $unCreneau->heureFin;
     }
 
     // METHODES
 
     /**
-     * @brief Renvoie le jour du Creneau
+     * @brief Renvoie le heureDeb du Creneau
      */
-    public function get_jour() {
-        return $this->jour;
+    public function get_heureDeb()
+    {
+        return $this->heureDeb;
     }
 
     /**
-     * @brief Modifie le jour du Creneau par celui passé en paramètre
+     * @brief Modifie le heureDeb du Creneau par celui passé en paramètre
      */
-    public function set_jour($unJour) {
-        return $this->jour = $unJour;
+    public function set_heureDeb($uneHeureDeb)
+    {
+        return $this->heureDeb = $uneHeureDeb;
     }
 
     /**
      * @brief Renvoie le tableau de disponibilités du Creneau
      */
-    public function get_tabDispo() {
-        return $this->tabDispo;
+    public function get_heureFin()
+    {
+        return $this->heureFin;
     }
 
     /**
      * @brief Modifie le tableau de disponibilités par celui passé en paramètre
      */
-    public function set_tabDispo($unTabDispo) {
-        return $this->jour = $unTabDispo;
+    public function set_heureFin($unheureFin)
+    {
+        return $this->heureFin = $unheureFin;
     }
 
 }

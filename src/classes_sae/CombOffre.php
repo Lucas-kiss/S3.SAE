@@ -73,7 +73,10 @@ class CombOffre {
      */
     public function retirerComposant(CombSemaine $unComposant) {
         if ($this->existeComposant($unComposant)) {
-            unset($this->mesComposants[$unComposant]);
+            foreach ($this->mesComposants as $comp) {
+                if ($comp == $unComposant)
+                unset($this->mesComposants[$comp]);
+            }
         }
     }
 
@@ -81,7 +84,13 @@ class CombOffre {
      * @brief Vérifie si le composant passé en paramètre existe dans une CombOffre
      */
     public function existeComposant(CombSemaine $unComposant) {
-        return isset($this->mesComposants[$unComposant]);
+        foreach ($this->mesComposants as $comp) {
+            if ($comp.isset($unComposant)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
 

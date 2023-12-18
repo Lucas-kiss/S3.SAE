@@ -16,8 +16,7 @@
 
 class CombJour {
 
-    // ATTRIBUTS 
-    private $tauxRemplissage;
+    // ATTRIBUTS
     private $nbEtudiants;
     private $lstEtudiant = array();
 
@@ -26,8 +25,7 @@ class CombJour {
     /**
      * @brief Constructeur de CombJour avec passage des variables en paramètres
      */
-    public function CombJour($tauxRemplissage, $nbEtudiants, $lstEtudiant) {
-        $this->set_tauxRemplissage($tauxRemplissage);
+    public function CombJour($nbEtudiants, $lstEtudiant) {
         $this->set_nbEtudiants($nbEtudiants);
         $this->set_lstEtudiant($lstEtudiant);
     }
@@ -36,26 +34,11 @@ class CombJour {
      * @brief Constructeur par recopie de CombJour
      */
     public function CombJour_copie(CombJour $uneCombJour) {
-        $this->set_tauxRemplissage($uneCombJour->get_tauxRemplissage());
         $this->set_nbEtudiants($uneCombJour->get_nbEtudiants());
         $this->set_lstEtudiant($uneCombJour->get_lstEtudiant());
     }
 
     // METHODES
-
-    /**
-     * @brief Renvoie le tauxRemplissage de la CombJour
-     */
-    public function get_tauxRemplissage() {
-        return $this->tauxRemplissage;
-    }
-
-    /**
-     * @brief Modifie le tauxRemplissage de la CombJour par celui passé en paramètre
-     */
-    public function set_tauxRemplissage($tauxRemplissage) {
-        $this->tauxRemplissage = $tauxRemplissage;
-    }
 
     /**
      * @brief Renvoie le nbEtudiants de la CombJour
@@ -112,7 +95,7 @@ class CombJour {
      * @brief Vérifie si le nb minimum d'heures par Etudiant est supérieur à celui donné en Critere de l'Offre passée en paramètre
      */
     public function verifNbMinHeureEtud(Offre $uneOffre) {
-        foreach ($this->get_lstEtudiant() as &$etudiant) {
+        foreach ($this->get_lstEtudiant() as $etudiant) {
             $nbHeur = array_count_values($this->get_lstEtudiant());
             if ($nbHeur < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
                 return false;
@@ -120,6 +103,23 @@ class CombJour {
         }
         return true;
     }
+
+    /**
+     * @brief Vérifie si le nb minimum d'Etudiant par jour est supérieur à celui donné en Critere de l'Offre passée en paramètre
+     */
+    public function verifNbMinEtud(Offre $uneOffre) {
+        foreach ($this->get_lstEtudiant() as $etudiant) {
+            $cpt++;
+        }
+        if ($cpt < $uneOffre->get_mesCriteres()->get_nbMinEtudJour()) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+        
 }
+
 
 ?>

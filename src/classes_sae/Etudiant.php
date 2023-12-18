@@ -25,11 +25,6 @@ class Etudiant {
     private $ine; // ine de l'étudiant, type : string
     private $nom; // nom de l'étudiant, type : string
     private $prenom;    // prénom de l'étudiant, type : string
-    private $dateNaiss; // date de naissance de l'étudiant, type : date
-    private $cp;    // code postal de l'étudiant, type : int
-    private $ville;   // ville de l'étudiant, type : string
-    private $pays;  // pays de l'étudiant, type : string
-    private $numTel;    // numéro de téléphone de l'étudiant, type : int
     private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
 
     // CONSTRUCTEURS

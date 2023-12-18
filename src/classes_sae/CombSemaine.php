@@ -8,16 +8,17 @@
  * 
  */
 
- /**
+/**
  * @brief Cette classe définit les CombSemaine pour une Offre 
  * 
  * @details
  */
 
 include './CombJour.php';
-include './ClasseOffre.php';
+include './Offre.php';
 
-class CombSemaine {
+class CombSemaine
+{
 
     // ATTRIBUTS 
     private $tauxRemplissage;
@@ -29,7 +30,8 @@ class CombSemaine {
     /**
      * @brief Constructeur de CombSemaine avec passage des variables en paramètres
      */
-    public function CombSemaine($tauxRemplissage, $nbEtudiants) {
+    public function CombSemaine($tauxRemplissage, $nbEtudiants)
+    {
         $this->set_tauxRemplissage($tauxRemplissage);
         $this->set_nbEtudiants($nbEtudiants);
     }
@@ -37,7 +39,8 @@ class CombSemaine {
     /**
      * @brief Constructeur par recopie de CombSemaine
      */
-    public function CombSemaine_copie(CombSemaine $uneCombSemaine) {
+    public function CombSemaine_copie(CombSemaine $uneCombSemaine)
+    {
         $this->set_tauxRemplissage($uneCombSemaine->get_tauxRemplissage());
         $this->set_nbEtudiants($uneCombSemaine->get_nbEtudiants());
     }
@@ -47,94 +50,113 @@ class CombSemaine {
     /**
      * @brief Renvoie le tauxRemplissage de la CombSemaine
      */
-    public function get_tauxRemplissage() {
+    public function get_tauxRemplissage()
+    {
         return $this->tauxRemplissage;
     }
 
     /**
      * @brief Modifie le tauxRemplissage de la CombSemaine par celui passé en paramètre
      */
-    public function set_tauxRemplissage($tauxRemplissage) {
+    public function set_tauxRemplissage($tauxRemplissage)
+    {
         $this->tauxRemplissage = $tauxRemplissage;
     }
 
     /**
      * @brief Renvoie le nbEtudiants de le CombSemaine
      */
-    public function get_nbEtudiants() {
+    public function get_nbEtudiants()
+    {
         return $this->nbEtudiants;
     }
 
     /**
      * @brief Modifie le nbEtudiants de la CombSemaine par celui passé en paramètre
      */
-    public function set_nbEtudiants($nbEtudiants) {
+    public function set_nbEtudiants($nbEtudiants)
+    {
         $this->nbEtudiants = $nbEtudiants;
     }
 
     /**
      * @brief Renvoie mesComposants de la CombSemaine
      */
-    public function get_mesComposants() {
+    public function get_mesComposants()
+    {
         return $this->mesComposants;
     }
 
     /**
      * @brief Modifie mesComposants de la CombSemaine par celui passé en paramètre
      */
-    public function set_mesComposants($desComposants) {
+    public function set_mesComposants($desComposants)
+    {
         $this->mesComposants = $desComposants;
     }
 
     /**
      * @brief Ajoute le composant passé en paramètre à une CombSemaine
      */
-    public function ajouterComposant(CombJour $unComposant) {
-        $this->mesComposants[]=$unComposant;
+    public function ajouterComposant(CombJour $unComposant)
+    {
+        $this->mesComposants[] = $unComposant;
     }
 
     /**
      * @brief Retire le composant passé en paramètre à une CombSemaine
      */
-    public function retirerComposant(CombJour $unComposant) {
+    public function retirerComposant(CombJour $unComposant)
+    {
         if ($this->existeComposant($unComposant)) {
-            unset($this->mesComposants[$unComposant]);
+            foreach ($this->mesComposants as $comp) {
+                if ($comp == $unComposant)
+                unset($this->mesComposants[$comp]);
+            }
         }
     }
 
     /**
      * @brief Vérifie si le composant passé en paramètre existe dans une CombSemaine
      */
-    public function existeComposant(CombJour $unComposant) {
-        return isset($this->mesComposants[$unComposant]);
-    }
+    public function existeComposant(CombJour $unComposant)
+    {
+        foreach ($this->mesComposants as $comp) {
+            if ($comp.isset($unComposant)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-    /**
-     * @brief Vérifie si le composant passé en paramètre existe dans une offre
-     */
-    public function verifNbMinHeureEtud(Offre $uneOffre) {
-        return isset($uneOffre->mesComposants[$this]);
     }
 
     /**
      * @brief Vérifie si le nb minimum d'Etudiant est supérieur à celui donné en Critere de l'Offre passée en paramètre
      */
-    public function verifNbMinEtud(Offre $uneOffre) {
+    public function verifNbMinEtud(Offre $uneOffre)
+    {
         return ($this->get_nbEtudiants() > $uneOffre->mesCriteres->get_nbMinEtudJour());
     }
 
     /**
      * @brief Vérifie si le nb minimum d'heures par Etudiant est supérieur à celui donné en Critere de l'Offre passée en paramètre
      */
-    public function verifNbMinHeureParEtud(Offre $uneOffre) {
-        foreach ($this->get_lstEtudiant() as &$etudiant) {
-            $nbHeur = array_count_values($this->get_lstEtudiant());
+    public function verifNbMinHeureEtud(Offre $uneOffre)
+    {
+        foreach ($this->mesComposants as $combJour) {
+            foreach($combJour->get_lstEtudiant() as $etud)
+            {
+                $nbHeure = array_count_values($etud);
 
-            if ($nbHeur < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
-                return false;
+                if ($nbHeure < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
             }
         }
-        return true;
     }
 }
 

@@ -1,10 +1,10 @@
 <?php
 /**
  * @file Offre.php
- * @author Raphaël Audouard
+ * @author Fanny CONSTANS
  * @brief Création de la classe Offre
- * @version 0.1
- * @date 2023-11-14
+ * @version 1
+ * @date 2023-12-18
  * 
  */
 class Offre
@@ -14,6 +14,7 @@ class Offre
     private string $intitule;
     public $desJours;
     public $desEtudiants;
+    public $mesCriteres;
 
     /* CONSTRUCTEUR */
     function Offre(int $num,
@@ -65,6 +66,36 @@ class Offre
     {
         return $this->desEtudiants;
     }
+
+    public function set_mesCriteres(&$desCriteres)
+    {
+        $this->mesCriteres = $desCriteres;
+    }
+
+    public function get_mesCriteres()
+    {
+        return $this->mesCriteres;
+    }
+    
+    public function delierCriteres(Critere &$desCriteres)
+    {
+        if ($this->mesCriteres != null) {
+            unset($this->mesCriteres);
+            unset($desCriteres->get_monOffre());
+        }
+
+    }
+
+    public function lierCriteres(Critere &$desCriteres)
+    {
+        if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
+            $this->set_mesCriteres($desCriteres);
+            $desCriteres->get_monOffre() = &$this;
+        } else {
+            Offre::delierCriteres($desCriteres);
+        }
+    }
+
 }
 
 ?>
