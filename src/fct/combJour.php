@@ -18,10 +18,10 @@
             if($horaireEstRecherche)
             {
                 //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
-
+                //A ajouter
 
                 //Chercher les étudiants qui correspondent àc l'heureDeb
-
+                //A ajouter
             }
             else
             {
@@ -34,7 +34,7 @@
         else
         {
             //Calculer nbEtudiants de uneCombDUnJour
-            
+            //A ajouter
 
             if($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre))
             {
