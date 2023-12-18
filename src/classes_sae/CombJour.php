@@ -86,13 +86,26 @@ class CombJour {
     }
 
     /**
-     * @brief Vérifie si le nb minimum d'Etudiant est supérieur à celui donné en Critere de l'Offre passée en paramètre
+     * @brief Ajoute un étudiant à la lstEtudiant de la combJour
      */
-    public function verifNbMinEtud(Offre $uneOffre) {
-        if ($this->get_nbEtudiants() < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
-            return false;
+    public function ajouterEtudiant($unEtudiant) {
+        $this->lstEtudiant[]=$unEtudiant;
+    }
+
+    /**
+     * @brief Retirer l'étudiant passé de la lstEtudiant de la lstEtudiant
+     */
+    public function retirerEtudiant($unEtudiant) {
+        if ($this->existeEtudiant($unEtudiant)) {
+            unset($this->lstEtudiant[$unEtudiant]);
         }
-        return true;
+    }
+
+    /**
+     * @brief Vérifie si l'étudiant passé en paramètre existe dans la lstEtudiant
+     */
+    public function existeEtudiant($unEtudiant) {
+        return isset($this->lstEtudiant[$unEtudiant]);
     }
 
     /**
@@ -100,13 +113,8 @@ class CombJour {
      */
     public function verifNbMinHeureEtud(Offre $uneOffre) {
         foreach ($this->get_lstEtudiant() as &$etudiant) {
-            $cpt = 0;
-            foreach ($this->get_lstEtudiant() as &$heure) {
-                if ($heure == $etudiant) {
-                    $cpt++;
-                }
-            }
-            if ($cpt < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
+            $nbHeur = array_count_values($this->get_lstEtudiant());
+            if ($nbHeur < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
                 return false;
             }
         }

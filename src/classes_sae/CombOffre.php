@@ -13,7 +13,7 @@
  * 
  * @details
  */
-
+include './CombSemaine.php';
 class CombOffre {
 
     // ATTRIBUTS 
@@ -65,7 +65,7 @@ class CombOffre {
      * @brief Ajoute le composant passé en paramètre à une CombOffre
      */
     public function ajouterComposant(CombSemaine $unComposant) {
-        $this->mesComposants.add($unComposant);
+        $this->mesComposants[]=$unComposant;
     }
 
     /**
@@ -81,7 +81,7 @@ class CombOffre {
      * @brief Vérifie si le composant passé en paramètre existe dans une CombOffre
      */
     public function existeComposant(CombSemaine $unComposant) {
-        return isset(this->mesComposants[$unComposant]);
+        return isset($this->mesComposants[$unComposant]);
     }
 }
 

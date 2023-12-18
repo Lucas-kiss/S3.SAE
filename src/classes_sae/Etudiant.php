@@ -37,15 +37,11 @@ class Etudiant {
     /**
      * @brief Constructeur d'Etudiant avec passage des variables en paramètres
      */
-    public function Etudiant($unIne, $unNom, $unPrenom, $uneDateNaiss, $unCp, $uneVille, $unPays, $unNumTel) {
+    public function Etudiant($unIne, $unNom, $unPrenom, $unPlanning) {
         $this->set_ine($unIne);
         $this->set_nom($unNom);
         $this->set_prenom($unPrenom);
-        $this->set_dateNaiss($uneDateNaiss);
-        $this->set_cp($unCp);
-        $this->set_ville($uneVille);
-        $this->set_pays($unPays);
-        $this->set_numTel($unNumTel);
+        $this->set_planning($unPlanning);
     }
 
     /**
@@ -55,12 +51,7 @@ class Etudiant {
         $this->set_ine($unEtudiant->get_ine());
         $this->set_nom($unEtudiant->get_nom());
         $this->set_prenom($unEtudiant->get_prenom());
-        $this->set_dateNaiss($unEtudiant->get_dateNaiss());
-        $this->set_cp($unEtudiant->get_cp());
-        $this->set_ville($unEtudiant->get_ville());
-        $this->set_pays($unEtudiant->get_pays());
-        $this->set_numTel($unEtudiant->get_numTel());
-        $this->set_planning($uneEtudiant->get_planning());
+        $this->set_planning($unEtudiant->get_planning());
     }
 
     // METHODES
@@ -107,76 +98,7 @@ class Etudiant {
         $this->prenom = $unPrenom;
     }
 
-    /**
-     * @brief Renvoie la date de naissance de l'Etudiant
-     */
-    public function get_dateNaiss() {
-        return $this->dateNaiss;
-    }
-
-    /**
-     * @brief Modifie la date de naissance de l'Etudiant par celle passée en paramètre
-     */
-    public function set_dateNaiss($uneDateNaiss) {
-        $this->dateNaiss = $uneDateNaiss;
-    }
-
-    /**
-     * @brief Renvoie le code postal de l'Etudiant
-     */
-    public function get_cp() {
-        return $this->cp;
-    }
-
-    /**
-     * @brief Modifie le code postal de l'Etudiant par celui passé en paramètre
-     */
-    public function set_cp($unCp) {
-        $this->cp = $unCp;
-    }
-
-    /**
-     * @brief Renvoie la ville de l'Etudiant
-     */
-    public function get_ville() {
-        return $this->ville;
-    }
-
-    /**
-     * @brief Modifie la ville de l'Etudiant par celle passée en paramètre
-     */
-    public function set_ville($uneVille) {
-        $this->ville = $uneVille;
-    }
-
-    /**
-     * @brief Renvoie le pays de l'Etudiant
-     */
-    public function get_pays() {
-        return $this->pays;
-    }
-
-    /**
-     * @brief Modifie le pays de l'Etudiant par celui passé en paramètre
-     */
-    public function set_pays($unPays) {
-        $this->pays = $unPays;
-    }
-
-    /**
-     * @brief Renvoie le numéro de téléphone de l'Etudiant
-     */
-    public function get_numTel() {
-        return $this->numTel;
-    }
-
-    /**
-     * @brief Modifie le numéro de téléphone de l'Etudiant par celui passé en paramètre
-     */
-    public function set_numTel($unNumTel) {
-        $this->numTel = $unNumTel;
-    }
-
+    
     /**
      * @brief Renvoie le planning de l'Etudiant
      */
@@ -185,7 +107,7 @@ class Etudiant {
     }
 
     /**
-     * @brief Renvoie le planning de l'Etudiant
+     * @brief Cree le planning de l'Etudiant
      */
     public function set_planning($unPlanning) {
         $this->planning = $unPlanning;
@@ -195,7 +117,7 @@ class Etudiant {
      * @brief Ajoute un Creneau dans le planning de l'Etudiant
      */
     public function ajouter_creneau(&$unCreneau) {
-        $this->planning.add($unCreneau);
+        $this->planning[]=$unCreneau;
     }
 
     /**
@@ -214,7 +136,7 @@ class Etudiant {
     public function modifier_creneau($jourCreneau, &$nveauCreneau) {
         for ($i=0; $i < count($this->planning); $i++)
         {
-            if ($this->planning[$i].jour == $jourCreneau) {
+            if ($this->planning[$i]->jour == $jourCreneau) {
                 $this->planning[$i] = $nveauCreneau;
             }
         }

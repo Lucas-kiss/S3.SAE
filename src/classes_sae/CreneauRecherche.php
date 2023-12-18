@@ -1,8 +1,8 @@
 <?php
 /**
- * @file Creneau.php
+ * @file CreneauRecherche.php
  * @author fconstans
- * @brief Création de la classe Creneau
+ * @brief Création de la classe CreneauRecherche
  * @version 0.1
  * @date 2023-11-13
  * 
@@ -18,7 +18,7 @@
  * @warning Un Creneau a 1 seul Etudiant associé.
  */
 
-class Creneau {
+class CreneauRecherche {
 
     // ATTRIBUTS
 
@@ -30,7 +30,7 @@ class Creneau {
     /**
      * @brief Constructeur de Creneau avec passage des variables en paramètres
      */
-    public function Creneau($unJour, $uneTabDispo) {
+    public function CreneauRecherche($unJour, $uneTabDispo) {
         $this->jour = $unJour;
         $this->tabDispo = $uneTabDispo;
     }
@@ -38,7 +38,7 @@ class Creneau {
     /**
      * @brief Constructeur par recopie de Creneau
      */
-    public function Creneau_copie(Creneau $unCreneau) {
+    public function CreneauRecherche_copie(CreneauRecherche $unCreneau) {
         $this->jour = $unCreneau->jour;
         $this->tabDispo = $unCreneau->tabDispo;
     }
@@ -46,7 +46,7 @@ class Creneau {
     /**
      * @brief Constructeur par défaut de Creneau
      */
-    public function Creneau_default($unJour) {
+    public function CreneauRecherche_default($unJour) {
         $this->jour = $unJour;
         $this->tabDispo = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
