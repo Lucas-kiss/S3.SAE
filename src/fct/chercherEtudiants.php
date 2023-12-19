@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file    horairesEtuCorrespHorairesOffre.php
+ * @file    chercherEtudiants.php
  * 
  * @author  AUDOUARD Raphaël / 1P'titJob
  * 
@@ -15,8 +15,6 @@
  * 
  * @details 
  * 
- * @param   $itJourEtu itérateur pointant sur un objet de classe Jour
- * @param   $trouveEtu de type Booléen
  * @param   $uneCombDUnJour objet de classe CombJour
  * @param   $uneOffre objet de classe Offre
  * @param   $combsUnJour Array objet de classe CombJour
@@ -24,7 +22,6 @@
  * @param   $heureFin de type Entier
  * @param   $itJourOffre itérateur pointant sur un objet de classe Jour
  * @param   $cptEtudDispo de type Entier
- * @param   $etu objet de classe Etudiant
  */
 
 function chercherEtudiants($uneOffre, $combsUnJour,
@@ -41,14 +38,18 @@ function chercherEtudiants($uneOffre, $combsUnJour,
         {
             $itJourEtu++;
         }
-        // vérifier si les horaires de etu correspondent aux horaires de l'offre
+        horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
+                                        $uneCombDUnJour, $uneOffre,
+                                        $combsUnJour, $heureDeb, 
+                                        $heureFin, $itJourOffre,
+                                        $cptEtudDispo, $etu);
     }
     // Si aucun étudiant ne peut travailler à heureDeb
     if (!$trouveEtu) 
     {
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant
         $EtuNull = new Etudiant;
-        ($uneCombDUnJour.lstEtudiant())[] = $EtuNull;
+        $uneCombDUnJour.lstEtudiant()[] = $EtuNull;
         combJour($uneOffre, $combsUnJour,
                  $uneCombDUnJour, $heureDeb+1,
                  $heureFin, $itJourOffre);
