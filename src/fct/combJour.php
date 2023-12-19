@@ -28,7 +28,7 @@
                 //Ajouter null à uneCombDUnJour.lstEtudaint
                 $uneCombDUnJour[] = null;
 
-                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb+1, $heureFin, $jourATraiter, $combsUnJour);
+                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb+1, $heureFin, $jourATraiter, $combsUnJour);//A vérifier
             }
         }
         else
