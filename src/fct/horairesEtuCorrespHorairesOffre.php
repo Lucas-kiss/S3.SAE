@@ -6,18 +6,19 @@ function horairesEtuCorrespHorairesOffre($itJourEtu,$trouveEtu,
                                          $cpEtudDispo, $uneOffre,
                                          $combsUnJour, $heureDeb, 
                                          $heureFin, $itJourOffre,
-                                         $cptEtudDispo)
+                                         $cptEtudDispo, $etu)
+
 {
-    $itCreneauEtu = $itJourEtu.creneau.first();
+    $itCreneauEtu = $itJourEtu.getCreneau()[0];
     $horaireEtuCorrespond = false;
-    while (($horaireEtuCorrespond == false) or ($itCreneauEtu != $itJourEtu.getCreneau().end())) 
+    while (($horaireEtuCorrespond == false) or ($itCreneauEtu != $itJourEtu.getCreneau()[-1])) 
     {
         if (($heureDeb >= $itCreneauEtu.getHeureDeb()) && ($heureDeb < $itCreneauEtu.getHeureFin()))
         {
             $trouveEtu = true;
             if ($cptEtudDispo == 1) 
             {
-                ($itCreneauEtu.lstEtudiant())[] = $etu;
+                $itCreneauEtu.lstEtudiant()[] = $etu;
                 combJour($uneOffre,
                          $uneCombDUnJour,
                          $heureDeb+1,$heureFin,
