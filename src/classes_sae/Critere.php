@@ -31,12 +31,13 @@ class Critere
     /**
      * @brief Constructeur de Critere avec passage des variables en paramètres
      */
-    function Critere(int $nbMinHeureEtudJour, bool $heureRepartieJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1)
+    function Critere(int $nbMinHeureEtudJour, bool $heureRepartieJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1, Offre $offre)
     {
         $this->nbMinHeureEtudJour = $nbMinHeureEtudJour;
         $this->HeureRepartieJour = $heureRepartieJour;
         $this->nbMinEtudJour = $nbMinEtudJour;
         $this->nbMinEtudTotal = $nbMinEtudTotal;
+        $this->monOffre = $offre;
     }
 
     /* METHODES */
