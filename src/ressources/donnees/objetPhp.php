@@ -41,7 +41,7 @@ foreach ($etudiants as $etudiant) {
     // Accédez à chaque jour
     for ($i = 1; $i <= count($etudiant1['Jour']); $i++) {
         // Accédez au jour actuel
-        $jourActuelData = $etudiant1['Jour']['Jour' . $i];
+        $jourActuelData = $etudiant1['Jour']['Jour'.$i];
 
         // Initialisez un tableau pour stocker les créneaux du jour actuel
         $creneauxDuJour = array();
@@ -52,7 +52,7 @@ foreach ($etudiants as $etudiant) {
             if (strpos($creneauKey, 'CreneauRecherche') === 0) {
                 // Construisez un objet CreneauRecherche avec les données du créneau
                 $creneauInstance = new CreneauRecherche($creneauData['heureDeb'], $creneauData['heureFin']);
-
+                
                 // Ajoutez le créneau à la liste des créneaux du jour actuel
                 $creneauxDuJour[] = $creneauInstance;
             }
@@ -66,6 +66,10 @@ foreach ($etudiants as $etudiant) {
     $etudiantInstance = new Etudiant($etudiant['Etudiant']['ine'], $etudiant['Etudiant']['nom'], $etudiant1['Etudiant']['prenom'], $creneauSemaine);
     $etudiantsArray[] = $etudiantInstance;
 }
+
+// Faites ce que vous souhaitez avec le tableau d'objets Etudiant
+var_dump($etudiantsArray);
+
 
 echo '<pre>';
 print_r($etudiantsArray);
