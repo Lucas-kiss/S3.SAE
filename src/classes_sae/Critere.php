@@ -59,7 +59,7 @@ class Critere
     }
 
     // set&get monOffre
-    public function set_monOffre(Offre $uneOffre)
+    public function set_monOffre(Offre &$uneOffre)
     {
         $this->monOffre = $uneOffre;
     }
