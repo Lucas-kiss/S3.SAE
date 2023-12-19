@@ -1,37 +1,79 @@
 <?php
-include '../../../classes_sae/Etudiant.php';
-include '../../../classes_sae/CreneauRecherche.php';
-include '../../../classes_sae/Jour.php';
-include '../../../classes_sae/Offre.php';
-include '../../../classes_sae/Etudiant.php';
+include_once '../../classes_sae/Etudiant.php';
+include_once '../../classes_sae/CreneauRecherche.php';
+include_once '../../classes_sae/Jour.php';
+include_once '../../classes_sae/Offre.php';
+include_once '../../classes_sae/Etudiant.php';
 
-//Recuperer offre
-$Offre ='./resultatTest.json';
-//Recuperer etudiant
-$etudiant ='./etudiant1.json';
+// Recuperer offre
+$OffrePath = './offres/offre1.json';
+$offreJson = file_get_contents($OffrePath);
+$offre = json_decode($offreJson, true);
 
-// Lire le contenu du fichier JSON
-$jsonString = file_get_contents($etudiant);
+// Chemin du répertoire contenant les fichiers JSON
+$directoryPath = './etudiants/';
 
-// Décoder le fichier JSON
-$data = json_decode($jsonString, true);
+// Tableau pour stocker les données des étudiants
+$etudiants = array();
 
-// Afficher les données
-echo '<pre>';
-// print_r($data);
-echo '</pre>';
+// Charger les fichiers JSON du répertoire
+foreach (glob($directoryPath . '*.json') as $etudiantPath) {
+    $etudiantJson = file_get_contents($etudiantPath);
+    $etudiantData = json_decode($etudiantJson, true);
 
-//Recuperation du planning
-for ($i=1; $i <= 7; $i++) { 
-    $creneauxEtudiant1[]=$data['Jour']['Jour'.$i];
+    // Ajouter les données de l'étudiant au tableau
+    $etudiants[] = $etudiantData;
 }
 
-// Creation du nouveaux etudiant
-$etudiant1=new Etudiant($data['Etudiant']['ine'],$data['Etudiant']['nom'],$data['Etudiant']['prenom'],$creneauxEtudiant1);
+// Recuperer etudiantNULL
+$etudiantNULLPath = './etudiants/etudiantNULL.json';
+$etudiantNULLJson = file_get_contents($etudiantNULLPath);
+$etudiantNULL = json_decode($etudiantNULLJson, true);
+
+// Tableau pour stocker les objets Etudiant
+$etudiantsArray = array();
+
+$nbetudiant = 0;
+
+foreach ($etudiants as $etudiant) {
+    $nbetudiant++;
+
+    // Accédez à chaque jour
+    for ($i = 1; $i <= count($etudiant1['Jour']); $i++) {
+        // Accédez au jour actuel
+        $jourActuelData = $etudiant1['Jour']['Jour'.$i];
+
+        // Initialisez un tableau pour stocker les créneaux du jour actuel
+        $creneauxDuJour = array();
+
+        // Parcourez les créneaux dans le jour actuel
+        foreach ($jourActuelData as $creneauKey => $creneauData) {
+            // Vérifiez si la clé commence par "CreneauRecherche" pour éviter d'autres clés
+            if (strpos($creneauKey, 'CreneauRecherche') === 0) {
+                // Construisez un objet CreneauRecherche avec les données du créneau
+                $creneauInstance = new CreneauRecherche($creneauData['heureDeb'], $creneauData['heureFin']);
+                
+                // Ajoutez le créneau à la liste des créneaux du jour actuel
+                $creneauxDuJour[] = $creneauInstance;
+            }
+        }
+
+        // Ajoutez les créneaux du jour actuel avec le nom du jour au tableau de la semaine
+        $creneauSemaine[$jourActuelData['jour']] = $creneauxDuJour;
+    }
+
+    // Créez un nouvel objet Etudiant et ajoutez-le au tableau
+    $etudiantInstance = new Etudiant($etudiant['Etudiant']['ine'], $etudiant['Etudiant']['nom'], $etudiant1['Etudiant']['prenom'], $creneauSemaine);
+    $etudiantsArray[] = $etudiantInstance;
+}
+
+// Faites ce que vous souhaitez avec le tableau d'objets Etudiant
+var_dump($etudiantsArray);
+
 
 echo '<pre>';
-print_r ($etudiant1);
+print_r($etudiantsArray);
 echo '</pre>';
 
 
-?> 
+?>

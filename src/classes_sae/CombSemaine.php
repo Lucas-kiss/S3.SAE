@@ -14,8 +14,8 @@
  * @details CombSemaine est une classe qui est composée d'un tableau de combJour mesComposants (une combinaison possible de la semaine), du nbEtudiants de la combinaison et du tauxRemplissage (100 % si répond à tous les hoaires recherchés dans l'offre)
  */
 
-include './CombJour.php';
-include './Offre.php';
+include 'CombJour.php';
+include 'Offre.php';
 
 class CombSemaine
 {
