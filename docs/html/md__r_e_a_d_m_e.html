@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE: S3.SAE</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">S3.SAE</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> <b>Pitch de notre application web :</b> 1P’titJob est un site qui a pour but d’aider les jeunes étudiants à trouver un petit boulot. Grâce à cette application, les étudiants pourront d’ores et déjà commencer à s’insérer dans la vie professionnelle tout en conciliant travail et études. Elle va leur permettre de trouver un job adapté à votre emploi du temps, même pour moins d'une dizaine d'heures par semaine, à travers des échanges directs avec l’entreprise.</p>
+<p>1P’titJob profite à tout le monde, que ce soit aux étudiants ou à l’entreprise elle-même. Grâce à une méthode de communication nous pouvons mettre directement en relation les deux camps. Ensuite, elle a pour but d’aider les étudiants à trouver du travail plus facilement en fonction de leur emploi du temps.</p>
+<p>1P’titJob apporte tout d’abord de l’expérience professionnelle, qui va permettre aux étudiants d’acquérir des compétences grâce à leur travail. L’application a aussi pour objectif de réduire la précarité chez les étudiants, ce qui, grâce à un salaire, permet aux étudiants de boucler leurs fins de mois par exemple. 1P’titJob aide à lutter contre l’isolement, puisqu’un emploi favorise l’insertion sociale. Et enfin, elle vient aussi en aide aux entreprises ayant un besoin en personnel, disponibles à certaines heures, les étudiants leur permettraient de combler un sous-effectif à cette heure-là.</p>
+<p><b>Pitch de notre problème algorithmique :</b> Lorsqu'une entreprise dépose une offre d'emploi et que de nombreux étudiants y répondent, la question est :</p>
+<p>Comment trouver la combinaison d'étudiants la plus optimale afin de répondre au mieux aux horaires de l'offre ?</p>
+<p>Afin de répondre à cette question, nous proposons aux entreprises une fonctionnalité leur permettant de lister toutes les combinaisons possibles, de la plus optimale, càd qu'elle répond le mieux aux critères choisis, à la moins optimale.</p>
+<p>Les critères pour l’entreprise sont :</p>
+<ul>
+<li>le nb minimum d'étudiants sélectionnés par jour d’offre</li>
+<li>le nb minimum d'étudiants total sélectionnés sur toute la durée de l’offre</li>
+<li>le nb minimum d'heures par jour d’offre que doit faire un étudiant</li>
+<li>si la répartition des heures entre les étudiants sur un jour d’offre vise à être égale ou inégale (càd environ ou pas le même nombre d’heures par étudiant sur un jour d’offre)</li>
+</ul>
+<p>Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice.</p>
+<p><b>Maquettes du problème algorithmique :</b> <br  />
+ <img src="maquettes/planning_Etudiant.PNG" alt="planning_Etudiant" class="inline"/> <br  />
+ Figure 1 : planning_Etudiant <br  />
+ <img src="maquettes/info_Offre_Entreprise.PNG" alt="info_Offre_Entreprise" class="inline"/> <br  />
+ Figure 2 : info_Offre_Entreprise <br  />
+ <img src="maquettes/candidature_Offre_Entreprise.PNG" alt="candidature_Offre_Entreprise" class="inline"/> <br  />
+ Figure 3 : candidature_Offre_Entreprise <br  />
+ <img src="maquettes/combinaison_Candidature_Offre_Entreprise.PNG" alt="combinaison_Candidature_Offre_Entreprise" class="inline"/> <br  />
+ Figure 4 : combinaison_Candidature_Offre_Entreprise <br  />
+</p>
+<p><b>Organisation du Github :</b></p><ul>
+<li>un dossier Spécification contenant les Spécifications Externes du Problème Algorithmique que vous traitez;</li>
+<li>un dossier Algorithme contenant votre Algorithme et son Dictionnaire;</li>
+<li>un dossier src qui héberge le Code correspondant à votre Algorithme;</li>
+<li>un dossier docs qui contient la documentation Doxygen de votre code source.</li>
+<li>un dossier maquettes contenant les maquettes du problème algorithmique</li>
+</ul>
+<p><b>Espaces de travail :</b> <br  />
+ Voici également les différents espaces de travail du projet qu'on utilise :</p><ul>
+<li>OneDrive</li>
+<li>Teams</li>
+<li>Trello</li>
+</ul>
+<p><b>Membres :</b> <br  />
+ Les membres du projet sont :</p><ul>
+<li>KISS Lucas (Lucas-kiss)</li>
+<li>BÉGUINEL Kévin (Kevin-BEGUINEL)</li>
+<li>CONSTANS Fanny (fannyyc)</li>
+<li>DE BRITO Luca (LucaDeBrito)</li>
+<li>AUDOUARD Raphaël (FlocAud) </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>
