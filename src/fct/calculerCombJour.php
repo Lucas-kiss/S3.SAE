@@ -1,4 +1,29 @@
 <?php
+/**
+ * @file    calculerCombJour.php
+ * 
+ * @author  DE BRITO Luca / 1P'titJob
+ * 
+ * @brief   Définition de la procédure calculerCombJour.
+ *          Cette procédure permet de générer toutes les combinaisons d'un seul jour
+ * 
+ * @version 1
+ * 
+ * @date    19/12/2023
+ * 
+ * @details Au delà de représenter une personne par son nom et son prénom, la classe 
+ * Individu permet également de renseigner la voiture qu'il conduit.
+ * 
+ * La voiture associée à l'individu est représentée par un pointeur vers un objet de 
+ * la classe Voiture qui peut être à null si l'individu ne possède pas de voiture.
+ * 
+ * @param   $uneOffre objet de classe Offre
+ * @param   $uneCombDUnJour objet de classe CombJour
+ * @param   $heureDeb de type Entier
+ * @param   $heureFin de type Entier
+ * @param   $jourATraiter objet de classe Jour
+ * @param   $combsUnJour Aray objet de classe CombJour
+ */
     function calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $combsUnJour)
     {
         if($heureDeb != $heureFin)
