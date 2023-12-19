@@ -82,7 +82,7 @@ class Offre
     {
         return $this->mesCriteres;
     }
-    
+
     public function delierCriteres(Critere &$desCriteres)
     {
         if ($this->mesCriteres != null) {
@@ -95,7 +95,7 @@ class Offre
     {
         if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
             $this->set_mesCriteres($desCriteres);
-            $desCriteres->get_monOffre() = &$this;
+            $desCriteres->get_monOffre() = $this;
         } else {
             Offre::delierCriteres($desCriteres);
         }

@@ -1,9 +1,9 @@
 <?php
-include '../../../classes_sae/Etudiant.php';
-include '../../../classes_sae/CreneauRecherche.php';
-include '../../../classes_sae/Jour.php';
-include '../../../classes_sae/Offre.php';
-include '../../../classes_sae/Etudiant.php';
+include '../../classes_sae/Etudiant.php';
+include '../../classes_sae/CreneauRecherche.php';
+include '../../classes_sae/Jour.php';
+include '../../classes_sae/Offre.php';
+include '../../classes_sae/Etudiant.php';
 
 // Recuperer offre
 $OffrePath = './resultatTest.json';

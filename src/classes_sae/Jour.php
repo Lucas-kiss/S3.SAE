@@ -1,5 +1,5 @@
 <?php
-include './CreneauRecherche.php';
+include 'CreneauRecherche.php';
 /**
  * @file Jour.php
  * @author fconstans
