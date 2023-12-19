@@ -36,6 +36,9 @@ class CombOffre {
         $this->set_mesComposants = $uneCombOffre->mesComposants;
     }
 
+    // DESTRUCTEUR
+    public function __destruct() {}
+
     // METHODES
 
     /**

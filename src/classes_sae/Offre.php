@@ -7,7 +7,7 @@
  * @date 2023-12-19
  * 
  */
-include './Critere.php';
+include 'Critere.php';
 
 class Offre
 {
