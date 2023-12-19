@@ -15,19 +15,25 @@ class Offre
     private $num;
     private $intitule;
     private $desJours;
-    private $desEtudiants;
+    private $candidats;
     private $mesCriteres;
+    private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
 
     /* CONSTRUCTEUR */
-    public function Offre($num, $intitule)
-    {
+    public function Offre($num,$intitule,$desJours,$candidats,$mesCriteres) {
         $this->num = $num;
         $this->intitule = $intitule;
+        $this->desJours = $desJours;
+        $this->candidats = $candidats;
+        $this->mesCriteres = $mesCriteres;
     }
-    public function Offre_copie(Offre $unJour)
+    public function Offre_copie(Offre $uneOffre)
     {
-        $this->num = $unJour->num;
-        $this->intitule = $unJour->intitule;
+        $this->num = $uneOffre->num;
+        $this->intitule = $uneOffre->intitule;
+        $this->desJours = $uneOffre->desJours;
+        $this->candidats = $uneOffre->candidats;
+        $this->mesCriteres = $uneOffre->mesCriteres;
     }
 
     /* METHODES */
@@ -63,14 +69,14 @@ class Offre
     }
 
     // Associer des étudiants à l'offre
-    public function set_desEtudiants(&$desEtudiants)
+    public function set_candidats(&$candidats)
     {
-        $this->desEtudiants = &$desEtudiants;
+        $this->candidats = &$candidats;
     }
 
-    public function get_desEtudiants()
+    public function get_candidats()
     {
-        return $this->desEtudiants;
+        return $this->candidats;
     }
 
     public function set_mesCriteres(&$desCriteres)
@@ -92,16 +98,34 @@ class Offre
     }
 
     public function lierCriteres(Critere &$desCriteres)
-{
-    if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
-        $this->set_mesCriteres($desCriteres);
-        $desCriteres->set_monOffre($this);
-    } else {
-        $this->delierCriteres($desCriteres);
+    {
+        if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
+            $this->set_mesCriteres($desCriteres);
+            $desCriteres->set_monOffre($this);
+        } else {
+            $this->delierCriteres($desCriteres);
+        }
     }
-}
 
 
+    /**
+     * @brief Ajoute un jour dans le planning de l'Etudiant
+     */
+    public function ajouter_jour(Jour &$unJour)
+    {
+        $this->planning[] = $unJour;
+    }
+
+    /**
+     * @brief Supprime un jour dans le planning de l'Etudiant
+     */
+    public function supprimer_jour(Jour &$unJour)
+    {
+        if (isset($this->planning[$unJour->get_jour()])) {
+            unset($this->planning[$unJour->get_jour()]);
+        }
+
+    }
 }
 
 ?>

@@ -1,10 +1,8 @@
 {
     "Etudiant": {
-        "Etudiant1": {
-            "ine": "1234567890A",
-            "nom": "DELAS",
-            "prenom": "Marie"
-        }
+        "ine": "1234567890A",
+        "nom": "DELAS",
+        "prenom": "Marie"
     },
     "Jour": {
         "Jour1": {

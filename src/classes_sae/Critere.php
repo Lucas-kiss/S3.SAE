@@ -10,12 +10,13 @@ class Critere
     private Offre $monOffre;
 
     /* CONSTRUCTEUR */
-    function Critere(int $nbMinHeureEtudJour, bool $HeureRepartieJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1)
+    function Critere(int $nbMinHeureEtudJour, bool $HeureRepartieJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1, Offre $offre)
     {
         $this->nbMinHeureEtudJour = $nbMinHeureEtudJour;
         $this->HeureRepartieJour = $HeureRepartieJour;
         $this->nbMinEtudJour = $nbMinEtudJour;
         $this->nbMinEtudTotal = $nbMinEtudTotal;
+        $this->monOffre = $offre;
     }
     /* METHODES */
     // set&get nbMinHeureEtudJour
