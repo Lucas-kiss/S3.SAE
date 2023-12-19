@@ -21,6 +21,7 @@ function chercherEtudiants($uneOffre, $combsUnJour,
     if (!$trouveEtu) 
     {
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant
+        $EtuNull = new Etudiant;
         ($uneCombDUnJour.lstEtudiant())[] = $EtuNull;
         combJour($uneOffre, $combsUnJour,
                  $uneCombDUnJour, $heureDeb+1,
