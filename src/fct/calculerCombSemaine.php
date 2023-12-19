@@ -1,6 +1,7 @@
 <?php
 include '../classes_sae/CombOffre.php';
-include '../classes_sae/Offre.php';
+include_once('../classes_sae/Offre.php');
+
 
 function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, $jourATraiter, CombSemaine &$uneCombOffre, CombOffre &$combsOffre)
 {

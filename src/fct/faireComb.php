@@ -1,5 +1,5 @@
 <?php
-    include '../../classes_sae/CombOffre';
+    include '../classes_sae/CombOffre.php';
 
     function faireComb($uneOffre, $etuNull) {
         $combsOffre = new CombOffre();

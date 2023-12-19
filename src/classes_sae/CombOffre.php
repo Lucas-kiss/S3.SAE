@@ -13,7 +13,7 @@
  * 
  * @details CombOffre est une classe qui est composée d'un tableau de combSemaine mesComposants (toutes les combinaisons possibles pour la semaine) et du nbCombinaisons de la combinaison
  */
-include './CombSemaine.php';
+include 'CombSemaine.php';
 class CombOffre {
 
     // ATTRIBUTS 
