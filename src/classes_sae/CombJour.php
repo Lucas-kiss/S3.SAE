@@ -3,15 +3,15 @@
  * @file CombJour.php
  * @author fconstans
  * @brief Création de la classe CombJour
- * @version 0.1
- * @date 2023-11-15
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
  /**
  * @brief Cette classe définit les CombJour pour une Offre 
  * 
- * @details
+ * @details CombJour est une classe qui est composée d'une liste d'étudiants lstEtudiant pour un jour (1 étudiant pour 1 heure de la journée) et du nbEtudiants de la combinaison
  */
 
 class CombJour {
@@ -105,7 +105,7 @@ class CombJour {
     }
 
     /**
-     * @brief Vérifie si le nb minimum d'Etudiant par jour est supérieur à celui donné en Critere de l'Offre passée en paramètre
+     * @brief Vérifie si le nb minimum d'Etudiant par jour est supérieur à celui donné en Critere de l'Offre passée en paramètres
      */
     public function verifNbMinEtud(Offre $uneOffre) {
         foreach ($this->get_lstEtudiant() as $etudiant) {

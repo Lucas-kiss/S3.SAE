@@ -3,19 +3,16 @@
  * @file CreneauRecherche.php
  * @author fconstans
  * @brief Création de la classe CreneauRecherche
- * @version 0.1
- * @date 2023-11-13
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
 /**
- * @brief Cette classe définit un Creneau à partir de son heureDeb et le tableau de ses disponibilités associé.
+ * @brief Cette classe définit un CreneauRecherche à partir de son heureDeb et de son heureFin.
  * 
- * @details Au-delà de définir un Creneau, cette classe permet aussi de désigner l'Etudiant associé au Creneau.
+ * @details
  * 
- * L'Etudiant correspondant au Creneau est défini par un pointeur.
- * 
- * @warning Un Creneau a 1 seul Etudiant associé.
  */
 
 class CreneauRecherche
@@ -29,7 +26,7 @@ class CreneauRecherche
     // CONSTRUCTEURS
 
     /**
-     * @brief Constructeur de Creneau avec passage des variables en paramètres
+     * @brief Constructeur de CreneauRecherche avec passage des variables en paramètres
      */
     public function CreneauRecherche($uneHeureDeb, $uneheureFin)
     {
@@ -38,7 +35,7 @@ class CreneauRecherche
     }
 
     /**
-     * @brief Constructeur par recopie de Creneau
+     * @brief Constructeur par recopie de CreneauRecherche
      */
     public function CreneauRecherche_copie(CreneauRecherche $unCreneau)
     {
@@ -49,7 +46,7 @@ class CreneauRecherche
     // METHODES
 
     /**
-     * @brief Renvoie le heureDeb du Creneau
+     * @brief Renvoie le heureDeb du CreneauRecherche
      */
     public function get_heureDeb()
     {
@@ -57,7 +54,7 @@ class CreneauRecherche
     }
 
     /**
-     * @brief Modifie le heureDeb du Creneau par celui passé en paramètre
+     * @brief Modifie le heureDeb du CreneauRecherche par celui passé en paramètre
      */
     public function set_heureDeb($uneHeureDeb)
     {
@@ -65,7 +62,7 @@ class CreneauRecherche
     }
 
     /**
-     * @brief Renvoie le tableau de disponibilités du Creneau
+     * @brief Renvoie le heureFin du CreneauRecherche
      */
     public function get_heureFin()
     {
@@ -73,7 +70,7 @@ class CreneauRecherche
     }
 
     /**
-     * @brief Modifie le tableau de disponibilités par celui passé en paramètre
+     * @brief Modifie le heureFin du CreneauRecherche par celui passé en paramètre
      */
     public function set_heureFin($unheureFin)
     {

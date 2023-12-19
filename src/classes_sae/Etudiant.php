@@ -3,29 +3,26 @@
  * @file Etudiant.php
  * @author fconstans
  * @brief Création de la classe Etudiant
- * @version 0.1
- * @date 2023-11-13
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
  /**
- * @brief Cette classe définit un Etudiant à partir de son ine, nom, prénom, date de naissance, code postal, ville, pays et numéro de téléphone.
+ * @brief Cette classe définit un Etudiant à partir de son ine, nom, prénom, et son planning.
  * 
- * @details Au-delà de définir un Etudiant, cette classe permet aussi de désigner les Creneaux associés à l'Etudiant.
+ * @details
  * 
- * Les Creneaux de l'Etudiants sont définis par des pointeurs planning vers des objets Creneau.
- * 
- * @warning Un Etudiant a au plus 7 Creneaux.
  */
 
 class Etudiant {
 
     // ATTRIBUTS 
 
-    private $ine; // ine de l'étudiant, type : string
-    private $nom; // nom de l'étudiant, type : string
-    private $prenom;    // prénom de l'étudiant, type : string
-    private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
+    private $ine;
+    private $nom;
+    private $prenom;
+    private $planning = array();
 
     // CONSTRUCTEURS
 

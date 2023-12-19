@@ -3,15 +3,15 @@
  * @file CombOffre.php
  * @author fconstans
  * @brief Création de la classe CombOffre
- * @version 0.1
- * @date 2023-11-15
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
  /**
  * @brief Cette classe définit les CombOffre pour une Offre
  * 
- * @details
+ * @details CombOffre est une classe qui est composée d'un tableau de combSemaine mesComposants (toutes les combinaisons possibles pour la semaine) et du nbCombinaisons de la combinaison
  */
 include './CombSemaine.php';
 class CombOffre {
@@ -23,12 +23,17 @@ class CombOffre {
 
     // CONSTRUCTEURS
 
-    private function CombOffre($nbComb) {
+    /**
+     * @brief Constructeur de CombOffre avec passage des variables en paramètres
+     */
+    private function CombOffre($nbComb, $comp) {
         $this->set_nbCombinaisons = $nbComb;
+        $this->set_mesComposants = $comp;
     }
 
     private function CombOffre_copie(CombOffre $uneCombOffre) {
         $this->set_nbCombinaisons = $uneCombOffre->nbCombinaisons;
+        $this->set_mesComposants = $uneCombOffre->mesComposants;
     }
 
     // METHODES
