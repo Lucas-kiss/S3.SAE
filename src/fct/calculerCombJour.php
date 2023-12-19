@@ -11,12 +11,6 @@
  * 
  * @date    19/12/2023
  * 
- * @details Au delà de représenter une personne par son nom et son prénom, la classe 
- * Individu permet également de renseigner la voiture qu'il conduit.
- * 
- * La voiture associée à l'individu est représentée par un pointeur vers un objet de 
- * la classe Voiture qui peut être à null si l'individu ne possède pas de voiture.
- * 
  * @param   $uneOffre objet de classe Offre
  * @param   $uneCombDUnJour objet de classe CombJour
  * @param   $heureDeb de type Entier
