@@ -7,7 +7,7 @@
  * @date 2023-12-19
  * 
  */
-include 'Critere.php';
+include_once 'Critere.php';
 
 class Offre
 {
@@ -119,7 +119,7 @@ class Offre
     {
         return $this->mesCriteres;
     }
-    
+
     /**
      * @brief Délie les critères de l'Offre
      */
@@ -135,14 +135,15 @@ class Offre
      * @brief Lie les critères à l'Offre
      */
     public function lierCriteres(Critere &$desCriteres)
-    {
-        if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
-            $this->set_mesCriteres($desCriteres);
-            $desCriteres->get_monOffre() = &$this;
-        } else {
-            Offre::delierCriteres($desCriteres);
-        }
+{
+    if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
+        $this->set_mesCriteres($desCriteres);
+        $desCriteres->set_monOffre($this);
+    } else {
+        $this->delierCriteres($desCriteres);
     }
+}
+
 
 }
 

@@ -15,7 +15,7 @@
  * 
  */
 
-include './Offre.php';
+include_once 'Offre.php';
 
 class Critere
 {
@@ -108,7 +108,7 @@ class Critere
     /**
      * @brief Modifie le monOffre du Critere par celui passé en paramètre
      */
-    public function set_monOffre(Offre $uneOffre)
+    public function set_monOffre(Offre &$uneOffre)
     {
         $this->monOffre = $uneOffre;
     }
@@ -136,14 +136,15 @@ class Critere
      * @brief Lie l'Offre aux Critere
      */
     public function lierOffre(Offre &$uneOffre)
-    {
-        if ($this->get_monOffre() == null && $uneOffre->get_mesCriteres() == null) {
-            $this->set_monOffre($uneOffre);
-            $uneOffre->get_mesCriteres() = &$this;
-        } else {
-            Critere::delierOffre($uneOffre);
-        }
+{
+    if ($this->get_monOffre() == null && $uneOffre->get_mesCriteres() == null) {
+        $this->set_monOffre($uneOffre);
+        $uneOffre->set_mesCriteres($this);
+    } else {
+        $this->delierOffre($uneOffre);
     }
+}
+
 
 
 
