@@ -3,19 +3,19 @@
  * @file CombSemaine.php
  * @author fconstans
  * @brief Création de la classe CombSemaine
- * @version 0.1
- * @date 2023-11-15
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
 /**
  * @brief Cette classe définit les CombSemaine pour une Offre 
  * 
- * @details
+ * @details CombSemaine est une classe qui est composée d'un tableau de combJour mesComposants (une combinaison possible de la semaine), du nbEtudiants de la combinaison et du tauxRemplissage (100 % si répond à tous les hoaires recherchés dans l'offre)
  */
 
-include './CombJour.php';
-include './Offre.php';
+include 'CombJour.php';
+include 'Offre.php';
 
 class CombSemaine
 {
@@ -30,10 +30,11 @@ class CombSemaine
     /**
      * @brief Constructeur de CombSemaine avec passage des variables en paramètres
      */
-    public function CombSemaine($tauxRemplissage, $nbEtudiants)
+    public function CombSemaine($tauxRemplissage, $nbEtudiants, $comp)
     {
         $this->set_tauxRemplissage($tauxRemplissage);
         $this->set_nbEtudiants($nbEtudiants);
+        $this->set_mesComposants($comp);
     }
 
     /**
@@ -43,6 +44,7 @@ class CombSemaine
     {
         $this->set_tauxRemplissage($uneCombSemaine->get_tauxRemplissage());
         $this->set_nbEtudiants($uneCombSemaine->get_nbEtudiants());
+        $this->set_mesComposants($uneCombSemaine->get_mesComposants());
     }
 
     // METHODES

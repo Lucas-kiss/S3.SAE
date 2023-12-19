@@ -1,10 +1,8 @@
 {
     "Etudiant": {
-        "Etudiant1": {
-            "ine": "1454567890H",
-            "nom": "DUPONT",
-            "prenom": "Jean"
-        }
+        "ine": "1454567890H",
+        "nom": "DUPONT",
+        "prenom": "Jean"
     },
     "Jour": {
         "Jour1": {
@@ -35,7 +33,7 @@
                 "heureFin": 14
             }
         },
-            "Jour5": {
+        "Jour5": {
             "jour": "Vendredi"
         },
         "Jour6": {

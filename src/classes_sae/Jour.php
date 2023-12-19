@@ -1,22 +1,20 @@
 <?php
-include './CreneauRecherche.php';
+include_once 'CreneauRecherche.php';
 /**
  * @file Jour.php
  * @author fconstans
  * @brief Création de la classe Jour
- * @version 0.1
- * @date 2023-11-13
+ * @version 1
+ * @date 2023-12-19
  * 
  */
 
 /**
- * @brief Cette classe définit un Jour à partir de son jour et le tableau de ses disponibilités associé.
+ * @brief Cette classe définit un Jour à partir de son jour et le tableau de ses créneaux associés.
  * 
- * @details Au-delà de définir un Jour, cette classe permet aussi de désigner l'Etudiant associé au Jour.
- * 
- * L'Etudiant correspondant au Jour est défini par un pointeur.
- * 
- * @warning Un Jour a 1 seul Etudiant associé.
+ * @details
+ *  
+ * @warning
  */
 
 
@@ -67,7 +65,7 @@ class Jour
     }
 
     /**
-     * @brief Renvoie le tableau de disponibilités du Jour
+     * @brief Renvoie les creneaux du Jour
      */
     public function get_creneaux()
     {
@@ -75,20 +73,24 @@ class Jour
     }
 
     /**
-     * @brief Modifie le tableau de disponibilités par celui passé en paramètre
+     * @brief Modifie les creneaux par celui passé en paramètre
      */
     public function set_creneaux($desCreneaux)
     {
         return $this->creneaux = $desCreneaux;
     }
 
+    /**
+     * @brief Ajoute le creneau passé en paramètre dans le tableau des créneaux
+     */
     public function ajouterCreneau(CreneauRecherche &$unCreneau)
     {
         $this->creneaux[] = $unCreneau;
-
-
     }
 
+    /**
+     * @brief Supprime le creneau passé en paramètre dans le tableau des créneaux
+     */
     public function supprimerCreneau(CreneauRecherche &$unCreneau)
     {
         foreach ($this->creneaux as $cren) {
@@ -98,6 +100,10 @@ class Jour
         }
     }
 
+
+    /**
+     * @brief Vérifie so le creneau passé en paramètre existe dans le tableau des créneaux
+     */
     public function existeCreneau(CreneauRecherche &$unCreneau)
     {
         foreach ($this->creneaux as $cren) {
