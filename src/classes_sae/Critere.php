@@ -59,7 +59,7 @@ class Critere
     }
 
     // set&get monOffre
-    public function set_monOffre(Offre &$uneOffre)
+    public function set_monOffre(Offre $uneOffre)
     {
         $this->monOffre = $uneOffre;
     }
@@ -71,10 +71,9 @@ class Critere
     public function delierOffre(Offre &$uneOffre)
     {
         if ($this->monOffre != null) {
-            unset($this->monOffre);
-            unset($uneOffre->get_mesCriteres());
+            $this->monOffre = null;
+            $uneOffre->set_mesCriteres(null);
         }
-
     }
 
     public function lierOffre(Offre &$uneOffre)

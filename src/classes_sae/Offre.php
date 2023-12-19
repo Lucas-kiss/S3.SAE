@@ -7,6 +7,7 @@
  * @date 2023-12-18
  * 
  */
+include './Critere.php';
 
 class Offre
 {
@@ -25,8 +26,8 @@ class Offre
     }
     public function Offre_copie(Offre $unJour)
     {
-        $this->jour = $unJour->jour;
-        $this->creneaux = $unJour->creneaux;
+        $this->num = $unJour->num;
+        $this->intitule = $unJour->intitule;
     }
 
     /* METHODES */
@@ -85,10 +86,9 @@ class Offre
     public function delierCriteres(Critere &$desCriteres)
     {
         if ($this->mesCriteres != null) {
-            unset($this->mesCriteres);
-            unset($desCriteres->get_monOffre());
+            $this->mesCriteres = null;
+            $desCriteres->set_monOffre(null);
         }
-
     }
 
     public function lierCriteres(Critere &$desCriteres)
