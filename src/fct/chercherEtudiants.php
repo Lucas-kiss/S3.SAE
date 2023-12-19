@@ -6,7 +6,7 @@
  * @author  AUDOUARD Raphaël / 1P'titJob
  * 
  * @brief   Définition de la procédure horairesEtuCorrespHorairesOffre.
- *          Cette procédure permet deChercher les étudiants qui correspondent 
+ *          Cette procédure permet de chercher les étudiants qui correspondent 
  *          à heureDeb
  * 
  * @version 1
