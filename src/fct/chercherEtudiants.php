@@ -7,7 +7,7 @@ function chercherEtudiants($uneOffre, $combsUnJour,
                            $cptEtudDispo) 
 {
     $trouveEtu = false;
-    foreach ($etu in $combsUnJour.getLstEtudiant()) 
+    foreach ($combsUnJour.getLstEtudiant() as $etu) 
     {
         // Faire pointer un itérateur sur le jour à traiter
         $itJourEtu = &$jourATraiter; 
