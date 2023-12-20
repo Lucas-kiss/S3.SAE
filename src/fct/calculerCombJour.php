@@ -67,10 +67,7 @@ function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin
         if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre)) {
             //Ajouter uneCombDUnJour à CombsUnJour
             $combsUnJour[] = $uneCombDUnJour;
-        } else {
-            //Détruire uneCombDUnJour
-            $uneCombDUnJour->__destruct; //A verifier
-        }
+        } 
     }
 }
 ?>

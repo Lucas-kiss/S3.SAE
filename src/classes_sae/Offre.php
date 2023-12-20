@@ -15,7 +15,7 @@ class Offre
     private $num;
     private $intitule;
     private $candidats;
-    private Critere $mesCriteres;
+    private  $mesCriteres;
     private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
 
     /* CONSTRUCTEUR */
@@ -23,12 +23,12 @@ class Offre
     /**
      * @brief Constructeur d'Offre avec passage des variables en paramètres
      */
-    public function Offre($num,$intitule,$candidats,Critere $mesCriteres,$planning) {
+    public function Offre($num,$intitule,$candidats, $planning,$mesCriteres) {
         $this->num = $num;
         $this->intitule = $intitule;
         $this->candidats = $candidats;
-        $this->mesCriteres = $mesCriteres;
         $this->planning = $planning;
+        $this->mesCriteres = $mesCriteres;
     }
 
     /**
@@ -140,12 +140,10 @@ class Offre
      */
     public function lierCriteres(Critere &$desCriteres)
     {
-        if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
+        if ($this->get_mesCriteres() == null ) {
             $this->set_mesCriteres($desCriteres);
             $desCriteres->set_monOffre($this);
-        } else {
-            $this->delierCriteres($desCriteres);
-        }
+        } 
     }
 
 

@@ -121,12 +121,10 @@ class Critere
      */
     public function lierOffre(Offre &$uneOffre)
     {
-        if ($this->get_monOffre() == null && $uneOffre->get_mesCriteres() == null) {
+        if ($this->get_monOffre() == null ) {
             $this->set_monOffre($uneOffre);
             $uneOffre->set_mesCriteres($this);
-        } else {
-            $this->delierOffre($uneOffre);
-        }
+        } 
     }
 
 

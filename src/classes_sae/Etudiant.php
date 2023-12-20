@@ -37,6 +37,11 @@ class Etudiant
         $this->set_prenom($unPrenom);
         $this->set_planning($unPlanning);
     }
+    
+    public function EtudiantNull()
+    {
+        
+    }
 
     /**
      * @brief Constructeur par recopie d'Etudiant

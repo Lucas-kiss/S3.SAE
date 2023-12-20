@@ -110,7 +110,7 @@ class CombJour {
      */
     public function verifNbMinEtud(Offre $uneOffre) {
         $critOffre=$uneOffre->get_mesCriteres();        
-        if ($this->get_nbEtudiants() < $critOffre->get_nbMinEtudJour()) {
+                if ($this->get_nbEtudiants() < $critOffre->get_nbMinEtudJour()) {
             return false;
         }
         else {

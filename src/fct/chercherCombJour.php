@@ -39,7 +39,10 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
              $itJourOffre, $combsUnJour, $etuNull);
 
     // Ajouter combsUnJour dans combsChaqueJour
-    $combsChaqueJour->ajouterComposant($combsUnJour);
+    foreach ($combsUnJour as $comb ) {
+        $combsChaqueJour->ajouterComposant($comb);
+        
+    }
 
     $itJourOffre++;
     
