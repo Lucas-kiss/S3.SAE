@@ -1,6 +1,7 @@
 <?php
-include '../classes_sae/CombOffre.php';
-include_once('../classes_sae/Offre.php');
+
+require_once 'classes_sae/Offre.php';
+require_once 'classes_sae/CombSemaine.php';
 
 /**
  * @file    calculerCombSemaine.php
@@ -30,12 +31,12 @@ function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, $jourATraiter, C
 
         foreach ($jourATraiter as $element) {
             if ($cptPossibilite > 1) {
-                $copieUneCombOffre = CombOffre_copie($uneCombOffre);
-                $copieUneCombOffre.ajouterComposant($element);
+                $copieUneCombOffre = new CombSemaine($uneCombOffre->get_tauxRemplissage(), $uneCombOffre->get_nbEtudiants(), $uneCombOffre->get_mesComposants());
+                $copieUneCombOffre->ajouterComposant($element);
                 calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter+1, $copieUneCombOffre, $combsOffre);
             }
             else {
-                $copieUneCombOffre.ajouterComposant($element);
+                $copieUneCombOffre->ajouterComposant($element);
                 calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter+1, $copieUneCombOffre, $combsOffre);
             }
         }
@@ -43,11 +44,11 @@ function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, $jourATraiter, C
         // Calculer nbEtudiants et tauxRemplissage de uneCombOffre
 
 
-        if ($uneCombOffre.verifNbMinEtud($uneOffre) && $uneCombOffre.verifNbMinHeureEtud($uneOffre)) {
-            $combsOffre.ajouterComposant($uneCombOffre);
+        if ($uneCombOffre->verifNbMinEtud($uneOffre) && $uneCombOffre->verifNbMinHeureEtud($uneOffre)) {
+            $combsOffre->ajouterComposant($uneCombOffre);
         }
         else {
-            $uneCombOffre.__destruct();
+            //$uneCombOffre.__destruct();
         }
     }
 

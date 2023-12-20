@@ -15,13 +15,12 @@
  * 
  */
 
-include_once 'Offre.php';
+require_once 'classes_sae/Offre.php';
 
 class Critere
 {
     /* ATTRIBUTS */
     private int $nbMinHeureEtudJour;
-    private bool $heureRepartieJour;
     private int $nbMinEtudJour;
     private int $nbMinEtudTotal;
     private Offre $monOffre;
@@ -31,10 +30,9 @@ class Critere
     /**
      * @brief Constructeur de Critere avec passage des variables en paramètres
      */
-    function Critere(int $nbMinHeureEtudJour, bool $heureRepartieJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1, Offre $offre)
+    function Critere(int $nbMinHeureEtudJour, int $nbMinEtudJour = 1, int $nbMinEtudTotal = 1, Offre $offre)
     {
         $this->nbMinHeureEtudJour = $nbMinHeureEtudJour;
-        $this->HeureRepartieJour = $heureRepartieJour;
         $this->nbMinEtudJour = $nbMinEtudJour;
         $this->nbMinEtudTotal = $nbMinEtudTotal;
         $this->monOffre = $offre;
@@ -58,21 +56,6 @@ class Critere
         return $this->nbMinHeureEtudJour;
     }
 
-    /**
-     * @brief Modifie le heureRepartieJour du Critere par celui passé en paramètre
-     */
-    public function set_heureRepartieJour(bool $heureRepartieJour)
-    {
-        $this->heureRepartieJour = $heureRepartieJour;
-    }
-
-     /**
-     * @brief Renvoie le heureRepartieJour du Critere
-     */
-    public function get_HeureRepartieJour()
-    {
-        return $this->heureRepartieJour;
-    }
 
     /**
      * @brief Modifie le nbMinEtudJour du Critere par celui passé en paramètre
@@ -82,7 +65,7 @@ class Critere
         $this->nbMinEtudJour = $nbMinEtudJour;
     }
 
-     /**
+    /**
      * @brief Renvoie le nbMinEtudJour du Critere
      */
     public function get_nbMinEtudJour()
@@ -98,7 +81,7 @@ class Critere
         $this->nbMinEtudTotal = $nbMinEtudTotal;
     }
 
-     /**
+    /**
      * @brief Renvoie le nbMinEtudTotal du Critere
      */
     public function get_nbMinEtudTotal()
@@ -137,14 +120,14 @@ class Critere
      * @brief Lie l'Offre aux Critere
      */
     public function lierOffre(Offre &$uneOffre)
-{
-    if ($this->get_monOffre() == null && $uneOffre->get_mesCriteres() == null) {
-        $this->set_monOffre($uneOffre);
-        $uneOffre->set_mesCriteres($this);
-    } else {
-        $this->delierOffre($uneOffre);
+    {
+        if ($this->get_monOffre() == null && $uneOffre->get_mesCriteres() == null) {
+            $this->set_monOffre($uneOffre);
+            $uneOffre->set_mesCriteres($this);
+        } else {
+            $this->delierOffre($uneOffre);
+        }
     }
-}
 
 
 

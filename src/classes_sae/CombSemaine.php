@@ -14,8 +14,8 @@
  * @details CombSemaine est une classe qui est composée d'un tableau de combJour mesComposants (une combinaison possible de la semaine), du nbEtudiants de la combinaison et du tauxRemplissage (100 % si répond à tous les hoaires recherchés dans l'offre)
  */
 
-include 'CombJour.php';
-include 'Offre.php';
+require_once 'classes_sae/CombJour.php';
+require_once 'classes_sae/Offre.php';
 
 class CombSemaine
 {
@@ -35,16 +35,6 @@ class CombSemaine
         $this->set_tauxRemplissage($tauxRemplissage);
         $this->set_nbEtudiants($nbEtudiants);
         $this->set_mesComposants($comp);
-    }
-
-    /**
-     * @brief Constructeur par recopie de CombSemaine
-     */
-    public function CombSemaine_copie(CombSemaine $uneCombSemaine)
-    {
-        $this->set_tauxRemplissage($uneCombSemaine->get_tauxRemplissage());
-        $this->set_nbEtudiants($uneCombSemaine->get_nbEtudiants());
-        $this->set_mesComposants($uneCombSemaine->get_mesComposants());
     }
 
     // METHODES

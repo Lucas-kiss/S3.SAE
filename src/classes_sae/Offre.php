@@ -7,14 +7,13 @@
  * @date 2023-12-19
  * 
  */
-include_once 'Critere.php';
+require_once 'classes_sae/Critere.php';
 
 class Offre
 {
     /* ATTRIBUTS */
     private $num;
     private $intitule;
-    private $desJours;
     private $candidats;
     private $mesCriteres;
     private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
@@ -24,10 +23,9 @@ class Offre
     /**
      * @brief Constructeur d'Offre avec passage des variables en paramètres
      */
-    public function Offre($num,$intitule,$desJours,$candidats,$mesCriteres) {
+    public function Offre($num,$intitule,$candidats,$mesCriteres) {
         $this->num = $num;
         $this->intitule = $intitule;
-        $this->desJours = $desJours;
         $this->candidats = $candidats;
         $this->mesCriteres = $mesCriteres;
     }
@@ -39,7 +37,6 @@ class Offre
     {
         $this->num = $uneOffre->num;
         $this->intitule = $uneOffre->intitule;
-        $this->desJours = $uneOffre->desJours;
         $this->candidats = $uneOffre->candidats;
         $this->mesCriteres = $uneOffre->mesCriteres;
     }
@@ -81,9 +78,9 @@ class Offre
     /**
      * @brief Modifie les jours de l'Offre par celui passé en paramètre
      */
-    public function set_desJours(&$desJours)
+    public function set_planning(&$unPlanning)
     {
-        $this->desJours = &$desJours;
+        $this->planning = &$unPlanning;
     }
 
     /**
@@ -91,7 +88,7 @@ class Offre
      */
     public function get_desJours()
     {
-        return $this->desJours;
+        return $this->planning;
     }
 
     /**

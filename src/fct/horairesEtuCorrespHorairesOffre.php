@@ -6,33 +6,33 @@ function horairesEtuCorrespHorairesOffre($itJourEtu,$trouveEtu,
                                          $cpEtudDispo, $uneOffre,
                                          $combsUnJour, $heureDeb, 
                                          $heureFin, $itJourOffre,
-                                         $cptEtudDispo, $etu)
+                                         $cptEtudDispo, $etu, $etuNull)
 
 {
-    $itCreneauEtu = $itJourEtu.getCreneau()[0];
+    $itCreneauEtu = $itJourEtu->getCreneau()[0];
     $horaireEtuCorrespond = false;
-    while (($horaireEtuCorrespond == false) or ($itCreneauEtu != $itJourEtu.getCreneau()[-1])) 
+    while (($horaireEtuCorrespond == false) or ($itCreneauEtu != $itJourEtu->getCreneau()[-1])) 
     {
-        if (($heureDeb >= $itCreneauEtu.getHeureDeb()) && ($heureDeb < $itCreneauEtu.getHeureFin()))
+        if (($heureDeb >= $itCreneauEtu->getHeureDeb()) && ($heureDeb < $itCreneauEtu->getHeureFin()))
         {
             $trouveEtu = true;
             if ($cptEtudDispo == 1) 
             {
-                $itCreneauEtu.lstEtudiant()[] = $etu;
-                combJour($uneOffre,
+                $itCreneauEtu->lstEtudiant()[] = $etu;
+                calculerCombJour($uneOffre,
                          $uneCombDUnJour,
                          $heureDeb+1,$heureFin,
                          $itJourOffre,
-                         $combsUnJour);
+                         $combsUnJour, $etuNull);
             }
             else 
             {
                 $copieUneCombDUnJour = $uneCombDUnJour;
-                combJour($uneOffre,
+                calculerCombJour($uneOffre,
                          $copieUneCombDUnJour,
                          $heureDeb+1,$heureFin,
                          $itJourOffre,
-                         $combsUnJour);
+                         $combsUnJour, $etuNull);
             }
         }
     }
