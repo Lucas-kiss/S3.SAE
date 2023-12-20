@@ -20,18 +20,22 @@
  */
 require_once 'classes_sae/Jour.php';
 require_once 'classes_sae/CombJour.php';
+require_once 'fct/cpt_nb_etu_dispo_a_jourATraiter_et_heureDeb.php';
 function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin,$jourATraiter, $combsUnJour, $etuNull)
 {
     if ($heureDeb != $heureFin) {
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
-        $itCreneauOffre = array_values($jourATraiter->get_creneaux())[0];
+        $itCreneauOffre = $jourATraiter->get_creneaux()[0];
+        var_dump($itCreneauOffre->get_heureDeb());
 
-        while (!$horaireEstRecherche && $itCreneauOffre != array_values($jourATraiter->get_creneaux())[0]) {
-            if ($heureDeb >= $itCreneauOffre->getHeureDeb() && $heureDeb < $itCreneauOffre->getHeureFin()) {
-                $horaireEstRecherche = true;
+            do  {
+                if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
+                    $horaireEstRecherche = true;
+                }
+                $itCreneauOffre;
             }
-        }
+            while (!($horaireEstRecherche) || ($itCreneauOffre != array_values($jourATraiter->get_creneaux())[0]));
 
         if ($horaireEstRecherche) {
             //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
@@ -67,7 +71,7 @@ function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin
         if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre)) {
             //Ajouter uneCombDUnJour à CombsUnJour
             $combsUnJour[] = $uneCombDUnJour;
-        } 
+        }
     }
 }
 ?>

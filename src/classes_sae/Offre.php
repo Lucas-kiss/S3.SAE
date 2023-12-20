@@ -8,6 +8,7 @@
  * 
  */
 require_once 'classes_sae/Critere.php';
+require_once 'classes_sae/Etudiant.php';
 
 class Offre
 {
@@ -165,6 +166,17 @@ class Offre
         }
 
     }
+
+    public function ajouter_etudiant(Etudiant $unEtu) {
+        $this->candidats[] = $unEtu;
+    }
+
+    public function supprimer_etudiant(Etudiant $unEtu) {
+        if (isset($this->candidats[$unEtu->get_ine()])) {
+            unset($this->candidats[$unEtu->get_ine()]);
+        }
+    }
+    
 }
 
 ?>

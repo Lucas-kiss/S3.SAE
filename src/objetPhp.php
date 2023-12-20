@@ -109,7 +109,7 @@ foreach ($offres as $offre) {
     $critereData = $offre['Critere'];
     $critere = new Critere(
         $critereData['nbMinHeureEtudJour'], $critereData['nbMinEtudJour'], $critereData['nbMinEtudTotal'], $offreInstance);
-        
+
     // Associer le critère à l'offre
     $offreInstance->lierCriteres($critere);
     // Créer des objets Jour et CreneauRecherche
