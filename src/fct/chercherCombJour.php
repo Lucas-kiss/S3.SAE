@@ -24,7 +24,8 @@
  * @param   $etuNull objet de classe Etudiant
  */
 require_once 'calculerCombJour.php';
-function chercherCombJour($uneOffre,$etuNull,
+require_once 'classes_sae/Offre.php';
+function chercherCombJour(Offre $uneOffre,$etuNull,
                           $itJourOffre,$combsChaqueJour) {
     // Initialiser les variables
     $combsUnJour = [];

@@ -15,7 +15,7 @@ class Offre
     private $num;
     private $intitule;
     private $candidats;
-    private $mesCriteres;
+    private Critere $mesCriteres;
     private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
 
     /* CONSTRUCTEUR */
@@ -23,11 +23,12 @@ class Offre
     /**
      * @brief Constructeur d'Offre avec passage des variables en paramètres
      */
-    public function Offre($num,$intitule,$candidats,$mesCriteres) {
+    public function Offre($num,$intitule,$candidats,Critere $mesCriteres,$planning) {
         $this->num = $num;
         $this->intitule = $intitule;
         $this->candidats = $candidats;
         $this->mesCriteres = $mesCriteres;
+        $this->planning = $planning;
     }
 
     /**
@@ -86,7 +87,7 @@ class Offre
     /**
      * @brief Renvoie les jours de l'Offre
      */
-    public function get_desJours()
+    public function get_planning()
     {
         return $this->planning;
     }

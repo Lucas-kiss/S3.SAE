@@ -103,13 +103,9 @@ $lstObjOffre = array();
 
 foreach ($offres as $offre) {
     // Créer un objet Offre
-    $offreInstance = new Offre($offre['Offre']['num'], $offre['Offre']['intitule'], null, null);
+    $offreInstance = new Offre($offre['Offre']['num'], $offre['Offre']['intitule'], null,,null);
 
-    // Créer un objet Critere
-    $critereData = $offre['Critere'];
-    $critere = new Critere(
-        $critereData['nbMinHeureEtudJour'], $critereData['nbMinEtudJour'], $critereData['nbMinEtudTotal'], $offreInstance);
-
+   
     // Associer le critère à l'offre
     $offreInstance->lierCriteres($critere);
 
@@ -181,8 +177,10 @@ foreach ($offres as $offre) {
 //         print "$critereKey: $critereValue<br>";
 //     }
 
+    
 //     print "<hr>"; // Séparateur entre les offres
 // }
+
 
 
 

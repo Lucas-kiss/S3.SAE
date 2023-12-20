@@ -19,14 +19,15 @@
  * @param   $combsUnJour Aray objet de classe CombJour
  */
 require_once 'classes_sae/Jour.php';
-function calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $combsUnJour, $etuNull)
+require_once 'classes_sae/CombJour.php';
+function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin,$jourATraiter, $combsUnJour, $etuNull)
 {
     if ($heureDeb != $heureFin) {
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
-        $itCreneauOffre = $jourATraiter->getCreneau()->first();
+        $itCreneauOffre = array_values($jourATraiter->get_creneaux())[0];
 
-        while (!$horaireEstRecherche && $itCreneauOffre != $jourATraiter->getCreneau()->first()) {
+        while (!$horaireEstRecherche && $itCreneauOffre != array_values($jourATraiter->get_creneaux())[0]) {
             if ($heureDeb >= $itCreneauOffre->getHeureDeb() && $heureDeb < $itCreneauOffre->getHeureFin()) {
                 $horaireEstRecherche = true;
             }
@@ -40,13 +41,13 @@ function calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jou
             chercherEtudiants($uneOffre, $combsUnJour, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $cptEtuDispo, $etuNull); //A vérifier
         } else {
             //Ajouter null à uneCombDUnJour.lstEtudaint
-            $uneCombDUnJour[] = null;
+            $uneCombDUnJour->ajouterEtudiant(null);
 
             calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb + 1, $heureFin, $jourATraiter, $combsUnJour, $etuNull); //A vérifier
         }
     } else {
         //Calculer nbEtudiants de uneCombDUnJour
-        $nbEtudiants = 0;
+        $nbEtudiants = 0; 
         //liste temporaire comprenant les étudiants déjà comptés.
         $etuDejaVu = array();
         foreach ($uneCombDUnJour->get_lstEtudiant() as $etu) {
