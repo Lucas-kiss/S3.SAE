@@ -1,4 +1,6 @@
 <?php
+    include 'classes_sae/Jour.php';
+    include 'classes_sae/Offre.php';
 /**
  * @file    cpt_nb_etu_dispo_à_jourATraiter_et_heureDeb.php
  * @author  Kévin BÉGUINEL
@@ -18,14 +20,14 @@ function cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb)
 {
     $cptEtuDispo = 0;
     // pour tous les candidats
-    foreach ($uneOffre->getCandidats() as $etu) {
+    foreach ($uneOffre->get_candidats() as $etu) {
         // faire pointer un itérateur sur le jour à traiter
-        foreach ($etu->getPlanning() as $itJourEtu) {
+        foreach ($etu->get_planning() as $itJourEtu) {
             // etu est dispo à jourATraiter
-            if ($itJourEtu->getJour() == $jourATraiter->getJour()) {
+            if ($itJourEtu->get_jour() == $jourATraiter->get_jour()) {
                 // pour tous les creneaux du jour de l'etu
-                foreach ($itJourEtu->getCreneau() as $itCreneauEtu) {
-                    if ($heureDeb >= $itCreneauEtu->getHeureDeb() && $heureDeb < $itCreneauEtu->getheureFin()) {
+                foreach ($itJourEtu->get_creneau() as $itCreneauEtu) {
+                    if ($heureDeb >= $itCreneauEtu->get_heureDeb() && $heureDeb < $itCreneauEtu->get_heureFin()) {
                         // l'étu peut travailler à jourATraiter et heureDeb
                         $cptEtuDispo++;
                     }
