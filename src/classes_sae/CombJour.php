@@ -13,7 +13,8 @@
  * 
  * @details CombJour est une classe qui est composée d'une liste d'étudiants lstEtudiant pour un jour (1 étudiant pour 1 heure de la journée) et du nbEtudiants de la combinaison
  */
-
+require_once 'classes_sae/Critere.php';
+require_once 'classes_sae/Offre.php';
 class CombJour {
 
     // ATTRIBUTS
@@ -108,10 +109,8 @@ class CombJour {
      * @brief Vérifie si le nb minimum d'Etudiant par jour est supérieur à celui donné en Critere de l'Offre passée en paramètres
      */
     public function verifNbMinEtud(Offre $uneOffre) {
-        foreach ($this->get_lstEtudiant() as $etudiant) {
-            $cpt++;
-        }
-        if ($cpt < $uneOffre->get_mesCriteres()->get_nbMinEtudJour()) {
+        $critOffre=$uneOffre->get_mesCriteres();        
+        if ($this->get_nbEtudiants() < $critOffre->get_nbMinEtudJour()) {
             return false;
         }
         else {

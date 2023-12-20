@@ -14,7 +14,7 @@
  * @details
  * 
  */
-
+require_once 'classes_sae/Jour.php';
 class Etudiant
 {
 

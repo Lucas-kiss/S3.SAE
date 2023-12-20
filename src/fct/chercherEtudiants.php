@@ -1,5 +1,7 @@
 <?php
 
+require_once 'fct/horairesEtuCorrespHorairesOffre.php';
+
 /**
  * @file    chercherEtudiants.php
  * 
@@ -27,32 +29,31 @@
 function chercherEtudiants($uneOffre, $combsUnJour,
                            $uneCombDUnJour, $heureDeb,
                            $heureFin, $itJourOffre,
-                           $cptEtudDispo) 
+                           $cptEtudDispo, $etuNull) 
 {
     $trouveEtu = false;
-    foreach ($combsUnJour.getLstEtudiant() as $etu) 
+    foreach ($combsUnJour->getLstEtudiant() as $etu) 
     {
         // Faire pointer un itérateur sur le jour à traiter
         $itJourEtu = &$jourATraiter; 
-        while ($itJourEtu.getJour() != $jourATraiter.getJour())
+        while ($itJourEtu->getJour() != $jourATraiter->getJour())
         {
             $itJourEtu++;
         }
         horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
-                                        $uneCombDUnJour, $uneOffre,
+                                        $uneCombDUnJour, $cptEtudDispo , $uneOffre,
                                         $combsUnJour, $heureDeb, 
                                         $heureFin, $itJourOffre,
-                                        $cptEtudDispo, $etu);
+                                        $cptEtudDispo, $etu, $etuNull);
     }
     // Si aucun étudiant ne peut travailler à heureDeb
     if (!$trouveEtu) 
     {
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant
-        $EtuNull = new Etudiant;
-        $uneCombDUnJour.lstEtudiant()[] = $EtuNull;
-        combJour($uneOffre, $combsUnJour,
+        $uneCombDUnJour->lstEtudiant()[] = $etuNull;
+        calculerCombJour($uneOffre, $combsUnJour,
                  $uneCombDUnJour, $heureDeb+1,
-                 $heureFin, $itJourOffre);
+                 $heureFin, $itJourOffre, $etuNull);
     }
 }
 

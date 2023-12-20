@@ -1,17 +1,13 @@
 <?php
-include_once '../../classes_sae/Etudiant.php';
-include_once '../../classes_sae/CreneauRecherche.php';
-include_once '../../classes_sae/Jour.php';
-include_once '../../classes_sae/Offre.php';
-include_once '../../classes_sae/Etudiant.php';
+require_once 'classes_sae/Etudiant.php';
+require_once 'classes_sae/CreneauRecherche.php';
+require_once 'classes_sae/Jour.php';
+require_once 'classes_sae/Offre.php';
+require_once 'classes_sae/Etudiant.php';
 
-// Recuperer offre
-$OffrePath = './offres/offre1.json';
-$offreJson = file_get_contents($OffrePath);
-$offre = json_decode($offreJson, true);
 
 // Chemin du répertoire contenant les fichiers etudiants.JSON
-$dossierEtudiants = './etudiants/';
+$dossierEtudiants = 'ressources/donnees/etudiants/';
 
 // Charger les fichiers JSON des etudiants
 foreach (glob($dossierEtudiants . '*.json') as $cheminEtudiants) {
@@ -26,7 +22,7 @@ foreach (glob($dossierEtudiants . '*.json') as $cheminEtudiants) {
 $ineEtudiantNull = '000000000N';
 
 // Chemin du répertoire contenant les fichiers offres.JSON
-$dossierOffres = './offres/';
+$dossierOffres = 'ressources/donnees/offres/';
 
 // Charger les fichiers JSON des offres
 foreach (glob($dossierOffres . '*.json') as $cheminOffres) {
@@ -74,7 +70,7 @@ foreach ($etudiants as $etudiant) {
         $lstObjEtudiant[] = $etudiantInstance;
     } else {
         // Créer un objet Etudiant avec les données
-        $etudiantInstance = new Etudiant($etudiant['Etudiant']['ine'], $etudiant['Etudiant']['nom'], $etudiant['Etudiant']['prenom'], null);
+        $etudiantNull = new Etudiant($etudiant['Etudiant']['ine'], $etudiant['Etudiant']['nom'], $etudiant['Etudiant']['prenom'], null);
 
         // Parcourir les jours pour l'étudiant actuel
         foreach ($etudiant['Jour'] as $jourKey => $jourData) {
@@ -95,6 +91,9 @@ foreach ($etudiants as $etudiant) {
             }
             //Creer un jour
             $Jour = new Jour($jourData['jour'], $creneauxDuJour);
+
+            // Ajouter le jour à l'étudiant
+            $etudiantNull->ajouter_jour($Jour);
         }
     }
 }
@@ -104,13 +103,9 @@ $lstObjOffre = array();
 
 foreach ($offres as $offre) {
     // Créer un objet Offre
-    $offreInstance = new Offre($offre['Offre']['num'], $offre['Offre']['intitule'], null, null, null);
+    $offreInstance = new Offre($offre['Offre']['num'], $offre['Offre']['intitule'], null,,null);
 
-    // Créer un objet Critere
-    $critereData = $offre['Critere'];
-    $critere = new Critere(
-        $critereData['nbMinHeureEtudJour'], $critereData['HeureRepartieJour'], $critereData['nbMinEtudJour'], $critereData['nbMinEtudTotal'], $offreInstance);
-
+   
     // Associer le critère à l'offre
     $offreInstance->lierCriteres($critere);
 
@@ -129,63 +124,62 @@ foreach ($offres as $offre) {
         $offreInstance->ajouter_jour($jour);
     }
 
-    // Ajout objet Etudiant au tableau
+    // Ajout objet Offre au tableau
     $lstObjOffre[] = $offreInstance;
 }
 
-print "<h1>Etudiants</h1><hr>";
-//Test affichage des etudiants
-foreach ($etudiants as $etudiant) {
-    print "<B> Etudiant :</B><br>";
-    print "<B> INE :</B> " . $etudiant['Etudiant']['ine'] . "<br>";
-    print "<B>Nom :</B> " . $etudiant['Etudiant']['nom'] . "<br>";
-    print "<B>Prenom :</B> " . $etudiant['Etudiant']['prenom'] . "<br>";
 
-    foreach ($etudiant['Jour'] as $jourKey => $jourData) {
-        print "<B>Jour :</B> " . $jourData['jour'] . "<br>";
+// print "<h1>Etudiants</h1><hr>";
+// //Test affichage des etudiants
+// foreach ($etudiants as $etudiant) {
+//     print "<B> Etudiant :</B><br>";
+//     print "<B> INE :</B> " . $etudiant['Etudiant']['ine'] . "<br>";
+//     print "<B>Nom :</B> " . $etudiant['Etudiant']['nom'] . "<br>";
+//     print "<B>Prenom :</B> " . $etudiant['Etudiant']['prenom'] . "<br>";
 
-        foreach ($jourData as $creneauKey => $creneauData) {
-            if (strpos($creneauKey, 'CreneauRecherche') === 0) {
-                print "<B>Creneau Recherche :<br> </B> ";
-                print "Heure de début : " . $creneauData['heureDeb'] . "<br>";
-                print "Heure de fin : " . $creneauData['heureFin'] . "<br>";
-            }
-        }
-    }
+//     foreach ($etudiant['Jour'] as $jourKey => $jourData) {
+//         print "<B>Jour :</B> " . $jourData['jour'] . "<br>";
 
-    print "<hr>";
-}
-print "<h1>Offres</h1><hr>";
+//         foreach ($jourData as $creneauKey => $creneauData) {
+//             if (strpos($creneauKey, 'CreneauRecherche') === 0) {
+//                 print "<B>Creneau Recherche :<br> </B> ";
+//                 print "Heure de début : " . $creneauData['heureDeb'] . "<br>";
+//                 print "Heure de fin : " . $creneauData['heureFin'] . "<br>";
+//             }
+//         }
+//     }
 
-//Tester l'affichage des offres
-foreach ($offres as $offre) {
-    print "Numéro de l'offre: " . $offre['Offre']['num'] . "<br>";
-    print "Intitulé de l'offre: " . $offre['Offre']['intitule'] . "<br>";
+//     print "<hr>";
+// }
 
-    foreach ($offre['Jour'] as $jourKey => $jourData) {
-        print "<B>Jour :</B> " . $jourData['jour'] . "<br>";
+// print "<h1>Offres</h1><hr>";
 
-        foreach ($jourData as $creneauKey => $creneauData) {
-            if (strpos($creneauKey, 'CreneauRecherche') === 0) {
-                print "<B>Creneau Recherche :<br> </B> ";
-                print "Heure de début : " . $creneauData['heureDeb'] . "<br>";
-                print "Heure de fin : " . $creneauData['heureFin'] . "<br>";
-            }
-        }
-    }
+// //Tester l'affichage des offres
+// foreach ($offres as $offre) {
+//     print "Numéro de l'offre: " . $offre['Offre']['num'] . "<br>";
+//     print "Intitulé de l'offre: " . $offre['Offre']['intitule'] . "<br>";
 
-    // Afficher les critères associés à l'offre
-    print "<B>Critères:<br></B>";
-    foreach ($offre['Critere'] as $critereKey => $critereValue) {
-        print "$critereKey: $critereValue<br>";
-    }
+//     foreach ($offre['Jour'] as $jourKey => $jourData) {
+//         print "<B>Jour :</B> " . $jourData['jour'] . "<br>";
 
-    print "<hr>"; // Séparateur entre les offres
-}
+//         foreach ($jourData as $creneauKey => $creneauData) {
+//             if (strpos($creneauKey, 'CreneauRecherche') === 0) {
+//                 print "<B>Creneau Recherche :<br> </B> ";
+//                 print "Heure de début : " . $creneauData['heureDeb'] . "<br>";
+//                 print "Heure de fin : " . $creneauData['heureFin'] . "<br>";
+//             }
+//         }
+//     }
 
+//     // Afficher les critères associés à l'offre
+//     print "<B>Critères:<br></B>";
+//     foreach ($offre['Critere'] as $critereKey => $critereValue) {
+//         print "$critereKey: $critereValue<br>";
+//     }
 
-
-
+    
+//     print "<hr>"; // Séparateur entre les offres
+// }
 
 
 

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * @file    horairesEtuCorrespHorairesOffre.php
+ * @file    chercherCombJour.php
  * 
  * @author  AUDOUARD Raphaël / 1P'titJob
  * 
@@ -22,22 +23,23 @@
  * @param   $itJourOffre itérateur pointant sur un objet de classe Jour
  * @param   $etuNull objet de classe Etudiant
  */
-
-function chercherCombJour($uneOffre,$etuNull,
+require_once 'calculerCombJour.php';
+require_once 'classes_sae/Offre.php';
+function chercherCombJour(Offre $uneOffre,$etuNull,
                           $itJourOffre,$combsChaqueJour) {
     // Initialiser les variables
     $combsUnJour = [];
     $heureDeb = 0;
     $heureFin = 23;
-    $uneCombDUnJour = new CombJour;
+    $uneCombDUnJour = new CombJour(null, null);
 
     // Créer toutes les combinaisons du jour
-    combJour($uneOffre, $uneCombDUnJour,
+    calculerCombJour($uneOffre, $uneCombDUnJour,
              $heureDeb, $heureFin,
-             $itJourOffre, $combsUnJour);
+             $itJourOffre, $combsUnJour, $etuNull);
 
-    // Ajouter combsUnJour dans combsTsJours
-    $combsChaqueJour[]($combsUnJour);
+    // Ajouter combsUnJour dans combsChaqueJour
+    $combsChaqueJour->ajouterComposant($combsUnJour);
 
     $itJourOffre++;
     

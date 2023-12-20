@@ -1,5 +1,7 @@
 <?php
-    include '../classes_sae/CombOffre.php';
+    require_once 'classes_sae/CombOffre.php';
+    require_once 'fct/calculerCombSemaine.php';
+    require_once 'fct/chercherCombJour.php';
 
 /**
  * @file    faireComb.php
@@ -14,20 +16,21 @@
  * @param $etuNull un étudiant vide permettant de montrer quand aucun étudiant n'est dispo pour l'heure
  * 
  */
-    function faireComb($uneOffre, $etuNull) {
-        $combsOffre = new CombOffre();
+    function faireComb(Offre $uneOffre, $etuNull) {
+        $combsOffre = new CombOffre(null, null);
         $combsChaqueJour = array(array()); // liste  de liste combsUnJour
 
         // Chercher toutes les combinaisons
-        foreach ($uneOffre.get_planning() as $itJourOffre) {
+        foreach ($uneOffre->get_planning() as $itJourOffre) {
             // Chercher toutes les combinaisons d'un jour
+            chercherCombJour($uneOffre, $etuNull, $itJourOffre, $combsChaqueJour);
         }
 
         // Chercher toutes les combinaisons à partir des combinaisons de chaque jour
-        $uneCombOffre = new CombSemaine();
+        $uneCombOffre = new CombSemaine(null, null, null);
 
         $jourATraiter = $combsChaqueJour[0];
-        combSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre);
+        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre);
         
 
     }
