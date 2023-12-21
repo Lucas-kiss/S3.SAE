@@ -30,7 +30,7 @@
         $uneCombOffre = new CombSemaine(null, null, null);
 
         $jourATraiter = $combsChaqueJour[0];
-        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre);
+        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre, $etuNull);
 
     }
     

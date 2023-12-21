@@ -28,7 +28,7 @@ require_once 'classes_sae/Offre.php';
 function chercherCombJour(Offre $uneOffre,$etuNull,
                           $itJourOffre,$combsChaqueJour) {
     // Initialiser les variables
-    $combsUnJour = [];
+    $combsUnJour = array();
     $heureDeb = 0;
     $heureFin = 23;
     $uneCombDUnJour = new CombJour(null, null);
@@ -38,8 +38,6 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
              $heureDeb, $heureFin,
              $itJourOffre, $combsUnJour, $etuNull);
 
-    print_r($combsUnJour);
-
     // Ajouter combsUnJour dans combsChaqueJour
     foreach ($combsUnJour as $comb ) {
         $combsChaqueJour->ajouterComposant($comb);
@@ -47,8 +45,6 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
     }
 
     $itJourOffre++;
-    
-    print_r($combsChaqueJour);
 
 }
 

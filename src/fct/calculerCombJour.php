@@ -21,23 +21,24 @@
 require_once 'classes_sae/Jour.php';
 require_once 'classes_sae/CombJour.php';
 require_once 'fct/cpt_nb_etu_dispo_a_jourATraiter_et_heureDeb.php';
-function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin,$jourATraiter, $combsUnJour, $etuNull)
+require_once 'fct/chercherEtudiants.php';
+
+function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, $combsUnJour, Etudiant $etuNull)
 {
     if ($heureDeb != $heureFin) {
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
-        $itCreneauOffre = $jourATraiter->get_creneaux()[0];
-        var_dump($itCreneauOffre->get_heureDeb());
 
-            do  {
-                if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
-                    $horaireEstRecherche = true;
-                }
-                $itCreneauOffre;
+        foreach ($jourATraiter->get_creneaux() as $itCreneauOffre) {
+            if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
+                $horaireEstRecherche = true;
+                break;
             }
-            while (!($horaireEstRecherche) || ($itCreneauOffre != array_values($jourATraiter->get_creneaux())[0]));
+        }
 
         if ($horaireEstRecherche) {
+
+            var_dump($jourATraiter, $itCreneauOffre);
             //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
             $cptEtuDispo = cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb);
 
@@ -51,7 +52,7 @@ function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin
         }
     } else {
         //Calculer nbEtudiants de uneCombDUnJour
-        $nbEtudiants = 0; 
+        $nbEtudiants = 0;
         //liste temporaire comprenant les étudiants déjà comptés.
         $etuDejaVu = array();
         foreach ($uneCombDUnJour->get_lstEtudiant() as $etu) {
@@ -68,7 +69,7 @@ function calculerCombJour(Offre $uneOffre, $uneCombDUnJour, $heureDeb, $heureFin
 
         //$etuDejaVu->__destruct;//A verifier
 
-        if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre)) {
+        if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre, $etuNull)) {
             //Ajouter uneCombDUnJour à CombsUnJour
             $combsUnJour[] = $uneCombDUnJour;
         }
