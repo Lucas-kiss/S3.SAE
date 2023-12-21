@@ -18,14 +18,14 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
                 $uneCombDUnJour->ajouterEtudiant($etu);
                 calculerCombJour($uneOffre,
                     $uneCombDUnJour,
-                    $heureDeb + 1, $heureFin,
+                    $heureDeb+1 , $heureFin,
                     $itJourOffre,
                     $combsUnJour, $etuNull);
             } else {
                 $copieUneCombDUnJour = new CombJour($uneCombDUnJour->get_nbEtudiants(), $uneCombDUnJour->get_lstEtudiant());
                 calculerCombJour($uneOffre,
                     $copieUneCombDUnJour,
-                    $heureDeb + 1, $heureFin,
+                    $heureDeb+1 , $heureFin,
                     $itJourOffre,
                     $combsUnJour, $etuNull);
             }

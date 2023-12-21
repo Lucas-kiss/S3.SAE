@@ -23,22 +23,25 @@ require_once 'classes_sae/CombJour.php';
 require_once 'fct/cpt_nb_etu_dispo_a_jourATraiter_et_heureDeb.php';
 require_once 'fct/chercherEtudiants.php';
 
-function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, $combsUnJour, Etudiant $etuNull)
+function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, &$combsUnJour, Etudiant $etuNull)
 {
+
     if ($heureDeb != $heureFin) {
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
-
+        $heuredebANCien=$heureDeb;
+        print $heuredebANCien;
         foreach ($jourATraiter->get_creneaux() as $itCreneauOffre) {
+            var_dump($heureDeb,$jourATraiter->get_jour(),$heureFin,$itCreneauOffre->get_heureDeb(),$itCreneauOffre->get_heureFin());
             if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
-                $horaireEstRecherche = true;
+                echo '<h1>ee</h1>';
+                $horaireEstRecherche = true;    
                 break;
             }
         }
 
         if ($horaireEstRecherche) {
-
-            var_dump($jourATraiter, $itCreneauOffre);
+            echo 'ff';
             //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
             $cptEtuDispo = cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb);
 
@@ -47,20 +50,26 @@ function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureD
         } else {
             //Ajouter null à uneCombDUnJour.lstEtudaint
             $uneCombDUnJour->ajouterEtudiant(null);
-
-            calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb + 1, $heureFin, $jourATraiter, $combsUnJour, $etuNull); //A vérifier
+            if ($heureDeb != $heureFin) { 
+                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb +1, $heureFin, $jourATraiter, $combsUnJour, $etuNull);    
+            }
+      
         }
-    } else {
+    } 
+    else {
         //Calculer nbEtudiants de uneCombDUnJour
         $nbEtudiants = 0;
         //liste temporaire comprenant les étudiants déjà comptés.
         $etuDejaVu = array();
         foreach ($uneCombDUnJour->get_lstEtudiant() as $etu) {
             //si pas d'étudiant (null ou etuNull) et nouvel étudiant, alors nbEtudiants++
-            if ($etu != null && $etu != "etuNull") {
+            //PROBLEME ICI
+            if ($etu != null && $etu != $etuNull) {
+                echo "test";
                 if (!in_array($etu, $etuDejaVu)) {
                     $etuDejaVu[] = $etu;
                     $nbEtudiants++;
+                    echo "test";
                 }
             }
         }
@@ -72,7 +81,9 @@ function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureD
         if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre, $etuNull)) {
             //Ajouter uneCombDUnJour à CombsUnJour
             $combsUnJour[] = $uneCombDUnJour;
+            echo "test2";
         }
+
     }
 }
 ?>

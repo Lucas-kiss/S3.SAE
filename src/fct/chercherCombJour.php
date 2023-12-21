@@ -26,11 +26,11 @@
 require_once 'calculerCombJour.php';
 require_once 'classes_sae/Offre.php';
 function chercherCombJour(Offre $uneOffre,$etuNull,
-                          $itJourOffre,$combsChaqueJour) {
+                          $itJourOffre,&$combsChaqueJour) {
     // Initialiser les variables
     $combsUnJour = array();
     $heureDeb = 0;
-    $heureFin = 23;
+    $heureFin = 24;
     $uneCombDUnJour = new CombJour(null, null);
 
     // Créer toutes les combinaisons du jour
@@ -39,12 +39,8 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
              $itJourOffre, $combsUnJour, $etuNull);
 
     // Ajouter combsUnJour dans combsChaqueJour
-    foreach ($combsUnJour as $comb ) {
-        $combsChaqueJour->ajouterComposant($comb);
-        
-    }
+    $combsChaqueJour[]=$combsUnJour;
 
-    $itJourOffre++;
 
 }
 
