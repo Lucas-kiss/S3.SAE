@@ -16,7 +16,7 @@
  * @param $etuNull un étudiant vide permettant de montrer quand aucun étudiant n'est dispo pour l'heure
  * 
  */
-    function faireComb(Offre $uneOffre, $etuNull,$combsOffre) {
+    function faireComb(Offre $uneOffre, $etuNull, &$combsOffre) {
         $combsChaqueJour = array(array()); // liste  de liste combsUnJour
 
         // Chercher toutes les combinaisons

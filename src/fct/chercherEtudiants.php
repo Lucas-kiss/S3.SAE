@@ -29,30 +29,33 @@ require_once 'classes_sae/Jour.php';
  * @param   $cptEtudDispo de type Entier
  */
 
-function chercherEtudiants($uneOffre, $combsUnJour,
-    CombJour $uneCombDUnJour, int $heureDeb,
+function chercherEtudiants($uneOffre, &$combsUnJour,
+    CombJour &$uneCombDUnJour, int $heureDeb,
     int $heureFin, Jour $jourATraiter,
     $cptEtudDispo, $etuNull)
 {
     $trouveEtu = false;
-
     foreach ($uneOffre->get_candidats() as $etu) {
+
         // Faire pointer un itérateur sur le jour à traiter
-        foreach ($etu->get_planning() as $itJourEtu) {
+        foreach ($etu->get_planning() as $itJourEtu) { 
             // etu est dispo à jourATraiter
             if ($itJourEtu->get_jour() == $jourATraiter->get_jour()) {
+                // echo $cptEtudDispo;
+                // var_dump($etu->get_prenom());
                 break;
             }
 
         }
-
         // Vérifier si les horaires de etu correspondent aux horaires de l'Offre
         horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
             $uneCombDUnJour, $cptEtudDispo, $uneOffre,
             $combsUnJour, $heureDeb,
             $heureFin, $jourATraiter, $etu, $etuNull);
+
     }
 
+    var_dump($trouveEtu);
     // Si aucun étudiant ne peut travailler à heureDeb
     if (!$trouveEtu) {
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant

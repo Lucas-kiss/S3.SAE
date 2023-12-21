@@ -23,25 +23,23 @@ require_once 'classes_sae/CombJour.php';
 require_once 'fct/cpt_nb_etu_dispo_a_jourATraiter_et_heureDeb.php';
 require_once 'fct/chercherEtudiants.php';
 
-function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, &$combsUnJour, Etudiant $etuNull)
+function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, &$combsUnJour, Etudiant $etuNull)
 {
 
-    if ($heureDeb != $heureFin) {
+    if ($heureDeb < $heureFin) {
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
         $heuredebANCien=$heureDeb;
-        print $heuredebANCien;
+        print $heuredebANCien."\n";
         foreach ($jourATraiter->get_creneaux() as $itCreneauOffre) {
-            var_dump($heureDeb,$jourATraiter->get_jour(),$heureFin,$itCreneauOffre->get_heureDeb(),$itCreneauOffre->get_heureFin());
+            //var_dump($heureDeb,$jourATraiter->get_jour(),$heureFin,$itCreneauOffre->get_heureDeb(),$itCreneauOffre->get_heureFin());
             if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
-                echo '<h1>ee</h1>';
                 $horaireEstRecherche = true;    
                 break;
             }
         }
 
         if ($horaireEstRecherche) {
-            echo 'ff';
             //Compter le nb d'étudiants disponibles pour le jourATraiter et l'heureDeb
             $cptEtuDispo = cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb);
 
@@ -61,9 +59,12 @@ function calculerCombJour(Offre $uneOffre, CombJour $uneCombDUnJour, int $heureD
         $nbEtudiants = 0;
         //liste temporaire comprenant les étudiants déjà comptés.
         $etuDejaVu = array();
+        // var_dump($uneCombDUnJour->get_lstEtudiant());
         foreach ($uneCombDUnJour->get_lstEtudiant() as $etu) {
             //si pas d'étudiant (null ou etuNull) et nouvel étudiant, alors nbEtudiants++
-            //PROBLEME ICI
+
+            //PROBLEME ICI PARCE QUE YA PAS D'ETUDIANTS DANS ETU A CAUSE DE CHERCHEETUDIANTS.PHP
+
             if ($etu != null && $etu != $etuNull) {
                 echo "test";
                 if (!in_array($etu, $etuDejaVu)) {

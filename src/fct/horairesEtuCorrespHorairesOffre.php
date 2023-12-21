@@ -4,18 +4,24 @@ require_once 'classes_sae/Jour.php';
 require_once 'classes_sae/CombJour.php';
 
 
-function horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
-    $uneCombDUnJour,
+function horairesEtuCorrespHorairesOffre($itJourEtu, &$trouveEtu,
+    &$uneCombDUnJour,
     $cptEtudDispo, $uneOffre,
-    $combsUnJour, $heureDeb,
+    &$combsUnJour, $heureDeb,
     $heureFin, $itJourOffre,
     $etu, $etuNull)
 {
-
     foreach ($itJourEtu->get_creneaux() as $itCreneauEtu) {
+        
+        
         if (($heureDeb >= $itCreneauEtu->get_heureDeb()) && ($heureDeb < $itCreneauEtu->get_heureFin())) {
+
+     
+            $trouveEtu = true;
+
             if ($cptEtudDispo == 1) {
                 $uneCombDUnJour->ajouterEtudiant($etu);
+                                
                 calculerCombJour($uneOffre,
                     $uneCombDUnJour,
                     $heureDeb+1 , $heureFin,
@@ -23,14 +29,14 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
                     $combsUnJour, $etuNull);
             } else {
                 $copieUneCombDUnJour = new CombJour($uneCombDUnJour->get_nbEtudiants(), $uneCombDUnJour->get_lstEtudiant());
+                $copieUneCombDUnJour->ajouterEtudiant($etu);
+                var_dump($copieUneCombDUnJour);
                 calculerCombJour($uneOffre,
                     $copieUneCombDUnJour,
                     $heureDeb+1 , $heureFin,
                     $itJourOffre,
                     $combsUnJour, $etuNull);
             }
-
-            break;
         }
     }
 
