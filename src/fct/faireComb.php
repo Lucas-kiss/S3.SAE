@@ -27,9 +27,8 @@
         // Chercher toutes les combinaisons à partir des combinaisons de chaque jour
         $uneCombOffre = new CombSemaine(null, null, null);
         $i = 1;
-        $jourATraiter = $combsChaqueJour[$i];
-        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre, $etuNull, $i);    
-
+        calculerCombSemaine($uneOffre, $combsChaqueJour, $uneCombOffre, $combsOffre, $etuNull, $i);    
+        var_dump($combsOffre);
     }
     
 ?>
