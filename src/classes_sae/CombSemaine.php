@@ -128,7 +128,7 @@ class CombSemaine
      */
     public function verifNbMinEtud(Offre $uneOffre)
     {
-        return ($this->get_nbEtudiants() > $uneOffre->mesCriteres->get_nbMinEtudSemaine());
+        return ($this->get_nbEtudiants() > $uneOffre->get_mesCriteres()->get_nbMinEtudTotal());
     }
 
     /**
@@ -136,7 +136,7 @@ class CombSemaine
      */
     public function verifNbMinHeureEtud(Offre $uneOffre, $etuNull)
     {
-        $heureMinJour = $uneOffre->get_mesCriteres()->get_nbMinEtudSemaine();
+        $heureMinJour = $uneOffre->get_mesCriteres()->get_nbMinEtudTotal();
         foreach ($this->mesComposants as $combJour) {
             $cptEtu = 0;
             foreach ($combJour->get_lstEtudiant() as $etuCherche) {

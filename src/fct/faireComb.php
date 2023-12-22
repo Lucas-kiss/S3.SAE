@@ -23,14 +23,12 @@
         foreach ($uneOffre->get_planning() as $itJourOffre) {
             // Chercher toutes les combinaisons d'un jour
             chercherCombJour($uneOffre, $etuNull, $itJourOffre, $combsChaqueJour);
-          
         }
-
         // Chercher toutes les combinaisons à partir des combinaisons de chaque jour
         $uneCombOffre = new CombSemaine(null, null, null);
-
-        $jourATraiter = $combsChaqueJour[0];
-        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre, $etuNull);
+        $i = 1;
+        $jourATraiter = $combsChaqueJour[$i];
+        calculerCombSemaine($uneOffre, $combsChaqueJour, $jourATraiter, $uneCombOffre, $combsOffre, $etuNull, $i);    
 
     }
     

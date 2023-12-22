@@ -40,6 +40,7 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
 
     // Ajouter combsUnJour dans combsChaqueJour
     $combsChaqueJour[]=$combsUnJour;
+    
 
 
 }

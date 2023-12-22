@@ -41,8 +41,6 @@ function chercherEtudiants($uneOffre, &$combsUnJour,
         foreach ($etu->get_planning() as $itJourEtu) { 
             // etu est dispo à jourATraiter
             if ($itJourEtu->get_jour() == $jourATraiter->get_jour()) {
-                // echo $cptEtudDispo;
-                // var_dump($etu->get_prenom());
                 break;
             }
 
@@ -55,7 +53,6 @@ function chercherEtudiants($uneOffre, &$combsUnJour,
 
     }
 
-    var_dump($trouveEtu);
     // Si aucun étudiant ne peut travailler à heureDeb
     if (!$trouveEtu) {
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant

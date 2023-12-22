@@ -30,7 +30,6 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, &$trouveEtu,
             } else {
                 $copieUneCombDUnJour = new CombJour($uneCombDUnJour->get_nbEtudiants(), $uneCombDUnJour->get_lstEtudiant());
                 $copieUneCombDUnJour->ajouterEtudiant($etu);
-                var_dump($copieUneCombDUnJour);
                 calculerCombJour($uneOffre,
                     $copieUneCombDUnJour,
                     $heureDeb+1 , $heureFin,
