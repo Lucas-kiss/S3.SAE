@@ -1,0 +1,23 @@
+table, caption, th, td {
+
+    border: 2px solid black;
+      border-collapse: collapse;
+    
+    }
+
+ th, td {
+    padding: 8px;
+
+    }
+
+.etuNull {
+    background-color: rgb(241, 211, 113);
+}
+
+.pasEtu {
+    background-color: rgb(243, 107, 107);
+}
+
+.unEtu {
+    background-color: rgb(191, 236, 140);
+}

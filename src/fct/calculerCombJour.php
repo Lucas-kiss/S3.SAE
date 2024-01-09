@@ -69,6 +69,7 @@ function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heure
         }
 
         $uneCombDUnJour->set_nbEtudiants($nbEtudiants);
+        $uneCombDUnJour->set_jour($jourATraiter->get_jour());
 
         //$etuDejaVu->__destruct;//A verifier
 

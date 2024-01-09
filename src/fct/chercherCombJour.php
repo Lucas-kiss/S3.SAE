@@ -31,7 +31,7 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
     $combsUnJour = array();
     $heureDeb = 0;
     $heureFin = 24;
-    $uneCombDUnJour = new CombJour(null, null);
+    $uneCombDUnJour = new CombJour(null, null, null);
 
     // Créer toutes les combinaisons du jour
     calculerCombJour($uneOffre, $uneCombDUnJour,
@@ -40,9 +40,6 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
 
     // Ajouter combsUnJour dans combsChaqueJour
     $combsChaqueJour[]=$combsUnJour;
-    
-
-
 }
 
 ?>

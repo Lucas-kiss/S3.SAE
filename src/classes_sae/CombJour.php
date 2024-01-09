@@ -21,16 +21,18 @@ class CombJour
     // ATTRIBUTS
     private $nbEtudiants;
     private $lstEtudiant = array();
+    private $jour;
 
     // CONSTRUCTEURS
 
     /**
      * @brief Constructeur de CombJour avec passage des variables en paramètres
      */
-    public function CombJour($nbEtudiants, $lstEtudiant)
+    public function CombJour($nbEtudiants, $lstEtudiant, $jour)
     {
         $this->set_nbEtudiants($nbEtudiants);
         $this->set_lstEtudiant($lstEtudiant);
+        $this->set_jour($jour);
     }
 
     /**
@@ -40,6 +42,7 @@ class CombJour
     {
         $this->set_nbEtudiants($uneCombJour->get_nbEtudiants());
         $this->set_lstEtudiant($uneCombJour->get_lstEtudiant());
+        $this->set_jour($uneCombJour->get_jour());
     }
 
     // METHODES
@@ -59,6 +62,23 @@ class CombJour
     {
         $this->nbEtudiants = $nbEtudiants;
     }
+
+    /**
+     * @brief Renvoie le jour de la CombJour
+     */
+    public function get_jour()
+    {
+        return $this->jour;
+    }
+
+    /**
+     * @brief Modifie le jour de la CombJour par celui passé en paramètre
+     */
+    public function set_jour($unJour)
+    {
+        $this->jour = $unJour;
+    }
+
 
     /**
      * @brief Renvoie la lstEtudiant de la CombJour
