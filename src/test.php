@@ -13,12 +13,7 @@ foreach($lstObjEtudiant as $etu) {
 
 
 $combsOffre = new CombOffre(null,null);
-echo'<pre>';
-print_r($lstObjOffre[0]);
-echo '</pre>';
 faireComb($lstObjOffre[0], $etudiantNull,$combsOffre);
-echo'<pre>';
-print_r($combsOffre);
-echo '</pre>';
+var_dump($combsOffre);
 
 ?>

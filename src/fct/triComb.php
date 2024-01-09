@@ -1,6 +1,6 @@
 <?php  
-    include 'classes_sae/CombOffre.php';
-    include 'classes_sae/Offre.php';
+    require_once 'classes_sae/CombOffre.php';
+    require_once 'classes_sae/Offre.php';
 
 /**
  * @file    triComb.php

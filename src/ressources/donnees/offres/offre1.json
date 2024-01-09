@@ -5,8 +5,7 @@
     },
     "Critere": {
         "nbMinHeureEtudJour": 1,
-        "HeureRepartieJour": true,
-        "nbMinEtudJour": 1,
+        "nbMinEtudJour": 2,
         "nbMinEtudTotal": 1
     },
     "Jour": {

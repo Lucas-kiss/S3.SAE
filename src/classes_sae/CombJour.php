@@ -107,7 +107,7 @@ class CombJour
      */
     public function verifNbMinHeureEtud(Offre $uneOffre, $etuNull)
     {
-        $heureMinJour = $uneOffre->get_mesCriteres()->get_nbMinEtudJour();
+        $heureMinJour = $uneOffre->get_mesCriteres()->get_nbMinHeureEtudJour();
 
         foreach ($this->get_lstEtudiant() as $etuCherche) {
             if ($etuCherche != null && $etuCherche != $etuNull) {

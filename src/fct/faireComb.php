@@ -2,6 +2,7 @@
     require_once 'classes_sae/CombOffre.php';
     require_once 'fct/calculerCombSemaine.php';
     require_once 'fct/chercherCombJour.php';
+    require_once 'fct/triComb.php';
 
 /**
  * @file    faireComb.php
@@ -28,7 +29,11 @@
         $uneCombOffre = new CombSemaine(null, null, null);
         $i = 1;
         calculerCombSemaine($uneOffre, $combsChaqueJour, $uneCombOffre, $combsOffre, $etuNull, $i);    
-        var_dump($combsOffre);
+        $combsOffre->set_nbCombinaisons(count($combsOffre->get_mesComposants()));
+        
+        // Trier les combinaisons
+        triComb($combsOffre, $uneOffre);
+        
     }
     
 ?>
