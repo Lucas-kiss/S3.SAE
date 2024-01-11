@@ -25,6 +25,9 @@
             // Chercher toutes les combinaisons d'un jour
             chercherCombJour($uneOffre, $etuNull, $itJourOffre, $combsChaqueJour);
         }
+        
+        var_dump($combsChaqueJour); // après suppr
+
         // Chercher toutes les combinaisons à partir des combinaisons de chaque jour
         $uneCombOffre = new CombSemaine(null, null, null);
         $i = 1;
