@@ -101,11 +101,11 @@ class CombOffre {
         }
     }
 
-    public function echangerComposant(CombSemaine $comp1, CombSemaine $comp2)
+    public function echangerComposant($ind1, $ind2)
     {
-        $temp = $comp1;
-        $comp1 = $comp2;
-        $comp2 = $temp;
+        $temp = $this->mesComposants[$ind1];
+        $this->mesComposants[$ind1] = $this->mesComposants[$ind2];
+        $this->mesComposants[$ind2] = $temp;
     }
 }
 

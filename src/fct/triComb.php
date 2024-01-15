@@ -18,7 +18,7 @@
 
     function triComb (CombOffre &$combsOffre, Offre $uneOffre)
     {
-        for ($i=0; $i < count($combsOffre->get_mesComposants()); $i++)
+        for ( $i=0; $i < count($combsOffre->get_mesComposants()); $i++)
         {   
             for ($j=0; $j < count($combsOffre->get_mesComposants())-1; $j++)
             {   
@@ -40,10 +40,8 @@
 
                     if ($nbEtuCombActuelle > $nbEtuCombProchain)
                     {
-                        //tri par tauxRemp décroissant
-                        $comp1 = $combsOffre->get_mesComposants()[$j];
-                        $comp2 = $combsOffre->get_mesComposants()[$j+1];
-                        $combsOffre->echangerComposant($comp1, $comp2);
+                        // échanger les 2 combs 
+                        $combsOffre->echangerComposant($j, $j+1);                        
                     }
                 }
             }
