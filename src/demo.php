@@ -16,7 +16,7 @@ foreach ($lstObjEtudiant as $etu) {
 $combsOffre = new CombOffre(null, null);
 faireComb($lstObjOffre[0], $etudiantNull, $combsOffre);
 
-
+print '<h2> Combinaisons retenues de la semaine</h2> <br>';
 print 'Nombre de combinaisons : ' . $combsOffre->get_nbCombinaisons() . '<br><hr>';
 $cptComb = 0;
 foreach ($combsOffre->get_mesComposants() as $unComp) {
@@ -69,7 +69,6 @@ foreach ($combsOffre->get_mesComposants() as $unComp) {
                     print '<td class=pasEtu></td>';
                 }
             }
-            
         }
 
         ?>
