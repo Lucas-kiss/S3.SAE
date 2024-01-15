@@ -9,7 +9,7 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, &$trouveEtu,
     $cptEtudDispo, $uneOffre,
     &$combsUnJour, $heureDeb,
     $heureFin, $itJourOffre,
-    $etu, $etuNull)
+    $etu, $etuNull, &$lstCombJourSupp)
 {
     foreach ($itJourEtu->get_creneaux() as $itCreneauEtu) {
         
@@ -26,7 +26,7 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, &$trouveEtu,
                     $uneCombDUnJour,
                     $heureDeb+1 , $heureFin,
                     $itJourOffre,
-                    $combsUnJour, $etuNull);
+                    $combsUnJour, $etuNull, $lstCombJourSupp);
             } else {
                 $copieUneCombDUnJour = new CombJour($uneCombDUnJour->get_nbEtudiants(), $uneCombDUnJour->get_lstEtudiant(), $uneCombDUnJour->get_jour());
                 $copieUneCombDUnJour->ajouterEtudiant($etu);
@@ -34,7 +34,7 @@ function horairesEtuCorrespHorairesOffre($itJourEtu, &$trouveEtu,
                     $copieUneCombDUnJour,
                     $heureDeb+1 , $heureFin,
                     $itJourOffre,
-                    $combsUnJour, $etuNull);
+                    $combsUnJour, $etuNull, $lstCombJourSupp);
             }
         }
     }

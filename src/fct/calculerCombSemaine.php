@@ -90,6 +90,8 @@ function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, CombSemaine &$un
         }
 
     }
+
+    
 }
 
 ?>

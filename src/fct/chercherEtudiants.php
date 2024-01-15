@@ -32,7 +32,7 @@ require_once 'classes_sae/Jour.php';
 function chercherEtudiants($uneOffre, &$combsUnJour,
     CombJour &$uneCombDUnJour, int $heureDeb,
     int $heureFin, Jour $jourATraiter,
-    $cptEtudDispo, $etuNull)
+    $cptEtudDispo, $etuNull, &$lstCombJourSupp)
 {
     $trouveEtu = false;
     foreach ($uneOffre->get_candidats() as $etu) {
@@ -49,7 +49,7 @@ function chercherEtudiants($uneOffre, &$combsUnJour,
         horairesEtuCorrespHorairesOffre($itJourEtu, $trouveEtu,
             $uneCombDUnJour, $cptEtudDispo, $uneOffre,
             $combsUnJour, $heureDeb,
-            $heureFin, $jourATraiter, $etu, $etuNull);
+            $heureFin, $jourATraiter, $etu, $etuNull, $lstCombJourSupp);
 
     }
 
@@ -58,7 +58,7 @@ function chercherEtudiants($uneOffre, &$combsUnJour,
         // Ajouter EtuNull dans uneCombDUnJour.lstEtudiant
         $uneCombDUnJour->ajouterEtudiant($etuNull);
         calculerCombJour($uneOffre, $uneCombDUnJour,
-            $heureDeb + 1, $heureFin, $jourATraiter, $combsUnJour, $etuNull);
+            $heureDeb + 1, $heureFin, $jourATraiter, $combsUnJour, $etuNull, $lstCombJourSupp);
     }
 }
 
