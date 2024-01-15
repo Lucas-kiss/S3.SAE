@@ -1,0 +1,34 @@
+{
+    "Etudiant": {
+        "ine": "758426958B",
+        "nom": "MARTIN",
+        "prenom": "Lucas"
+    },
+    "Jour": {
+        "Jour1": {
+            "jour": "Lundi"
+        },
+        "Jour2": {
+            "jour": "Mardi"
+        },
+        "Jour3": {
+            "jour": "Mercredi"
+        },
+        "Jour4": {
+            "jour": "Jeudi"
+        },
+        "Jour5": {
+            "jour": "Vendredi",
+            "CreneauRecherche": {
+                "heureDeb": 9,
+                "heureFin": 15
+            }
+        },
+        "Jour6": {
+            "jour": "Samedi"
+        },
+        "Jour7": {
+            "jour": "Dimanche"
+        }
+    }
+}
