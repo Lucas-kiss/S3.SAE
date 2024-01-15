@@ -20,7 +20,7 @@
     {
         for ($i=0; $i < count($combsOffre->get_mesComposants()); $i++)
         {   
-                for ($j=0; $j < count($combsOffre->get_mesComposants())-1; $j++)
+            for ($j=0; $j < count($combsOffre->get_mesComposants())-1; $j++)
             {   
                 $tauxCombActuelle = $combsOffre->get_mesComposants()[$j]->get_tauxRemplissage();
                 $tauxCombProchain = $combsOffre->get_mesComposants()[$j+1]->get_tauxRemplissage();
@@ -41,9 +41,9 @@
                     if ($nbEtuCombActuelle > $nbEtuCombProchain)
                     {
                         //tri par tauxRemp décroissant
-                        $temp = $combsOffre->get_mesComposants()[$j+1];
-                        $combsOffre->get_mesComposants()[$j+1] = $combsOffre->get_mesComposants()[$j];
-                        $combsOffre->get_mesComposants()[$j] = $temp;
+                        $comp1 = $combsOffre->get_mesComposants()[$j];
+                        $comp2 = $combsOffre->get_mesComposants()[$j+1];
+                        $combsOffre->echangerComposant($comp1, $comp2);
                     }
                 }
             }

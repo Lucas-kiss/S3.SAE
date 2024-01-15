@@ -100,6 +100,13 @@ class CombOffre {
             }
         }
     }
+
+    public function echangerComposant(CombSemaine $comp1, CombSemaine $comp2)
+    {
+        $temp = $comp1;
+        $comp1 = $comp2;
+        $comp2 = $temp;
+    }
 }
 
 ?>
