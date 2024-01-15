@@ -23,8 +23,6 @@ Les critères pour l’entreprise sont :
 
 - le nb minimum d'heures par jour d’offre que doit faire un étudiant 
 
-- si la répartition des heures entre les étudiants sur un jour d’offre vise à être égale ou inégale (càd environ ou pas le même nombre d’heures par étudiant sur un jour d’offre) 
-
 Si plusieurs combinaisons ayant le même taux de satisfaction ressortent, elles seront listées à la suite (ex-aequo) avec un indice. 
 
 **Maquettes du problème algorithmique :**  
