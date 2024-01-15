@@ -23,7 +23,7 @@ require_once 'classes_sae/CombJour.php';
 require_once 'fct/cpt_nb_etu_dispo_a_jourATraiter_et_heureDeb.php';
 require_once 'fct/chercherEtudiants.php';
 
-function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, &$combsUnJour, Etudiant $etuNull)
+function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heureDeb, int $heureFin, Jour $jourATraiter, &$combsUnJour, Etudiant $etuNull, &$lstCombJourSupp)
 {
 
     if ($heureDeb < $heureFin) {
@@ -42,12 +42,12 @@ function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heure
             $cptEtuDispo = cptNbEtuDispoAJourATraiterHeureDeb($uneOffre, $jourATraiter, $heureDeb);
 
             //Chercher les étudiants qui correspondent à l'heureDeb
-            chercherEtudiants($uneOffre, $combsUnJour, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $cptEtuDispo, $etuNull); //A vérifier
+            chercherEtudiants($uneOffre, $combsUnJour, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $cptEtuDispo, $etuNull, $lstCombJourSupp);
         } else {
             //Ajouter null à uneCombDUnJour.lstEtudaint
             $uneCombDUnJour->ajouterEtudiant(null);
             if ($heureDeb != $heureFin) { 
-                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb +1, $heureFin, $jourATraiter, $combsUnJour, $etuNull);    
+                calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb +1, $heureFin, $jourATraiter, $combsUnJour, $etuNull, $lstCombJourSupp);    
             }
       
         }
@@ -71,13 +71,14 @@ function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heure
         $uneCombDUnJour->set_nbEtudiants($nbEtudiants);
         $uneCombDUnJour->set_jour($jourATraiter->get_jour());
 
-        //$etuDejaVu->__destruct;//A verifier
-
-        var_dump($uneCombDUnJour); // avant suppr
-
         if ($uneCombDUnJour->verifNbMinEtud($uneOffre) && $uneCombDUnJour->verifNbMinHeureEtud($uneOffre, $etuNull)) {
             //Ajouter uneCombDUnJour à CombsUnJour
             $combsUnJour[] = $uneCombDUnJour;
+        }
+        else {
+            // Combinaisons supprimées
+            $lstCombJourSupp[] = $uneCombDUnJour;
+
         }
 
     }

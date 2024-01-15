@@ -33,13 +33,82 @@ function chercherCombJour(Offre $uneOffre,$etuNull,
     $heureFin = 24;
     $uneCombDUnJour = new CombJour(null, null, null);
 
+    $lstCombJourSupp = array();
+
     // Créer toutes les combinaisons du jour
     calculerCombJour($uneOffre, $uneCombDUnJour,
              $heureDeb, $heureFin,
-             $itJourOffre, $combsUnJour, $etuNull);
+             $itJourOffre, $combsUnJour, $etuNull, $lstCombJourSupp);
 
     // Ajouter combsUnJour dans combsChaqueJour
     $combsChaqueJour[]=$combsUnJour;
+
+
+    // afficher les combinaisons retenues
+    print '<b> Combinaisons retenues du '.$combsUnJour[0]->get_jour(). '</b>';
+    // afficher les heures de la journée
+    ?>
+    <table>
+    <tr>
+            <td>Jour</td>
+            <?php
+            for ($i = 0; $i < 24; $i++) {
+                print '<td>' . $i . 'h</td>';
+            }
+            ?>
+        </tr>
+    <?php
+    $cptComb = 0;
+    // afficher les combinaisons de la journée
+    foreach ($combsUnJour as $uneCombJour)
+    {
+        // afficher une comb de la journée
+        $cptComb++;
+        print '<tr> <td>Comb' .$cptComb . '</td>';
+        foreach ($uneCombJour->get_lstEtudiant() as $unEtu) {
+            if ($unEtu == null) {
+                print '<td class=pasEtu></td>';
+            } else if ($unEtu == $etuNull) {
+                print '<td class=etuNull></td>';
+            } else {
+                print '<td class=unEtu>' . $unEtu->get_prenom() . ' ' . $unEtu->get_nom() . '</td>';
+            }
+        }
+    }
+    print '</table> <br>';
+    
+    // afficher les combinaisons non retenues
+    print '<b> Combinaisons non retenues du '.$lstCombJourSupp[0]->get_jour(). '</b>';
+    ?>
+    <table>
+    <tr>
+            <td>Jour</td>
+            <?php
+            for ($i = 0; $i < 24; $i++) {
+                print '<td>' . $i . 'h</td>';
+            }
+            ?>
+        </tr>
+    <?php
+    $cptComb = 0;
+    // afficher les combinaisons de la journée
+    foreach ($lstCombJourSupp as $uneCombJour)
+    {
+        // afficher une comb de la journée
+        $cptComb++;
+        print '<tr> <td>Comb' .$cptComb . '</td>';
+        foreach ($uneCombJour->get_lstEtudiant() as $unEtu) {
+            if ($unEtu == null) {
+                print '<td class=pasEtu></td>';
+            } else if ($unEtu == $etuNull) {
+                print '<td class=etuNull></td>';
+            } else {
+                print '<td class=unEtu>' . $unEtu->get_prenom() . ' ' . $unEtu->get_nom() . '</td>';
+            }
+        }
+    }
+    print '</table> <br>';
+
 }
 
 ?>
