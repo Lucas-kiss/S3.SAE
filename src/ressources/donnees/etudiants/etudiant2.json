@@ -30,7 +30,11 @@
             }
         },
         "Jour5": {
-            "jour": "Vendredi"
+            "jour": "Vendredi",
+            "CreneauRecherche": {
+                "heureDeb": 12,
+                "heureFin": 13
+            }
         },
         "Jour6": {
             "jour": "Samedi"
