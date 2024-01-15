@@ -6,7 +6,7 @@
     "Critere": {
         "nbMinHeureEtudJour": 1,
         "nbMinEtudJour": 2,
-        "nbMinEtudTotal": 1
+        "nbMinEtudTotal": 5
     },
     "Jour": {
         "Jour1": {

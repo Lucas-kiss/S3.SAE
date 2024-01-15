@@ -19,7 +19,7 @@ require_once 'classes_sae/CombSemaine.php';
  * @param $combsOffre un pointeur vers un objet de la classe CombOffre, qui est toutes les combinaisons possibles de l'Offre
  * 
  */
-function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, CombSemaine &$uneCombOffre, CombOffre &$combsOffre, Etudiant $etuNull, $i)
+function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, CombSemaine &$uneCombOffre, CombOffre &$combsOffre, Etudiant $etuNull, $i, &$lstCombSemaineSupp)
 {
 
     if ($i < count($combsChaqueJour)) {
@@ -35,10 +35,10 @@ function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, CombSemaine &$un
             if ($cptPossibilite > 1) {
                 $copieUneCombOffre = new CombSemaine($uneCombOffre->get_tauxRemplissage(), $uneCombOffre->get_nbEtudiants(), $uneCombOffre->get_mesComposants());
                 $copieUneCombOffre->ajouterComposant($element);
-                calculerCombSemaine($uneOffre, $combsChaqueJour, $copieUneCombOffre, $combsOffre, $etuNull, $i + 1);
+                calculerCombSemaine($uneOffre, $combsChaqueJour, $copieUneCombOffre, $combsOffre, $etuNull, $i + 1, $lstCombSemaineSupp);
             } else {
                 $uneCombOffre->ajouterComposant($element);
-                calculerCombSemaine($uneOffre, $combsChaqueJour, $uneCombOffre, $combsOffre, $etuNull, $i + 1);
+                calculerCombSemaine($uneOffre, $combsChaqueJour, $uneCombOffre, $combsOffre, $etuNull, $i + 1, $lstCombSemaineSupp);
             }
         }
     } else {
@@ -86,7 +86,8 @@ function calculerCombSemaine(Offre $uneOffre, $combsChaqueJour, CombSemaine &$un
         } 
         else 
         {
-            //$uneCombOffre.__destruct();
+            // Combinaisons supprimées
+            $lstCombSemaineSupp[] = $uneCombOffre;
         }
 
     }
