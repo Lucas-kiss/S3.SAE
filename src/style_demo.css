@@ -21,3 +21,11 @@ table, caption, th, td {
 .unEtu {
     background-color: rgb(191, 236, 140);
 }
+
+.combValide  {
+    color :rgb(191, 236, 140);
+}
+
+.combInvalide {
+    color :rgb(243, 107, 107);
+}
