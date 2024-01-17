@@ -7,35 +7,40 @@
  * @date 2023-12-19
  * 
  */
-include_once 'Critere.php';
+require_once 'classes_sae/Critere.php';
+require_once 'classes_sae/Etudiant.php';
 
 class Offre
 {
     /* ATTRIBUTS */
     private $num;
     private $intitule;
-    private $desJours;
-    private $desEtudiants;
-    private $mesCriteres;
+    private $candidats;
+    private  $mesCriteres;
+    private $planning = array(); // ensemble des créneaux où l'étudiant est disponible : array de boolean (1 = dispo, 0 = pas dispo)
 
     /* CONSTRUCTEUR */
 
     /**
      * @brief Constructeur d'Offre avec passage des variables en paramètres
      */
-    public function Offre($num, $intitule)
-    {
+    public function Offre($num,$intitule,$candidats, $planning,$mesCriteres) {
         $this->num = $num;
         $this->intitule = $intitule;
+        $this->candidats = $candidats;
+        $this->planning = $planning;
+        $this->mesCriteres = $mesCriteres;
     }
 
     /**
      * @brief Constructeur par recopie de l'Offre
      */
-    public function Offre_copie(Offre $unJour)
+    public function Offre_copie(Offre $uneOffre)
     {
-        $this->num = $unJour->num;
-        $this->intitule = $unJour->intitule;
+        $this->num = $uneOffre->num;
+        $this->intitule = $uneOffre->intitule;
+        $this->candidats = $uneOffre->candidats;
+        $this->mesCriteres = $uneOffre->mesCriteres;
     }
 
     /* METHODES */
@@ -75,33 +80,33 @@ class Offre
     /**
      * @brief Modifie les jours de l'Offre par celui passé en paramètre
      */
-    public function set_desJours(&$desJours)
+    public function set_planning(&$unPlanning)
     {
-        $this->desJours = &$desJours;
+        $this->planning = &$unPlanning;
     }
 
     /**
      * @brief Renvoie les jours de l'Offre
      */
-    public function get_desJours()
+    public function get_planning()
     {
-        return $this->desJours;
+        return $this->planning;
     }
 
     /**
      * @brief Modifie les étudiants candidats à l'Offre par ceux passés en paramètre
      */
-    public function set_desEtudiants(&$desEtudiants)
+    public function set_candidats(&$candidats)
     {
-        $this->desEtudiants = &$desEtudiants;
+        $this->candidats = &$candidats;
     }
 
     /**
      * @brief Renvoie les étudiants candidats à l'Offre
      */
-    public function get_desEtudiants()
+    public function get_candidats()
     {
-        return $this->desEtudiants;
+        return $this->candidats;
     }
 
     /**
@@ -135,16 +140,43 @@ class Offre
      * @brief Lie les critères à l'Offre
      */
     public function lierCriteres(Critere &$desCriteres)
-{
-    if ($this->get_mesCriteres() == null && $desCriteres->get_monOffre() == null) {
-        $this->set_mesCriteres($desCriteres);
-        $desCriteres->set_monOffre($this);
-    } else {
-        $this->delierCriteres($desCriteres);
+    {
+        if ($this->get_mesCriteres() == null ) {
+            $this->set_mesCriteres($desCriteres);
+            $desCriteres->set_monOffre($this);
+        } 
     }
-}
 
 
+    /**
+     * @brief Ajoute un jour dans le planning de l'Etudiant
+     */
+    public function ajouter_jour(Jour &$unJour)
+    {
+        $this->planning[] = $unJour;
+    }
+
+    /**
+     * @brief Supprime un jour dans le planning de l'Etudiant
+     */
+    public function supprimer_jour(Jour &$unJour)
+    {
+        if (isset($this->planning[$unJour->get_jour()])) {
+            unset($this->planning[$unJour->get_jour()]);
+        }
+
+    }
+
+    public function ajouter_etudiant(Etudiant $unEtu) {
+        $this->candidats[] = $unEtu;
+    }
+
+    public function supprimer_etudiant(Etudiant $unEtu) {
+        if (isset($this->candidats[$unEtu->get_ine()])) {
+            unset($this->candidats[$unEtu->get_ine()]);
+        }
+    }
+    
 }
 
 ?>

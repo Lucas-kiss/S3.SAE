@@ -14,8 +14,8 @@
  * @details CombSemaine est une classe qui est composée d'un tableau de combJour mesComposants (une combinaison possible de la semaine), du nbEtudiants de la combinaison et du tauxRemplissage (100 % si répond à tous les hoaires recherchés dans l'offre)
  */
 
-include 'CombJour.php';
-include 'Offre.php';
+require_once 'classes_sae/CombJour.php';
+require_once 'classes_sae/Offre.php';
 
 class CombSemaine
 {
@@ -35,16 +35,6 @@ class CombSemaine
         $this->set_tauxRemplissage($tauxRemplissage);
         $this->set_nbEtudiants($nbEtudiants);
         $this->set_mesComposants($comp);
-    }
-
-    /**
-     * @brief Constructeur par recopie de CombSemaine
-     */
-    public function CombSemaine_copie(CombSemaine $uneCombSemaine)
-    {
-        $this->set_tauxRemplissage($uneCombSemaine->get_tauxRemplissage());
-        $this->set_nbEtudiants($uneCombSemaine->get_nbEtudiants());
-        $this->set_mesComposants($uneCombSemaine->get_mesComposants());
     }
 
     // METHODES
@@ -113,7 +103,7 @@ class CombSemaine
         if ($this->existeComposant($unComposant)) {
             foreach ($this->mesComposants as $comp) {
                 if ($comp == $unComposant)
-                unset($this->mesComposants[$comp]);
+                    unset($this->mesComposants[$comp]);
             }
         }
     }
@@ -124,7 +114,7 @@ class CombSemaine
     public function existeComposant(CombJour $unComposant)
     {
         foreach ($this->mesComposants as $comp) {
-            if ($comp.isset($unComposant)) {
+            if ($comp . isset($unComposant)) {
                 return true;
             } else {
                 return false;
@@ -138,28 +128,9 @@ class CombSemaine
      */
     public function verifNbMinEtud(Offre $uneOffre)
     {
-        return ($this->get_nbEtudiants() > $uneOffre->mesCriteres->get_nbMinEtudJour());
+        return ($this->get_nbEtudiants() >= $uneOffre->get_mesCriteres()->get_nbMinEtudTotal());
     }
 
-    /**
-     * @brief Vérifie si le nb minimum d'heures par Etudiant est supérieur à celui donné en Critere de l'Offre passée en paramètre
-     */
-    public function verifNbMinHeureEtud(Offre $uneOffre)
-    {
-        foreach ($this->mesComposants as $combJour) {
-            foreach($combJour->get_lstEtudiant() as $etud)
-            {
-                $nbHeure = array_count_values($etud);
-
-                if ($nbHeure < $uneOffre->mesCriteres->get_nbMinEtudJour()) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            }
-        }
-    }
 }
 
 ?>

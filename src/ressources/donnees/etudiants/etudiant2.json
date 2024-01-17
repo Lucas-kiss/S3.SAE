@@ -1,38 +1,40 @@
 {
     "Etudiant": {
-        "Etudiant2": {
-            "ine": "123456786AK",
-            "nom": "DURANT",
-            "prenom": "Chloé"
-        }
+        "ine": "123456786AK",
+        "nom": "DURANT",
+        "prenom": "Chloé"
     },
     "Jour": {
         "Jour1": {
             "jour": "Lundi",
-            "CreneauRecherche1.1": {
+            "CreneauRecherche": {
                 "heureDeb": 10,
                 "heureFin": 13
             }
         },
         "Jour2": {
-            "jour": "Mardi",
-            "CreneauRecherche2.1": {
-                "heureDeb": 10,
-                "heureFin": 11
-            },
-            "CreneauRecherche2.2": {
-                "heureDeb": 12,
-                "heureFin": 14
-            }
+            "jour": "Mardi"
         },
         "Jour3": {
             "jour": "Mercredi"
         },
         "Jour4": {
-            "jour": "Jeudi"
+            "jour": "Jeudi",
+            "CreneauRecherche1": {
+                "heureDeb": 10,
+                "heureFin": 11
+            },
+            "CreneauRecherche2": {
+                "heureDeb": 12,
+                "heureFin": 14
+            }
         },
         "Jour5": {
-            "jour": "Vendredi"
+            "jour": "Vendredi",
+            "CreneauRecherche": {
+                "heureDeb": 12,
+                "heureFin": 13
+            }
         },
         "Jour6": {
             "jour": "Samedi"

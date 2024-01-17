@@ -1,5 +1,5 @@
 <?php
-include_once 'CreneauRecherche.php';
+require_once 'classes_sae/CreneauRecherche.php';
 /**
  * @file Jour.php
  * @author fconstans

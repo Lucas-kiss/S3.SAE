@@ -1,17 +1,12 @@
 {
     "Offre": {
-        "Offre1": {
-            "num": 11,
-            "intitule": "AA"
-        }
+        "num": 11,
+        "intitule": "AA"
     },
     "Critere": {
-        "Critere1": {
-            "nbMinHeureEtudJour": 1,
-            "HeureRepartieJour": true,
-            "nbMinEtudJour": 1,
-            "nbMinEtudTotal": 1
-        }
+        "nbMinHeureEtudJour": 1,
+        "nbMinEtudJour": 2,
+        "nbMinEtudTotal": 3
     },
     "Jour": {
         "Jour1": {
@@ -36,6 +31,13 @@
             },
             "CreneauRecherche3.2": {
                 "heureDeb": 13,
+                "heureFin": 14
+            }
+        },
+        "Jour4": {
+            "jour": "Vendredi",
+            "CreneauRecherche4": {
+                "heureDeb": 12,
                 "heureFin": 14
             }
         }

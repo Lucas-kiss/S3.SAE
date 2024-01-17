@@ -17,21 +17,21 @@
             }
         },
         "Jour2": {
-            "jour": "Mardi"
-        },
-        "Jour3": {
-            "jour": "Mercredi",
+            "jour": "Mardi",
             "CreneauRecherche": {
                 "heureDeb": 11,
                 "heureFin": 14
             }
         },
-        "Jour4": {
-            "jour": "Jeudi",
+        "Jour3": {
+            "jour": "Mercredi",
             "CreneauRecherche": {
                 "heureDeb": 10,
                 "heureFin": 14
             }
+        },
+        "Jour4": {
+            "jour": "Jeudi"
         },
         "Jour5": {
             "jour": "Vendredi"

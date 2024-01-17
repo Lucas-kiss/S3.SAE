@@ -13,7 +13,7 @@
  * 
  * @details CombOffre est une classe qui est composée d'un tableau de combSemaine mesComposants (toutes les combinaisons possibles pour la semaine) et du nbCombinaisons de la combinaison
  */
-include 'CombSemaine.php';
+require_once 'classes_sae/CombSemaine.php';
 class CombOffre {
 
     // ATTRIBUTS 
@@ -26,12 +26,12 @@ class CombOffre {
     /**
      * @brief Constructeur de CombOffre avec passage des variables en paramètres
      */
-    private function CombOffre($nbComb, $comp) {
+    public function CombOffre($nbComb, $comp) {
         $this->set_nbCombinaisons = $nbComb;
         $this->set_mesComposants = $comp;
     }
 
-    private function CombOffre_copie(CombOffre $uneCombOffre) {
+    public function CombOffre_copie(CombOffre $uneCombOffre) {
         $this->set_nbCombinaisons = $uneCombOffre->nbCombinaisons;
         $this->set_mesComposants = $uneCombOffre->mesComposants;
     }
@@ -99,6 +99,13 @@ class CombOffre {
                 return false;
             }
         }
+    }
+
+    public function echangerComposant($ind1, $ind2)
+    {
+        $temp = $this->mesComposants[$ind1];
+        $this->mesComposants[$ind1] = $this->mesComposants[$ind2];
+        $this->mesComposants[$ind2] = $temp;
     }
 }
 

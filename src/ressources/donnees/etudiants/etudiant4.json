@@ -1,8 +1,8 @@
 {
     "Etudiant": {
-        "ine": "000000000N",
-        "nom": "NULL",
-        "prenom": "NULL"
+        "ine": "758426958B",
+        "nom": "MARTIN",
+        "prenom": "Lucas"
     },
     "Jour": {
         "Jour1": {
@@ -18,7 +18,11 @@
             "jour": "Jeudi"
         },
         "Jour5": {
-            "jour": "Vendredi"
+            "jour": "Vendredi",
+            "CreneauRecherche": {
+                "heureDeb": 9,
+                "heureFin": 15
+            }
         },
         "Jour6": {
             "jour": "Samedi"
