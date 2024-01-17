@@ -30,7 +30,6 @@ function calculerCombJour(Offre $uneOffre, CombJour &$uneCombDUnJour, int $heure
         //Verifier si l'entreprise recherche un étudiant pour heureDeb
         $horaireEstRecherche = false;
         foreach ($jourATraiter->get_creneaux() as $itCreneauOffre) {
-            //var_dump($heureDeb,$jourATraiter->get_jour(),$heureFin,$itCreneauOffre->get_heureDeb(),$itCreneauOffre->get_heureFin());
             if (($heureDeb >= $itCreneauOffre->get_heureDeb()) && ($heureDeb < $itCreneauOffre->get_heureFin())) {
                 $horaireEstRecherche = true;    
                 break;

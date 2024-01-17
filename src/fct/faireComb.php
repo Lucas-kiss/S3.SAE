@@ -19,6 +19,62 @@ require_once 'fct/triComb.php';
  */
 function faireComb(Offre $uneOffre, $etuNull, &$combsOffre, &$lstCombSemaineSupp)
 {
+    ?>
+    <!-- AFFICHER LE PLANNING DE L'OFFRE -->
+    <h1>Planning de l'offre</h1>
+    <table>
+        <!-- Afficher les heures de la journée -->
+        <tr>
+            <td>Jour</td>
+            <?php
+            for ($i = 0; $i < 24; $i++) {
+                print '<td>' . $i . 'h</td>';
+            }
+            ?>
+        </tr>
+
+        <!-- Afficher les combinaisons retenues-->
+        <?php
+        // liste des jours de la semaine
+        $lstJours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        // on parcourt tous les jours de la semaine
+        foreach ($lstJours as $leJour) {
+            $jourDansOffre = false;
+            // on parcourt tous les jours de l'offre
+            foreach ($uneOffre->get_planning() as $jourATraiter) {
+                // si le jour est compris dans l'offre alors on affiche la ligne du tableau avec les horaires
+                if ($leJour == $jourATraiter->get_jour()) {
+                    print '<tr> <td>' . $leJour . '</td>';
+                    $jourDansOffre = true;
+                    // parcourir toutes les heures de la journée
+                    for ($heureCourante = 0; $heureCourante < 24; $heureCourante++)
+                    {
+                        $horaireEstRecherche = false;
+                        // parcourir les creneaux pour vérifier si l'offre recherche quelqu'un à l'heureCourante
+                        foreach ($jourATraiter->get_creneaux() as $itCreneauOffre) {
+                            if (($heureCourante >= $itCreneauOffre->get_heureDeb()) && ($heureCourante < $itCreneauOffre->get_heureFin())) {
+                                print '<td class=unEtu></td>';
+                                $horaireEstRecherche = true;
+                                break;
+                            }
+                        }
+                        if (!$horaireEstRecherche)
+                        {
+                            print '<td class=pasEtu></td>';
+                        }
+                    }
+                }
+            }
+            // si le jour n'est pas compris dans l'offre alors on affiche une ligne vide
+            if ($jourDansOffre == false) {
+                print '<tr> <td>' . $leJour . '</td>';
+                for ($i = 0; $i < 24; $i++) {
+                    print '<td class=pasEtu></td>';
+                }
+            }
+        }
+    print '</table> <hr>';
+
     $combsChaqueJour = array(array()); // liste  de liste combsUnJour
 
     print '<h1> Combinaisons par jour </h1>';
