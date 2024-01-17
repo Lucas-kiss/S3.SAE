@@ -57,7 +57,7 @@ function chercherCombJour(
 
     // afficher les combinaisons retenues
     if (count($combsUnJour) > 0) {
-        print '<b> Combinaisons retenues du ' . $combsUnJour[0]->get_jour() . '</b>';
+        print '<b class=combValide> Combinaisons retenues du ' . $combsUnJour[0]->get_jour() . '</b>';
         // afficher les heures de la journée
         ?>
         <table>
@@ -92,7 +92,7 @@ function chercherCombJour(
 
     // afficher les combinaisons non retenues
     if (count($lstCombJourSupp) > 0) {
-        print '<b> Combinaisons non retenues du ' . $lstCombJourSupp[0]->get_jour() . '</b>';
+        print '<b class=combInvalide> Combinaisons non retenues du ' . $lstCombJourSupp[0]->get_jour() . '</b>';
         ?>
             <table>
                 <tr>
