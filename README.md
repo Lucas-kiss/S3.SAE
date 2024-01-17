@@ -59,7 +59,10 @@ Les membres du projet sont :
   - AUDOUARD Raphaël (FlocAud)
 
 **Lien demos :**
-Jeu de test n°1 avec 3 jours d'offre(branche: demo)
+Jeu de test n°1 avec 3 jours d'offre(branche: demo) 
 Jeu de test n°2 avec 4 jours d'offre(branche: jeuxDeTestDemo)
 
-http://lakartxela.iutbayonne.univ-pau.fr/~kbeguinel/1PtitJob/S3.SAE/src/demo.php
+http://lakartxela.iutbayonne.univ-pau.fr/~kbeguinel/1PtitJob/S3.SAE/src/demo.php 
+
+**Lien documentation doxygen :**
+https://lucas-kiss.github.io/S3.SAE/index.html
