@@ -16,7 +16,7 @@
  * @param   $heureDeb de type Entier
  * @param   $heureFin de type Entier
  * @param   $jourATraiter objet de classe Jour
- * @param   $combsUnJour Aray objet de classe CombJour
+ * @param   $combsUnJour Aray d'objet de classe CombJour
  */
     function calculerCombJour($uneOffre, $uneCombDUnJour, $heureDeb, $heureFin, $jourATraiter, $combsUnJour)
     {

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SAE: Référence du fichier src/classes_sae/CombOffre.php</title>
+<title>SAE: Référence du fichier src/fct/calculerCombSemaine.php</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,30 +69,40 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_db800d0050a0a124d5f422c49334f6d2.html">classes_sae</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_634325df4890202055f441fe917270a1.html">fct</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Structures de données</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier CombOffre.php</div></div>
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier calculerCombSemaine.php</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Création de la classe <a class="el" href="class_comb_offre.html" title="Cette classe définit les CombOffre pour une Offre.">CombOffre</a>.  
+<p>Fonction appelée dans la fonction calculerCombSemaine() Calcule les <a class="el" href="class_comb_semaine.html" title="Cette classe définit les CombSemaine pour une Offre.">CombSemaine</a> de l'offre, càd une combinaison de la semaine.  
 <a href="#details">Plus de détails...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Structures de données</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comb_offre.html">CombOffre</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette classe définit les <a class="el" href="class_comb_offre.html" title="Cette classe définit les CombOffre pour une Offre.">CombOffre</a> pour une <a class="el" href="class_offre.html">Offre</a>.  <a href="class_comb_offre.html#details">Plus de détails...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a81e2dfc6cede311b6ea3101c16e950ae"><td class="memItemLeft" align="right" valign="top"><a id="a81e2dfc6cede311b6ea3101c16e950ae" name="a81e2dfc6cede311b6ea3101c16e950ae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>calculerCombSemaine</b> (<a class="el" href="class_offre.html">Offre</a> $uneOffre, $combsChaqueJour, $jourATraiter, <a class="el" href="class_comb_semaine.html">CombSemaine</a> &amp;$uneCombOffre, <a class="el" href="class_comb_offre.html">CombOffre</a> &amp;$combsOffre)</td></tr>
+<tr class="separator:a81e2dfc6cede311b6ea3101c16e950ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Création de la classe <a class="el" href="class_comb_offre.html" title="Cette classe définit les CombOffre pour une Offre.">CombOffre</a>. </p>
+<div class="textblock"><p>Fonction appelée dans la fonction calculerCombSemaine() Calcule les <a class="el" href="class_comb_semaine.html" title="Cette classe définit les CombSemaine pour une Offre.">CombSemaine</a> de l'offre, càd une combinaison de la semaine. </p>
 <dl class="section author"><dt>Auteur</dt><dd>fconstans </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-12-19 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>19/12/2023</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$uneOffre</td><td>objet de classe <a class="el" href="class_offre.html">Offre</a> </td></tr>
+    <tr><td class="paramname">$combsChaqueJour</td><td>tableau composé de toutes les combinaisons pour chaque jour chaque jour </td></tr>
+    <tr><td class="paramname">$jourATraiter</td><td>objet de type <a class="el" href="class_jour.html" title="Cette classe définit un Jour à partir de son jour et le tableau de ses créneaux associés.">Jour</a> correspondant à un jour de la semaine où on chercher à calculer toutes les combinaisons du jour </td></tr>
+    <tr><td class="paramname">$uneCombOffre</td><td>un pointeur vers un objet de la classe <a class="el" href="class_comb_semaine.html" title="Cette classe définit les CombSemaine pour une Offre.">CombSemaine</a>, qui est une combinaison possible de l'<a class="el" href="class_offre.html">Offre</a> </td></tr>
+    <tr><td class="paramname">$combsOffre</td><td>un pointeur vers un objet de la classe <a class="el" href="class_comb_offre.html" title="Cette classe définit les CombOffre pour une Offre.">CombOffre</a>, qui est toutes les combinaisons possibles de l'<a class="el" href="class_offre.html">Offre</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

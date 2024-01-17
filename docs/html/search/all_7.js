@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['retirercomposant_0',['retirerComposant',['../class_comb_offre.html#aca7ac751b1ca93cb5407dbd5b87bd26b',1,'CombOffre\retirerComposant()'],['../class_comb_semaine.html#a14e8a1cc7944ded0c0db0b9708a8e1d2',1,'CombSemaine\retirerComposant()']]],
-  ['retireretudiant_1',['retirerEtudiant',['../class_comb_jour.html#ade9d6ef33e3f44eafeb816e555410e63',1,'CombJour']]]
+  ['liercriteres_0',['lierCriteres',['../class_offre.html#a3f6d593695f585b80bee39115161610c',1,'Offre']]],
+  ['lieroffre_1',['lierOffre',['../class_critere.html#a7668f0a974199c13e78db3dcee0a2fbd',1,'Critere']]]
 ];

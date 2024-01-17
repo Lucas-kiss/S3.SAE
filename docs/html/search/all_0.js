@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['ajouter_5fcreneau_0',['ajouter_creneau',['../class_etudiant.html#af04843783fd9a3df73dd10b5cab93def',1,'Etudiant']]],
-  ['ajoutercomposant_1',['ajouterComposant',['../class_comb_offre.html#a1b7285edd6e12647ac1573cd9c55928e',1,'CombOffre\ajouterComposant()'],['../class_comb_semaine.html#a138726557ac05d76d4e6bc2c347c6a69',1,'CombSemaine\ajouterComposant()']]],
-  ['ajouteretudiant_2',['ajouterEtudiant',['../class_comb_jour.html#a77e7f565d13c5ff8652389362bf69bc7',1,'CombJour']]]
+  ['ajouter_5fcreneau_0',['ajouter_creneau',['../class_etudiant.html#a85b43da6736a3c352ab61bf1343d5650',1,'Etudiant']]],
+  ['ajoutercomposant_1',['ajouterComposant',['../class_comb_offre.html#a39567c2925bbee306dfe5aa19b038d50',1,'CombOffre\ajouterComposant()'],['../class_comb_semaine.html#a1ee1d8eb7f6620dd94f8001e7a4e9af6',1,'CombSemaine\ajouterComposant()']]],
+  ['ajoutercreneau_2',['ajouterCreneau',['../class_jour.html#a3f5a232b9cec0845a60cb854f764dadd',1,'Jour']]],
+  ['ajouteretudiant_3',['ajouterEtudiant',['../class_comb_jour.html#a3313addd7f7105e39ddb83828dc493b7',1,'CombJour']]]
 ];

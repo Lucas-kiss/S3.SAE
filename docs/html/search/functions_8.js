@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['verifnbminetud_0',['verifNbMinEtud',['../class_comb_jour.html#a7d8ea457cca37cb1839abfda06d0a54e',1,'CombJour\verifNbMinEtud()'],['../class_comb_semaine.html#a4747a095e98593ce76c968d38ca72d3e',1,'CombSemaine\verifNbMinEtud()']]],
-  ['verifnbminheureetud_1',['verifNbMinHeureEtud',['../class_comb_jour.html#a79d986a2d6be281d5949815360cbd087',1,'CombJour\verifNbMinHeureEtud()'],['../class_comb_semaine.html#a2112eda89ca5911f98c2b5141b688089',1,'CombSemaine\verifNbMinHeureEtud()']]]
+  ['offre_0',['Offre',['../class_offre.html#ae89f57e081e8297c7beb38551a3cfcac',1,'Offre']]],
+  ['offre_5fcopie_1',['Offre_copie',['../class_offre.html#afba13ff48935c8b01de2f8d012998426',1,'Offre']]]
 ];

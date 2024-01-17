@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['combjour_0',['CombJour',['../class_comb_jour.html',1,'CombJour'],['../class_comb_jour.html#af306752b834e1c5ef37102403b2f3daa',1,'CombJour\CombJour()']]],
-  ['combjour_2ephp_1',['CombJour.php',['../_comb_jour_8php.html',1,'']]],
-  ['combjour_5fcopie_2',['CombJour_copie',['../class_comb_jour.html#adfb72ea0b9b56cbbe5b816ede85d4574',1,'CombJour']]],
-  ['comboffre_3',['CombOffre',['../class_comb_offre.html',1,'']]],
-  ['comboffre_2ephp_4',['CombOffre.php',['../_comb_offre_8php.html',1,'']]],
-  ['combsemaine_5',['CombSemaine',['../class_comb_semaine.html',1,'CombSemaine'],['../class_comb_semaine.html#a97da2bbd5c3857f51b542631e5b20fe6',1,'CombSemaine\CombSemaine()']]],
-  ['combsemaine_2ephp_6',['CombSemaine.php',['../_comb_semaine_8php.html',1,'']]],
-  ['combsemaine_5fcopie_7',['CombSemaine_copie',['../class_comb_semaine.html#a845c6cbf0d30f33207fb244dbf02e1c2',1,'CombSemaine']]],
-  ['creneaurecherche_8',['CreneauRecherche',['../class_creneau_recherche.html',1,'CreneauRecherche'],['../class_creneau_recherche.html#a67c71b84ea18055da1fd894d57a4b662',1,'CreneauRecherche\CreneauRecherche()']]],
-  ['creneaurecherche_2ephp_9',['CreneauRecherche.php',['../_creneau_recherche_8php.html',1,'']]],
-  ['creneaurecherche_5fcopie_10',['CreneauRecherche_copie',['../class_creneau_recherche.html#a552f689a1a4fe515ba267265e9b8c956',1,'CreneauRecherche']]],
-  ['critere_11',['Critere',['../class_critere.html',1,'']]]
+  ['calculercombjour_2ephp_0',['calculerCombJour.php',['../calculer_comb_jour_8php.html',1,'']]],
+  ['calculercombsemaine_2ephp_1',['calculerCombSemaine.php',['../calculer_comb_semaine_8php.html',1,'']]],
+  ['combjour_2',['CombJour',['../class_comb_jour.html',1,'CombJour'],['../class_comb_jour.html#af533879b59ea6787f6e69f3ba0e845fc',1,'CombJour\CombJour()']]],
+  ['combjour_2ephp_3',['CombJour.php',['../_comb_jour_8php.html',1,'']]],
+  ['combjour_5fcopie_4',['CombJour_copie',['../class_comb_jour.html#a18ff6f1de08bb01b07fb97c2ce72afb3',1,'CombJour']]],
+  ['comboffre_5',['CombOffre',['../class_comb_offre.html',1,'']]],
+  ['comboffre_2ephp_6',['CombOffre.php',['../_comb_offre_8php.html',1,'']]],
+  ['combsemaine_7',['CombSemaine',['../class_comb_semaine.html',1,'CombSemaine'],['../class_comb_semaine.html#a728cf978e83dc7f3c77e0ea7e71752f2',1,'CombSemaine\CombSemaine()']]],
+  ['combsemaine_2ephp_8',['CombSemaine.php',['../_comb_semaine_8php.html',1,'']]],
+  ['combsemaine_5fcopie_9',['CombSemaine_copie',['../class_comb_semaine.html#aafcdbbb9827a48e024ca97f9880d4308',1,'CombSemaine']]],
+  ['cpt_5fnb_5fetu_5fdispo_5fà_5fjouratraiter_5fet_5fheuredeb_2ephp_10',['cpt_nb_etu_dispo_à_jourATraiter_et_heureDeb.php',['../cpt__nb__etu__dispo___xC3_xA0__jour_a_traiter__et__heure_deb_8php.html',1,'']]],
+  ['creneaurecherche_11',['CreneauRecherche',['../class_creneau_recherche.html',1,'CreneauRecherche'],['../class_creneau_recherche.html#a3de1da9b9e842b41c0901390144166fa',1,'CreneauRecherche\CreneauRecherche()']]],
+  ['creneaurecherche_2ephp_12',['CreneauRecherche.php',['../_creneau_recherche_8php.html',1,'']]],
+  ['creneaurecherche_5fcopie_13',['CreneauRecherche_copie',['../class_creneau_recherche.html#a710b2b93b03c95aac3d89427900231af',1,'CreneauRecherche']]],
+  ['critere_14',['Critere',['../class_critere.html',1,'Critere'],['../class_critere.html#aaf6b1a7d68eaa1d4668cd89d17255bc8',1,'Critere\Critere()']]],
+  ['critere_2ephp_15',['Critere.php',['../_critere_8php.html',1,'']]]
 ];
