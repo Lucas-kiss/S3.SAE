@@ -1,13 +1,24 @@
 body {
-  background-color: lightblue;
+    margin: 0;
+    background-color: lightblue;
 }
-  
+
+header {
+    background-color: orange;
+    height: 110px;
+}
+
 h1 {
-  color: rgb(1, 0, 82);
-  text-align: center;
+    color: rgb(1, 0, 82);
+    text-align: center;
+    font-size: 25px;
 }
-  
-p {
-  font-family: verdana;
-  font-size: 20px;
+
+article {
+    padding: 10px;
+    margin: 10px 10px;
+  }
+
+section {
+    display: flex;
 }
