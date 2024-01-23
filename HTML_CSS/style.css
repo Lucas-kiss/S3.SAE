@@ -3,22 +3,31 @@ body {
     background-color: lightblue;
 }
 
-header {
+div.entete {
     background-color: orange;
-    height: 110px;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    grid-auto-columns: auto;
 }
 
-h1 {
+div.entete > img {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+div.entete > h1 {
+    grid-row: 1;
+    grid-column: 2;
     color: rgb(1, 0, 82);
-    text-align: center;
     font-size: 25px;
+    text-align: center;
 }
 
-article {
-    padding: 10px;
-    margin: 10px 10px;
-  }
-
-section {
-    display: flex;
+div.entete > p {
+    grid-row: 1;
+    grid-column: 3;
 }
