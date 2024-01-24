@@ -3,32 +3,32 @@ body {
     background-color: lightblue;
 }
 
-div.entete {
+.wrapper {
     background-color: orange;
     display: grid;
-    grid-template-columns: 3fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    grid-auto-columns: auto;
+    grid-gap: 10px;
+    grid-auto-columns: minmax(100px, auto);
 }
 
-div.entete > img {
+.logo {
     grid-row: 1;
     grid-column: 1;
 }
 
-div.entete > h1 {
+.titre {
     grid-row: 1;
     grid-column: 2;
     color: rgb(1, 0, 82);
-    font-size: 25px;
-    align-items: left;
+    text-align: center;
 }
 
-div.entete > button {
+.connexion {
     grid-row: 1;
     grid-column: 3;
-    align-items: right;
+    text-align: right;
 }
