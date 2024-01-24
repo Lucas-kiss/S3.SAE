@@ -7,7 +7,28 @@
         }
         else
         {
+            /*$bdd = "ldbrito_bd";
+            $host = "lakartxela.iutbayonne.univ-pau.fr";
+            $user = "ldbrito_bd";
+            $pass = "ldbrito_bd";
+            $nomTable = "CD";
+
+            $conn = mysqli_connect($host, $user, $pass, $bdd) or die ("Error de BDD");
+
+            $select = mysqli_query($conn, "SELECT * FROM users WHERE email = '".$_POST['email']."'");
             
+            if(mysqli_num_rows($select)) 
+            {
+                exit('Cette adresse email est déjà utilisé');
+            }
+            else*/ if ($_POST['Type']="etudiant")
+            {
+                header ('location: FormulaireEtudiant.php');
+            }
+            else
+            {
+                header ('location: FormulaireEtreprise.php');
+            }
         }
     }
 ?>
@@ -36,16 +57,27 @@
                         <td class="noborder"><input type="email" id="mail" name="mail" required/></td>
                     </tr>
                     <tr>
-                        <th class="noborder"><label for="MdP">Mot de passe :</label></th>
-                        <td class="noborder"><input type="password" id="MdP" name="MdP" required/></td>
+                        <th class="noborder">
+                            <label for="MdP">Mot de passe :</label>
+                        </th>
+                        <td class="noborder">
+                            <input type="password" id="MdP" name="MdP" minlength="8" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="noborder"></td>
+                        <td class="noborder"><h6>8 caractères minimum, dont 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</h6></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="ConfirmMdP">Confirmer le mot de passe :</label></th>
                         <td class="noborder"><input type="password" id="ConfirmMdP" name="ConfirmMdP" required/></td>
                     </tr>
+                    <tr>
+                        <td class="noborder"></td>
+                        <td class="noborder"><input type="submit" value="Se connecter"></td>
+                    </tr>
                 </tbody>
             </table>
-            <input type="submit" value="Se connecter">
         </form>
     </body>
 </html>
