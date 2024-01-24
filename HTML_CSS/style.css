@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    background-color: lightblue;
+}
+
+.wrapper {
+    background-color: orange;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    grid-auto-columns: minmax(100px, auto);
+}
+
+.logo {
+    grid-row: 1;
+    grid-column: 1;
+    margin: 10px;
+}
+
+.titre {
+    grid-row: 1;
+    grid-column: 2;
+    color: rgb(1, 0, 82);
+    text-align: center;
+}
+
+.connexion {
+    grid-row: 1;
+    grid-column: 3;
+    text-align: right;
+    margin: 10px;
+}
