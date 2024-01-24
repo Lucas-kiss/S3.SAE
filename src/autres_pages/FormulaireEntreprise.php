@@ -11,20 +11,16 @@
             <table class="noborder">
                 <tbody>
                     <tr>
-                        <th class="noborder"><label for="ine">Numéro INE :</label></th>
-                        <td class="noborder"><input type="text" id="ine" pattern="[0-9]{9}[0-9A-Z]{1}[A-Z]{1}" title="9 Chiffres + 2 Lettres ou 10 Chiffres + 1 Lettre" placeholder="123456789AB" required/> *</td>
+                        <th class="noborder"><label for="siren">Numéro SIREN :</label></th>
+                        <td class="noborder"><input type="text" id="siren" pattern="[12]{1}[0-9]{8}" title="9 Chiffres qui commence par 1 ou 2" placeholder="123456789" required/> *</td>
                     </tr>
                     <tr>
-                        <th class="noborder"><label for="prenom">Prénom :</label></th>
-                        <td class="noborder"><input type="text" id="prenom" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Xavier" required/> *</td>
+                        <th class="noborder"><label for="nom">Nom de l'entreprise :</label></th>
+                        <td class="noborder"><input type="text" id="nom" placeholder="E.Leclerc" required/> *</td>
                     </tr>
                     <tr>
-                        <th class="noborder"><label for="nom">Nom :</label></th>
-                        <td class="noborder"><input type="text" id="nom" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Dupont" required/> *</td>
-                    </tr>
-                    <tr>
-                        <th class="noborder"><label for="naissance">Date de naissance :</label></th>
-                        <td class="noborder"><input type="date" id="naissance" required/> *</td>
+                        <th class="noborder"><label for="domaine">Domaine d'activité :</label></th>
+                        <td class="noborder"><input type="text" id="domaine" placeholder="Grande distribution" required/> *</td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="adresse">Adresse postale :</label></th>
@@ -41,6 +37,14 @@
                     <tr>
                         <th class="noborder"><label for="telephone">Téléphone :</label></th>
                         <td class="noborder"><input type="tel" id="telephone" pattern="[0]{1}[0-9]{9}" title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789" required/> *</td>
+                    </tr>
+                    <tr>
+                        <th class="noborder"><label for="nomResp">Nom du responsable :</label></th>
+                        <td class="noborder"><input type="text" id="nomResp" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Xavier" required/> *</td>
+                    </tr>
+                    <tr>
+                        <th class="noborder"><label for="telResp">Téléphone du responsable :</label></th>
+                        <td class="noborder"><input type="tel" id="telResp" pattern="[0]{1}[0-9]{9}" title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789" required/> *</td>
                     </tr>
                     <tr>
                         <td class="noborder">

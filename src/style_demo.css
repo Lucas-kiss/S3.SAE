@@ -21,3 +21,8 @@ table, caption, th, td {
 .unEtu {
     background-color: rgb(191, 236, 140);
 }
+
+.noborder
+{
+    border-style:none;
+}
