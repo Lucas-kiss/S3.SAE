@@ -1,10 +1,14 @@
 <?php
+    session_start();
+
     if (isset($_POST['MdP']))
     {
         if ($_POST['MdP']!=$_POST['ConfirmMdP'])
         {
             echo "Veuillez reseigné le même mot de passe";
         }
+        //else if ()
+
         else
         {
             /*$bdd = "ldbrito_bd";
@@ -21,14 +25,20 @@
             {
                 exit('Cette adresse email est déjà utilisé');
             }
-            else*/ if ($_POST['Type']="etudiant")
-            {
-                header ('location: FormulaireEtudiant.php');
-            }
             else
-            {
-                header ('location: FormulaireEtreprise.php');
-            }
+            {*/ 
+                $_SESSION['mail']=$_POST['mail'];
+                $_SESSION['MdP']=$_POST['MdP'];
+
+                if ($_POST['Type']=="etudiant")
+                {
+                    header ('location: FormulaireEtudiant.php');
+                }
+                else
+                {
+                    header ('location: FormulaireEntreprise.php');
+                }
+            //}
         }
     }
 ?>
@@ -38,7 +48,6 @@
     <head>
         <meta charset="UTF-8">
         <title>1PtitJob</title>
-        <link rel="stylesheet" href="../style_demo.css">
     </head>
     <body>
         <H1>Inscription</H1>
@@ -54,19 +63,19 @@
                     </tr>
                     <tr>
                         <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
-                        <td class="noborder"><input type="email" id="mail" name="mail" required/></td>
+                        <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine.fr" required/></td>
                     </tr>
                     <tr>
                         <th class="noborder">
                             <label for="MdP">Mot de passe :</label>
                         </th>
                         <td class="noborder">
-                            <input type="password" id="MdP" name="MdP" minlength="8" required/>
+                            <input type="password" id="MdP" name="MdP" minlength="8"  required/>
                         </td>
                     </tr>
                     <tr>
                         <td class="noborder"></td>
-                        <td class="noborder"><h6>8 caractères minimum, dont 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</h6></td>
+                        <td class="noborder"><label>8 caractères minimum, dont 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</label></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="ConfirmMdP">Confirmer le mot de passe :</label></th>
@@ -74,7 +83,7 @@
                     </tr>
                     <tr>
                         <td class="noborder"></td>
-                        <td class="noborder"><input type="submit" value="Se connecter"></td>
+                        <td class="noborder"><input type="submit" value="Continuer"></td>
                     </tr>
                 </tbody>
             </table>

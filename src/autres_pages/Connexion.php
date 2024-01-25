@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>1PtitJob</title>
-        <link rel="stylesheet" href="../style_demo.css">
     </head>
     <body>
         <H1>Connexion</H1>
@@ -12,7 +11,7 @@
                 <tbody>
                     <tr>
                         <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
-                        <td class="noborder"><input type="email" id="mail" required/></td>
+                        <td class="noborder"><input type="email" id="mail" placeholder="exemple@domaine" required/></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="MdP">Mot de passe :</label></th>

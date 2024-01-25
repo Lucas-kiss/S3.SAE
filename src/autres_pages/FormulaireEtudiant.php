@@ -1,9 +1,12 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>1PtitJob</title>
-        <link rel="stylesheet" href="../style_demo.css">
     </head>
     <body>
         <H1>Mes Inscriptions</H1>
