@@ -3,41 +3,53 @@ body {
     background-color: #FFE4C5;
 }
 
+
 .wrapper {
-    background-color: #F5AD5B;
+    background-color: white;
+    height: 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1;
-    justify-content: space-between;
     align-items: center;
-    z-index: 100;
-    grid-auto-columns: minmax(100px, auto);
-    border-bottom-style: groove;
 }
 
 .logo {
-    grid-row: 1;
-    grid-column: 1;
-    margin: 10px;
+    vertical-align: top;
+    margin-left: 4%;
 }
 
 .titre {
-    grid-row: 1;
-    grid-column: 2;
     color: rgb(1, 0, 82);
+    font-family: "Roboto", sans-serif;
     text-align: center;
-    font-family: britannic, bold, sans-serif;
 }
 
 .connexion {
-    grid-row: 1;
-    grid-column: 3;
-    text-align: right;
-    margin: 10px;
+    
+    text-decoration: none;
+    background-color: #29ABE2;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+    font-family: "Roboto", sans-serif;
+}
+
+.connexion:hover {
+    transform: scale(1.05);
+}
+
+.connexion:active {
+    background-color: #F5AD5B;
 }
 
 
-h1 {
+.titreDepot {
     font-family: "Roboto", sans-serif;
     text-align: center;
     padding-top: 30px;
@@ -49,7 +61,7 @@ h1 {
     height: 850px;
     background-color: white;
     border-radius: 30px;
-    
+
 }
 
 textarea {
@@ -118,7 +130,7 @@ label {
 }
 
 .btnDepot:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .btnDepot:active {
