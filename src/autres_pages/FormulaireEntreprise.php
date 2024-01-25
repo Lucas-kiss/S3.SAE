@@ -2,11 +2,11 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>1PtitJob</title>
+        <title>1PtitJob - Inscription Entreprise</title>
         <link rel="stylesheet" href="../style_demo.css">
     </head>
     <body>
-        <H1>Mes Inscriptions</H1>
+        <H1>Inscription</H1>
         <form action="Inscription.php" method="POST">
             <table class="noborder">
                 <tbody>
@@ -59,6 +59,6 @@
                 </tbody>
             </table>
         </form>
-        <h6>* Champs obligatoire</h6>
+        <h6>* Champs obligatoires</h6>
     </body>
 </html>
