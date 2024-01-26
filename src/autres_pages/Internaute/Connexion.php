@@ -3,8 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>1PtitJob</title>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <nav>
+            <div class=wrapper>
+                <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
+                <h1 class="titre">1P'titJob</h1>
+            </div>
+        </nav>
         <H1>Connexion</H1>
         <form action="idk.php" method="POST">
             <table class="noborder">
