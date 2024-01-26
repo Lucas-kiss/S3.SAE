@@ -124,7 +124,7 @@ label {
     font-size: 15px;
 }
 
-.btnDepot {
+.btnSuivant {
     margin-top: 10px;
     background-color: #29ABE2;
     color: white;
@@ -138,11 +138,11 @@ label {
     margin-left: 85%;
 }
 
-.btnDepot:hover {
+.btnSuivant:hover {
     transform: scale(1.05);
 }
 
-.btnDepot:active {
+.btnSuivant:active {
     background-color: #F5AD5B;
 }
 
