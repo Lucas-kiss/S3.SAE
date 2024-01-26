@@ -20,7 +20,7 @@ body {
 }
 
 .titre {
-    color: rgb(1, 0, 82);
+    color: rgb(1, 23, 82);
     font-family: "Roboto", sans-serif;
     text-align: center;
 }
@@ -286,8 +286,7 @@ label {
 }
 
 .uneannonce {
-    background-color: #1494D2;
-    color: white;
+    background-color: #4FAFDE;
     border-radius: 5px;
     margin-top: 5px;
     padding: 5px;
