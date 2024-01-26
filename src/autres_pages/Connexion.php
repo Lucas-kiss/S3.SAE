@@ -11,11 +11,11 @@
                 <tbody>
                     <tr>
                         <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
-                        <td class="noborder"><input type="email" id="mail" placeholder="exemple@domaine" required/></td>
+                        <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine" required/></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="MdP">Mot de passe :</label></th>
-                        <td class="noborder"><input type="password" id="MdP" required/></td>
+                        <td class="noborder"><input type="password" id="MdP" name="MdP" required/></td>
                     </tr>
                     <tr>
                         <td class="noborder"></td>

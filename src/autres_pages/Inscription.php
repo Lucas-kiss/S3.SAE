@@ -17,7 +17,7 @@
 
             if (substr($maildécoupé[0], 0) === '.' || substr($maildécoupé[0], -1) === '.' || count(explode('.', end($maildécoupé))) <= 1)
             {
-                echo "Le mail est erroné, il faut un '.' après le '@' mais pas de '.' ni juste avant le '@' ni au tout début du mail !";
+                echo "Mail erroné, il faut un '.' après le '@' mais pas de '.' ni juste avant le '@' ni au tout début du mail !";
             }
             else
             {
