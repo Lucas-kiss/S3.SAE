@@ -148,7 +148,7 @@ label {
     margin-right: 10%;
     margin-top: 30px;
     margin-bottom: 50px;
-    column-gap: 8%;
+    column-gap: 6%;
 }
 
 .boutonDeposerOffre {
@@ -167,17 +167,17 @@ label {
     vertical-align: text-bottom;
 }
 
-.filtre1 {
+.nbMinEtudJour {
     grid-column: 1;
     grid-row: 3;
 }
 
-.filtre2 {
+.nbMinHeuresEtud {
     grid-column: 2;
     grid-row: 3;
 }
 
-.filtre3 {
+.nbMinEtudOffre {
     grid-column: 3;
     grid-row: 3;
 }
