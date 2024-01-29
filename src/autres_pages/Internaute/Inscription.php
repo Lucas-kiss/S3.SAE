@@ -42,11 +42,11 @@
 
                     if ($_POST['Type']=="etudiant")
                     {
-                        header ('location: FormulaireEtudiant.php');
+                        header ('location: ../Etudiant/FormulaireEtudiant.php');
                     }
                     else
                     {
-                        header ('location: FormulaireEntreprise.php');
+                        header ('location: ../Entreprise/FormulaireEntreprise.php');
                     }
                 //}
             }
@@ -59,43 +59,52 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>1PtitJob</title>
+        <title>1PtitJob - Inscription</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <nav>
+            <div class=wrapper>
+                <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" alt="Logo 1P'titJob"/>
+                <h1 class="titre">1P'titJob</h1>
+                <a href="Connexion.php" class="connexion">Connexion</a>
+            </div>
+        </nav>
+        
         <H1>Inscription</H1>
         <form action="Inscription.php" method="POST">
-            <table class="noborder">
+            <table>
                 <tbody>
                     <tr>
-                        <th class="noborder"><label for="Type">Je suis :</label></th>
-                        <td class="noborder">
+                        <th><label for="Type">Je suis :</label></th>
+                        <td>
                             <input type="radio" id="etudiant" name="Type" value="etudiant" checked/><label for="etudiant">un étudiant</label>
                             <input type="radio" id="entreprise" name="Type" value="entreprise"/><label for="entreprise">une entreprise</label>
                         </td>
                     </tr>
                     <tr>
-                        <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
-                        <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine.fr" required/></td>
+                        <th><label for="mail">Adresse e-mail :</label></th>
+                        <td><input type="email" id="mail" name="mail" placeholder="exemple@domaine.fr" required/></td>
                     </tr>
                     <tr>
-                        <th class="noborder">
+                        <th>
                             <label for="MdP">Mot de passe :</label>
                         </th>
-                        <td class="noborder">
+                        <td>
                             <input type="password" id="MdP" name="MdP" minlength="8"  required/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="noborder"></td>
-                        <td class="noborder"><label>8 caractères minimum, dont 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</label></td>
+                        <td></td>
+                        <td><label>8 caractères minimum, dont 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</label></td>
                     </tr>
                     <tr>
-                        <th class="noborder"><label for="ConfirmMdP">Confirmer le mot de passe :</label></th>
-                        <td class="noborder"><input type="password" id="ConfirmMdP" name="ConfirmMdP" required/></td>
+                        <th><label for="ConfirmMdP">Confirmer le mot de passe :</label></th>
+                        <td><input type="password" id="ConfirmMdP" name="ConfirmMdP" required/></td>
                     </tr>
                     <tr>
-                        <td class="noborder"></td>
-                        <td class="noborder"><input type="submit" value="Suivant"></td>
+                        <td></td>
+                        <td><input type="submit" value="Suivant"></td>
                     </tr>
                 </tbody>
             </table>
