@@ -27,17 +27,17 @@
 
     <div class="heureDeDebut">
       <label for="DateDeb">Date de début:<br></label>
-      <input type="date" id="dateDeb" name="dateDeb">
+      <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
     </div>
 
     <div class="heureDeFin">
       <label for="dateFin">Date de fin:<br></label>
-      <input type="date" id="dateFin" name="dateFin">
+      <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
     </div>
 
     <div class="villeOffre">
     <label for="ville">Ville:<br></label>
-      <select value="ville", id="ville">
+      <select class="boiteTexte" value="ville" id="ville">
         <option value="Bayonne">Bayonne</option>
         <option value="Anglet">Anglet</option>
         <option value="Biarritz">Biarritz</option>

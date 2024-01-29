@@ -46,7 +46,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input class="date" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required /></td>
+                    <td><input class="boiteTexte" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required /></td>
                 </tr>
                 <tr>
                     <td><label for="dateFin">Date de fin </label><label class="etoile"> *</label></td>

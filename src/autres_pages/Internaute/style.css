@@ -107,6 +107,14 @@ td {
 
 }
 
+.boiteTexte {
+    height: 25px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    border: 2px solid #c9c9c9;
+    outline-color: #29ABE2;
+}
+
 .date {
     height: 25px;
     border-radius: 5px;
