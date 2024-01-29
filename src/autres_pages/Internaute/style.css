@@ -136,6 +136,7 @@ label {
     cursor: pointer;
     transition: transform 0.5s;
     margin-left: 85%;
+    margin-top: 20%;
 }
 
 .btnSuivant:hover {

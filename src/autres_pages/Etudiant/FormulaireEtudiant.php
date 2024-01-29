@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <title>1PtitJob - Inscription Etudiant</title>
-        <link rel="stylesheet" href="../style_demo.css">
+        <link rel="stylesheet" href="../Internaute/style.css">
     </head>
     <body>
         <H1>Mes Inscriptions</H1>
