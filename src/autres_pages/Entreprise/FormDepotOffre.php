@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>1PtitJob - Dépôt d'offre</title>
-    <link rel="stylesheet" href="../../HTML_CSS/style.css">
+    <link rel="stylesheet" href="../Internaute/style.css">
 </head>
 
   <nav>
