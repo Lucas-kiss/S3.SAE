@@ -203,3 +203,34 @@ label {
     padding: 5px;
     text-align: center;
 }
+
+.blackBorder {
+
+    border: 2px solid black;
+    border-collapse: collapse;
+    }
+
+.checkHoraire
+{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(243, 107, 107);
+    outline: none;
+    cursor: pointer;
+    margin: 0%;
+}
+
+.checkHoraire:checked
+{
+    background-color: rgb(191, 236, 140);
+}
+
+.noPadding
+{
+    padding: 0%;
+    height: 60px;
+    margin: 0%;
+}

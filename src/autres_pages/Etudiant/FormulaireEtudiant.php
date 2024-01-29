@@ -19,7 +19,7 @@
         </nav>
 
         
-        <form action="HoraireEtudiant.php" method="POST">
+        <form action="Horaire.php" method="POST">
             <div class="fondForm">
             <H1 class="titreDepot">Mes Inscriptions</H1>
                 <table class="tabOffre">
