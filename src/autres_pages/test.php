@@ -11,6 +11,10 @@
     <div class=wrapper>
         <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
         <h1 class="titre">1P'titJob</h1>
+<<<<<<< HEAD:src/autres_pages/test.php
+=======
+        <a href="Connexion.html" class="connexion">Connexion</a>
+>>>>>>> depotOffreBDD:src/autres_pages/Internaute/index.html
       </div>
   </nav>
   
