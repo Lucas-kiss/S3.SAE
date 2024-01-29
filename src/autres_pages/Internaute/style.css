@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     background-color: #FFE4C5;
@@ -89,7 +94,7 @@ textarea {
 
 td {
     text-align: start;
-    padding: 3px;
+    /* padding: 3px; */
 }
 
 .etoile {
@@ -208,7 +213,8 @@ label {
 
     border: 2px solid black;
     border-collapse: collapse;
-    }
+    border-spacing: 0px;
+}
 
 .checkHoraire
 {
@@ -221,6 +227,8 @@ label {
     outline: none;
     cursor: pointer;
     margin: 0%;
+    padding-block: 0px;
+    padding-inline: 0px;
 }
 
 .checkHoraire:checked
@@ -231,6 +239,8 @@ label {
 .noPadding
 {
     padding: 0%;
-    height: 60px;
+    height: auto;
+    width: auto;
     margin: 0%;
+    border-collapse: collapse;
 }
