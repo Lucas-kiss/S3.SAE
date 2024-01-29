@@ -22,26 +22,31 @@
     </div>
 
     <div class="boutonMesMessages">
+      <button style="width:100%">Mes messages</button>
     </div>
 
-    <div class="nbMinEtudJour">
-      <p>Heure de début:</p>
-      <select>
-        
-      </select>
+    <div class="heureDeDebut">
+      <label for="DateDeb">Heure de début:<br></label>
+      <input type="date" id="dateDeb" name="dateDeb">
+      <p>
+        à <input style="width:34px" type="number" id="heureDeb" value="12" name="heureDeb" min="0", max="23"> h
+      </p>
     </div>
 
-    <div class="nbMinHeuresEtud">
-      <p>Heure de fin:</p>
-      <select>
-        
-      </select>
+    <div class="heureDeFin">
+      <label for="dateFin">Heure de fin:<br></label>
+      <input type="date" id="dateFin" name="dateFin">
+      <p>
+        à <input style="width:34px" type="number" id="heureFin" value="12" name="heureFin" min="0", max="23"> h
+      </p>
     </div>
 
-    <div class="nbMinEtudOffre">
-      <p>Ville:</p>
-      <select>
-        
+    <div class="villeOffre">
+    <label for="ville">Ville:<br></label>
+      <select value="ville", id="ville">
+        <option value="Bayonne">Bayonne</option>
+        <option value="Anglet">Anglet</option>
+        <option value="Biarritz">Biarritz</option>
       </select>
     </div>
 
