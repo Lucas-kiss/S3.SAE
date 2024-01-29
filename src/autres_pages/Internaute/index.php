@@ -17,28 +17,22 @@
   
   <div class="grilleBoutons">
 
-    <div class="boutonDeposerOffre">
-      <button style="width:100%">Déposer une offre d'emploi</button>
+    <div class="barreDeRechercheOffre">
+      <input type="text"  placeholder="Rechercher..." style="width:100%">
     </div>
 
-    <div class="boutonMesMessages">
-      <button style="width:100%">Mes messages</button>
+    <div class="boutonRechercher">
+      <button style="width:100%">Rechercher</button>
     </div>
 
-    <div class="heureDeDebut">
-      <label for="DateDeb">Heure de début:<br></label>
+    <div class="dateDeDebut">
+      <label for="DateDeb">Date de début:<br></label>
       <input type="date" id="dateDeb" name="dateDeb">
-      <p>
-        à <input style="width:34px" type="number" id="heureDeb" value="12" name="heureDeb" min="0", max="23"> h
-      </p>
     </div>
 
-    <div class="heureDeFin">
-      <label for="dateFin">Heure de fin:<br></label>
+    <div class="dateDeFin">
+      <label for="dateFin">Date de fin:<br></label>
       <input type="date" id="dateFin" name="dateFin">
-      <p>
-        à <input style="width:34px" type="number" id="heureFin" value="12" name="heureFin" min="0", max="23"> h
-      </p>
     </div>
 
     <div class="villeOffre">
