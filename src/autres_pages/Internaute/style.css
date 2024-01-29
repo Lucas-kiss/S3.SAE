@@ -57,9 +57,6 @@ body {
     background-color: #F5AD5B;
 }
 
-<<<<<<< HEAD
-=======
-
 .titreDepot {
     font-family: "Roboto", sans-serif;
     text-align: center;
@@ -138,7 +135,6 @@ label {
     cursor: pointer;
     transition: transform 0.5s;
     margin-left: 85%;
-    margin-top: 20%;
 }
 
 .btnSuivant:hover {
@@ -146,95 +142,6 @@ label {
 }
 
 .btnSuivant:active {
-    background-color: #F5AD5B;
-}
-
->>>>>>> depotOffreBDD
-.titreDepot {
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    padding-top: 30px;
-}
-
-.fondForm {
-    margin: auto;
-    width: 600px;
-    height: 850px;
-    background-color: white;
-    border-radius: 30px;
-
-}
-
-textarea {
-    resize: none;
-    width: 230%;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    border: 2px solid #c9c9c9;
-    outline-color: #29ABE2;
-}
-
-.tabOffre {
-    display: grid;
-    padding: 25px;
-
-}
-
-td {
-    text-align: start;
-    padding: 3px;
-}
-
-.etoile {
-    color: red;
-}
-
-.champs {
-    width: 230%;
-    height: 25px;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    border: 2px solid #c9c9c9;
-    outline-color: #29ABE2;
-
-}
-
-.date {
-    height: 25px;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    border: 2px solid #c9c9c9;
-    outline-color: #29ABE2;
-}
-
-label {
-    font-family: "Roboto", sans-serif;
-}
-
-.champsObl {
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
-}
-
-.btnDepot {
-    margin-top: 10px;
-    background-color: #29ABE2;
-    color: white;
-    font-size: 15px;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-    transition: transform 0.5s;
-    margin-left: 85%;
-}
-
-.btnDepot:hover {
-    transform: scale(1.05);
-}
-
-.btnDepot:active {
     background-color: #F5AD5B;
 }
 
