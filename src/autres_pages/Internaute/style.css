@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -121,11 +122,14 @@ td {
 
 label {
     font-family: "Roboto", sans-serif;
+    margin: 0;
+    height: 100%;
 }
 
 .champsObl {
     font-family: "Roboto", sans-serif;
     font-size: 15px;
+    height: 100%;
 }
 
 .btnDepot {
@@ -226,9 +230,9 @@ label {
     background-color: rgb(243, 107, 107);
     outline: none;
     cursor: pointer;
-    margin: 0%;
+    /*margin: 0%;
     padding-block: 0px;
-    padding-inline: 0px;
+    padding-inline: 0px;*/
 }
 
 .checkHoraire:checked
@@ -238,9 +242,34 @@ label {
 
 .noPadding
 {
-    padding: 0%;
-    height: auto;
-    width: auto;
-    margin: 0%;
-    border-collapse: collapse;
+    padding: 0;
+    height: 60px;
+    width: 60px;
+    margin: 0;
+    /*display: flex;*/
+    /*align-items: center;
+    justify-content: center;*/
+}
+
+.celluleHoraire {
+    /*width: 60px;*/
+    display: table-cell;
+}
+
+.tableHoraire
+{
+    line-height: normal;
+    white-space: normal;
+    font-size: medium;
+    font-weight: normal;
+    font-style: normal;
+    text-align: start;
+    display: table;
+}
+
+.thJour
+{
+    height: 60px;
+    width: 60px;
+    display: table-cell;
 }
