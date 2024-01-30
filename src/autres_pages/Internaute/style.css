@@ -81,6 +81,14 @@ textarea {
     outline-color: #29ABE2;
 }
 
+.textAreaRecap {
+    resize: none;
+    width: 230%;
+    border-radius: 5px;
+    background-color: #e8ecf7;
+    border: 2px solid #c9c9c9;
+}
+
 .tabOffre {
     display: grid;
     padding: 25px;
@@ -103,8 +111,17 @@ td {
     background-color: #f8f8f8;
     border: 2px solid #c9c9c9;
     outline-color: #29ABE2;
-
 }
+
+.champsRecap {
+    width: 230%;
+    height: 25px;
+    border-radius: 5px;
+    background-color: #e8ecf7;
+    border: 2px solid #c9c9c9;
+}
+
+
 
 .boiteTexte {
     height: 25px;
@@ -122,6 +139,13 @@ td {
     outline-color: #29ABE2;
 }
 
+.dateRecap {
+    height: 25px;
+    border-radius: 5px;
+    background-color: #e8ecf7;
+    border: 2px solid #c9c9c9;
+}
+
 label {
     font-family: "Roboto", sans-serif;
 }
@@ -132,7 +156,7 @@ label {
 }
 
 .btnSuivant {
-    margin-top: 10px;
+    margin-top: 30px;
     background-color: #29ABE2;
     color: white;
     font-size: 15px;
@@ -142,7 +166,7 @@ label {
     outline: none;
     cursor: pointer;
     transition: transform 0.5s;
-    margin-left: 85%;
+    margin-left: 55%;
 }
 
 .btnSuivant:hover {
