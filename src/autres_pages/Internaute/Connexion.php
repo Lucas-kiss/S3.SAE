@@ -31,7 +31,7 @@ if (isset($_POST['connexion'])) {
         if ($link->affected_rows> 0) {    // si la requête a retourné au moins un enregistrement
             while ($donnees=mysqli_fetch_assoc($resultEtud)) {
                 $_SESSION['ine'] = $donnees["ine"];
-                header ('location: ../Etudiant/FormulaireEtudiant.php');
+                header ('location: index.php');
             }
         } 
     }
