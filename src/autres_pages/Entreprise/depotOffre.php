@@ -1,30 +1,43 @@
 <?php
 
     if(isset($_POST["suivant"])) {
-        require ("../../ressources/donnees/BDD/bdd.php");
+        require_once ("../../ressources/donnees/BDD/bdd.php");
         session_start();
 
-        if(!isset($_SESSION["username"])){
-           exit();
-        }
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
+        $siren = $_SESSION['siren'];
         
+        // $nbHeureTotal = $_POST['nbHeureTotal'];
+        $nbHeureTotal = 5;
 
+        $query_id = "SELECT MAX(idOffre) FROM Offre";
+        $result_id = mysqli_query($link, $query_id);
 
+        while ($donnees=mysqli_fetch_assoc($result_id)) {
+            $max = $donnees["MAX(idOffre)"] + 1;
+        }
 
-    // if(isset($_POST["suivant"])) {
-    //     require ("../../ressources/donnees/BDD/bdd.php");
-
-    //     $nbHeureTotal = ??;
-
-    //     $link=mysqli_connect($host, $user, $pass, $bdd) or die( "Impossible de se connecter à la base de données");
-
-    //     if (mysqli_connect_errno()) {
-    //         echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    //         exit();
-    //     }
-
-    //     $query = "INSERT INTO Offre VALUES (id, $_POST[intitOffre],  date('d-m-y h:i:s'), $_POST["dateDeb"], $_POST["dateFin"], $nbHeureTotal, $_POST["descrOffre"], 0, 0, siren";
-    //     $result= mysqli_query($link, $query);
-    //     print_r($result);
+        $dateActuelle = date('Y-m-d H:i:s');
+        $tauxHoraire = str_replace(",", ".",$_POST["tauxHoraire"]);
+        $tauxHoraire = floatval($tauxHoraire);
+        $intitOffre = $_POST["intitOffre"];
+        $dateDeb = $_POST["dateDeb"];
+        $dateFin = $_POST["dateFin"];
+        $description = $_POST["descrOffre"];
+ 
+        
+        $query = "INSERT INTO Offre VALUES ($max,'$intitOffre' , '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
+        $res = mysqli_query($link, $query);
+        
+        if ($res) {
+            echo 'Insertion fonctionnelle';
+        }
+        else {
+            echo "Insertion n'a pas fonctionné";
+        }
     }
+        
 ?>
