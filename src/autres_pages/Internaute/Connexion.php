@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -46,7 +45,6 @@
         </form>
     </body>
 </html>
-=======
 <?
 
 require ("../../ressources/donnees/BDD/bdd.php");
@@ -91,4 +89,3 @@ if (isset($_POST['connexion'])) {
     
 
 ?>
->>>>>>> depotOffreBDD
