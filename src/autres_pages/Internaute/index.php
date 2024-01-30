@@ -1,5 +1,5 @@
 <?php
-require("../../ressources/donnees/BDD/bdd.php");
+require_once("../../ressources/donnees/BDD/bdd.php");
 session_start();
 ?>
 
@@ -28,33 +28,41 @@ session_start();
   </nav>
 
   <div class="grilleBoutons">
+
     <div class=infoRechercheOffre>
-      <div class="barreDeRechercheOffre">
-        <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:90%">
+
+      <div class=recherche>
+        <div class="barreDeRechercheOffre">
+          <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:90%">
+        </div>
+
+        <div class="boutonRechercher">
+          <button style="width:100%">Rechercher</button>
+        </div>
       </div>
 
-      <div class="boutonRechercher">
-        <button style="width:100%">Rechercher</button>
+      <div class=criteresRecherche>
+        <div class="critDateDeDebut">
+          <label for="DateDeb">Date de début:<br></label>
+          <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
+        </div>
+
+        <div class="critDateDeFin">
+          <label for="dateFin">Date de fin:<br></label>
+          <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
+        </div>
+
+        <div class="villeOffre">
+          <label for="ville">Ville:<br></label>
+          <select class="boiteTexte" value="ville" id="ville">
+            <option value="Bayonne">Bayonne</option>
+            <option value="Anglet">Anglet</option>
+            <option value="Biarritz">Biarritz</option>
+          </select>
+        </div>
+
       </div>
 
-      <div class="dateDeDebut">
-        <label for="DateDeb">Date de début:<br></label>
-        <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
-      </div>
-
-      <div class="dateDeFin">
-        <label for="dateFin">Date de fin:<br></label>
-        <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
-      </div>
-
-      <div class="villeOffre">
-        <label for="ville">Ville:<br></label>
-        <select class="boiteTexte" value="ville" id="ville">
-          <option value="Bayonne">Bayonne</option>
-          <option value="Anglet">Anglet</option>
-          <option value="Biarritz">Biarritz</option>
-        </select>
-      </div>
     </div>
 
     <?php

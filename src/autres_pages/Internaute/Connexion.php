@@ -1,6 +1,6 @@
 <?
 
-require ("../../ressources/donnees/BDD/bdd.php");
+require_once ("../../ressources/donnees/BDD/bdd.php");
 session_start();
 
 if (isset($_POST['connexion'])) {
