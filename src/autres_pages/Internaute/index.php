@@ -120,9 +120,13 @@ if (mysqli_connect_errno()) {
   </form>
 
   <div class="annonces">
-    <h4>Annonces :</h4>
+    <h2>Annonces :</h2>
     <div class="grilleAnnonces">
-
+      <script>
+        function passId(id) {
+          window.location.href = 'pageOffre.php?value=' + encodeURIComponent(id);
+        }
+      </script>
       <?php
       $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
         FROM Offre O
@@ -130,7 +134,7 @@ if (mysqli_connect_errno()) {
         JOIN Ville V ON V.idVille = E.idVille
         WHERE O.estFinie=0
         ORDER BY O.dateDepot DESC";
-      $resOffre = mysqli_query($link, $queryOffre); 
+      $resOffre = mysqli_query($link, $queryOffre);
 
       if ($link) {
         while ($donnees = mysqli_fetch_assoc($resOffre)) {
@@ -143,10 +147,14 @@ if (mysqli_connect_errno()) {
           $resVilleOFfre = $donnees['ville'];
           $resCPOFfre = $donnees['cp'];
           echo "<div class='recapOffre' id='offre$resIdOffre'>
-                <p>$resIdOffre</p>
-                <p>$resNomOffre</p>
-                <p>$resNomEntr</p>
-                <p>$resDomaineAct</p>
+
+                <h3>Intitulé de l'offre : $resNomOffre</h3>
+                <p>Entreprise : $resNomEntr</p>
+                <p>Domaine d'activité :$resDomaineAct</p>
+                <p>Date de l'offre : $resDateDeb à $resDateFin</p>
+                <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
+
+                <button onclick='passId($resIdOffre)'>Continuer</button>
           </div>";
         }
       }
