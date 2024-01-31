@@ -14,6 +14,8 @@ if (isset($_POST["suivant"])) {
             <meta charset="UTF-8">
             <title>1PtitJob - Dépôt d'offre</title>
             <link rel="stylesheet" href="../Internaute/style.css">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         </head>
 
         <nav>

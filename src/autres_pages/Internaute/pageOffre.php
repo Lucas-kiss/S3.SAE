@@ -3,9 +3,12 @@
 require("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
 
-$monOffre = $_POST["idOffre"];
+$monOffre = 4;
+// if (isset($_GET['value'])) {
+    // $monOffre = $_GET['value'];
+// }
 
-$query_offre = "SELECT * FROM Offre WHERE idOffre = $monOffre;";
+$query_offre = "SELECT * FROM Offre JOIN Entreprise ON Offre.siren = Entreprise.siren JOIN Ville ON Entreprise.idVille = Ville.idVille WHERE idOffre = $monOffre;";
 $result_offre = mysqli_query($link, $query_offre);
 
 while ($donnees = mysqli_fetch_assoc($result_offre)) {
@@ -15,7 +18,8 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
     $dateFin = $donnees["dateFin"];
     $tauxHoraire = $donnees["tauxHoraire"];
     $description = $donnees["description"];
-
+    $nomEntr = $donnees["nomEntreprise"];
+    $ville = $donnees["nomVille"];
 }
 
 ?>
@@ -24,7 +28,7 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
 <html>
 
 <head>
-    <meta charset='utf-8'>
+    <meta charset="UTF-8">
     <title>1P'titJob</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -39,8 +43,17 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
     </nav>
 
     <div class="fondForm">
-        <H1 class="titres"> Titre de l'Offre</H1>
+        <H1 class="titres"><?php echo "$nomOffre"?> </H1>
 
+        <?php 
+        
+        echo "<p class='infoOffre'>Entreprise : $nomEntr</p>";
+        echo "<p class='infoOffre'>Ville : $ville</p>";
+        echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
+        echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
+        echo "<p class='infoOffre'>Détails :</br> $description</p>";
+        echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+        ?>
 
     </div>
 

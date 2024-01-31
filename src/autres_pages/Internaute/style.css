@@ -267,5 +267,16 @@ label {
     text-align: center;
 }
 
+.infoOffre {
+    font-family: "Roboto", sans-serif;
+    padding-left: 20px;
+    padding-top: 20px;
+}
 
-
+.sous-titre {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    color: #999999;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
