@@ -20,7 +20,7 @@ if (isset($_POST["suivant"])) {
 
         <nav>
             <div class=wrapper>
-                <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
+            <a href="./AccueilEntreprise.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" /></a>
                 <h1 class="titre">1P'titJob</h1>
                 <a href="monCompteEntreprise.php" class="connexion">Mon Compte</a>
             </div>

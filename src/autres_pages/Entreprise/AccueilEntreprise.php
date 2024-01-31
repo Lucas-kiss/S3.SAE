@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <title>1P'titJob</title>
-    <link href="../Internaute/style.css" rel="stylesheet" type="text/css"/>
-  </head>
 
-  <body>
+<head>
+  <meta charset='utf-8'>
+  <title>1P'titJob</title>
+  <link href="../Internaute/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
   <nav>
     <div class=wrapper>
-        <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
-        <h1 class="titre">1P'titJob</h1>
-        <a class="connexion">Mon compte</a>
-      </div>
+      <a href="./AccueilEntreprise.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60"
+          height="60" /></a>
+      <h1 class="titre">1P'titJob</h1>
+      <a class="connexion">Mon compte</a>
+    </div>
   </nav>
-  
+
   <div class="grilleBoutons">
 
     <div class="boutonDeposerOffre">
@@ -36,7 +38,7 @@
     </div>
 
     <div class="villeOffre">
-    <label for="ville">Ville:<br></label>
+      <label for="ville">Ville:<br></label>
       <select class="boiteTexte" value="ville" id="ville">
         <option value="Bayonne">Bayonne</option>
         <option value="Anglet">Anglet</option>
@@ -70,5 +72,6 @@
     </div>
   </div>
 
-  </body>
+</body>
+
 </html>

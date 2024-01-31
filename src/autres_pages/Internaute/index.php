@@ -18,12 +18,13 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   exit();
 }
+
 ?>
 
 <body>
   <nav>
     <div class=wrapper>
-      <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
+      <a href="./index.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" /></a>
       <h1 class="titre">1P'titJob</h1>
       <?php
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
