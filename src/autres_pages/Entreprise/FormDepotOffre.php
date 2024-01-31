@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="../Internaute/style.css">
 </head>
 
-  <nav>
+<nav>
     <div class=wrapper>
-        <img class="logo" src="../../1ptitjob_logo.PNG" width="60" height="60"/>
+        <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
         <h1 class="titre">1P'titJob</h1>
-        <a href="Connexion.php" class="connexion">Connexion</a>
-      </div>
-  </nav>
+        <a href="monCompteEntreprise.php" class="connexion">Mon Compte</a>
+    </div>
+</nav>
 
 <body>
 
-    <form action="Inscription.php" method="POST">
+    <form action="RecapFormDepotOffre.php" method="POST">
 
         <div class="fondForm">
             <H1 class="titreDepot">Dépôt d'offre</H1>
@@ -27,18 +27,9 @@
                     <td><label for="intitOffre">Intitulé de l'offre</label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="champs" type="text" id="intitOffre" placeholder="Ex : Serveur dans un restaurant"
-                            required />
+                    <td><input class="champs" type="text" name="intitOffre"
+                            placeholder="Ex : Serveur dans un restaurant" required />
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="villeOffre">Ville</label><label class="etoile"> *</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input class="champs" type="text" id="villeOffre" pattern="[a-zA-ZÀ-ÿ]+"
-                            title="Lettres uniquements" placeholder="Ex : Anglet" required /></td>
                 </tr>
                 <tr>
                     <td>
@@ -46,28 +37,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input class="date" type="date" id="dateDeb" min=<?php echo date("Y-m-d") ?> required /></td>
+                    <td><input class="boiteTexte" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required />
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="dateFin">Date de fin </label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="date" type="date" id="dateFin" min=<?php echo date("Y-m-d") ?> required /></td>
-                </tr>
-                <tr>
-                    <td><label for="nbEmployes">Nombre d'employés recherché</label><label class="etoile"> *</label></td>
-                </tr>
-                <tr>
-                    <td><input class="champs" type="number" id="nbEmployes" min="1" max="10" title=""
-                            placeholder="Ex : 2" required />
-                    </td>
+                    <td><input class="date" type="date" name="dateFin" min=<?php echo date("Y-m-d") ?> required /></td>
                 </tr>
                 <tr>
                     <td><label for="tauxHoraire">Taux horaire (valeur nette en €)</label><label class="etoile">
                             *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="champs" type="text" id="tauxHoraire" pattern="[0-9]{2},[0-9]{2}"
+                    <td><input class="champs" type="text" name="tauxHoraire" pattern="[0-9]{2},[0-9]{2}"
                             placeholder="Ex : 11,50" title="Format monétaire (00,00)" required />
                     </td>
                 </tr>
@@ -75,7 +59,7 @@
                     <td><label for="descrOffre">Description de l'offre</label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><textarea id="descrOffre" required cols="20" rows="12"
+                    <td><textarea name="descrOffre" required cols="20" rows="12"
                             placeholder="Ex : Nous recherchons un serveur les soirs de semaine..."></textarea></td>
                 </tr>
                 <td>
@@ -83,12 +67,16 @@
                 </td>
                 <tr>
                     <td>
-                        <input type="submit" class="btnDepot" value="Déposer">
+                        <input type="button" class="btnSuivant" name="annuler" value="Annuler" onclick="history.back()">
+                    </td>
+                    <td>
+                        <input type="submit" class="btnSuivant" name="suivant" value="Suivant">
                     </td>
                 </tr>
             </table>
+        </div>
     </form>
-    </div>
+
 
 </body>
 

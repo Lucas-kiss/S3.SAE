@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <title>1P'titJob</title>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="../Internaute/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
@@ -11,26 +11,26 @@
     <div class=wrapper>
         <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
         <h1 class="titre">1P'titJob</h1>
-        <a href="Connexion.html" class="connexion">Connexion</a>
+        <a class="connexion">Mon compte</a>
       </div>
   </nav>
   
   <div class="grilleBoutons">
 
-    <div class="barreDeRechercheOffre">
-      <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:100%">
+    <div class="boutonDeposerOffre">
+      <button style="width:100%">Déposer une offre d'emploi</button>
     </div>
 
-    <div class="boutonRechercher">
-      <button style="width:100%">Rechercher</button>
+    <div class="boutonMesMessages">
+      <button style="width:100%">Mes messages</button>
     </div>
 
-    <div class="dateDeDebut">
+    <div class="heureDeDebut">
       <label for="DateDeb">Date de début:<br></label>
       <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
     </div>
 
-    <div class="dateDeFin">
+    <div class="heureDeFin">
       <label for="dateFin">Date de fin:<br></label>
       <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
     </div>
@@ -66,7 +66,7 @@
     </div>
     <div class="uneannonce">
       <h3>Annonce</h3>
-      <p style="text-align:left">Détailss de l'annonce</p>
+      <p style="text-align:left">Détails de l'annonce</p>
     </div>
   </div>
 

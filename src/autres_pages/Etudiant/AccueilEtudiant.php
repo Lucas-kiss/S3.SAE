@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <title>1P'titJob</title>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="../Internaute/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
@@ -11,7 +11,7 @@
     <div class=wrapper>
         <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
         <h1 class="titre">1P'titJob</h1>
-        <a href="Connexion.html" class="connexion">Connexion</a>
+        <a class="connexion">Mon compte</a>
       </div>
   </nav>
   
@@ -23,6 +23,10 @@
 
     <div class="boutonRechercher">
       <button style="width:100%">Rechercher</button>
+    </div>
+
+    <div class="boutonMesMessages">
+      <button style="width:100%">Mes messages</button>
     </div>
 
     <div class="dateDeDebut">
@@ -42,6 +46,10 @@
         <option value="Anglet">Anglet</option>
         <option value="Biarritz">Biarritz</option>
       </select>
+    </div>
+
+    <div class="boutonMesCandidatures">
+      <button style="width:100%">Mes candidatures</button>
     </div>
 
   </div>
