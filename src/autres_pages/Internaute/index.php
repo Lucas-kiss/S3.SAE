@@ -11,6 +11,14 @@ session_start();
   <title>1P'titJob</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+<?php
+$link = mysqli_connect($host, $user, $pass, $bdd) or die("Impossible de se connecter à la base de données");
+
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  exit();
+}
+?>
 
 <body>
   <nav>
@@ -27,47 +35,78 @@ session_start();
     </div>
   </nav>
 
-  <div class="grilleBoutons">
+  <form action="index.php" method="POST">
+    <div class="grilleBoutons">
 
-    <div class=infoRechercheOffre>
+      <div class=infoRechercheOffre>
 
-      <div class=recherche>
-        <div class="barreDeRechercheOffre">
-          <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:90%">
+        <div class=recherche>
+          <div class="barreDeRechercheOffre">
+            <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:90%">
+          </div>
+
+          <div class="boutonRechercher">
+            <input type="submit" class="btnRechercheOffre" name="Rechercher" value="Rechercher">
+          </div>
         </div>
 
-        <div class="boutonRechercher">
-          <button style="width:100%">Rechercher</button>
+        <div class=criteresRecherche>
+          <div class="critDateDeDebut">
+            <label for="DateDeb">Date de début:<br></label>
+            <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
+          </div>
+
+          <div class="critDateDeFin">
+            <label for="dateFin">Date de fin:<br></label>
+            <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
+          </div>
+
+          <div class="critVille">
+            <label for="ville">Ville:<br></label>
+            <select class="boiteTexte" id="ville">
+              <?php
+              $queryVille = "SELECT DISTINCT(V.nomVille) AS ville FROM Ville V 
+                JOIN Entreprise E ON V.idVille=E.idVIlle
+                JOIN Offre O ON O.siren = E.siren
+                WHERE O.estFinie=0";
+
+              $resultVille = mysqli_query($link, $queryVille);
+              if ($link) {
+                while ($donnees = mysqli_fetch_assoc($resultVille)) {
+                  $resVille = $donnees['ville'];
+                  echo "<option value='$resVille'>$resVille</option>";
+                }
+              }
+              ?>
+            </select>
+          </div>
+
+          <div class="critDomaineAct">
+            <label for="domaineAct">Domaine d'activité:<br></label>
+            <select class="boiteTexte" id="domaineAct">
+              <?php
+              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct FROM Entreprise E
+                  JOIN Offre O ON O.siren = E.siren
+                  WHERE O.estFinie=0";
+
+              $resultDomaineAct = mysqli_query($link, $queryDomaineAct);
+              if ($link) {
+                while ($donnees = mysqli_fetch_assoc($resultDomaineAct)) {
+                  $resDomaineAct = $donnees['domaineAct'];
+                  echo "<option value='$resDomaineAct'>$resDomaineAct</option>";
+                }
+              }
+              ?>
+            </select>
+          </div>
+
         </div>
+
       </div>
 
-      <div class=criteresRecherche>
-        <div class="critDateDeDebut">
-          <label for="DateDeb">Date de début:<br></label>
-          <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
-        </div>
-
-        <div class="critDateDeFin">
-          <label for="dateFin">Date de fin:<br></label>
-          <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
-        </div>
-
-        <div class="villeOffre">
-          <label for="ville">Ville:<br></label>
-          <select class="boiteTexte" value="ville" id="ville">
-            <option value="Bayonne">Bayonne</option>
-            <option value="Anglet">Anglet</option>
-            <option value="Biarritz">Biarritz</option>
-          </select>
-        </div>
-
-      </div>
-
-    </div>
-
-    <?php
-    if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-      print "<div class= 'InfoEtudiant'>
+      <?php
+      if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+        print "<div class= 'InfoEtudiant'>
               <div class= 'messagesEtudiant'>
                 <button style='width:100%'>Mes messages</button>
               </div>
@@ -75,12 +114,16 @@ session_start();
                 <button style='width:100%'>Mes candidatures</button>
               </div>
             </div>";
-    }
-    ?>
-  </div>
+      }
+      ?>
+    </div>
+  </form>
 
   <div class="annonces">
     <h4>Annonces :</h4>
+    <?php
+        $queryOffre = "SELECT O.nomOffre, E.nomEntreprise, E.domaineActivite, V.nomVille, V.codePostal";
+    ?>
     <div class="uneannonce">
       <h3>Annonce</h3>
       <p style="text-align:left">Détails de l'annonce</p>

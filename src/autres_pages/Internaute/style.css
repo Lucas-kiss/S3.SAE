@@ -282,7 +282,7 @@ label {
 .grilleBoutons > .infoRechercheOffre > .criteresRecherche {
     grid-row: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .grilleBoutons > .infoRechercheOffre > .criteresRecherche > .critDateDeDebut {
@@ -291,6 +291,14 @@ label {
 
 .grilleBoutons > .infoRechercheOffre > .criteresRecherche > .critDateDeFin {
     grid-column: 2;
+}
+
+.grilleBoutons > .infoRechercheOffre > .criteresRecherche > .critVille {
+    grid-column: 3;
+}
+
+.grilleBoutons > .infoRechercheOffre > .criteresRecherche > .critDomaineAct {
+    grid-column: 4;
 }
 
 .grilleBoutons > .InfoEtudiant{
