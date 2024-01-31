@@ -20,7 +20,7 @@
     <form action="RecapFormDepotOffre.php" method="POST">
 
         <div class="fondForm">
-            <H1 class="titreDepot">Dépôt d'offre</H1>
+            <H1 class="titres">Dépôt d'offre</H1>
             <div class="separation"></div>
             <table class="tabOffre">
                 <tr>
