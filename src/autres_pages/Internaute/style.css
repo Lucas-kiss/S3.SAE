@@ -312,6 +312,14 @@ label {
     grid-row: 1;
 }
 
+.recapOffre {
+background-color: #4FAFDE;
+border-radius: 5px;
+margin-top: 5px;
+padding: 5px;
+text-align: center;
+}
+
 
 
 .boutonDeposerOffre {

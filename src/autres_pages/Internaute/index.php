@@ -121,28 +121,36 @@ if (mysqli_connect_errno()) {
 
   <div class="annonces">
     <h4>Annonces :</h4>
-    <?php
-        $queryOffre = "SELECT O.nomOffre, E.nomEntreprise, E.domaineActivite, V.nomVille, V.codePostal";
-    ?>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détailss de l'annonce</p>
+    <div class="grilleAnnonces">
+
+      <?php
+      $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
+        FROM Offre O
+        JOIN Entreprise E ON E.siren = O.siren
+        JOIN Ville V ON V.idVille = E.idVille
+        WHERE O.estFinie=0
+        ORDER BY O.dateDepot DESC";
+      $resOffre = mysqli_query($link, $queryOffre); 
+
+      if ($link) {
+        while ($donnees = mysqli_fetch_assoc($resOffre)) {
+          $resIdOffre = $donnees['id'];
+          $resNomOffre = $donnees['nomOffre'];
+          $resNomEntr = $donnees['nomEntr'];
+          $resDomaineAct = $donnees['domaineAct'];
+          $resDateDeb = $donnees['dateDeb'];
+          $resDateFin = $donnees['dateFin'];
+          $resVilleOFfre = $donnees['ville'];
+          $resCPOFfre = $donnees['cp'];
+          echo "<div class='recapOffre' id='offre$resIdOffre'>
+                <p>$resIdOffre</p>
+                <p>$resNomOffre</p>
+                <p>$resNomEntr</p>
+                <p>$resDomaineAct</p>
+          </div>";
+        }
+      }
+      ?>
     </div>
   </div>
 
