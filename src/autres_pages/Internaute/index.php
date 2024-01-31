@@ -120,28 +120,6 @@ if (mysqli_connect_errno()) {
   </form>
 
   <div class="annonces">
-<<<<<<< HEAD
-    <h4>Annonces :</h4>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-    </div>
-    <div class="uneannonce">
-      <h3>Annonce</h3>
-      <p style="text-align:left">Détails de l'annonce</p>
-=======
     <h2>Annonces :</h2>
     <div class="grilleAnnonces">
       <script>
@@ -181,7 +159,6 @@ if (mysqli_connect_errno()) {
         }
       }
       ?>
->>>>>>> pageAccueil
     </div>
   </div>
 
