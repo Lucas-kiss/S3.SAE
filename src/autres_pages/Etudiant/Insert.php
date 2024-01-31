@@ -3,8 +3,6 @@
 
     require_once("../../ressources/donnees/BDD/bdd.php");
 
-    $link = mysqli_connect($host, $user, $pass, $bdd) or die ("Error de BDD");
-
     $ine = $_SESSION['ine'];
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
@@ -64,7 +62,7 @@
     var_dump($telephone);
     
     // $query = "INSERT INTO Etudiant (ine, prenom, nom, dateNaiss, numTel, mailEtud, mdpEtud, idVille) Values ('$ine', '$prenom', '$nom', '$naissance', '$telephone', '$mail', '$MdP', $idVille)";
-    $query = "INSERT INTO Test Values (Null, Null, Null, Null, Null, Null, Null, Null)";
+    $query = "INSERT INTO Test VALUES (Null, Null, Null, Null, Null, Null, Null, Null)";
 
     $res = mysqli_query($link, $query);
     if ($res) {
