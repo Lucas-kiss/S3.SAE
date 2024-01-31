@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_POST["suivant"])) {
-        require ("../../ressources/donnees/BDD/bdd.php");
+        require ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
         session_start();
 
         if(!isset($_SESSION["username"])){
