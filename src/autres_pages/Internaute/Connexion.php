@@ -21,7 +21,7 @@ if (isset($_POST['connexion'])) {
     if ($link) {    // si la requête a fonctionné
         if ($link->affected_rows> 0) {    // si la requête a retourné au moins un enregistrement
             while ($donnees=mysqli_fetch_assoc($resultEntr)) {
-                $_SESSION['siren'] = $donnees["siren"];
+                $_SESSION['siren'] = intval($donnees["siren"]);
                 header ('location: ../Entreprise/FormDepotOffre.php');
             }
         }

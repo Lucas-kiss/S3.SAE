@@ -1,5 +1,7 @@
 <?php
+    require_once ("../../ressources/donnees/BDD/bdd.php");
     session_start();
+    $siren = $_SESSION['siren'];
 ?>
 
 <!DOCTYPE html>
