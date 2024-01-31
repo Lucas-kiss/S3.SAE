@@ -11,7 +11,7 @@
     <div class=wrapper>
         <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
         <h1 class="titre">1P'titJob</h1>
-        <a href="Connexion.php" class="connexion">Connexion</a>
+        <a href="Connexion.html" class="connexion">Connexion</a>
       </div>
   </nav>
   

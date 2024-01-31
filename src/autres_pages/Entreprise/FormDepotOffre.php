@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="../Internaute/style.css">
 </head>
 
-  <nav>
+<nav>
     <div class=wrapper>
-        <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60"/>
+        <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
         <h1 class="titre">1P'titJob</h1>
         <a href="monCompteEntreprise.php" class="connexion">Mon Compte</a>
-      </div>
-  </nav>
+    </div>
+</nav>
 
 <body>
 
@@ -27,8 +27,8 @@
                     <td><label for="intitOffre">Intitulé de l'offre</label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="champs" type="text" name="intitOffre" placeholder="Ex : Serveur dans un restaurant"
-                            required />
+                    <td><input class="champs" type="text" name="intitOffre"
+                            placeholder="Ex : Serveur dans un restaurant" required />
                     </td>
                 </tr>
                 <tr>
@@ -37,7 +37,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input class="boiteTexte" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required /></td>
+                    <td><input class="boiteTexte" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required />
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="dateFin">Date de fin </label><label class="etoile"> *</label></td>
@@ -73,8 +74,9 @@
                     </td>
                 </tr>
             </table>
+        </div>
     </form>
-    </div>
+
 
 </body>
 

@@ -4,10 +4,6 @@
         require_once ("../../ressources/donnees/BDD/bdd.php");
         session_start();
 
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
         $siren = $_SESSION['siren'];
         
         // $nbHeureTotal = $_POST['nbHeureTotal'];
@@ -27,7 +23,6 @@
         $dateDeb = $_POST["dateDeb"];
         $dateFin = $_POST["dateFin"];
         $description = $_POST["descrOffre"];
- 
         
         $query = "INSERT INTO Offre VALUES ($max,'$intitOffre' , '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
         $res = mysqli_query($link, $query);
