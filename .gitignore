@@ -25,3 +25,6 @@ $RECYCLE.BIN/
 *.lnk
 
 .exe
+
+# fichier de connexion à la bdd
+./src/ressources/donnees/BDD/bdd.php

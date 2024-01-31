@@ -5,8 +5,8 @@
     },
     "Critere": {
         "nbMinHeureEtudJour": 1,
-        "nbMinEtudJour": 2,
-        "nbMinEtudTotal": 3
+        "nbMinEtudJour": 0,
+        "nbMinEtudTotal": 4
     },
     "Jour": {
         "Jour1": {
@@ -35,7 +35,7 @@
             }
         },
         "Jour4": {
-            "jour": "Vendredi",
+            "jour": "Dimanche",
             "CreneauRecherche4": {
                 "heureDeb": 12,
                 "heureFin": 14

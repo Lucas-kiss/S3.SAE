@@ -1,6 +1,6 @@
 <?php
 
-require ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+require_once ("../../ressources/donnees/BDD/bdd.php");
 session_start();
 
 if (isset($_POST['connexion'])) {
@@ -40,7 +40,7 @@ if (isset($_POST['connexion'])) {
             $trouve = true;
             while ($donnees=mysqli_fetch_assoc($resultEtud)) {
                 $_SESSION['ine'] = $donnees["ine"];
-                header ('location: ../Etudiant/FormulaireEtudiant.php');
+                header ('location: index.php');
             }
         } 
     }
