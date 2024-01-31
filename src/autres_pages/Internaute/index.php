@@ -24,7 +24,7 @@ if (mysqli_connect_errno()) {
   <nav>
     <div class=wrapper>
       <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
-      <h1 class="titre">1P'titJob</h1>
+      <h1 class="titre" href="index.php"><a href="index.php">1P'titJob</a></h1>
       <?php
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";

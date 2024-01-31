@@ -25,6 +25,10 @@ body {
     text-align: center;
 }
 
+.titre > a {
+    text-decoration: none;
+}
+
 .connexion {
     
     text-decoration: none;
