@@ -23,7 +23,7 @@
         
         <form action="Inscription.php" method="POST">
             <div class="fondForm">
-            <H1 class="titreDepot">Inscription</H1>
+            <H1 class="titres">Inscription</H1>
                 <table>
                     <tbody>
                         <tr>
