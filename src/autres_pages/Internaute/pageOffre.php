@@ -3,12 +3,10 @@
 require("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
 
-$monOffre = 4;
-// if (isset($_GET['value'])) {
-    // $monOffre = $_GET['value'];
-// }
+if (isset($_GET['value'])) {
+    $monOffre = $_GET['value'];
 
-$query_offre = "SELECT * FROM Offre JOIN Entreprise ON Offre.siren = Entreprise.siren JOIN Ville ON Entreprise.idVille = Ville.idVille WHERE idOffre = $monOffre;";
+    $query_offre = "SELECT * FROM Offre JOIN Entreprise ON Offre.siren = Entreprise.siren JOIN Ville ON Entreprise.idVille = Ville.idVille WHERE idOffre = $monOffre;";
 $result_offre = mysqli_query($link, $query_offre);
 
 while ($donnees = mysqli_fetch_assoc($result_offre)) {
@@ -61,3 +59,8 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
 </body>
 
 </html>
+
+<?php
+}
+?>
+

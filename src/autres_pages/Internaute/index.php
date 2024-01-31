@@ -7,7 +7,7 @@ session_start();
 <html>
 
 <head>
-  <meta charset='utf-8'>
+  <meta charset="UTF-8">
   <title>1P'titJob</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
