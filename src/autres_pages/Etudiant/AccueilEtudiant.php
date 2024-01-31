@@ -74,7 +74,7 @@
     </div>
     <div class="uneannonce">
       <h3>Annonce</h3>
-      <p style="text-align:left">Détailss de l'annonce</p>
+      <p style="text-align:left">Détails de l'annonce</p>
     </div>
   </div>
 
