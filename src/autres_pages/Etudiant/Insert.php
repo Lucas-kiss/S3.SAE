@@ -61,10 +61,18 @@
     }
 
     var_dump($naissance);
+    var_dump($telephone);
     
-    $query = "INSERT INTO Etudiant (ine, prenom, nom, dateNaiss, numTel, mailEtud, mdpEtud, idVille) Values ('$ine', '$prenom', '$nom', '$naissance', '$telephone', '$mail', '$MdP', $idVille)";
+    // $query = "INSERT INTO Etudiant (ine, prenom, nom, dateNaiss, numTel, mailEtud, mdpEtud, idVille) Values ('$ine', '$prenom', '$nom', '$naissance', '$telephone', '$mail', '$MdP', $idVille)";
+    $query = "INSERT INTO Test Values (Null, Null, Null, Null, Null, Null, Null, Null)";
 
-    $result = mysqli_query($link, $query);
+    $res = mysqli_query($link, $query);
+    if ($res) {
+        echo 'Insertion fonctionnelle';
+    }
+    else {
+        echo "Insertion n'a pas fonctionné";
+    }
     
     $query_id = "SELECT MAX(IdCreneau) FROM Creneau";
     $result_id = mysqli_query($link, $query_id);
