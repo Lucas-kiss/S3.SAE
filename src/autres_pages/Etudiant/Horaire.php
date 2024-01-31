@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="../Internaute/style.css">
     </head>
     <body>
-        <form action="Insert.php">
+        <form action="Insert.php" method="POST">
             <table class="blackBorder tableHoraire">
                 <tbody>
                 <?php
