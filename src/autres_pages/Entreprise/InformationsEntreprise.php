@@ -22,7 +22,7 @@
             if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                 echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
             } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                echo "<a href='Connexion.html' class='connexion'>Connexion</a>";
+                echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
             } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                 echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
             }

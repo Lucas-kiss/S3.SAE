@@ -14,13 +14,29 @@ if (isset($_POST["suivant"])) {
             <meta charset="UTF-8">
             <title>1PtitJob - Dépôt d'offre</title>
             <link rel="stylesheet" href="../Internaute/style.css">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         </head>
 
         <nav>
             <div class=wrapper>
-                <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
-                <h1 class="titre">1P'titJob</h1>
-                <a href="monCompteEntreprise.php" class="connexion">Mon Compte</a>
+                <?php
+                if (isset($_SESSION['siren'])) {
+                    echo "<a href='../Entreprise/accueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+                    echo "<h1 class='titre'><a href='../Entreprise/accueilEntreprise.php'>1P'titJob</a></h1>";
+                } else {
+                    echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+                    echo "<h1 class='titre'><a href='./index.php'>1P'titJob</a></h1>";
+                }
+
+                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
+                } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
+                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                    echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
+                }
+                ?>
             </div>
         </nav>
 
@@ -36,7 +52,7 @@ if (isset($_POST["suivant"])) {
                 $descrOffre = $_POST["descrOffre"];
                 ?>
                 <div class="fondForm">
-                    <H1 class="titreDepot">Dépôt d'offre</H1>
+                    <H1 class="titres">Dépôt d'offre</H1>
                     <div class="separation"></div>
                     <table class="tabOffre">
                         <tr>

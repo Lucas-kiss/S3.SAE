@@ -7,7 +7,7 @@ session_start();
 <html>
 
 <head>
-  <meta charset='utf-8'>
+  <meta charset="UTF-8">
   <title>1P'titJob</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -18,18 +18,27 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   exit();
 }
+
 ?>
 
 <body>
   <nav>
     <div class=wrapper>
-      <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
-      <h1 class="titre" href="index.php"><a href="index.php">1P'titJob</a></h1>
       <?php
+      if (isset($_SESSION['siren'])) {
+        echo "<a href='../Entreprise/accueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+        echo "<h1 class='titre'><a href='../Entreprise/accueilEntreprise.php'>1P'titJob</a></h1>";
+      } else {
+        echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+        echo "<h1 class='titre'><a href='./index.php'>1P'titJob</a></h1>";
+      }
+
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
       } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='Connexion.html' class='connexion'>Connexion</a>";
+      } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+        echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
       }
       ?>
     </div>
