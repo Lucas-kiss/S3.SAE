@@ -1,7 +1,6 @@
 <?php
     require_once ("../../ressources/donnees/BDD/bdd.php");
     session_start();
-    $siren = $_SESSION['siren'];
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@
         </nav>
 
         
-        <form action="Inscription.php" method="POST">
+        <form action="InscriptionEntreprise.php" method="POST">
             <div class="fondForm">
             <H1 class="titres">Inscription</H1>
                 <table>
@@ -39,12 +38,12 @@
                             <td><input type="text" class="boiteTexte" id="domaine" name="domaine" placeholder="Grande distribution" required/> *</td>
                         </tr>
                         <tr>
-                            <th><label for="adresse">Adresse postale :</label></th>
-                            <td><input type="text" class="boiteTexte" id="adresse" name="adresse" placeholder="123, Rue des chênes" required/> *</td>
-                        </tr>
-                        <tr>
                             <th><label for="ville">Ville :</label></th>
                             <td><input type="text" class="boiteTexte" id="ville" name="ville" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Anglet" required/> *</td>
+                        </tr>
+                        <tr>
+                            <th><label for="CP">Code Postal :</label></th>
+                            <td><input type="text" class="boiteTexte" id="CP" name="CP" pattern="[0-9]{5}" title="Chiffres uniquements" placeholder="64600" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="pays">Pays :</label></th>

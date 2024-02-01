@@ -19,7 +19,6 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
     $nomEntr = $donnees["nomEntreprise"];
     $ville = $donnees["nomVille"];
 }
-
 ?>
 
 <!DOCTYPE html>
