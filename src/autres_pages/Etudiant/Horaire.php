@@ -28,6 +28,10 @@
                 <a href="../Internaute/Connexion.html" class="connexion">Connexion</a>
             </div>
         </nav>
+
+        <H2>Vos Disponibilités</H2></br>
+        <h4>Veuillez renseigner vos disponibilités.</h4></br>
+
         <form action="Insert.php" method="POST">
             <table class="blackBorder tableHoraire">
                 <tbody>
