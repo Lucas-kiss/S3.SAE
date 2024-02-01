@@ -15,7 +15,7 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
     $dateDeb = $donnees["dateDeb"];
     $dateFin = $donnees["dateFin"];
     $tauxHoraire = $donnees["tauxHoraire"];
-    $description = $donnees["description"];
+    $description = str_replace("\n", "<br/>", $donnees["description"]);
     $nomEntr = $donnees["nomEntreprise"];
     $ville = $donnees["nomVille"];
 }
@@ -34,7 +34,7 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
 <body>
     <nav>
         <div class=wrapper>
-            <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" />
+            <a href="./index.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" /></a>
             <h1 class="titre">1P'titJob</h1>
             <a href="Connexion.html" class="connexion">Connexion</a>
         </div>
@@ -49,7 +49,7 @@ while ($donnees = mysqli_fetch_assoc($result_offre)) {
         echo "<p class='infoOffre'>Ville : $ville</p>";
         echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
         echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
-        echo "<p class='infoOffre'>Détails :</br> $description</p>";
+        echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
         echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
         ?>
 
