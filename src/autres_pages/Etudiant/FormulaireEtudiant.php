@@ -19,7 +19,7 @@
         </nav>
 
         
-        <form action="HoraireEtudiant.php" method="POST">
+        <form action="Horaire.php" method="POST">
             <div class="fondForm">
             <H1 class="titreDepot">Mes Inscriptions</H1>
                 <table class="tabOffre">
@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <th><label for="naissance">Date de naissance :</label></th>
-                            <td><input type="date" class="boiteTexte" id="naissance" name="naissance" required/> *</td>
+                            <td><input type="date" id="naissance" name="naissance" required title="Vous devez avoir 16ans" max="<?php echo (new DateTime())->sub(new DateInterval('P16Y'))->format('Y-m-d'); ?>"/> *</td>
                         </tr>
                         <tr>
                             <th><label for="adresse">Adresse postale :</label></th>
@@ -46,11 +46,15 @@
                         </tr>
                         <tr>
                             <th><label for="ville">Ville :</label></th>
-                            <td><input type="text" class="boiteTexte" id="ville" name="ville" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Anglet" required/> *</td>
+                            <td><input type="text" id="ville" name="ville" pattern="[^0-9]+" title="Lettres uniquements (espace et - autorisé)" placeholder="Anglet" required/> *</td>
+                        </tr>
+                        <tr>
+                            <th><label for="CP">Code postale :</label></th>
+                            <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre" placeholder="64600" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="pays">Pays :</label></th>
-                            <td><input type="text" class="boiteTexte" id="pays" name="pays" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="France" required/> *</td>
+                            <td><input type="text" id="pays" name="pays" pattern="[^0-9]+" title="Lettres uniquements (espace et - autorisé)" placeholder="France" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="telephone">Téléphone :</label></th>
