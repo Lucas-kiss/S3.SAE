@@ -21,6 +21,13 @@
         <link rel="stylesheet" href="../Internaute/style.css">
     </head>
     <body>
+        <nav>
+            <div class=wrapper>
+                <img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" alt="Logo 1P'titJob"/>
+                <h1 class="titre">1P'titJob</h1>
+                <a href="../Internaute/Connexion.html" class="connexion">Connexion</a>
+            </div>
+        </nav>
         <form action="Insert.php" method="POST">
             <table class="blackBorder tableHoraire">
                 <tbody>
