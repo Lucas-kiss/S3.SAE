@@ -50,7 +50,7 @@ if (mysqli_connect_errno()) {
 
         <div class=recherche>
           <div class="barreDeRechercheOffre">
-            <input class="boiteTexte" type="text" placeholder="Rechercher..." style="width:90%">
+            <input class="boiteTexte" type="text" name="barreRecherche" placeholder="Rechercher..." style="width:90%">
           </div>
 
           <div class="boutonRechercher">
@@ -136,6 +136,7 @@ if (mysqli_connect_errno()) {
         }
       </script>
       <?php
+      $critRecherche = "";
       $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
         FROM Offre O
         JOIN Entreprise E ON E.siren = O.siren
