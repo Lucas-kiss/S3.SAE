@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (isset($_POST['ine']))
+    if (isset($_POST['intitOffre']))
     {
         $_SESSION['intitOffre']=$_POST['intitOffre'];
         $_SESSION['dateDeb']=$_POST['dateDeb'];
