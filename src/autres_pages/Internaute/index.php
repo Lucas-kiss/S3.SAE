@@ -50,7 +50,8 @@ if (mysqli_connect_errno()) {
 
         <div class=recherche>
           <div class="barreDeRechercheOffre">
-            <input class="boiteTexte" type="text" name="barreRecherche" placeholder="Rechercher un intitulé d'offre" style="width:90%">
+            <input class="boiteTexte" type="text" name="barreRecherche" placeholder="Rechercher un intitulé d'offre"
+              style="width:90%">
           </div>
 
           <div class="boutonRechercher">
@@ -140,29 +141,30 @@ if (mysqli_connect_errno()) {
       </script>
       <?php
       if ($_POST) {
+        $critBarreRecherche = trim($_POST["barreRecherche"]);
         $critVille = $_POST["ville"];
         $critDomaineAct = $_POST["domaineAct"];
         $critDateDeb = $_POST["dateDeb"];
         $critDateFin = $_POST["dateFin"];
+        
         if ($critDateFin == '') {
           $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
           FROM Offre O
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
+          AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
           AND O.dateDeb >= '$critDateDeb'
           ORDER BY O.dateDepot DESC";
-        }
-
-        else
-        {
+        } else {
           $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
           FROM Offre O
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
+          AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
           AND O.dateDeb >= '$critDateDeb'
@@ -178,7 +180,7 @@ if (mysqli_connect_errno()) {
         WHERE O.estFinie=0
         ORDER BY O.dateDepot DESC";
       }
-      
+
       $resOffre = mysqli_query($link, $queryOffre);
 
       if ($link) {
