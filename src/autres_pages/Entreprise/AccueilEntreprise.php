@@ -74,11 +74,13 @@ session_start();
         }
       </script>
       <?php
+      $siren = $_SESSION['siren'];
       $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
         FROM Offre O
         JOIN Entreprise E ON E.siren = O.siren
         JOIN Ville V ON V.idVille = E.idVille
-        WHERE E.siren=" + $siren + " AND O.estFinie=0 
+        WHERE O.estFinie=0 
+        AND E.siren = $siren
         ORDER BY O.dateDepot DESC";
       $resOffre = mysqli_query($link, $queryOffre);
 
