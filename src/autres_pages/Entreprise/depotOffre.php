@@ -7,10 +7,25 @@
     $siren = $_SESSION['siren'];
     
     // $nbHeureTotal = $_POST['nbHeureTotal'];
-    $nbHeureTotal = 5;
+    $nbHeureTotal = 0;
+    $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+
+    foreach ($jourSem as &$jour)
+    {
+        for ($i = 0; $i < 24; $i++)
+        {
+            $cle = $jour . $i;
+            if (isset($_POST[$cle]) && $_POST[$cle] == 'on')
+            {
+                $nbHeureTotal++;
+            }
+        }
+    }
 
     $query_id = "SELECT MAX(idOffre) FROM Offre";
     $result_id = mysqli_query($link, $query_id);
+
+    $max = 0;
 
     while ($donnees=mysqli_fetch_assoc($result_id)) {
         $max = $donnees["MAX(idOffre)"] + 1;
@@ -26,7 +41,7 @@
     $dateFin = $_SESSION["dateFin"];
     $description = $_SESSION["descrOffre"];
     
-    $query = "INSERT INTO Offre (idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, 'description', nbEtudRetenus`, estFinie, siren) VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
+    $query = "INSERT INTO Offre (idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, 'description', nbEtudRetenus, estFinie, siren) VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
     $res = mysqli_query($link, $query);
 
     $query_id = "SELECT MAX(IdCreneau) FROM Creneau";
@@ -38,7 +53,7 @@
         $IdCreneau = $donnees["MAX(IdCreneau)"] + 1;
     }
 
-    $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+    
 
     $last = 0;
 

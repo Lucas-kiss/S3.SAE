@@ -7,6 +7,7 @@
         $_SESSION['dateFin']=$_POST['dateFin'];
         $_SESSION['tauxHoraire']=$_POST['tauxHoraire'];
         $_SESSION['descrOffre']=$_POST['descrOffre'];
+        echo $_SESSION['intitOffre'];
     }
 ?>
 

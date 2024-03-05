@@ -41,20 +41,12 @@
                             <td><input type="date" id="naissance" name="naissance" required title="Vous devez avoir 16ans" max="<?php echo (new DateTime())->sub(new DateInterval('P16Y'))->format('Y-m-d'); ?>"/> *</td>
                         </tr>
                         <tr>
-                            <th><label for="adresse">Adresse postale :</label></th>
-                            <td><input type="text" class="boiteTexte" id="adresse" name="adresse" placeholder="123, Rue des chênes" required/> *</td>
-                        </tr>
-                        <tr>
                             <th><label for="ville">Ville :</label></th>
                             <td><input type="text" id="ville" name="ville" pattern="[^0-9]+" title="Lettres uniquements (espace et - autorisé)" placeholder="Anglet" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="CP">Code postale :</label></th>
                             <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre" placeholder="64600" required/> *</td>
-                        </tr>
-                        <tr>
-                            <th><label for="pays">Pays :</label></th>
-                            <td><input type="text" id="pays" name="pays" pattern="[^0-9]+" title="Lettres uniquements (espace et - autorisé)" placeholder="France" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="telephone">Téléphone :</label></th>
