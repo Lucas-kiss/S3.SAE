@@ -66,27 +66,32 @@ if (isset($_GET['value'])) {
             echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
             echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
             echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
-            echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+
             ?>
 
             <div class="btnOffre">
                 <script>
                     function passId(id, urlPage) {
-                        window.location.href = urlPage+'?value=' + encodeURIComponent(id);
+                        window.location.href = urlPage + '?value=' + encodeURIComponent(id);
                     }
                 </script>
                 <?php
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                     $urlCand = "../Etudiant/candidatureEtudiant.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)'>Postuler</button>";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler'>Postuler</button>";
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                     $urlModif = "../Internaute/pageOffre.php";
                     $urlSupp = "../Internaute/pageOffre.php";
-                    echo "<button onclick='passId($monOffre, $urlModif)'>Modifier l'offre</button>";
-                    echo "<button onclick='passId($monOffre, $urlSupp)'>Supprimer l'offre</button>";
+                    $urlCand = "../Entreprise/candidatureOffre.php";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater'>Voir les candidatures</button>";
+                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier>Modifier l'offre</button>";
+                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer'>Supprimer l'offre</button>";
                 }
                 ?>
             </div>
+            <?php
+            echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            ?>
         </div>
 
 
