@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>1PtitJob - Dépôt d'offre</title>
     <link rel="stylesheet" href="../Internaute/style.css">
+    <script src="../Internaute/complements.js"></script>
 </head>
 
 <nav>
@@ -51,14 +52,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input class="boiteTexte" type="date" name="dateDeb" min=<?php echo date("Y-m-d") ?> required />
+                    <td><input class="boiteTexte" type="date" name="dateDeb" id="idDeb" min=<?php echo date("Y-m-d") ?> required />
                     </td>
                 </tr>
                 <tr>
                     <td><label for="dateFin">Date de fin </label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="date" type="date" name="dateFin" min=<?php echo date("Y-m-d") ?> required /></td>
+                    <td><input class="date" type="date" name="dateFin" id="idFin" min=<?php echo date("Y-m-d") ?> required /></td>
                 </tr>
                 <tr>
                     <td><label for="tauxHoraire">Taux horaire (valeur nette en €)</label><label class="etoile">
@@ -84,7 +85,7 @@
                         <input type="button" class="btnSuivant" name="annuler" value="Annuler" onclick="history.back()">
                     </td>
                     <td>
-                        <input type="submit" class="btnSuivant" name="suivant" value="Suivant">
+                        <input type="submit" class="btnSuivant" onclick="alerte_dates()" name="suivant" value="Suivant">
                     </td>
                 </tr>
             </table>

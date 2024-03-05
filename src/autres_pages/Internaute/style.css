@@ -75,6 +75,7 @@ body {
 
 .fondForm {
     margin: auto;
+	margin-top: 40px;
     width: 600px;
     height: 850px;
     background-color: white;
@@ -107,7 +108,7 @@ textarea {
 
 td {
     text-align: start;
-    /* padding: 3px; */
+    padding: 3px;
 }
 
 .etoile {

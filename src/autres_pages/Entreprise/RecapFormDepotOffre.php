@@ -4,7 +4,6 @@ if (isset($_POST["suivant"])) {
     session_start();
     $siren = $_SESSION['siren'];
 
-    if ($_POST["dateDeb"] <= $_POST["dateFin"]) {
         ?>
 
         <!DOCTYPE html>
@@ -14,8 +13,6 @@ if (isset($_POST["suivant"])) {
             <meta charset="UTF-8">
             <title>1PtitJob - Dépôt d'offre</title>
             <link rel="stylesheet" href="../Internaute/style.css">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         </head>
 
         <nav>
@@ -113,10 +110,8 @@ if (isset($_POST["suivant"])) {
 
         </html>
 
-        <?php
-    } else {
-        echo "<div class='alert alert-danger' role='alert'>
-        Erreur : la date de début de l'offre doit être inférieure à celle de fin ! </div>";
-    }
+<?php
+
 }
+
 ?>
