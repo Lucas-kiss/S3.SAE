@@ -25,8 +25,8 @@ if (isset($_POST['connexion'])) {
         if ($link->affected_rows> 0) {    // si la requête a retourné au moins un enregistrement d'entreprise
             $trouve = true;
             while ($donnees=mysqli_fetch_assoc($resultEntr)) {
-                $_SESSION['siren'] = intval($donnees["siren"]);
-                header ('location: ../Entreprise/FormDepotOffre.php');
+                $_SESSION['siren'] = $donnees["siren"];
+                header ('location: ../Entreprise/AccueilEntreprise.php');
             }
         }
     }
