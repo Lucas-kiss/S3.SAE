@@ -69,6 +69,24 @@ if (isset($_GET['value'])) {
             echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
             ?>
 
+            <div class="btnOffre">
+                <script>
+                    function passId(id, urlPage) {
+                        window.location.href = urlPage+'?value=' + encodeURIComponent(id);
+                    }
+                </script>
+                <?php
+                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    $urlCand = "../Etudiant/candidatureEtudiant.php";
+                    echo "<button onclick='passId($monOffre, $urlCand)'>Postuler</button>";
+                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                    $urlModif = "../Internaute/pageOffre.php";
+                    $urlSupp = "../Internaute/pageOffre.php";
+                    echo "<button onclick='passId($monOffre, $urlModif)'>Modifier l'offre</button>";
+                    echo "<button onclick='passId($monOffre, $urlSupp)'>Supprimer l'offre</button>";
+                }
+                ?>
+            </div>
         </div>
 
 

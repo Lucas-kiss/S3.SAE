@@ -70,7 +70,7 @@ session_start();
     <div class="grilleAnnonces">
       <script>
         function passId(id) {
-          window.location.href = 'pageOffre.php?value=' + encodeURIComponent(id);
+          window.location.href = '../Internaute/pageOffre.php?value=' + encodeURIComponent(id);
         }
       </script>
       <?php
