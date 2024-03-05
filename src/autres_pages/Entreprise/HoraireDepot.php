@@ -1,13 +1,14 @@
 <?php
-session_start();
-if (isset($_POST['intitOffre'])) {
-    $_SESSION['intitOffre'] = $_POST['intitOffre'];
-    $_SESSION['dateDeb'] = $_POST['dateDeb'];
-    $_SESSION['dateFin'] = $_POST['dateFin'];
-    $_SESSION['tauxHoraire'] = $_POST['tauxHoraire'];
-    $_SESSION['descrOffre'] = $_POST['descrOffre'];
-    echo $_SESSION['intitOffre'];
-}
+    session_start();
+    if (isset($_POST['intitOffre']))
+    {
+        $_SESSION['intitOffre']=$_POST['intitOffre'];
+        $_SESSION['dateDeb']=$_POST['dateDeb'];
+        $_SESSION['dateFin']=$_POST['dateFin'];
+        $_SESSION['tauxHoraire']=$_POST['tauxHoraire'];
+        $_SESSION['descrOffre']=$_POST['descrOffre'];
+        echo $_SESSION['intitOffre'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -55,33 +56,35 @@ if (isset($_POST['intitOffre'])) {
                                     <label>Jour</label>
                                 </th>";
 
-                for ($i = 0; $i < 24; $i++) {
-                    echo "  <th class='blackBorder'>
+                    for ($i = 0; $i < 24; $i++)
+                    {
+                        echo "  <th class='blackBorder'>
                                     <label>$i h</label>
                                 </th>";
-                }
-
-                echo "  </tr>";
-
-                foreach ($jourSem as &$jour) {
-                    echo "<tr class='noPadding'>";
-                    echo "<th class='blackBorder noPadding thJour'>";
-                    echo "<label>$jour</label>";
-                    echo "</th>";
-
-                    for ($i = 0; $i < 24; $i++) {
-                        echo "<td class='blackBorder noPadding celluleHoraire'>";
-                        echo "<input class='checkHoraire' type='checkbox' name='$jour$i' id='$jour$i'>";
-                        echo "</td>";
                     }
-
+                    
                     echo "  </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-        <input type="submit" value="Suivant">
-    </form>
-</body>
 
+                    foreach ($jourSem as &$jour)
+                    {
+                        echo    "<tr class='noPadding'>";
+                        echo        "<th class='blackBorder noPadding thJour'>";
+                        echo            "<label>$jour</label>";
+                        echo        "</th>";
+
+                        for ($i = 0; $i < 24; $i++)
+                        {
+                            echo    "<td class='blackBorder noPadding celluleHoraire'>";
+                            echo            "<input class='checkHoraire' type='checkbox' name='$jour$i' id='$jour$i'>";
+                            echo    "</td>";
+                        }
+
+                        echo "  </tr>";
+                    }
+                ?>
+                </tbody>
+            </table>
+            <input type="submit" value="Suivant">
+        </form>
+    </body>
 </html>
