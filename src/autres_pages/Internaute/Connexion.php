@@ -44,6 +44,7 @@ if (isset($_POST['connexion'])) {
             }
         } 
     }
+    mysqli_close($link);
 
     if (!($trouve)) { 
         echo "<p>Aucun compte lié au mail et au mot de passe saisis</p>";

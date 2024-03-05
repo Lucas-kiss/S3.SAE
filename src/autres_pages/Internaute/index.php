@@ -146,7 +146,7 @@ if (mysqli_connect_errno()) {
         $critDomaineAct = $_POST["domaineAct"];
         $critDateDeb = $_POST["dateDeb"];
         $critDateFin = $_POST["dateFin"];
-        
+
         if ($critDateFin == '') {
           $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
           FROM Offre O
@@ -205,6 +205,7 @@ if (mysqli_connect_errno()) {
           </div>";
         }
       }
+      mysqli_close($link);
       ?>
     </div>
   </div>

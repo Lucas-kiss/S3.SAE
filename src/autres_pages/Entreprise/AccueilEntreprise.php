@@ -1,3 +1,7 @@
+<?php
+require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,14 +12,14 @@
 </head>
 
 <body>
-<nav>
+  <nav>
     <div class=wrapper>
       <?php
       if (isset($_SESSION['siren'])) {
         echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
         echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
       } else {
-        echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+        echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
         echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
       }
 
@@ -74,7 +78,7 @@
         FROM Offre O
         JOIN Entreprise E ON E.siren = O.siren
         JOIN Ville V ON V.idVille = E.idVille
-        WHERE E.siren="+$siren+" AND O.estFinie=0 
+        WHERE E.siren=" + $siren + " AND O.estFinie=0 
         ORDER BY O.dateDepot DESC";
       $resOffre = mysqli_query($link, $queryOffre);
 
@@ -98,10 +102,11 @@
 
                 <button onclick='passId($resIdOffre)'>Continuer</button>
           </div>";
+          mysqli_close($link);
         }
       }
       ?>
-  </div>
+    </div>
 
 </body>
 
