@@ -1,5 +1,4 @@
 <?php
-    require_once ("../../ressources/donnees/BDD/bdd.php");
     session_start();
 ?>
 
@@ -34,7 +33,7 @@
   </nav>
 
         
-        <form action="InscriptionEntreprise.php" method="POST">
+        <form action="Insert.php" method="POST">
             <div class="fondForm">
             <H1 class="titres">Inscription</H1>
                 <table>
@@ -56,12 +55,8 @@
                             <td><input type="text" class="boiteTexte" id="ville" name="ville" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Anglet" required/> *</td>
                         </tr>
                         <tr>
-                            <th><label for="CP">Code Postal :</label></th>
-                            <td><input type="text" class="boiteTexte" id="CP" name="CP" pattern="[0-9]{5}" title="Chiffres uniquements" placeholder="64600" required/> *</td>
-                        </tr>
-                        <tr>
-                            <th><label for="pays">Pays :</label></th>
-                            <td><input type="text" class="boiteTexte" id="pays" name="pays" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="France" required/> *</td>
+                            <th><label for="CP">Code postale :</label></th>
+                            <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre" placeholder="64600" required/> *</td>
                         </tr>
                         <tr>
                             <th><label for="telephone">Téléphone :</label></th>

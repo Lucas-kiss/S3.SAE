@@ -7,9 +7,7 @@
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
     $naissance = $_SESSION['naissance'];
-    $adresse = $_SESSION['adresse'];
     $ville = $_SESSION['ville'];
-    $pays = $_SESSION['pays'];
     $telephone = $_SESSION['telephone'];
     $mail = $_SESSION['mail'];
     $MdP = hash('sha1', $_SESSION['MdP']);
@@ -19,9 +17,7 @@
     var_dump($prenom);
     var_dump($nom);
     var_dump($naissance);
-    var_dump($adresse);
     var_dump($ville);
-    var_dump($pays);
     var_dump($telephone);
     var_dump($mail);
     var_dump($MdP);
