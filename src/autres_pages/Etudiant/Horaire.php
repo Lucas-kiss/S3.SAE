@@ -1,16 +1,15 @@
 <?php
-session_start();
-if (isset($_POST['ine'])) {
-    $_SESSION['ine'] = $_POST['ine'];
-    $_SESSION['prenom'] = $_POST['prenom'];
-    $_SESSION['nom'] = $_POST['nom'];
-    $_SESSION['naissance'] = $_POST['naissance'];
-    $_SESSION['adresse'] = $_POST['adresse'];
-    $_SESSION['ville'] = $_POST['ville'];
-    $_SESSION['pays'] = $_POST['pays'];
-    $_SESSION['telephone'] = $_POST['telephone'];
-    $_SESSION['CP'] = $_POST['CP'];
-}
+    session_start();
+    if (isset($_POST['ine']))
+    {
+        $_SESSION['ine']=$_POST['ine'];
+        $_SESSION['prenom']=$_POST['prenom'];
+        $_SESSION['nom']=$_POST['nom'];
+        $_SESSION['naissance']=$_POST['naissance'];
+        $_SESSION['ville']=$_POST['ville'];
+        $_SESSION['telephone']=$_POST['telephone'];
+        $_SESSION['CP']=$_POST['CP'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">

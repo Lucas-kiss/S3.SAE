@@ -31,7 +31,7 @@
 
 <body>
 
-    <form action="RecapFormDepotOffre.php" method="POST">
+    <form action="HoraireDepot.php" method="POST">
 
         <div class="fondForm">
             <H1 class="titres">Dépôt d'offre</H1>
