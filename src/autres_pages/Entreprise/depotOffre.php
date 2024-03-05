@@ -31,7 +31,9 @@
         $max = $donnees["MAX(idOffre)"] + 1;
     }
 
-    echo $max.'</br>';
+    var_dump($max);
+
+    //echo $max.'</br>';
     
     $dateActuelle = date('Y-m-d H:i:s');
     $tauxHoraire = str_replace(",", ".", $_SESSION["tauxHoraire"]);
@@ -40,8 +42,19 @@
     $dateDeb = $_SESSION["dateDeb"];
     $dateFin = $_SESSION["dateFin"];
     $description = $_SESSION["descrOffre"];
+
+    var_dump($dateActuelle);
+    var_dump($tauxHoraire);
+    var_dump($intitOffre);
+    var_dump($dateDeb);
+    var_dump($dateFin);
+    var_dump($description);
+    var_dump($nbHeureTotal);
+    var_dump($siren);
     
-    $query = "INSERT INTO Offre (idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, 'description', nbEtudRetenus, estFinie, siren) VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
+    //(idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, description, nbEtudRetenus, estFinie, siren)
+
+    $query = "INSERT INTO Offre  VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
     $res = mysqli_query($link, $query);
 
     $query_id = "SELECT MAX(IdCreneau) FROM Creneau";
@@ -52,8 +65,6 @@
     while ($donnees = mysqli_fetch_assoc($result_id)) {
         $IdCreneau = $donnees["MAX(IdCreneau)"] + 1;
     }
-
-    
 
     $last = 0;
 
