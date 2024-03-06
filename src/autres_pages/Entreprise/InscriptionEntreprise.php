@@ -50,9 +50,6 @@
     }
 
     if ($link) {
-        // $queryInsertEntr = "INSERT INTO Entreprise (siren, nomEntreprise, domaineActivite, telephoneEntreprise, nomResponsable, telephoneResponsable, mailResponsable, mdpResponsable, idVille)
-        // Values ($siren, '$nom', '$domaine', '$telephone', '$nomResp', '$telResp', '$mail', '$MdP', $idVille)";
-
         $queryInsertEntr = "INSERT INTO Entreprise
         Values ($siren, '$nom', '$domaine', '$telephone', '$nomResp', '$telResp', '$mail', '$MdP', $idVille)";
 

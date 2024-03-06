@@ -36,7 +36,6 @@ body {
 }
 
 .connexion {
-    
     text-decoration: none;
     background-color: #29ABE2;
     color: white;
@@ -59,13 +58,6 @@ body {
     background-color: #F5AD5B;
 }
 
-.connexion:hover {
-    transform: scale(1.05);
-}
-
-.connexion:active {
-    background-color: #F5AD5B;
-}
 
 .titres {
     font-family: "Roboto", sans-serif;
@@ -125,14 +117,35 @@ td {
 }
 
 .champsRecap {
-    width: 230%;
+    width: 210%;
     height: 25px;
     border-radius: 5px;
     background-color: #e8ecf7;
     border: 2px solid #c9c9c9;
 }
 
+.inputFile::file-selector-button {
+    text-decoration: none;
+    background-color: #29ABE2;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+    font-family: "Roboto", sans-serif;
+}
 
+.inputFile::file-selector-button:active {
+    background-color: #F5AD5B;
+}
+
+.inputFile::file-selector-button:hover {
+    transform: scale(1.05);
+}
 
 .boiteTexte {
     height: 25px;
