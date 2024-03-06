@@ -19,7 +19,6 @@ if (isset($_GET['value'])) {
         $nomEntr = $donnees["nomEntreprise"];
         $ville = $donnees["nomVille"];
     }
-    mysqli_close($link);
     ?>
 
     <!DOCTYPE html>
