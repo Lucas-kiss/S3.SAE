@@ -78,14 +78,14 @@ if (isset($_GET['value'])) {
                 <?php
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                     $urlCand = "../Etudiant/candidatureEtudiant.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler'>Postuler</button>";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler' class='connexion'>Postuler</button>";
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                     $urlModif = "../Internaute/pageOffre.php";
                     $urlSupp = "../Internaute/pageOffre.php";
                     $urlCand = "../Entreprise/candidatureOffre.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater'>Voir les candidatures</button>";
-                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier>Modifier l'offre</button>";
-                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer'>Supprimer l'offre</button>";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater' class='connexion'>Voir les candidatures</button>";
+                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier' class='connexion'>Modifier l'offre</button>";
+                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer' class='connexion'>Supprimer l'offre</button>";
                 }
                 ?>
             </div>

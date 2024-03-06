@@ -200,7 +200,7 @@ if (mysqli_connect_errno()) {
                 <p>Date de l'offre : $resDateDeb à $resDateFin</p>
                 <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
 
-                <button onclick='passId($resIdOffre)'>Continuer</button>
+                <button onclick='passId($resIdOffre)'>Détails</button>
           </div>";
         }
       }
