@@ -68,7 +68,6 @@ if (isset($_GET['value'])) {
             echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
 
 
-<<<<<<< HEAD
 
             $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
             echo "  <table class='blackBorder'><tr>
@@ -106,21 +105,6 @@ if (isset($_GET['value'])) {
                         echo "<td class='blackBorder noPadding caserouge'>";
                     }
                     echo "</td>";
-=======
-            <div class="btnOffre">
-               
-                <?php
-                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    $urlCand = "../Etudiant/candidatureEtudiant.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler' class='connexion'>Postuler</button>";
-                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                    $urlModif = "../Internaute/pageOffre.php";
-                    $urlSupp = "../Internaute/pageOffre.php";
-                    $urlCand = "../Entreprise/candidatureOffre.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater' class='connexion'>Voir les candidatures</button>";
-                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier' class='connexion'>Modifier l'offre</button>";
-                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer' class='connexion'>Supprimer l'offre</button>";
->>>>>>> postuler
                 }
 
                 echo "</tr>";
