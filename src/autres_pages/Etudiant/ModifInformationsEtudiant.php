@@ -17,38 +17,14 @@ if (!isset($_SESSION['ine'])) {
 </head>
 
 <body>
-    <nav>
-        <div class=wrapper>
-            <?php
-            if (isset($_SESSION['siren'])) {
-                echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-                echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
-            } else {
-                echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-                echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
-            }
-
-            if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
-            } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
-            } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
-            }
-            ?>
-        </div>
-    </nav>
-
-    <body>
         <?php
-        $ine = $_POST['ine'];
+        $ine = $_SESSION['ine'];
         $prenom = $_POST['prenom'];
         $nom = $_POST['nom'];
         $naissance = $_POST['naissance'];
         $ville = $_POST['ville'];
         $CP = intval($_POST['CP']);
         $telephone = $_POST['telephone'];
-        $mail = $_POST['mail'];
 
         $query = "SELECT idVille From Ville where upper(nomVille) like upper(?) and upper(codePostal) like upper(?)";
         $result = $link->prepare($query);
@@ -90,11 +66,20 @@ if (!isset($_SESSION['ine'])) {
             exit();
         }
         
+        if ($link) {
+            $queryUpdate = "UPDATE Etudiant SET prenom='$prenom', nom='$nom', dateNaiss='$naissance', numTel='$telephone', idVille=$idVille WHERE ine='$ine'";
 
+
+            $res = mysqli_query($link, $queryUpdate);
+            if ($res) {
+                header('location: ../Etudiant/informationsEtudiant.php');
+            } else {
+                echo "insertion n'a pas fonctionné";
+            }  
+            mysqli_close($link);      
+        }
+        
         ?>
-
-
-
 
     </body>
 
