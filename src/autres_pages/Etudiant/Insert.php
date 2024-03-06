@@ -141,6 +141,7 @@
                 $IdCreneau++;
             }
         }
+        mysqli_close($link);
     }
     else {
         echo "problème de connexion à la bd";

@@ -19,7 +19,7 @@ if (isset($_GET['value'])) {
         $nomEntr = $donnees["nomEntreprise"];
         $ville = $donnees["nomVille"];
     }
-
+    mysqli_close($link);
     ?>
 
     <!DOCTYPE html>
@@ -39,14 +39,14 @@ if (isset($_GET['value'])) {
                     echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
                     echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
                 } else {
-                    echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-                    echo "<h1 class='titre'><a href='./index.php'>1P'titJob</a></h1>";
+                    echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+                    echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
                 }
 
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                     echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
                 } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    echo "<a href='Connexion.html' class='connexion'>Connexion</a>";
+                    echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                     echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
                 }
@@ -66,9 +66,32 @@ if (isset($_GET['value'])) {
             echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
             echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
             echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
-            echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+
             ?>
 
+            <div class="btnOffre">
+                <script>
+                    function passId(id, urlPage) {
+                        window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+                    }
+                </script>
+                <?php
+                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    $urlCand = "../Etudiant/candidatureEtudiant.php";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler' class='connexion'>Postuler</button>";
+                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                    $urlModif = "../Internaute/pageOffre.php";
+                    $urlSupp = "../Internaute/pageOffre.php";
+                    $urlCand = "../Entreprise/candidatureOffre.php";
+                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater' class='connexion'>Voir les candidatures</button>";
+                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier' class='connexion'>Modifier l'offre</button>";
+                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer' class='connexion'>Supprimer l'offre</button>";
+                }
+                ?>
+            </div>
+            <?php
+            echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            ?>
         </div>
 
 
