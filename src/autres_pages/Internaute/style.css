@@ -420,3 +420,41 @@ text-align: center;
     width: 60px;
     display: table-cell;
 }
+
+.grilleBoutons > .InfoEntreprise{
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-auto-rows: minmax(10px, auto);
+}
+
+.grilleBoutons > .InfoEntreprise > .messagesEntreprise {
+    grid-row: 1;
+}
+
+.fondForm > .btnOffre {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1;
+    align-items: center;
+}
+
+.fondForm > .btnOffre > #btnPostuler {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.fondForm > .btnOffre > #btnCandidater {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.fondForm > .btnOffre > #btnModifier {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.fondForm > .btnOffre > #btnSupprimer {
+    grid-column: 3;
+    grid-row: 1;
+}

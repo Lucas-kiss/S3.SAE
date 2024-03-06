@@ -29,7 +29,7 @@ if (mysqli_connect_errno()) {
         echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
       } else {
         echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-        echo "<h1 class='titre'><a href='./index.php'>1P'titJob</a></h1>";
+        echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
       }
 
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
@@ -146,7 +146,6 @@ if (mysqli_connect_errno()) {
         $critDomaineAct = $_POST["domaineAct"];
         $critDateDeb = $_POST["dateDeb"];
         $critDateFin = $_POST["dateFin"];
-        
         if ($critDateFin == '') {
           $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
           FROM Offre O
@@ -201,10 +200,11 @@ if (mysqli_connect_errno()) {
                 <p>Date de l'offre : $resDateDeb à $resDateFin</p>
                 <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
 
-                <button onclick='passId($resIdOffre)'>Continuer</button>
+                <button onclick='passId($resIdOffre)'>Détails</button>
           </div>";
         }
       }
+      mysqli_close($link);
       ?>
     </div>
   </div>
