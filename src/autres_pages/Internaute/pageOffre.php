@@ -19,7 +19,6 @@ if (isset($_GET['value'])) {
         $nomEntr = $donnees["nomEntreprise"];
         $ville = $donnees["nomVille"];
     }
-    mysqli_close($link);
     ?>
 
     <!DOCTYPE html>
@@ -67,33 +66,78 @@ if (isset($_GET['value'])) {
             echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
             echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
 
-            ?>
 
-            <div class="btnOffre">
-                <script>
-                    function passId(id, urlPage) {
-                        window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+
+            $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+            echo "  <table class='blackBorder'><tr>
+                            <th>
+                                <label>Jour</label>
+                            </th>";
+
+            for ($i = 0; $i < 24; $i++) {
+                echo "  <th class='blackBorder'>
+                                <label>$i h</label>
+                            </th>";
+            }
+
+            echo "  </tr>";
+
+            foreach ($jourSem as &$jour) {
+                echo "<tr class='noPadding'>";
+                echo "<th class='blackBorder noPadding thJour'>";
+                echo "<label>$jour</label>";
+                echo "</th>";
+
+
+
+                $j = 0;
+
+                for ($i = 0; $i < 24; $i++) {
+                    $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i";
+                    $result = mysqli_query($link, $query);
+
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        //echo $result[$j]['heureDeb'];
+                        //echo $i.$j.$jour; 
+                        echo "<td class='blackBorder noPadding caseverte'>";
+                    } else {
+                        echo "<td class='blackBorder noPadding caserouge'>";
                     }
-                </script>
-                <?php
-                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    $urlCand = "../Etudiant/candidatureEtudiant.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnPostuler' class='connexion'>Postuler</button>";
-                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                    $urlModif = "../Internaute/pageOffre.php";
-                    $urlSupp = "../Internaute/pageOffre.php";
-                    $urlCand = "../Entreprise/candidatureOffre.php";
-                    echo "<button onclick='passId($monOffre, $urlCand)' id='btnCandidater' class='connexion'>Voir les candidatures</button>";
-                    echo "<button onclick='passId($monOffre, $urlModif)' id='btnModifier' class='connexion'>Modifier l'offre</button>";
-                    echo "<button onclick='passId($monOffre, $urlSupp)'id='btnSupprimer' class='connexion'>Supprimer l'offre</button>";
+                    echo "</td>";
                 }
-                ?>
-            </div>
-            <?php
-            echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+
+                echo "</tr>";
+            }
+            echo "</table>";
+
+
+            echo "<div class='btnOffre'>";
+
+            if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                $urlCand = "../Etudiant/candidatureEtudiant.php";
+                echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler'
+                class='connexion'>Postuler</button>";
+            } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                $urlModif = "../Internaute/pageOffre.php";
+                $urlSupp = "../Internaute/pageOffre.php";
+                $urlCand = "../Entreprise/candidatureOffre.php";
+                echo "<button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
+                class='connexion'>Voir les candidatures</button>";
+                echo "<button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
+                class='connexion'>Modifier l'offre</button>";
+                echo "<button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnSupprimer'
+                class='connexion'>Supprimer l'offre</button>";
+            }
+
+            echo "</div>
+        <p class='sous-titre'>Offre déposée le $dateDepot</p>";
             ?>
         </div>
-
+        <script>
+            function passId(id, urlPage) {
+                window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+            }
+        </script>
 
     </body>
 
