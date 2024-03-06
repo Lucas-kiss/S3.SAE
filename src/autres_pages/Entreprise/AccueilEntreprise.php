@@ -74,7 +74,7 @@
         FROM Offre O
         JOIN Entreprise E ON E.siren = O.siren
         JOIN Ville V ON V.idVille = E.idVille
-        WHERE E.siren="+$siren+" AND O.estFinie=0 
+        WHERE E.siren = $siren AND O.estFinie=0 
         ORDER BY O.dateDepot DESC";
       $resOffre = mysqli_query($link, $queryOffre);
 
