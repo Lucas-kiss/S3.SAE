@@ -70,11 +70,7 @@ if (isset($_GET['value'])) {
             ?>
 
             <div class="btnOffre">
-                <script>
-                    function passId(id, urlPage) {
-                        window.location.href = urlPage + '?value=' + encodeURIComponent(id);
-                    }
-                </script>
+               
                 <?php
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                     $urlCand = "../Etudiant/candidatureEtudiant.php";
@@ -98,7 +94,13 @@ if (isset($_GET['value'])) {
     </body>
 
     </html>
-
+    <script>
+     function passId(id, urlPage) {
+         alert(urlPage);
+         window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+     }
+ </script>
     <?php
+     
 }
 ?>
