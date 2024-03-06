@@ -3,8 +3,6 @@ if (isset($_POST["suivant"])) {
     require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
     session_start();
 
-    require_once ("../../ressources/donnees/BDD/bdd.php");
-
     $siren = $_SESSION['siren'];
 
     if ($_POST["dateDeb"] <= $_POST["dateFin"]) {
