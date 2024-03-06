@@ -31,7 +31,7 @@
         $max = $donnees["MAX(idOffre)"] + 1;
     }
 
-    var_dump($max);
+    //var_dump($max);
 
     //echo $max.'</br>';
     
@@ -43,18 +43,18 @@
     $dateFin = $_SESSION["dateFin"];
     $description = $_SESSION["descrOffre"];
 
-    var_dump($dateActuelle);
+    /*var_dump($dateActuelle);
     var_dump($tauxHoraire);
     var_dump($intitOffre);
     var_dump($dateDeb);
     var_dump($dateFin);
     var_dump($description);
     var_dump($nbHeureTotal);
-    var_dump($siren);
+    var_dump($siren);*/
     
     //(idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, description, nbEtudRetenus, estFinie, siren)
 
-    $query = "INSERT INTO Offre  VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
+    $query = "INSERT INTO Offre VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
     $res = mysqli_query($link, $query);
 
     $query_id = "SELECT MAX(IdCreneau) FROM Creneau";
@@ -68,7 +68,7 @@
 
     $last = 0;
 
-    echo $IdCreneau.'</br>';
+    //echo $IdCreneau.'</br>';
 
     foreach ($jourSem as &$jour) {
 
@@ -83,7 +83,7 @@
 
                     $query2 = "INSERT INTO Concerner (idOffre, idCreneau) Values ($max, $IdCreneau)";
 
-                    echo 'fin ' . $cle . '</br>';
+                    //echo 'fin ' . $cle . '</br>';
 
                     $result = mysqli_query($link, $query1);
 
@@ -91,13 +91,13 @@
 
                     $IdCreneau++;
 
-                    echo $IdCreneau.'</br>';
+                    //echo $IdCreneau.'</br>';
 
                     $trouve = false;
                 }
             } else {
                 if (isset($_POST[$cle]) && $_POST[$cle] == 'on') {
-                    echo 'deb ' . $cle . '</br>';
+                    //echo 'deb ' . $cle . '</br>';
                     $heureDeb = $i;
                     $trouve = true;
                 }
@@ -105,11 +105,11 @@
         }
 
         if ($trouve) {
-            $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 24)";
+            $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 0)";
 
             $query2 = "INSERT INTO Concerner (idOffre, idCreneau) Values ($max, $IdCreneau)";
 
-            echo 'fin ' . $jour . '24</br>';
+            //echo 'fin ' . $jour . '24</br>';
 
             $result = mysqli_query($link, $query1);
 
@@ -119,13 +119,11 @@
         }
     }
     
-    /*if ($res) {
-        //header ('location: RecapFormDepotOffre.php');
+    if ($res) {
+        header ('location: RecapFormDepotOffre.php');
     }
     else {
         echo "Insertion n'a pas fonctionné";
-    }*/
+    }
 
-
-        
 ?>

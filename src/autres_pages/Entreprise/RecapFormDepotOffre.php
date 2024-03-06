@@ -1,7 +1,9 @@
 <?php
 if (isset($_POST["suivant"])) {
-    require_once("../../ressources/donnees/BDD/bdd.php");
     session_start();
+
+    require_once ("../../ressources/donnees/BDD/bdd.php");
+
     $siren = $_SESSION['siren'];
 
     if ($_POST["dateDeb"] <= $_POST["dateFin"]) {
@@ -94,7 +96,7 @@ if (isset($_POST["suivant"])) {
                             <td><textarea readonly class="textAreaRecap" name="descrOffre" cols="20" rows="12"><?php echo $descrOffre ?></textarea></td>
                         </tr>
                         <td>
-                            <label class="etoile">* </label><label class="champsObl">Champs obligatoires<label>
+                            <label class="etoile">*</label><label class="champsObl">Champs obligatoires<label>
                         </td>
                         <tr>
                             <td>
@@ -107,6 +109,7 @@ if (isset($_POST["suivant"])) {
                     </table>
                 </div>
             </form>
+            
             
 
         </body>

@@ -75,8 +75,8 @@ body {
 
 .fondForm {
     margin: auto;
-    width: 600px;
-    height: 850px;
+    width: 80%;
+    height: auto;
     background-color: white;
     border-radius: 30px;
 
@@ -418,4 +418,21 @@ text-align: center;
     height: 60px;
     width: 60px;
     display: table-cell;
+    background-color: white;
+}
+
+.caserouge
+{
+    height: 60px;
+    width: 60px;
+    display: table-cell;
+    background-color: rgb(243, 107, 107);
+}
+
+.caseverte
+{
+    height: 60px;
+    width: 60px;
+    display: table-cell;
+    background-color: rgb(191, 236, 140);
 }
