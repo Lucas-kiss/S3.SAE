@@ -3,8 +3,6 @@ if (isset($_POST["suivant"])) {
     require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
     session_start();
 
-    require_once ("../../ressources/donnees/BDD/bdd.php");
-
     $siren = $_SESSION['siren'];
 
     if ($_POST["dateDeb"] <= $_POST["dateFin"]) {
@@ -122,5 +120,6 @@ if (isset($_POST["suivant"])) {
         echo "<div class='alert alert-danger' role='alert'>
         Erreur : la date de début de l'offre doit être inférieure à celle de fin ! </div>";
     }
+    mysqli_close($link);
 }
 ?>

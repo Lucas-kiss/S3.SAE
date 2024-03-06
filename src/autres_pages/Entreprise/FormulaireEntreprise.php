@@ -31,6 +31,7 @@ session_start();
             } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                 echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
             }
+            mysqli_close($link);
             ?>
         </div>
     </nav>

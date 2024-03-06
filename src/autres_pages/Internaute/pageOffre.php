@@ -141,6 +141,7 @@ if (isset($_GET['value'])) {
             </div>
             <?php
             echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            mysqli_close($link);
             ?>
         </div>
         
