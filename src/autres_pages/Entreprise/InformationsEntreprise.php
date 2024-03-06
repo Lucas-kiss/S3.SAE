@@ -1,4 +1,5 @@
 <?php
+require_once("../../ressources/donnees/BDD/bdd.php");
 session_start();
 ?>
 
@@ -35,7 +36,20 @@ session_start();
     </nav>
 
     <body>
-        <a href=../logout.php>Se déconnecter</a>
-    </body>
+        <?php
+        if (!isset($_SESSION['siren'])) 
+        {
+            header('location: index.php');
+        } 
+        else 
+        {
+            ?>
+            <a href=../logout.php>Se déconnecter</a>
+            <?php
+        }
+        ?>
+
+
+</body>
 
 </html>
