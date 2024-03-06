@@ -1,37 +1,44 @@
 <?php
+<<<<<<< HEAD
     require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
     session_start();
+=======
+require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+session_start();
+>>>>>>> origin
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>1PtitJob - Inscription Entreprise</title>
-        <link rel="stylesheet" href="../Internaute/style.css">
-    </head>
-    <body>
-    <nav>
-    <div class=wrapper>
-      <?php
-      if (isset($_SESSION['siren'])) {
-        echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-        echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
-      } else {
-        echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-        echo "<h1 class='titre'><a href='./index.php'>1P'titJob</a></h1>";
-      }
 
-      if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-        echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
-      } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-        echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
-      } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-        echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
-      }
-      ?>
-    </div>
-  </nav>
+<head>
+    <meta charset="UTF-8">
+    <title>1PtitJob - Inscription Entreprise</title>
+    <link rel="stylesheet" href="../Internaute/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class=wrapper>
+            <?php
+            if (isset($_SESSION['siren'])) {
+                echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+                echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
+            } else {
+                echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+                echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
+            }
+
+            if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
+            } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
+            } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
+            }
+            ?>
+        </div>
+    </nav>
 
         
         <form action="Insert.php" method="POST">
