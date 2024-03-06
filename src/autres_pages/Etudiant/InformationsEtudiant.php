@@ -82,20 +82,20 @@ if (!isset($_SESSION['ine']))
                                     </tr>
                                     <tr>
                                         <th><label for="naissance">Date de naissance :</label></th>
-                                        <td><input type="date" id="naissance" name="naissance" required title="Vous devez avoir 16ans"
+                                        <td><input type="date" id="naissance" name="naissance" class="boiteTexte" required title="Vous devez avoir 16ans"
                                                 max="<?php echo (new DateTime())->sub(new DateInterval('P16Y'))->format('Y-m-d'); ?>"
                                                 value=<?php echo $dateNaiss ?> />
                                             </td>
                                     </tr>
                                     <tr>
                                         <th><label for="ville">Ville :</label></th>
-                                        <td><input type="text" id="ville" name="ville" pattern="[^0-9]+"
+                                        <td><input type="text" id="ville" name="ville" pattern="[^0-9]+" class="boiteTexte"
                                                 title="Lettres uniquements (espace et - autorisé)" placeholder="Anglet" value=<?php echo $nomVille ?> />
                                         </td>
                                     </tr>
                                     <tr>
                                         <th><label for="CP">Code postal :</label></th>
-                                        <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre"
+                                        <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre" class="boiteTexte"
                                                 placeholder="64600" value=<?php echo $cp ?> /></td>
                                     </tr>
                                     <tr>
