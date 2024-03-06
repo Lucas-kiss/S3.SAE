@@ -14,6 +14,8 @@
     $MdP = hash('sha1', $_SESSION['MdP']);
     $CP = intval($_POST['CP']);
 
+    $_SESSION['siren'] = $siren;
+
     /*var_dump($siren);
     var_dump($nom);
     var_dump($domaine);
@@ -76,5 +78,6 @@
 
         $res = mysqli_query($link, $queryInsertEnt);
     }
+    mysqli_close($link);
     header ('location: AccueilEntreprise.php');
 ?>

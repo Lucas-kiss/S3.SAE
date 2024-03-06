@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
 require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
+=======
+    require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+    session_start();
+>>>>>>> postuler
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +36,7 @@ session_start();
             } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                 echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
             }
+            mysqli_close($link);
             ?>
         </div>
     </nav>

@@ -125,5 +125,5 @@
     else {
         echo "Insertion n'a pas fonctionné";
     }
-
+    mysqli_close($link);
 ?>
