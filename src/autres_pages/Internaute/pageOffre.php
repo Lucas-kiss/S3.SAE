@@ -69,6 +69,57 @@ if (isset($_GET['value'])) {
 
             ?>
 
+            
+            <?php
+                $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+                echo "  <table class='blackBorder'><tr>
+                            <th>
+                                <label>Jour</label>
+                            </th>";
+
+                for ($i = 0; $i < 24; $i++)
+                {
+                    echo "  <th class='blackBorder'>
+                                <label>$i h</label>
+                            </th>";
+                }
+                
+                echo "  </tr>";
+
+                foreach ($jourSem as &$jour)
+                {
+                    echo    "<tr class='noPadding'>";
+                    echo        "<th class='blackBorder noPadding thJour'>";
+                    echo            "<label>$jour</label>";
+                    echo        "</th>";
+
+                    
+
+                    $j = 0;
+
+                    for ($i = 0; $i < 24; $i++)
+                    {
+                        $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i";
+                        $result = mysqli_query($link, $query);
+
+                        if($result && mysqli_num_rows($result) > 0)
+                        {
+                            //echo $result[$j]['heureDeb'];
+                            //echo $i.$j.$jour; 
+                             echo "<td class='blackBorder noPadding caseverte'>";
+                        }
+                        else
+                        {
+                            echo "<td class='blackBorder noPadding caserouge'>";
+                        }
+                        echo "</td>";
+                    }
+
+                    echo    "</tr>";
+                }
+                echo    "</table>";
+            ?>
+
             <div class="btnOffre">
                 <script>
                     function passId(id, urlPage) {
@@ -93,8 +144,9 @@ if (isset($_GET['value'])) {
             echo "<p class='sous-titre'>Offre déposée le $dateDepot</p>";
             ?>
         </div>
+        
 
-
+        
     </body>
 
     </html>
