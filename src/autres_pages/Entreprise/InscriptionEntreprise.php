@@ -63,4 +63,5 @@
             echo "Insertion n'a pas fonctionnée</br>";
         }
     }
+    mysqli_close($link);
 ?>

@@ -13,7 +13,7 @@
     $MdP = hash('sha1', $_SESSION['MdP']);
     $CP = intval($_SESSION['CP']);
 
-    var_dump($ine);
+    /*var_dump($ine);
     var_dump($prenom);
     var_dump($nom);
     var_dump($naissance);
@@ -21,7 +21,7 @@
     var_dump($telephone);
     var_dump($mail);
     var_dump($MdP);
-    var_dump($CP);
+    var_dump($CP);*/
 
     $query = "SELECT idVille From Ville where upper(nomVille) like upper(?) and upper(codePostal) like upper(?)";
 
@@ -34,7 +34,7 @@
     $result->bind_result($idVille);
 
     $result->fetch();
-    echo "$idVille";
+    //echo "$idVille";
 
     if (!$idVille) {
         $query_id = "SELECT MAX(idVille) FROM Ville";
@@ -72,11 +72,11 @@
         $queryInsertEtu = "INSERT INTO Etudiant (ine, prenom, nom, dateNaiss, numTel, mailEtud, mdpEtud, idVille) Values ('$ine', '$prenom', '$nom', '$naissance', '$telephone', '$mail', '$MdP', $idVille)";
 
         $res = mysqli_query($link, $queryInsertEtu);
-        if ($res) {
+        /*if ($res) {
             echo 'Insertion fonctionnelle</br>';
         } else {
             echo "Insertion n'a pas fonctionné</br>";
-        }
+        }*/
 
         $query_id = "SELECT MAX(IdCreneau) FROM Creneau";
         $result_id = mysqli_query($link, $query_id);
@@ -93,7 +93,7 @@
 
         $last = 0;
 
-        echo $IdCreneau;
+        //echo $IdCreneau;
 
         foreach ($jourSem as &$jour) {
 
@@ -108,7 +108,7 @@
 
                         $query2 = "INSERT INTO Posseder (ine, idCreneau) Values ('$ine', $IdCreneau)";
 
-                        echo 'fin ' . $cle . '</br>';
+                        //echo 'fin ' . $cle . '</br>';
 
                         $result = mysqli_query($link, $query1);
 
@@ -116,13 +116,13 @@
 
                         $IdCreneau++;
 
-                        echo $IdCreneau;
+                        //echo $IdCreneau;
 
                         $trouve = false;
                     }
                 } else {
                     if (isset($_POST[$cle]) && $_POST[$cle] == 'on') {
-                        echo 'deb ' . $cle . '</br>';
+                        //echo 'deb ' . $cle . '</br>';
                         $heureDeb = $i;
                         $trouve = true;
                     }
@@ -130,9 +130,9 @@
             }
 
             if ($trouve) {
-                $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 24)";
+                $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 0)";
 
-                echo 'fin ' . $jour . '24</br>';
+                //echo 'fin ' . $jour . '24</br>';
 
                 $result = mysqli_query($link, $query1);
 
@@ -142,6 +142,7 @@
             }
         }
         mysqli_close($link);
+        header('location: ../Internaute/index.php');
     }
     else {
         echo "problème de connexion à la bd";

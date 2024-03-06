@@ -14,7 +14,9 @@
     $MdP = hash('sha1', $_SESSION['MdP']);
     $CP = intval($_POST['CP']);
 
-    var_dump($siren);
+    $_SESSION['siren'] = $siren;
+
+    /*var_dump($siren);
     var_dump($nom);
     var_dump($domaine);
     var_dump($ville);
@@ -23,7 +25,7 @@
     var_dump($telResp);
     var_dump($mail);
     var_dump($MdP);
-    var_dump($CP);
+    var_dump($CP);*/
 
     $query = "SELECT idVille From Ville where upper(nomVille) like upper(?) and upper(codePostal) like upper(?)";
 
@@ -36,7 +38,7 @@
     $result->bind_result($idVille);
 
     $result->fetch();
-    echo "$idVille";
+    //echo "$idVille";
 
     if (!$idVille) {
         $query_id = "SELECT MAX(idVille) FROM Ville";
@@ -67,7 +69,7 @@
     $link = mysqli_connect($host, $user, $pass, $bdd) or die("Impossible de se connecter à la base de données");
 
     if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        //echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
     }
 
@@ -76,4 +78,6 @@
 
         $res = mysqli_query($link, $queryInsertEnt);
     }
+    mysqli_close($link);
+    header ('location: AccueilEntreprise.php');
 ?>

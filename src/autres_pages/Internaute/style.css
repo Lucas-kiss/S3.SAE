@@ -74,13 +74,13 @@ body {
 }
 
 .fondForm {
+    padding: 1%;
+    padding-top: 0%;
     margin: auto;
-	margin-top: 40px;
-    width: 600px;
-    height: 850px;
+    width: max-content;
+    height: auto;
     background-color: white;
     border-radius: 30px;
-
 }
 
 textarea {
@@ -419,18 +419,18 @@ text-align: center;
     height: 60px;
     width: 60px;
     display: table-cell;
+    background-color: white;
 }
 
 .grilleBoutons > .InfoEntreprise{
     grid-column: 2;
     grid-row: 1;
     display: grid;
-    grid-auto-rows: minmax(10px, auto);
+
+
 }
 
-.grilleBoutons > .InfoEntreprise > .messagesEntreprise {
-    grid-row: 1;
-}
+
 
 .fondForm > .btnOffre {
     display: grid;
@@ -457,4 +457,19 @@ text-align: center;
 .fondForm > .btnOffre > #btnSupprimer {
     grid-column: 3;
     grid-row: 1;
+}
+.caserouge
+{
+    height: 60px;
+    width: 60px;
+    display: table-cell;
+    background-color: rgb(243, 107, 107);
+}
+
+.caseverte
+{
+    height: 60px;
+    width: 60px;
+    display: table-cell;
+    background-color: rgb(191, 236, 140);
 }

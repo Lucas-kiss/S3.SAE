@@ -149,7 +149,7 @@ session_start();
         ORDER BY O.dateDepot DESC";
       $resOffre = mysqli_query($link, $queryOffre);
 
-      if ($link) {
+      if ($link && $link->affected_rows> 0) {
         while ($donnees = mysqli_fetch_assoc($resOffre)) {
           $resIdOffre = $donnees['id'];
           $resNomOffre = $donnees['nomOffre'];

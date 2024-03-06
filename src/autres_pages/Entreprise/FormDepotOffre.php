@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +21,6 @@
         echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
         echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
       }
-
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
       } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {

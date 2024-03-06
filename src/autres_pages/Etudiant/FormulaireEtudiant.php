@@ -80,12 +80,6 @@ session_start();
                                 placeholder="64600" required /> *</td>
                     </tr>
                     <tr>
-                        <th><label for="pays">Pays :</label></th>
-                        <td><input type="text" id="pays" name="pays" pattern="[^0-9]+"
-                                title="Lettres uniquements (espace et - autorisé)" placeholder="France" required /> *
-                        </td>
-                    </tr>
-                    <tr>
                         <th><label for="telephone">Téléphone :</label></th>
                         <td><input type="tel" class="boiteTexte" id="telephone" name="telephone"
                                 pattern="[0]{1}[0-9]{9}" title="Numéro à 10 Chiffres qui commance par 0"
