@@ -149,7 +149,7 @@ session_start();
         ORDER BY O.dateDepot DESC";
       $resOffre = mysqli_query($link, $queryOffre);
 
-      if ($link && $link->affected_rows> 0) {
+      if ($link && $link->affected_rows > 0) {
         while ($donnees = mysqli_fetch_assoc($resOffre)) {
           $resIdOffre = $donnees['id'];
           $resNomOffre = $donnees['nomOffre'];
@@ -169,7 +169,6 @@ session_start();
 
                 <button onclick='passId($resIdOffre)'>Détails</button>
           </div>";
-          mysqli_close($link);
         }
       }
       ?>
