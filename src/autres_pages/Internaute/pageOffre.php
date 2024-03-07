@@ -124,7 +124,7 @@ if (isset($_GET['value'])) {
                 $urlCand = "../Entreprise/candidatureOffre.php";
 
                 echo
-                "<script>
+                    "<script>
                     function choixSuppressionOffre(uneOffre) {
                         if ( confirm( 'Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.' ) ) {
                             passId(uneOffre, `../Entreprise/SupprimerOffre.php`);
@@ -153,13 +153,8 @@ if (isset($_GET['value'])) {
     </body>
 
     </html>
-    <script>
-     function passId(id, urlPage) {
-         alert(urlPage);
-         window.location.href = urlPage + '?value=' + encodeURIComponent(id);
-     }
- </script>
+
     <?php
-     
+
 }
 ?>
