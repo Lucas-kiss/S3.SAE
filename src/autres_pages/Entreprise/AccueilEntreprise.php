@@ -24,11 +24,24 @@ session_start();
       }
 
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-        echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
+        $ine = $_SESSION['ine'];
+        $queryNomCompte = "SELECT prenom, nom FROM Etudiant WHERE ine LIKE '$ine'";
+        $resultNom = mysqli_query($link, $queryNomCompte);
+        while ($donnees = mysqli_fetch_assoc($resultNom)) {
+          $prenom = $donnees["prenom"];
+          $nom = $donnees["nom"];
+        }
+        echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>$prenom $nom</a>";
       } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
       } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-        echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
+        $siren = $_SESSION['siren'];
+        $queryNomCompte = "SELECT nomEntreprise FROM Entreprise WHERE siren LIKE '$siren'";
+        $resultNom = mysqli_query($link, $queryNomCompte);
+        while ($donnees = mysqli_fetch_assoc($resultNom)) {
+          $nomEntr = $donnees["nomEntreprise"];
+        }
+        echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>$nomEntr</a>";
       }
       ?>
     </div>
@@ -169,9 +182,9 @@ session_start();
 
                 <button onclick='passId($resIdOffre)'>Détails</button>
           </div>";
-          mysqli_close($link);
         }
       }
+      mysqli_close($link);
       ?>
     </div>
 
