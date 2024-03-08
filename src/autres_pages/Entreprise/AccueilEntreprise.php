@@ -176,7 +176,7 @@ session_start();
 
                 <h3>Intitulé de l'offre : $resNomOffre</h3>
                 <p>Entreprise : $resNomEntr</p>
-                <p>Domaine d'activité :$resDomaineAct</p>
+                <p>Domaine d'activité : $resDomaineAct</p>
                 <p>Date de l'offre : $resDateDeb à $resDateFin</p>
                 <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
 

@@ -117,7 +117,7 @@ foreach ($jourSem as &$jour) {
 }
 
 if ($res) {
-    header('location: RecapFormDepotOffre.php');
+    header('location: ../Entreprise.AccueilEntreprise.php');
 } else {
     echo "Insertion n'a pas fonctionné";
 }

@@ -128,7 +128,7 @@ td {
 }
 
 .champsRecap {
-    width: 210%;
+    width: 100%;
     height: 25px;
     border-radius: 5px;
     background-color: #e8ecf7;
@@ -511,4 +511,50 @@ text-align: center;
 .auto
 {
     width: 500px;
+}
+
+.infoCompteEntr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2;
+    align-items: center;
+    text-align: left;
+}
+
+.infoCompteEntr > #tabInfoEntrGauche {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.infoCompteEntr > #tabInfoEntrDroite {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top:0% ;
+    margin-bottom: 10%;
+}
+
+.infoCompteEntr > #btnRetour {
+    grid-column: 1;
+    grid-row: 2;
+    margin-left: 0%;
+    margin-top: 10px;
+}
+
+.infoCompteEntr > #btnModif {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 0%;
+    margin-top: 10px;
+}
+
+.infoCompteEntr > #tabModifInfoEntrGauche {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.infoCompteEntr > #tabModifInfoEntrDroite {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top:0% ;
+    margin-bottom: 10%;
 }
