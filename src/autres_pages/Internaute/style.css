@@ -74,7 +74,8 @@ body {
 .fondForm {
     padding: 1%;
     padding-top: 0%;
-    margin: auto;
+    margin:auto;
+    margin-top:2%;
     width: max-content;
     height: auto;
     background-color: white;
@@ -83,7 +84,7 @@ body {
 
 textarea {
     resize: none;
-    width: 230%;
+    width: 500px;
     border-radius: 5px;
     background-color: #f8f8f8;
     border: 2px solid #c9c9c9;
@@ -100,7 +101,7 @@ textarea {
 
 .tabOffre {
     display: grid;
-    padding: 25px;
+    padding: 5px;
 
 }
 
@@ -114,7 +115,7 @@ td {
 }
 
 .champs {
-    width: 230%;
+    width: 500px; /*230% avant*/
     height: 25px;
     border-radius: 5px;
     background-color: #f8f8f8;
@@ -182,6 +183,11 @@ label {
     height: 100%;
 }
 
+.centrer
+{
+    text-align: center;
+}
+
 .champsObl {
     font-family: "Roboto", sans-serif;
     font-size: 15px;
@@ -189,7 +195,7 @@ label {
 }
 
 .btnSuivant {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     background-color: #29ABE2;
     color: white;
     font-size: 15px;
@@ -199,7 +205,7 @@ label {
     outline: none;
     cursor: pointer;
     transition: transform 0.5s;
-    margin-left: 55%;
+    /*margin-left: 55%;*/
 }
 
 .btnSuivant:hover {
@@ -491,4 +497,9 @@ text-align: center;
     width: 60px;
     display: table-cell;
     background-color: rgb(191, 236, 140);
+}
+
+.auto
+{
+    width: 500px;
 }

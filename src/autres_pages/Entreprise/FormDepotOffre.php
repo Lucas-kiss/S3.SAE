@@ -38,7 +38,6 @@
 
         <div class="fondForm">
             <H1 class="titres">Dépôt d'offre</H1>
-            <div class="separation"></div>
             <table class="tabOffre">
                 <tr>
                     <td><label for="intitOffre">Intitulé de l'offre</label><label class="etoile"> *</label></td>
@@ -82,14 +81,16 @@
                 <td>
                     <label class="etoile">* </label><label class="champsObl">Champs obligatoires<label>
                 </td>
-                <tr>
-                    <td>
-                        <input type="button" class="btnSuivant" name="annuler" value="Annuler" onclick="history.back()">
-                    </td>
-                    <td>
-                        <input type="submit" class="btnSuivant" onclick="alerte_dates()" name="suivant" value="Suivant">
-                    </td>
-                </tr>
+                <table class="tabOffre">
+                    <tr class="auto">
+                        <td class='centrer'>
+                            <input type="button" class="btnSuivant" name="annuler" value="Annuler" onclick="history.back()">
+                        </td>
+                        <td class='centrer'>
+                            <input type="submit" class="btnSuivant" onclick="alerte_dates()" name="suivant" value="Suivant">
+                        </td>
+                    </tr>
+                </table>
             </table>
         </div>
     </form>
