@@ -71,11 +71,11 @@ session_start();
                             <td><input type="text" class="boiteTexte" id="ville" name="ville" pattern="[a-zA-ZÀ-ÿ]+" title="Lettres uniquements" placeholder="Anglet" required/> *</td>
                         </tr>
                         <tr>
-                            <th><label for="CP">Code postale :</label></th>
+                            <th><label for="CP">Code postal :</label></th>
                             <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre" placeholder="64600" required/> *</td>
                         </tr>
                         <tr>
-                            <th><label for="telephone">Téléphone :</label></th>
+                            <th><label for="telephone">Téléphone de l'entreprise:</label></th>
                             <td><input type="tel" class="boiteTexte" id="telephone" name="telephone" pattern="[0]{1}[0-9]{9}" title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789" required/> *</td>
                         </tr>
                         <tr>
