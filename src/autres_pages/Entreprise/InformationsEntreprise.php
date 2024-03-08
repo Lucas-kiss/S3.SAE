@@ -84,12 +84,14 @@ if (!isset($_SESSION['siren'])) {
               <tbody>
                 <tr>
                   <th><label for="nom">Nom de l'entreprise :</label></th>
-                  <td><textarea class="boiteTexte" name="nomEntr" cols="10" rows="1" placeholder="E.Leclerc" required><?php echo $nomEntr ?></textarea></td>
-                  
+                  <td><textarea class="boiteTexte" name="nomEntr" cols="10" rows="1" placeholder="E.Leclerc"
+                      required><?php echo $nomEntr ?></textarea></td>
+
                 </tr>
                 <tr>
                   <th><label for="domaine">Domaine d'activité :</label></th>
-                  <td><textarea class="boiteTexte" name="domAct" cols="10" rows="1" placeholder="Grande distribution" required><?php echo $domAct ?></textarea></td>
+                  <td><textarea class="boiteTexte" name="domAct" cols="10" rows="1" placeholder="Grande distribution"
+                      required><?php echo $domAct ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="ville">Ville :</label></th>
@@ -104,7 +106,8 @@ if (!isset($_SESSION['siren'])) {
                 <tr>
                   <th><label for="telephone">Téléphone de l'entreprise :</label></th>
                   <td><textarea class="boiteTexte" name="telEntr" cols="10" rows="1" pattern="[0]{1}[0-9]{9}"
-                      title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789" required><?php echo $telEntr ?></textarea></td>
+                      title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789"
+                      required><?php echo $telEntr ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="nomResp">Nom du responsable :</label></th>
@@ -114,7 +117,8 @@ if (!isset($_SESSION['siren'])) {
                 <tr>
                   <th><label for="telResp">Téléphone du responsable :</label></th>
                   <td><textarea class="boiteTexte" name="telResp" cols="10" rows="1" pattern="[0]{1}[0-9]{9}"
-                      title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789" required><?php echo $telResp ?></textarea></td>
+                      title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789"
+                      required><?php echo $telResp ?></textarea></td>
                 </tr>
                 <tr>
                   <td>
@@ -150,7 +154,8 @@ if (!isset($_SESSION['siren'])) {
                   </tr>
                   <tr>
                     <th><label for="domaine">Domaine d'activité :</label></th>
-                    <td><textarea readonly class="champsRecap" name="domaine" cols="20" rows="1"><?php echo $domAct ?></textarea></td>
+                    <td><textarea readonly class="champsRecap" name="domaine" cols="20"
+                        rows="1"><?php echo $domAct ?></textarea></td>
                   </tr>
                   <tr>
                     <th><label for="ville">Ville :</label></th>
@@ -192,8 +197,8 @@ if (!isset($_SESSION['siren'])) {
           <?php
       }
       ?>
-      <a href=../logout.php>Se déconnecter</a>
-    </div>
+        <a href=../logout.php>Se déconnecter</a>
+      </div>
 
 
 
