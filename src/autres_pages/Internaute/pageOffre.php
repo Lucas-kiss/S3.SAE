@@ -74,10 +74,11 @@ if (isset($_GET['value'])) {
 
             <div class="InfosOffre">
                 <div>
-                    <h4>Nom de l'entreprise :</h4>
                     <?php
-                        echo "<p class='uneInfoOffre' 'intitInfoOffre'>Nom de l'entreprise :</p>";
-                         echo "<p class='uneInfoOffre'>$nomEntr</p>";
+                        echo "<p class='uneInfoOffre'><b>Nom de l'entreprise :</b> $nomEntr</p>";
+                        echo "<p class='uneInfoOffre'><b>Ville :</b> $ville</p>";
+                        echo "<p class='uneInfoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
+                        echo "<p class='uneInfoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
                     ?>
                 </div>
                 <div>
@@ -89,9 +90,7 @@ if (isset($_GET['value'])) {
             <?php
 
            
-            echo "<p class='uneInfoOffre'><b>Ville :</b> $ville</p>";
-            echo "<p class='uneInfoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
-            echo "<p class='uneInfoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
+
             ?>
             <div class="descriptionOffre">
                 <?php
