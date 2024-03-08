@@ -105,7 +105,7 @@
         }
 
         if ($trouve) {
-            $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 0)";
+            $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 24)";
 
             $query2 = "INSERT INTO Concerner (idOffre, idCreneau) Values ($max, $IdCreneau)";
 

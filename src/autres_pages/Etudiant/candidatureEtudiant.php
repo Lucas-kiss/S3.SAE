@@ -4,7 +4,7 @@ require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base d
 session_start();
 
 if (true) {
-    $monOffre = 10; // en attente !!!!!!!!
+    //$monOffre = $_SESSION['monOffre'];
 
     $ine = $_SESSION['ine'];
 
@@ -49,7 +49,7 @@ if (true) {
 <body>
     
 
-    <form action="ActionCandid.php" method="POST">
+    <form action="ActionCandid.php" method="POST" enctype="multipart/form-data">
 
         <div class="fondForm">
             <H1 class="titres">Candidature</H1>
@@ -124,7 +124,7 @@ if (true) {
                 </tr>
                 <tr>
                     <td>
-                        <input class="inputFile" type="file" name="cv" accept=".pdf"/>
+                        <input class="inputFile" type="file" name="cv" accept=".pdf" required/>
                     </td>
                 </tr>
                 <tr>
@@ -132,7 +132,7 @@ if (true) {
                 </tr>
                 <tr>
                     <td>
-                        <input type="file" class="inputFile" name="lettreMotiv" accept=".pdf"/>
+                        <input type="file" class="inputFile" name="lettreMotiv" accept=".pdf" required/>
                     </td>
                 </tr>
                 <tr>

@@ -5,6 +5,7 @@ session_start();
 
 if (isset($_GET['value'])) {
     $monOffre = $_GET['value'];
+    $_SESSION['monOffre'] = $monOffre;
 
     $query_offre = "SELECT * FROM Offre JOIN Entreprise ON Offre.siren = Entreprise.siren JOIN Ville ON Entreprise.idVille = Ville.idVille WHERE idOffre = $monOffre;";
     $result_offre = mysqli_query($link, $query_offre);
@@ -116,9 +117,20 @@ if (isset($_GET['value'])) {
 
             if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                 $urlCand = "../Etudiant/candidatureEtudiant.php";
-                echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler'
-                class='connexion'>Postuler</button>";
-            } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                $ine = $_SESSION['ine'];
+                $monOffre = intval($monOffre);
+                $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
+                $result = mysqli_query($link, $query);
+                if($result && mysqli_num_rows($result) > 0)
+                {
+                    echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion' disabled>Postuler</button>";
+                }
+                else
+                {
+                    echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
+                }
+            }
+            elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                 $urlModif = "../Internaute/pageOffre.php";
                 $urlSupp = "../Entreprise/SupprimerOffre.php";
                 $urlCand = "../Entreprise/candidatureOffre.php";
@@ -153,8 +165,8 @@ if (isset($_GET['value'])) {
     </body>
 
     </html>
-
     <?php
 
 }
+mysqli_close($link);
 ?>

@@ -1,6 +1,6 @@
 <?php
-require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
-session_start();
+    require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+    session_start();
 ?>
 
 <!DOCTYPE html>

@@ -50,11 +50,17 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-.connexion:hover {
+.connexion:disabled
+{
+    background-color:#115B7B;
+    cursor:not-allowed;
+}
+
+.connexion:hover:enabled {
     transform: scale(1.05);
 }
 
-.connexion:active {
+.connexion:active:enabled {
     background-color: #F5AD5B;
 }
 

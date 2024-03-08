@@ -130,7 +130,7 @@
             }
 
             if ($trouve) {
-                $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 0)";
+                $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 24)";
 
                 //echo 'fin ' . $jour . '24</br>';
 
