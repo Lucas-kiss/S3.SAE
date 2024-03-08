@@ -134,7 +134,7 @@ if (isset($_GET['value'])) {
 
                 <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
                 class='connexion'>Voir les candidatures</button>
-                <button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
+                <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
                 class='connexion'>Modifier l'offre</button>
                 <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer'
                 class='connexion'>Supprimer l'offre</button>";
