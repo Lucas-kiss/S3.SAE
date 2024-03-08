@@ -117,8 +117,15 @@ if (!isset($_SESSION['ine']))
                                             <td><input type="tel" class="boiteTexte" id="telephone" name="telephone"
                                                     pattern="[0]{1}[0-9]{9}" title="Numéro à 10 Chiffres qui commance par 0"
                                                     placeholder="0612345789" value=<?php echo $numTel ?> /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                            </td>
                                             <td>
                                                 <input type="reset" class="connexion" value="Réinitialiser" />
+                                            </td>
+                                            <td>
                                                 <input type="submit" class="connexion" value="Valider">
                                             </td>
                                         </tr>
@@ -190,9 +197,8 @@ if (!isset($_SESSION['ine']))
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input readonly class="champsRecap" type="text" name="ine" value=<?php echo $ine ?> />
-                                        </td>
-                                    </tr>
+                                            <input readonly class="champsRecap" type="text" name="ine" value=<?php echo $ine ?> /></td>
+                                        </tr>
                                     <tr>
                                         <td><label for="nom">Nom</label></td>
                                     </tr>
@@ -250,8 +256,12 @@ if (!isset($_SESSION['ine']))
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                        </td>
                                         <td> 
                                             <input type="submit" class="connexion" name="ModifInfosEtu" value="Modifier les informations"> 
+                                        </td>
                                     </tr>
                                 </table>
                             </form>
@@ -304,9 +314,6 @@ if (!isset($_SESSION['ine']))
                 <?php
                 }
                 ?>
-
-                    
-                
                 <a href=../logout.php>Se déconnecter</a>
             </div>
             <?php
