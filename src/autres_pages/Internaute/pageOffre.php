@@ -72,57 +72,73 @@ if (isset($_GET['value'])) {
                 <?php echo "$nomOffre" ?>
             </H1>
 
+            <div class="InfosOffre">
+                <div>
+                    <h4>Nom de l'entreprise :</h4>
+                    <?php
+                        echo "<p class='uneInfoOffre' 'intitInfoOffre'>Nom de l'entreprise :</p>";
+                         echo "<p class='uneInfoOffre'>$nomEntr</p>";
+                    ?>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+            </div>
+
             <?php
 
-            echo "<p class='infoOffre'>Entreprise : $nomEntr</p>";
-            echo "<p class='infoOffre'>Ville : $ville</p>";
-            echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
-            echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
-            echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
-
-
+           
+            echo "<p class='uneInfoOffre'><b>Ville :</b> $ville</p>";
+            echo "<p class='uneInfoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
+            echo "<p class='uneInfoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
+            ?>
+            <div class="descriptionOffre">
+                <?php
+                echo "<p class='uneInfoOffre'>Description de l'offre :</br></br> $description</p>";
+                ?>
+            </div>
+            <?php
 
             $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
-            echo "  <table class='blackBorder'><tr>
-                            <th>
-                                <label>Jour</label>
-                            </th>";
+            echo " <table class='blackBorder'>
+                <tr>
+                    <th>
+                        <label>Jour</label>
+                    </th>";
 
             for ($i = 0; $i < 24; $i++) {
                 echo "  <th class='blackBorder'>
-                                <label>$i h</label>
-                            </th>";
+                                    <label>$i h</label>
+                                </th>";
             }
-
             echo "  </tr>";
-
             foreach ($jourSem as &$jour) {
                 echo "<tr class='noPadding'>";
                 echo "<th class='blackBorder noPadding thJour'>";
                 echo "<label>$jour</label>";
                 echo "</th>";
-
-
-
                 $j = 0;
-
                 for ($i = 0; $i < 24; $i++) {
-                    $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i";
+                    $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i"
+                    ;
                     $result = mysqli_query($link, $query);
-
                     if ($result && mysqli_num_rows($result) > 0) {
                         //echo $result[$j]['heureDeb'];
-                        //echo $i.$j.$jour; 
+                        //echo $i.$j.$jour;
                         echo "<td class='blackBorder noPadding caseverte'>";
                     } else {
-                        echo "<td class='blackBorder noPadding caserouge'>";
+                        echo "
+                        <td class='blackBorder noPadding caserouge'>";
                     }
                     echo "</td>";
                 }
 
-                echo "</tr>";
+                echo "
+                </tr>";
             }
-            echo "</table>";
+            echo "
+            </table>";
 
 
             echo "<div class='btnOffre'>";
@@ -130,31 +146,33 @@ if (isset($_GET['value'])) {
             if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                 $urlCand = "../Etudiant/candidatureEtudiant.php";
                 echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler'
-                class='connexion'>Postuler</button>";
+                    class='connexion'>Postuler</button>";
             } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
                 $urlModif = "../Internaute/pageOffre.php";
                 $urlSupp = "../Entreprise/SupprimerOffre.php";
                 $urlCand = "../Entreprise/candidatureOffre.php";
 
                 echo
-                    "<script>
+                    "
+                <script>
                     function choixSuppressionOffre(uneOffre) {
-                        if ( confirm( 'Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.' ) ) {
+                        if (confirm('Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.')) {
                             passId(uneOffre, `../Entreprise/SupprimerOffre.php`);
                         }
                     }
                 </script>
 
                 <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
-                class='connexion'>Voir les candidatures</button>
+                    class='connexion'>Voir les candidatures</button>
                 <button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
-                class='connexion'>Modifier l'offre</button>
-                <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer'
-                class='connexion'>Supprimer l'offre</button>";
+                    class='connexion'>Modifier l'offre</button>
+                <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer' class='connexion'>Supprimer
+                    l'offre</button>";
             }
 
-            echo "</div>
-        <p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            echo "
+            </div>
+            <p class='sous-titre'>Offre déposée le $dateDepot</p>";
             ?>
         </div>
         <script>
