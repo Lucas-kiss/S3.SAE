@@ -45,11 +45,24 @@ if (isset($_GET['value'])) {
                 }
 
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
+                    $ine = $_SESSION['ine'];
+                    $queryNomCompte = "SELECT prenom, nom FROM Etudiant WHERE ine LIKE '$ine'";
+                    $resultNom = mysqli_query($link, $queryNomCompte);
+                    while ($donnees = mysqli_fetch_assoc($resultNom)) {
+                        $prenom = $donnees["prenom"];
+                        $nom = $donnees["nom"];
+                    }
+                    echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>$prenom $nom</a>";
                 } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
                     echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                    echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
+                    $siren = $_SESSION['siren'];
+                    $queryNomCompte = "SELECT nomEntreprise FROM Entreprise WHERE siren LIKE '$siren'";
+                    $resultNom = mysqli_query($link, $queryNomCompte);
+                    while ($donnees = mysqli_fetch_assoc($resultNom)) {
+                        $nomEntr = $donnees["nomEntreprise"];
+                    }
+                    echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>$nomEntr</a>";
                 }
                 ?>
             </div>
@@ -146,7 +159,7 @@ if (isset($_GET['value'])) {
 
                 <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
                 class='connexion'>Voir les candidatures</button>
-                <button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
+                <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
                 class='connexion'>Modifier l'offre</button>
                 <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer'
                 class='connexion'>Supprimer l'offre</button>";
