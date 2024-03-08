@@ -118,7 +118,7 @@ if (!isset($_SESSION['siren'])) {
                 </tr>
                 <tr>
                   <td>
-                    <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                    <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                   </td>
                   <td>
                     <input type="reset" class="connexion" value="Réinitialiser" />
@@ -179,7 +179,7 @@ if (!isset($_SESSION['siren'])) {
                   </tr>
                   <tr>
                     <td>
-                      <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                      <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                     </td>
                     <td>
                       <input type="submit" class="connexion" value="Modifier les informations">
@@ -192,7 +192,7 @@ if (!isset($_SESSION['siren'])) {
           <?php
       }
       ?>
-      <a href=../logout.php>Se déconnecter</a>
+      <a href=../logout.php class="connexion">Se déconnecter</a>
     </div>
 
 

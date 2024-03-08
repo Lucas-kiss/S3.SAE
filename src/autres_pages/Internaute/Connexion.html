@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>1PtitJob</title>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-        <nav>
-            <div class=wrapper>
-                <a href="./index.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60" height="60" /></a>
-                <h1 class="titre"><a href="./index.php">1P'titJob</a></h1>
-                <a href='Connexion.html' class='connexion'>Connexion</a>
-            </div>
-        </nav>
-        <H1>Connexion</H1>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1PtitJob</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav>
+        <div class=wrapper>
+            <a href="./index.php"><img class="logo" src="../../ressources/img/1ptitjob_logo.PNG" width="60"
+                    height="60" /></a>
+            <h1 class="titre"><a href="./index.php">1P'titJob</a></h1>
+            <a href='Connexion.html' class='connexion'>Connexion</a>
+        </div>
+    </nav>
+    <div class="fondForm">
+        <H1 class="titres">Connexion</H1>
+        <hr><br>
         <form action="Connexion.php" method="POST">
             <table class="noborder">
                 <tbody>
                     <tr>
                         <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
-                        <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine" required/></td>
+                        <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine"
+                                required /></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="MdP">Mot de passe :</label></th>
-                        <td class="noborder"><input type="password" id="MdP" name="MdP" required/></td>
+                        <td class="noborder"><input type="password" id="MdP" name="MdP" required /></td>
                     </tr>
                     <tr>
                         <td class="noborder"></td>
                         <td class="noborder">
-                            <a>Mot de passe oublié ?</a></br>
-                            Pas de compte ? <a href="Inscription.php">S'inscrire</a>
+                            <p>Mot de passe oublié ?<br>Pas de compte ? <a href="Inscription.php">S'inscrire</a> </p></br>
+                            
                         </td>
                     </tr>
                     <tr>
                         <td class="noborder">
-                            <input type="checkbox" id="notrobot" required/>
+                            <input type="checkbox" id="notrobot" required />
                             <label for="notrobot">Je ne suis pas un robot</label>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <input type="submit" name= "connexion" value="Se connecter">
-        </form>
-    </body>
+            <div id="divBtnConnexion"><input  type="submit" class="connexion" name="connexion" id="btnConnexion" value="Se connecter">
+            </div>
+            </form>
+    </div>
+
+</body>
+
 </html>

@@ -29,6 +29,7 @@ body {
     color: black;
     font-family: "Roboto", sans-serif;
     text-align: center;
+    font-size: 30px;
 }
 
 .titre > a {
@@ -62,7 +63,7 @@ body {
 .titres {
     font-family: "Roboto", sans-serif;
     text-align: center;
-    padding-top: 30px;
+    vertical-align: center;
 }
 
 .fondForm {
@@ -72,7 +73,10 @@ body {
     width: max-content;
     height: auto;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 20px;
+    margin-top: 2%;
+    border: solid rgb(231, 128, 43) 1px; 
+    filter:drop-shadow(5px 5px 5px rgb(231, 128, 43));
 }
 
 textarea {
@@ -486,3 +490,8 @@ text-align: center;
     display: table-cell;
     background-color: rgb(191, 236, 140);
 }
+
+#divBtnConnexion {
+    text-align: center;
+}
+

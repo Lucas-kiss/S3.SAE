@@ -120,7 +120,7 @@ if (!isset($_SESSION['ine']))
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                                <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                                             </td>
                                             <td>
                                                 <input type="reset" class="connexion" value="Réinitialiser" />
@@ -257,7 +257,7 @@ if (!isset($_SESSION['ine']))
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                            <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                                         </td>
                                         <td> 
                                             <input type="submit" class="connexion" name="ModifInfosEtu" value="Modifier les informations"> 
@@ -314,7 +314,7 @@ if (!isset($_SESSION['ine']))
                 <?php
                 }
                 ?>
-                <a href=../logout.php>Se déconnecter</a>
+                <a href=../logout.php class="connexion">Se déconnecter</a>
             </div>
             <?php
         ?>
