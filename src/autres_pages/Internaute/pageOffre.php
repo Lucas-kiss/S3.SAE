@@ -170,7 +170,8 @@ if (isset($_GET['value'])) {
             ?>
         </div>
         <script>
-            function passId(id, urlPage) {
+            function passId(id, urlPage)
+            {
                 window.location.href = urlPage + '?value=' + encodeURIComponent(id);
             }
         </script>

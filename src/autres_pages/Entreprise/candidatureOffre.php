@@ -39,17 +39,22 @@
             ?>
             </div>
         </nav>
+            <?php
+                $monOffre = $_SESSION['monOffre'];
+                $query = "SELECT * FROM Offre Where idOffre = $monOffre";
+                $result = mysqli_query($link, $query);
+
+                while ($donnees = mysqli_fetch_assoc($result))
+                {
+                    $nom = $donnees['nomOffre'];
+                    echo "<h1 class='titre'>".$nom."</h1>";
+                }
+            ?>
         <div class="annonces">
-            <h2>Annonces :</h2>
+            <h2>Liste des Candidats :</h2>
             <div class="grilleAnnonces">
-                <script>
-                    function passId(id)
-                    {
-                        window.location.href = '../Etudiant/InformationsEtudiant.php?value=' + encodeURIComponent(id);
-                    }
-                </script>
+                
                 <?php
-                    $monOffre = $_SESSION['monOffre'];
                     $query = "SELECT e.* from Etudiant e join Candidater c on c.ine = e.ine where c.idOffre = $monOffre";
                     $res = mysqli_query($link, $query);
                     
@@ -67,7 +72,7 @@
                             echo"<div class='recapOffre' id='offre$monOffre'>
                 
                                 <h3>$nom $prenom</h3>
-                                <p>$age ans</p>
+                                <p>$age ans $ine</p>
                                 
                                 <button onclick='passId($ine)'>Profil</button>
                                 </div>";
@@ -75,6 +80,13 @@
                     }
                     mysqli_close($link);
                 ?>
+                <script>
+                    function passId(id)
+                    {
+                        console.log(id);
+                        window.location.href = '../Etudiant/InformationsEtudiant.php?id=' + encodeURIComponent(id);
+                    }
+                </script>
             </div>
         </div>
     <body>
