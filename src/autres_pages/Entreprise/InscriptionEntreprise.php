@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+require_once("../../ressources/donnees/BDD/bdd_MAMP.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 
 $siren = intval($_POST['siren']);
 $nom = $_POST['nom'];

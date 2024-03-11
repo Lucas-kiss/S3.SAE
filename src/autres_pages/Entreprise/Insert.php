@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once("../../ressources/donnees/BDD/bdd.php");
+require_once("../../ressources/donnees/BDD/bdd_MAMP.php");
 
 $siren = $_POST['siren'];
 $nom = $_POST['nom'];

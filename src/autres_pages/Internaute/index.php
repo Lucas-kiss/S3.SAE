@@ -1,5 +1,5 @@
 <?php
-require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+require_once("../../ressources/donnees/BDD/bdd_MAMP.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
 ?>
 
@@ -131,14 +131,14 @@ if (mysqli_connect_errno()) {
 
       <?php
       if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-        print "<div class= 'InfoEtudiant'>
-              <div class= 'messagesEtudiant'>
-                <button style='width:100%'>Mes messages</button>
-              </div>
-              <div class= candidaturesEtudiant>
-                <button style='width:100%'>Mes candidatures</button>
-              </div>
-            </div>";
+    print "<div class= 'InfoEtudiant'>
+          <div class= 'messagesEtudiant'>
+            <a href='../Etudiant/messagesEtudiant.php' class='connexion'>Messages</a>
+          </div>
+          <div class= candidaturesEtudiant>
+          <a href='../Etudiant/lstCandidaturesEtudiant.php' class='connexion'>Candidatures</a>
+          </div>
+        </div>";
       }
       ?>
     </div>

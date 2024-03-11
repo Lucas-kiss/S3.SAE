@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["suivant"])) {
-    require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+    require_once("../../ressources/donnees/BDD/bdd_MAMP.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
     session_start();
 
     $siren = $_SESSION['siren'];
