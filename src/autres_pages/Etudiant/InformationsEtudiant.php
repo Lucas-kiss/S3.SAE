@@ -18,29 +18,6 @@ if (!isset($_SESSION['ine']))
 </head>
 
 <body>
-<<<<<<< HEAD
-    <nav>
-        <div class=wrapper>
-            <?php
-                if (isset($_SESSION['siren'])) {
-                    echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-                    echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
-                } else {
-                    echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-                    echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
-                }
-
-                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>Mon compte</a>";
-                } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
-                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                    echo "<a href='../Entreprise/InformationsEntreprise.php' class='connexion'>Mon compte</a>";
-                }
-            ?>
-        </div>
-    </nav>
-=======
 <nav>
     <div class=wrapper>
       <?php
@@ -75,7 +52,6 @@ if (!isset($_SESSION['ine']))
       ?>
     </div>
   </nav>
->>>>>>> 0517afd9fe4c224d64afca82526eac1113ae2fcf
 
     <body>
         <?php 
@@ -144,7 +120,7 @@ if (!isset($_SESSION['ine']))
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                                <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                                             </td>
                                             <td>
                                                 <input type="reset" class="connexion" value="Réinitialiser" />
@@ -281,7 +257,7 @@ if (!isset($_SESSION['ine']))
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
+                                            <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
                                         </td>
                                         <td> 
                                             <input type="submit" class="connexion" name="ModifInfosEtu" value="Modifier les informations"> 
@@ -338,7 +314,7 @@ if (!isset($_SESSION['ine']))
                 <?php
                 }
                 ?>
-                <a href=../logout.php>Se déconnecter</a>
+                <a href=../logout.php class="connexion">Se déconnecter</a>
             </div>
             <?php
         ?>

@@ -78,15 +78,14 @@ if (!isset($_SESSION['siren'])) {
         ?>
         <H1 class="titres">Modifier mes informations</H1>
         <div class="separation"></div>
-        <div class="infoCompteEntr">
-          <form action="modifInfosEntr.php" method="POST">
-            <table>
+        <form action="modifInfosEntr.php" method="POST">
+          <div class="infoCompteEntr">
+            <table id="tabModifInfoEntrGauche">
               <tbody>
                 <tr>
                   <th><label for="nom">Nom de l'entreprise :</label></th>
                   <td><textarea class="boiteTexte" name="nomEntr" cols="10" rows="1" placeholder="E.Leclerc"
                       required><?php echo $nomEntr ?></textarea></td>
-
                 </tr>
                 <tr>
                   <th><label for="domaine">Domaine d'activité :</label></th>
@@ -103,6 +102,10 @@ if (!isset($_SESSION['siren'])) {
                   <td><textarea class="boiteTexte" name="CP" cols="10" rows="1" pattern="[0-9]{5}"
                       title="Série de 5 Chiffre" placeholder="64600" required><?php echo $cp ?></textarea></td>
                 </tr>
+              </tbody>
+            </table>
+            <table id="tabModifInfoEntrDroite">
+              <tbody>
                 <tr>
                   <th><label for="telephone">Téléphone de l'entreprise :</label></th>
                   <td><textarea class="boiteTexte" name="telEntr" cols="10" rows="1" pattern="[0]{1}[0-9]{9}"
@@ -120,85 +123,83 @@ if (!isset($_SESSION['siren'])) {
                       title="Numéro à 10 Chiffres qui commance par 0" placeholder="0612345789"
                       required><?php echo $telResp ?></textarea></td>
                 </tr>
+              </tbody>
+            </table>
+            <div class="btnModifInfosEntr">
+              <input type="button" class="connexion" name="retour" value="Retour" id="btnRetourModif"
+                onclick="history.back()">
+              <input type="reset" class="connexion" value="Réinitialiser" id="btnReset" />
+              <input type="submit" class="connexion" value="Valider" id="btnVal">
+            </div>
+          </div>
+        </form>
+
+        <?php
+
+      } else {
+        ?>
+        <H1 class="titres">Mes informations</H1>
+        <div class="separation"></div>
+        <form action="InformationsEntreprise.php" method="POST">
+          <div class="infoCompteEntr">
+            <table id="tabInfoEntrGauche">
+              <tbody>
                 <tr>
-                  <td>
-                    <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
-                  </td>
-                  <td>
-                    <input type="reset" class="connexion" value="Réinitialiser" />
-                  </td>
-                  <td> <input type="submit" class="connexion" value="Valider">
+                  <th><label for="siren">Numéro SIREN :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="siren" name="siren" value=<?php echo $siren ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="nom">Nom de l'entreprise :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="nom" name="nom" value=<?php echo "$nomEntr" ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="domaine">Domaine d'activité :</label></th>
+                  <td><textarea readonly class="champsRecap" name="domaine" cols="20"
+                      rows="1"><?php echo $domAct ?></textarea></td>
+                </tr>
+                <tr>
+                  <th><label for="ville">Ville :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="ville" name="ville" value=<?php echo $nomVille ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="CP">Code postal :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="CP" name="CP" value=<?php echo $cp ?> />
                   </td>
                 </tr>
               </tbody>
             </table>
-          </form>
-
-          <?php
-
-      } else {
-        ?>
-          <H1 class="titres">Mes informations</H1>
-          <div class="separation"></div>
-          <div class="infoCompteEntr">
-            <form action="InformationsEntreprise.php" method="POST">
-              <table>
-                <tbody>
-                  <tr>
-                    <th><label for="siren">Numéro SIREN :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="siren" name="siren" value=<?php echo $siren ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="nom">Nom de l'entreprise :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="nom" name="nom" value=<?php echo "$nomEntr" ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="domaine">Domaine d'activité :</label></th>
-                    <td><textarea readonly class="champsRecap" name="domaine" cols="20"
-                        rows="1"><?php echo $domAct ?></textarea></td>
-                  </tr>
-                  <tr>
-                    <th><label for="ville">Ville :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="ville" name="ville" value=<?php echo $nomVille ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="CP">Code postal :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="CP" name="CP" value=<?php echo $cp ?> />
-                    </td>
-                  </tr>
-                  <tr>
-                    <th><label for="telephone">Téléphone de l'entreprise :</label></th>
-                    <td><input readonly type="tel" class="champsRecap" id="telephone" name="telephone" value=<?php echo $telEntr ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="nomResp">Nom du responsable :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="nomResp" name="nomResp" value=<?php echo $nomResp ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="telResp">Téléphone du responsable :</label></th>
-                    <td><input readonly type="tel" class="champsRecap" id="telResp" name="telResp" value=<?php echo $telResp ?> /> </td>
-                  </tr>
-                  <tr>
-                    <th><label for="mailResp">Mail du responsable :</label></th>
-                    <td><input readonly type="text" class="champsRecap" id="mailResp" name="mailResp" value=<?php echo $mailResp ?> /> </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
-                    </td>
-                    <td>
-                      <input type="submit" class="connexion" value="Modifier les informations">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </form>
+            <table id="tabInfoEntrDroite">
+              <tbody>
+                <tr>
+                  <th><label for="telephone">Téléphone de l'entreprise :</label></th>
+                  <td><input readonly type="tel" class="champsRecap" id="telephone" name="telephone" value=<?php echo $telEntr ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="nomResp">Nom du responsable :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="nomResp" name="nomResp" value=<?php echo $nomResp ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="telResp">Téléphone du responsable :</label></th>
+                  <td><input readonly type="tel" class="champsRecap" id="telResp" name="telResp" value=<?php echo $telResp ?> /> </td>
+                </tr>
+                <tr>
+                  <th><label for="mailResp">Mail du responsable :</label></th>
+                  <td><input readonly type="text" class="champsRecap" id="mailResp" name="mailResp" value=<?php echo $mailResp ?> /> </td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="button" class="connexion" name="retour" value="Retour" id="btnRetour" onclick="history.back()">
+            <input type="submit" class="connexion" value="Modifier les informations" id="btnModif">
           </div>
-          <?php
+        </form>
+        <?php
       }
       ?>
-        <a href=../logout.php>Se déconnecter</a>
-      </div>
+      <br>
+      <hr><br>
+      <div id="divBtnConnexion"><a href=../logout.php class="connexion">Se déconnecter</a></div>
+
+    </div>
 
 
 
