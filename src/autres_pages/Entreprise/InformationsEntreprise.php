@@ -125,9 +125,12 @@ if (!isset($_SESSION['siren'])) {
                 </tr>
               </tbody>
             </table>
-            <input type="button" class="connexion" name="retour" value="Retour" id="btnRetour" onclick="history.back()">
-            <input type="reset" class="connexion" value="Réinitialiser" id="btnReset"/>
-            <input type="submit" class="connexion" value="Valider" id="btnVal">
+            <div class="btnModifInfosEntr">
+              <input type="button" class="connexion" name="retour" value="Retour" id="btnRetourModif"
+                onclick="history.back()">
+              <input type="reset" class="connexion" value="Réinitialiser" id="btnReset" />
+              <input type="submit" class="connexion" value="Valider" id="btnVal">
+            </div>
           </div>
         </form>
 
@@ -139,7 +142,7 @@ if (!isset($_SESSION['siren'])) {
         <div class="separation"></div>
         <form action="InformationsEntreprise.php" method="POST">
           <div class="infoCompteEntr">
-            <table id="tabGauche">
+            <table id="tabInfoEntrGauche">
               <tbody>
                 <tr>
                   <th><label for="siren">Numéro SIREN :</label></th>
@@ -165,7 +168,7 @@ if (!isset($_SESSION['siren'])) {
                 </tr>
               </tbody>
             </table>
-            <table id="tabDroite">
+            <table id="tabInfoEntrDroite">
               <tbody>
                 <tr>
                   <th><label for="telephone">Téléphone de l'entreprise :</label></th>

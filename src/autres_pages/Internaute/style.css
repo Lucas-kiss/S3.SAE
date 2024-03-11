@@ -555,6 +555,23 @@ text-align: center;
 .infoCompteEntr > #tabModifInfoEntrDroite {
     grid-column: 2;
     grid-row: 1;
-    margin-top:0% ;
-    margin-bottom: 10%;
+}
+
+.infoCompteEntr > .btnModifInfosEntr {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.infoCompteEntr > .btnModifInfosEntr > #btnRetourModif {
+    grid-column: 1;
+    
+}
+
+.infoCompteEntr > .btnModifInfosEntr > #btnReset {
+    grid-column: 2;
+}
+
+.infoCompteEntr > .btnModifInfosEntr > #btnVal {
+    grid-column: 3;
 }
