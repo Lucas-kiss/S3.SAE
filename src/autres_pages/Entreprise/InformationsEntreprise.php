@@ -77,7 +77,7 @@ if (!isset($_SESSION['siren'])) {
       if ($_POST) {
         ?>
         <H1 class="titres">Modifier mes informations</H1>
-        <div class="separation"></div>
+        <div class="separation"><hr><br></div>
         <form action="modifInfosEntr.php" method="POST">
           <div class="infoCompteEntr">
             <table id="tabModifInfoEntrGauche">
@@ -139,7 +139,7 @@ if (!isset($_SESSION['siren'])) {
       } else {
         ?>
         <H1 class="titres">Mes informations</H1>
-        <div class="separation"></div>
+        <div class="separation"><hr><br></div>
         <form action="InformationsEntreprise.php" method="POST">
           <div class="infoCompteEntr">
             <table id="tabInfoEntrGauche">

@@ -78,7 +78,7 @@ if (!isset($_SESSION['ine']))
                 {
                     ?>
                     <H1 class="titres">Modifier mes informations</H1>
-                    <div class="separation"></div>
+                    <div class="separation"><hr><br></div>
                     <div class="infoCompte">
                         <form action="ModifInformationsEtudiant.php" method="POST">
                             <div class=infoCompteGauche>
@@ -187,134 +187,114 @@ if (!isset($_SESSION['ine']))
                 {
                     ?>
                     <H1 class="titres">Mes informations</H1>
-                    <div class="separation"></div>
-                    <div class="infoCompte">
-                        <div class=infoCompteGauche>
-                            <form action="InformationsEtudiant.php" method="POST">
-                                <table class="tabOffre">
+                    <div class="separation"><hr><br></div>
+                    <form action="InformationsEtudiant.php" method="POST">
+                            <div class="infoCompteEt">
+                                <table id="tabInfoEntrGauche">
                                     <tr>
-                                        <td><label for="ine">INE</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="ine">INE</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="ine" value=<?php echo $ine ?> /></td>
                                         </tr>
                                     <tr>
-                                        <td><label for="nom">Nom</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="nom">Nom</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="nom" value=<?php echo $nom ?> />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label for="prenom">Prénom</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="prenom">Prénom</label></th>
                                         <td>
-                                            <input readonly class="champsRecap" type="text" name="prenom" value=<?php echo $prenom ?> />
-                                        </td>
+                                            <input readonly class="champsRecap" type="text" name="prenom" value=<?php echo $prenom ?> /></td>
                                     </tr>
                                     <tr>
-                                        <td><label for="dateNaiss">Date de naissance</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="dateNaiss">Date de naissance</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="dateNaiss" value=<?php echo $dateNaiss ?> />
                                         </td>
                                     </tr>
+                                </table>
+                                <table id="tabInfoEntrDroite">
                                     <tr>
-                                        <td><label for="ville">Ville</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="ville">Ville</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="ville" value=<?php echo $nomVille ?> />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label for="cp">Code postal</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="cp">Code postal</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="cp" value=<?php echo $cp ?> />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label for="mail">Adresse e-mail</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="mail">Adresse e-mail</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="mail" value=<?php echo $mailEtud ?> />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label for="tel">Numéro de téléphone</label></td>
-                                    </tr>
-                                    <tr>
+                                        <th><label for="tel">Numéro de téléphone</label></th>
                                         <td>
                                             <input readonly class="champsRecap" type="text" name="tel" value=<?php echo $numTel ?> />
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="button" class="connexion" name="annuler" value="Retour" onclick="history.back()">
-                                        </td>
-                                        <td> 
-                                            <input type="submit" class="connexion" name="ModifInfosEtu" value="Modifier les informations"> 
-                                        </td>
-                                    </tr>
                                 </table>
-                            </form>
-                        </div>
-                        <div class='infoCompteDroite'>
-                            <?php
-                            $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
-                            echo "  <table class='blackBorder'><tr>
-                                            <th>
-                                                <label>Jour</label>
-                                            </th>";
-                
-                            for ($i = 0; $i < 24; $i++) {
-                                echo "  <th class='blackBorder'>
-                                                <label>$i h</label>
-                                            </th>";
-                            }
-                
-                            echo "  </tr>";
-                
-                            foreach ($jourSem as &$jour) {
-                                echo "<tr class='noPadding'>";
-                                echo "<th class='blackBorder noPadding thJour'>";
-                                echo "<label>$jour</label>";
-                                echo "</th>";
-                
-                                $j = 0;
-                
+                                <!-- horaire -->
+                                <?php
+                                $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+                                echo "  <table class='blackBorder tabInfoHoraireEt'><tr>
+                                                <th>
+                                                    <label>Jour</label>
+                                                </th>";
+                    
                                 for ($i = 0; $i < 24; $i++) {
-                                    $query = "SELECT * FROM Creneau cr join Posseder p on p.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND p.ine = '$ine' AND cr.heureDeb <= $i AND cr.heureFin > $i";
-                                    $result = mysqli_query($link, $query);
-                
-                                    if ($result && mysqli_num_rows($result) > 0) {
-                                        //echo $result[$j]['heureDeb'];
-                                        //echo $i.$j.$jour; 
-                                        echo "<td class='blackBorder noPadding caseverte'>";
-                                    } else {
-                                        echo "<td class='blackBorder noPadding caserouge'>";
-                                    }
-                                    echo "</td>";
+                                    echo "  <th class='blackBorder'>
+                                                    <label>$i h</label>
+                                                </th>";
                                 }
-                
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                            mysqli_close($link);
-                            ?>
-                        </div>
-                    </div>
+                    
+                                echo "  </tr>";
+                    
+                                foreach ($jourSem as &$jour) {
+                                    echo "<tr class='noPadding'>";
+                                    echo "<th class='blackBorder noPadding thJour'>";
+                                    echo "<label>$jour</label>";
+                                    echo "</th>";
+                    
+                                    $j = 0;
+                    
+                                    for ($i = 0; $i < 24; $i++) {
+                                        $query = "SELECT * FROM Creneau cr join Posseder p on p.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND p.ine = '$ine' AND cr.heureDeb <= $i AND cr.heureFin > $i";
+                                        $result = mysqli_query($link, $query);
+                    
+                                        if ($result && mysqli_num_rows($result) > 0) {
+                                            echo "<td class='blackBorder noPadding caseverte'>";
+                                        } else {
+                                            echo "<td class='blackBorder noPadding caserouge'>";
+                                        }
+                                        echo "</td>";
+                                    }
+                    
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                                mysqli_close($link);
+                                ?>
+                                <!-- bouton -->
+                                <div class="btnInfosEt">
+                                <br>
+                                    <input type="button" class="connexion" name="annuler" value="Retour" id="btnRetour" onclick="history.back()">
+                                    <input type="submit" class="connexion" name="ModifInfosEtu" id="btnModif" value="Modifier les informations"> 
+                                </div>
+                            </div>
+                    </form>
                 <?php
                 }
                 ?>
-                <a href=../logout.php class="connexion">Se déconnecter</a>
+                <br>
+      <hr><br>
+      <div id="divBtnConnexion"><a href=../logout.php class="connexion">Se déconnecter</a></div>
             </div>
             <?php
         ?>

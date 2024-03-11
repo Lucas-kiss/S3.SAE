@@ -575,3 +575,41 @@ text-align: center;
 .infoCompteEntr > .btnModifInfosEntr > #btnVal {
     grid-column: 3;
 }
+
+.infoCompteEt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 3;
+    align-items: center;
+    text-align: left;
+}
+
+.infoCompteEt > .infoCompteGauche {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.infoCompteEt > .infoCompteDroite {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.infoCompteEt > .tabInfoHoraireEt {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.infoCompteEt > .btnInfosEt {
+    grid-column: 1/3;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.infoCompteEt > .btnInfosEt > #btnRetour {
+    grid-column: 1;
+}
+
+.infoCompteEt > .btnInfosEt > #btnModif {
+    grid-column: 2;
+}
