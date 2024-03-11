@@ -1,5 +1,5 @@
 <?php
-require_once("../../ressources/donnees/BDD/bdd_MAMP.php");
+require_once("../../ressources/donnees/BDD/bdd.php");
 session_start();
 
 if (!isset($_SESSION['ine'])) 
