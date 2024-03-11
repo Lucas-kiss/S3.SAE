@@ -88,7 +88,8 @@ if (isset($_GET['value'])) {
                             *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="champs" type="text" name="tauxHoraire" pattern="[0-9]{2},[0-9]{2}" value=<?php echo $tauxHoraire ?>
+                    <td><input class="champs" type="text" name="tauxHoraire" pattern="[0-9]{2},[0-9]{2}" 
+                    value=<?php echo $tauxHoraire[0] . $tauxHoraire[1] . ',' . $tauxHoraire[3] . $tauxHoraire[4] ?>
                             placeholder="Ex : 11,50" title="Format monétaire (00,00)" required />
                     </td>
                 </tr>
