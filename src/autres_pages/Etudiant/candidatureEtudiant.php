@@ -109,8 +109,7 @@ if (isset($_SESSION['ine'])) {
                         <td><label for="dateNaiss">Date de naissance</label></td>
                     </tr>
                     <tr>
-                        <td>
-                            <input readonly class="champsRecap" type="text" name="dateNaiss" value=<?php echo $dateNaiss ?> />
+                        <td><input readonly class="champsRecap" type="text" name="dateNaiss" value=<?php echo $dateNaiss ?> />
                         </td>
                     </tr>
                     <tr>
@@ -150,7 +149,7 @@ if (isset($_SESSION['ine'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input class="inputFile" type="file" name="cv" accept=".pdf" required />
+                            <input class="inputFile" type="file" name="cv" accept=".pdf" id="CVInput" required />
                         </td>
                     </tr>
                     <tr>
@@ -158,7 +157,7 @@ if (isset($_SESSION['ine'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="file" class="inputFile" name="lettreMotiv" accept=".pdf" required />
+                            <input type="file" class="inputFile" name="lettreMotiv" accept=".pdf" id="LMInput" required />
                         </td>
                     </tr>
                     <tr>
@@ -167,6 +166,23 @@ if (isset($_SESSION['ine'])) {
                         </td>
                     </tr>
                 </table>
+                <script>
+                    document.getElementById('CVInput').addEventListener('change', function() {
+                        var fileSize = this.files[0].size / 1024; // Taille du fichier en kilooctets
+                        if (fileSize > 400) { // 5 Mo = 5 * 1024 Ko = 5120 Ko
+                            alert('La taille du fichier dépasse la limite de 400 Ko.');
+                            this.value = ''; // Réinitialiser le champ de fichier
+                        }
+                    });
+
+                    document.getElementById('LMInput').addEventListener('change', function() {
+                        var fileSize = this.files[0].size / 1024; // Taille du fichier en kilooctets
+                        if (fileSize > 400) { // 5 Mo = 5 * 1024 Ko = 5120 Ko
+                            alert('La taille du fichier dépasse la limite de 400 Ko.');
+                            this.value = ''; // Réinitialiser le champ de fichier
+                        }
+                    });
+                </script>
             </div>
         </form>
 
