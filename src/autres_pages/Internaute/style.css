@@ -638,3 +638,11 @@ text-align: center;
 .infoCompteEt > .btnInfosEt > #btnModif {
     grid-column: 2;
 }
+
+.infoCompteEt > .btnInfosEt > #btnRefCand {
+    grid-column: 1;
+}
+
+.infoCompteEt > .btnInfosEt > #btnAccCand {
+    grid-column: 2;
+}
