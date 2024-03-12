@@ -34,6 +34,7 @@ body {
 
 .titre > a {
     text-decoration: none;
+    color: black;
 }
 
 .connexion {
