@@ -58,13 +58,39 @@ body {
     cursor:not-allowed;
 }
 
-.connexion:hover:enabled {
+.connexion:hover {
     transform: scale(1.05);
 }
 
-.connexion:active:enabled {
+.connexion:active {
     background-color: #F5AD5B;
 }
+
+.btnDetails
+{
+    background-color:rgb(129, 197, 252);
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.btnDetails:hover {
+    transform: scale(1.05);
+}
+
+.btnDetails:active {
+    background-color: #F5AD5B;
+}
+
 
 
 .titres {

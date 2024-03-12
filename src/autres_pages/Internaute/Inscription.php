@@ -111,7 +111,7 @@ if (isset($_POST['MdP'])) {
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="submit" value="Suivant"></td>
+                        <td><input type="submit" value="Suivant" class="connexion"></td>
                     </tr>
                 </tbody>
             </table>

@@ -49,7 +49,7 @@ session_start();
     <div class="grilleAnnonces">
       <script>
         function passId(id) {
-          window.location.href = 'pageOffre.php?value=' + encodeURIComponent(id);
+          window.location.href = '../Internaute/pageOffre.php?value=' + encodeURIComponent(id);
         }
       </script>
       <?php
@@ -84,7 +84,7 @@ session_start();
                 <p>Localisation de l'offre : $resVilleOffre $resCPOffre</p>
                 <p>Statut de la candidature : $resStatut </p>
 
-                <button onclick='passId($resIdOffre)'>Détails</button>
+                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails</button>
           </div>";
         }
       }

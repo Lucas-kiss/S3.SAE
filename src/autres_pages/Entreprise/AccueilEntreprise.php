@@ -59,7 +59,7 @@ session_start();
           </div>
 
           <div class="boutonRechercher">
-            <input type="submit" class="btnRechercheOffre" name="Rechercher" value="Rechercher">
+            <input type="submit" class='connexion' name="Rechercher" value="Rechercher">
           </div>
         </div>
 
@@ -128,11 +128,11 @@ session_start();
     ?>
     <div class='InfoEntreprise'>
       <div class='messagesEntreprise'>
-        <button style='width:100%'>Mes messages</button>
+        <button class='connexion' style='width:100%'>Mes messages</button>
       </div>
 
       <div class='boutonDeposerOffre'>
-        <a href="FormDepotOffre.php">Déposer une offre d'emploi</a>
+        <a href="FormDepotOffre.php" class='connexion'>Déposer une offre d'emploi</a>
 
 
       </div>
@@ -180,7 +180,7 @@ session_start();
                 <p>Date de l'offre : $resDateDeb à $resDateFin</p>
                 <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
 
-                <button onclick='passId($resIdOffre)'>Détails</button>
+                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails</button>
           </div>";
         }
       }

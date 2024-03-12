@@ -68,7 +68,7 @@ if (mysqli_connect_errno()) {
           </div>
 
           <div class="boutonRechercher">
-            <input type="submit" class="btnRechercheOffre" name="Rechercher" value="Rechercher">
+            <input type="submit" class='connexion' name="Rechercher" value="Rechercher">
           </div>
         </div>
 
@@ -213,7 +213,7 @@ if (mysqli_connect_errno()) {
                 <p>Date de l'offre : $resDateDeb à $resDateFin</p>
                 <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
 
-                <button onclick='passId($resIdOffre)'>Détails</button>
+                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails</button>
           </div>";
         }
       }

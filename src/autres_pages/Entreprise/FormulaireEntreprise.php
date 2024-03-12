@@ -102,8 +102,8 @@
                             <label for="notrobot">Je ne suis pas un robot *</label>
                         </td>
                         <td>
-                            <input type="reset" value="Réinitialiser" />
-                            <input type="submit" value="S'inscrire">
+                            <input type="reset" value="Réinitialiser" class="connexion"/>
+                            <input type="submit" value="S'inscrire" class="connexion">
                         </td>
                     </tr>
                 </tbody>

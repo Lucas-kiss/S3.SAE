@@ -93,7 +93,7 @@ if (isset($_POST['intitOffre'])) {
         ?>
       </tbody>
     </table>
-    <input type="submit" value="Suivant">
+    <input type="submit" value="Suivant" class="connexion">
   </form>
 </body>
 

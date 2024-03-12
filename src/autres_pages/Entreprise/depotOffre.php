@@ -106,11 +106,11 @@ foreach ($jourSem as &$jour) {
         $IdCreneau++;
     }
 }
-
+mysqli_close($link);
 if ($res) {
     header('location: ../Entreprise/AccueilEntreprise.php');
 } else {
     echo "Insertion n'a pas fonctionné";
 }
-mysqli_close($link);
+
 ?>
