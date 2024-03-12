@@ -318,13 +318,15 @@ label {
 }
 
 .recapOffre {
-background-color: #4FAFDE;
+background-color: rgb(79, 175, 222);
 border-radius: 5px;
 margin-top: 5px;
 padding: 5px;
 text-align: center;
+width: 25vw;
+border: solid rgb(0, 139, 209) 1px; 
+filter:drop-shadow(5px 5px 5px rgb(0, 139, 209));
 }
-
 
 
 .boutonDeposerOffre {
@@ -487,6 +489,10 @@ text-align: center;
 
 }
 
+.btnOffre {
+    text-align: center;
+}
+
 .fondForm > .btnOffre {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -645,4 +651,12 @@ text-align: center;
 
 .infoCompteEt > .btnInfosEt > #btnAccCand {
     grid-column: 2;
+}
+
+.grilleAnnonces {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    flex-wrap: wrap;
 }

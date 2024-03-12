@@ -142,7 +142,7 @@ if (isset($_GET['value'])) {
                     if ($result && mysqli_num_rows($result) > 0) {
                         echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion' disabled>Postuler</button>";
                     } else {
-                        echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
+                        echo "</br><button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
                     }
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
 
@@ -155,7 +155,7 @@ if (isset($_GET['value'])) {
                     }
                 </script>
                 
-                <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
+                </br><button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
                     class='connexion'>Voir les candidatures</button>
                 <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
                     class='connexion'>Modifier l'offre</button>
