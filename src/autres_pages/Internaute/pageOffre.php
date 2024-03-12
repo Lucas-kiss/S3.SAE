@@ -1,7 +1,7 @@
 <?php
+    session_start();
 
-require("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
-session_start();
+    require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 
 if (isset($_GET['value'])) {
     $monOffre = $_GET['value'];
@@ -163,15 +163,16 @@ if (isset($_GET['value'])) {
                     l'offre</button>";
                 }
 
-                echo "</div>
-            <p class='sous-titre'>Offre déposée le $dateDepot</p>";
-                ?>
-            </div>
-            <script>
-                function passId(id, urlPage) {
-                    window.location.href = urlPage + '?value=' + encodeURIComponent(id);
-                }
-            </script>
+            echo "</div>
+        <p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            ?>
+        </div>
+        <script>
+            function passId(id, urlPage)
+            {
+                window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+            }
+        </script>
 
     </body>
 

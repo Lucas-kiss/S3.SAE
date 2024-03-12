@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once ("../../ressources/donnees/BDD/bdd.php");
 if (isset($_POST['ine'])) {
   $_SESSION['ine'] = $_POST['ine'];
   $_SESSION['prenom'] = $_POST['prenom'];
@@ -38,8 +39,8 @@ if (isset($_POST['ine'])) {
         while ($donnees = mysqli_fetch_assoc($resultNom)) {
           $prenom = $donnees["prenom"];
           $nom = $donnees["nom"];
+          echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>".$prenom.$nom."</a>";
         }
-        echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>$prenom $nom</a>";
       } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
       } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
