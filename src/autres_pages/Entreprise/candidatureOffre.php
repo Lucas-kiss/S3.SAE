@@ -53,10 +53,29 @@
         <div class="annonces">
             <h2>Liste des Candidats :</h2>
             <div class="grilleAnnonces">
-                
+            <form action="candidatureOffre.php" method="POST">
+            <select class="boiteTexte" id="statut" name="statut">
+                <option value='%'>Tout</option>
+                <option value='En Attente'>En Attente</option>
+                <option value='Accepté'>Accepté</option>
+                <option value='Refusé'>Refusé</option>
+            </select>
+            <input type="submit" class="connexion" value="Rechercher">
+            </FORM>
                 <?php
-                    $query = "SELECT e.*, c.statut from Etudiant e join Candidater c on c.ine = e.ine where c.idOffre = $monOffre";
-                    $res = mysqli_query($link, $query);
+                    if ($_POST) 
+                    {
+                        $statut = $_POST['statut'];
+                        $query = "SELECT e.*, c.statut from Etudiant e join Candidater c on c.statut like '$statut' and c.ine = e.ine 
+                        where c.idOffre = $monOffre ";
+                        $res = mysqli_query($link, $query);
+                    }
+                    else
+                    {
+                        $query = "SELECT e.*, c.statut from Etudiant e join Candidater c on c.ine = e.ine 
+                        where c.idOffre = $monOffre ";
+                        $res = mysqli_query($link, $query);
+                    }
                     
                     if ($link) {
                         while ($donnees = mysqli_fetch_assoc($res)) {
