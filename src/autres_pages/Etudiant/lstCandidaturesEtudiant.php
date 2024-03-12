@@ -2,33 +2,21 @@
 require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>1P'titJob</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset='utf-8'>
+  <title>1P'titJob - Mes candidatures</title>
+  <link href="../Internaute/style.css" rel="stylesheet" type="text/css" />
 </head>
-<?php
-$link = mysqli_connect($host, $user, $pass, $bdd) or die("Impossible de se connecter à la base de données");
-
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
-}
-?>
 
 <body>
   <nav>
     <div class=wrapper>
       <?php
-      if (isset($_SESSION['siren'])) {
-        echo "<a href='../Entreprise/AccueilEntreprise.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
-        echo "<h1 class='titre'><a href='../Entreprise/AccueilEntreprise.php'>1P'titJob</a></h1>";
-      } else {
-        echo "<a href='./index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
+      if (isset($_SESSION['ine'])) {
+        echo "<a href='../Internaute/index.php'><img class='logo' src='../../ressources/img/1ptitjob_logo.PNG' width='60' height='60' /></a>";
         echo "<h1 class='titre'><a href='../Internaute/index.php'>1P'titJob</a></h1>";
       }
 
@@ -56,96 +44,8 @@ if (mysqli_connect_errno()) {
     </div>
   </nav>
 
-  <form action="index.php" method="POST">
-    <div class="grilleBoutons">
-
-      <div class=infoRechercheOffre>
-
-        <div class=recherche>
-          <div class="barreDeRechercheOffre">
-            <input class="boiteTexte" type="text" name="barreRecherche" placeholder="Rechercher un intitulé d'offre"
-              style="width:90%">
-          </div>
-
-          <div class="boutonRechercher">
-            <input type="submit" class="btnRechercheOffre" name="Rechercher" value="Rechercher">
-          </div>
-        </div>
-
-        <div class=criteresRecherche>
-          <div class="critDateDeDebut">
-            <label for="DateDeb">Date de début:<br></label>
-            <input class="boiteTexte" type="date" id="dateDeb" name="dateDeb">
-          </div>
-
-          <div class="critDateDeFin">
-            <label for="dateFin">Date de fin:<br></label>
-            <input class="boiteTexte" type="date" id="dateFin" name="dateFin">
-          </div>
-
-          <div class="critVille">
-            <label for="ville">Ville:<br></label>
-            <select class="boiteTexte" id="ville" name="ville">
-              <option value='%'>Non renseignée</option>
-              <?php
-              $queryVille = "SELECT DISTINCT(V.nomVille) AS ville FROM Ville V 
-                JOIN Entreprise E ON V.idVille=E.idVIlle
-                JOIN Offre O ON O.siren = E.siren
-                WHERE O.estFinie=0";
-
-              $resultVille = mysqli_query($link, $queryVille);
-              if ($link) {
-                while ($donnees = mysqli_fetch_assoc($resultVille)) {
-                  $resVille = $donnees['ville'];
-                  echo "<option value='$resVille'>$resVille</option>";
-                }
-              }
-              ?>
-            </select>
-          </div>
-
-          <div class="critDomaineAct">
-            <label for="domaineAct">Domaine d'activité:<br></label>
-            <select class="boiteTexte" name="domaineAct" id="domaineAct">
-              <option value='%'>Non renseigné</option>
-              <?php
-              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct FROM Entreprise E
-                  JOIN Offre O ON O.siren = E.siren
-                  WHERE O.estFinie=0";
-
-
-              $resultDomaineAct = mysqli_query($link, $queryDomaineAct);
-              if ($link) {
-                while ($donnees = mysqli_fetch_assoc($resultDomaineAct)) {
-                  $resDomaineAct = $donnees['domaineAct'];
-                  echo "<option value='$resDomaineAct'>$resDomaineAct</option>";
-                }
-              }
-              ?>
-            </select>
-          </div>
-
-        </div>
-
-      </div>
-
-      <?php
-      if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-    print "<div class= 'InfoEtudiant'>
-          <div class= 'messagesEtudiant'>
-            <a href='../Etudiant/messagesEtudiant.php' class='connexion'>Messages</a>
-          </div>
-          <div class= candidaturesEtudiant>
-          <a href='../Etudiant/lstCandidaturesEtudiant.php' class='connexion'>Candidatures</a>
-          </div>
-        </div>";
-      }
-      ?>
-    </div>
-  </form>
-
   <div class="annonces">
-    <h2>Annonces :</h2>
+    <h2>Candidatures :</h2>
     <div class="grilleAnnonces">
       <script>
         function passId(id) {
@@ -221,6 +121,7 @@ if (mysqli_connect_errno()) {
       ?>
     </div>
   </div>
+
 
 </body>
 

@@ -70,100 +70,101 @@ if (isset($_GET['value'])) {
 
         <div class="fondForm">
             <H1 class="titres">
-                <?php echo "$nomOffre" ?>
+                <?php echo "Intitulé de l'offre : $nomOffre" ?>
             </H1>
+            <hr><br>
 
-            <?php
+            <div class="InfosOffre">
+                <?php
+                echo "<p class='uneInfoOffre'><b>Nom de l'entreprise :</b> $nomEntr</p>";
+                echo "<p class='uneInfoOffre'><b>Ville :</b> $ville</p>";
+                echo "<p class='uneInfoOffre'><b>Date de l'offre :</b> du $dateDeb au $dateFin</p>";
+                echo "<p class='uneInfoOffre'><b>Rémunération :</b> $tauxHoraire euros net par heure</p>";
+                ?>
+                <div class="descriptionOffre">
+                    <?php
+                    echo "<p class='uneInfoOffre'><b>Description de l'offre :</b></p>";
+                    echo "<p class='uneInfoOffre'> $description</p>";
+                    ?>
+                </div>
+                <div class="horaireOffre">
+                    <p class='uneInfoOffre'><b>Horaires de l'offre :</b></p>
+                    <?php
+                    $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+                    echo " <table class='blackBorder'>
+                    <tr>
+                        <th>
+                            <label>Jour</label>
+                        </th>";
 
-            echo "<p class='infoOffre'>Entreprise : $nomEntr</p>";
-            echo "<p class='infoOffre'>Ville : $ville</p>";
-            echo "<p class='infoOffre'>Date de l'offre : du $dateDeb au $dateFin</p>";
-            echo "<p class='infoOffre'>Rémunération : $tauxHoraire euros net par heure</p>";
-            echo "<p class='infoOffre'>Détails :</br></br> $description</p>";
-
-
-
-            $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
-            echo "  <table class='blackBorder'><tr>
-                            <th>
-                                <label>Jour</label>
-                            </th>";
-
-            for ($i = 0; $i < 24; $i++) {
-                echo "  <th class='blackBorder'>
-                                <label>$i h</label>
-                            </th>";
-            }
-
-            echo "  </tr>";
-
-            foreach ($jourSem as &$jour) {
-                echo "<tr class='noPadding'>";
-                echo "<th class='blackBorder noPadding thJour'>";
-                echo "<label>$jour</label>";
-                echo "</th>";
-
-
-
-                $j = 0;
-
-                for ($i = 0; $i < 24; $i++) {
-                    $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i";
-                    $result = mysqli_query($link, $query);
-
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        //echo $result[$j]['heureDeb'];
-                        //echo $i.$j.$jour; 
-                        echo "<td class='blackBorder noPadding caseverte'>";
-                    } else {
-                        echo "<td class='blackBorder noPadding caserouge'>";
+                    for ($i = 0; $i < 24; $i++) {
+                        echo "  <th class='blackBorder'>
+                                        <label>$i h</label>
+                                    </th>";
                     }
-                    echo "</td>";
-                }
+                    echo "  </tr>";
+                    foreach ($jourSem as &$jour) {
+                        echo "<tr class='noPadding'>";
+                        echo "<th class='blackBorder noPadding thJour'>";
+                        echo "<label>$jour</label>";
+                        echo "</th>";
+                        $j = 0;
+                        for ($i = 0; $i < 24; $i++) {
+                            $query = "SELECT * FROM Creneau cr join Concerner co on co.idCreneau=cr.IdCreneau WHERE cr.jour = '$jour' AND co.idOffre = $monOffre AND cr.heureDeb <= $i AND cr.heureFin > $i"
+                            ;
+                            $result = mysqli_query($link, $query);
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                //echo $result[$j]['heureDeb'];
+                                //echo $i.$j.$jour;
+                                echo "<td class='blackBorder noPadding caseverte'>";
+                            } else {
+                                echo "
+                            <td class='blackBorder noPadding caserouge'>";
+                            }
+                            echo "</td>";
+                        }
 
-                echo "</tr>";
-            }
-            echo "</table>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                    ?>
+                </div>
+                <?php
 
+                echo "<div class='btnOffre'>";
+                
+                if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    $urlCand = "../Etudiant/candidatureEtudiant.php";
+                    $ine = $_SESSION['ine'];
+                    $monOffre = intval($monOffre);
+                    $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
+                    $result = mysqli_query($link, $query);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion' disabled>Postuler</button>";
+                    } else {
+                        echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
+                    }
+                } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
+                    $urlModif = "../Internaute/pageOffre.php";
+                    $urlSupp = "../Entreprise/SupprimerOffre.php";
+                    $urlCand = "../Entreprise/candidatureOffre.php";
 
-            echo "<div class='btnOffre'>";
-
-            if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                $urlCand = "../Etudiant/candidatureEtudiant.php";
-                $ine = $_SESSION['ine'];
-                $monOffre = intval($monOffre);
-                $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
-                $result = mysqli_query($link, $query);
-                if($result && mysqli_num_rows($result) > 0)
-                {
-                    echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion' disabled>Postuler</button>";
-                }
-                else
-                {
-                    echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
-                }
-            }
-            elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                $urlModif = "../Internaute/pageOffre.php";
-                $urlSupp = "../Entreprise/SupprimerOffre.php";
-                $urlCand = "../Entreprise/candidatureOffre.php";
-
-                echo
-                    "<script>
+                    echo
+                        "<script>
                     function choixSuppressionOffre(uneOffre) {
-                        if ( confirm( 'Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.' ) ) {
+                        if (confirm('Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.')) {
                             passId(uneOffre, `../Entreprise/SupprimerOffre.php`);
                         }
                     }
                 </script>
 
                 <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
-                class='connexion'>Voir les candidatures</button>
-                <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
-                class='connexion'>Modifier l'offre</button>
-                <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer'
-                class='connexion'>Supprimer l'offre</button>";
-            }
+                    class='connexion'>Voir les candidatures</button>
+                <button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
+                    class='connexion'>Modifier l'offre</button>
+                <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer' class='connexion'>Supprimer
+                    l'offre</button>";
+                }
 
             echo "</div>
         <p class='sous-titre'>Offre déposée le $dateDepot</p>";
