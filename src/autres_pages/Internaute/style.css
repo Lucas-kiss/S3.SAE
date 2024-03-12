@@ -57,11 +57,11 @@ body {
     cursor:not-allowed;
 }
 
-.connexion:hover:enabled {
+.connexion:hover {
     transform: scale(1.05);
 }
 
-.connexion:active:enabled {
+.connexion:active {
     background-color: #F5AD5B;
 }
 
