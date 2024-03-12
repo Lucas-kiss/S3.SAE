@@ -7,7 +7,7 @@ if (isset($_POST['intitOffre'])) {
   $_SESSION['dateFin'] = $_POST['dateFin'];
   $_SESSION['tauxHoraire'] = $_POST['tauxHoraire'];
   $_SESSION['descrOffre'] = $_POST['descrOffre'];
-  echo $_SESSION['intitOffre'];
+  //echo $_SESSION['intitOffre'];
 }
 ?>
 

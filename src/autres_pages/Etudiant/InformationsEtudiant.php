@@ -4,7 +4,10 @@ session_start();
 
 if (!isset($_SESSION['ine'])) 
 {
-    header('location: index.php');
+    if (!isset($_GET['id']) || !isset($_SESSION['siren']))
+    {
+        header('location: index.php');
+    }
 }
 ?>
 
@@ -55,7 +58,14 @@ if (!isset($_SESSION['ine']))
 
     <body>
         <?php 
-            $ine = $_SESSION['ine'];
+            if (isset($_SESSION['ine']))
+            {
+                $ine = $_SESSION['ine'];
+            }
+            else
+            {
+                $ine = $_GET['id'];
+            }
 
             $query_etud = "SELECT * FROM Etudiant JOIN Ville ON Etudiant.idVille = Ville.idVille WHERE ine = '$ine';";
             $result_etud = mysqli_query($link, $query_etud);
@@ -74,7 +84,7 @@ if (!isset($_SESSION['ine']))
 
             <div class="fondForm">
                 <?php
-                if ($_POST)
+                if ($_POST && isset($_SESSION['ine']))
                 {
                     ?>
                     <H1 class="titres">Modifier mes informations</H1>
@@ -179,7 +189,14 @@ if (!isset($_SESSION['ine']))
                     ?>
                     <H1 class="titres">Mes informations</H1>
                     <div class="separation"><hr><br></div>
+                    <?php
+                        if(!isset($_SESSION['siren']))
+                        {
+                    ?>
                     <form action="InformationsEtudiant.php" method="POST">
+                    <?php
+                        }
+                    ?>
                             <div class="infoCompteEt">
                                 <table id="tabInfoEntrGauche">
                                     <tr>
@@ -276,11 +293,42 @@ if (!isset($_SESSION['ine']))
                                 <!-- bouton -->
                                 <div class="btnInfosEt">
                                 <br>
-                                    <input type="button" class="connexion" name="annuler" value="Retour" id="btnRetour" onclick="history.back()">
-                                    <input type="submit" class="connexion" name="ModifInfosEtu" id="btnModif" value="Modifier les informations"> 
+                                <?php
+                                    if(isset($_SESSION['siren']))
+                                    {
+                                ?>
+                                        <td>
+                                            <button onclick="update('<?php echo $ine; ?>', 'Refuser')" class="connexion">Refuser</button>
+                                        </td>
+                                        <td> 
+                                            <button onclick="update('<?php echo $ine; ?>', 'Accepter')" class="connexion">Accepter</button>
+                                        </td>
+                                        <script>
+                                            function update(id, etat)
+                                            {
+                                                console.log(id, etat);
+                                                window.location.href = 'changeStatus.php?id=' + encodeURIComponent(id) + '&etat=' + encodeURIComponent(etat);
+                                            }
+                                        </script>
+                                    <?php
+                                    }
+                                    else
+                                    {
+                                    ?>
+                                        <input type="button" class="connexion" name="annuler" value="Retour" id="btnRetour" onclick="history.back()">
+                                        <input type="submit" class="connexion" name="ModifInfosEtu" id="btnModif" value="Modifier les informations"> 
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
+                            <?php
+                        if(!isset($_SESSION['siren']))
+                        {
+                    ?>
                     </form>
+                    <?php
+                    }?>
                 <?php
                 }
                 ?>
