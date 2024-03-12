@@ -49,7 +49,7 @@ session_start();
     <div class="grilleAnnonces">
       <script>
         function passId(id) {
-          window.location.href = 'pageOffre.php?value=' + encodeURIComponent(id);
+          window.location.href = '../Internaute/pageOffre.php?value=' + encodeURIComponent(id);
         }
       </script>
       <?php
@@ -77,13 +77,14 @@ session_start();
           $resCPOffre = $donnees['cp'];
           echo "<div class='recapOffre' id='offre$resIdOffre'>
 
-                <h3>Intitulé de l'offre :".utf8_encode($resNomOffre)."</h3>
+                <h3>Intitulé de l'offre : ". utf8_encode($resNomOffre) ."</h3>
                 <p>Entreprise : $resNomEntr</p>
                 <p>Domaine d'activité : $resDomaineAct</p>
                 <p>Date de candidature : $resDateCand</p>
                 <p>Localisation de l'offre : $resVilleOffre $resCPOffre</p>
+                <p>Statut de la candidature : $resStatut </p>
 
-                <button onclick='passId($resIdOffre)'>Détails</button>
+                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails</button>
           </div>";
         }
       }

@@ -7,7 +7,6 @@ if (isset($_POST['intitOffre'])) {
   $_SESSION['dateFin'] = $_POST['dateFin'];
   $_SESSION['tauxHoraire'] = $_POST['tauxHoraire'];
   $_SESSION['descrOffre'] = $_POST['descrOffre'];
-  //echo $_SESSION['intitOffre'];
 }
 ?>
 
@@ -94,7 +93,7 @@ if (isset($_POST['intitOffre'])) {
         ?>
       </tbody>
     </table>
-    <input type="submit" value="Suivant">
+    <input type="submit" value="Suivant" class="connexion">
   </form>
 </body>
 
