@@ -1,7 +1,7 @@
 <?php
+    session_start();
 
-require("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
-session_start();
+    require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 
 if (isset($_GET['value'])) {
     $monOffre = $_GET['value'];

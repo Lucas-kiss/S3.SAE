@@ -55,7 +55,7 @@
             <div class="grilleAnnonces">
                 
                 <?php
-                    $query = "SELECT e.* from Etudiant e join Candidater c on c.ine = e.ine where c.idOffre = $monOffre";
+                    $query = "SELECT e.*, c.statut from Etudiant e join Candidater c on c.ine = e.ine where c.idOffre = $monOffre";
                     $res = mysqli_query($link, $query);
                     
                     if ($link) {
@@ -67,15 +67,17 @@
                             $date_actuelle = date('Y-m-d');
                             $age = date_diff(date_create($date_naissance), date_create($date_actuelle));
                             $age = $age->format('%y');
+                            $statut = $donnees['statut'];
                             $ine = $donnees['ine'];
+                            
                             
                             echo"<div class='recapOffre' id='offre$monOffre'>
                 
                                 <h3>$nom $prenom</h3>
-                                <p>$age ans $ine</p>
-                                
-                                <button onclick='passId($ine)'>Profil</button>
-                                </div>";
+                                <p>$age ans,</p><p> Statut : $statut</p>
+                                ".'
+                                <button onclick="passId('."'$ine'".')">Profil</button>
+                                '."</div>";
                         }
                     }
                     mysqli_close($link);
@@ -83,7 +85,7 @@
                 <script>
                     function passId(id)
                     {
-                        console.log(id);
+                        //console.log(id);
                         window.location.href = '../Etudiant/InformationsEtudiant.php?id=' + encodeURIComponent(id);
                     }
                 </script>

@@ -84,7 +84,7 @@ if (!isset($_SESSION['ine']))
 
             <div class="fondForm">
                 <?php
-                if ($_POST)
+                if ($_POST && isset($_SESSION['ine']))
                 {
                     ?>
                     <H1 class="titres">Modifier mes informations</H1>
@@ -200,7 +200,14 @@ if (!isset($_SESSION['ine']))
                     <div class="separation"></div>
                     <div class="infoCompte">
                         <div class=infoCompteGauche>
+                            <?php
+                                if (isset($_SESSION['ine']))
+                                {
+                            ?>
                             <form action="InformationsEtudiant.php" method="POST">
+                            <?php
+                                }
+                            ?>
                                 <table class="tabOffre">
                                     <tr>
                                         <td><label for="ine">INE</label></td>
@@ -266,15 +273,47 @@ if (!isset($_SESSION['ine']))
                                         </td>
                                     </tr>
                                     <tr>
+                                        <?php
+                                            if(isset($_SESSION['siren']))
+                                            {
+                                        ?>
+                                        <td>
+                                            <button onclick="update('<?php echo $ine; ?>', 'Refuser')" class="connexion">Refuser</button>
+                                        </td>
+                                        <td> 
+                                            <button onclick="update('<?php echo $ine; ?>', 'Accepter')" class="connexion">Accepter</button>
+                                        </td>
+                                        <script>
+                                            function update(id, etat)
+                                            {
+                                                console.log(id, etat);
+                                                window.location.href = 'changeStatus.php?id=' + encodeURIComponent(id) + '&etat=' + encodeURIComponent(etat);
+                                            }
+                                        </script>
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
                                         <td>
                                             <input type="button" class="connexion" name="annuler" value="Annuler" onclick="history.back()">
                                         </td>
                                         <td> 
                                             <input type="submit" class="connexion" name="ModifInfosEtu" value="Modifier les informations"> 
                                         </td>
+                                        <?php
+                                            }
+                                        ?>
                                     </tr>
                                 </table>
+                                <?php
+                                    if (isset($_SESSION['ine']))
+                                    {
+                                ?>
                             </form>
+                                <?php
+                                    }
+                                ?>
                         </div>
                         <div class='infoCompteDroite'>
                             <?php

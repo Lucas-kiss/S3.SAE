@@ -20,7 +20,7 @@ if (true) {
         $nomVille = $donnees["nomVille"];
         $cp = $donnees["codePostal"];
     }
-    mysqli_close($link);
+    
 ?>
 
 
@@ -53,8 +53,8 @@ if (true) {
         while ($donnees = mysqli_fetch_assoc($resultNom)) {
           $prenom = $donnees["prenom"];
           $nom = $donnees["nom"];
+          echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>$prenom $nom</a>";
         }
-        echo "<a href='../Etudiant/InformationsEtudiant.php' class='connexion'>$prenom $nom</a>";
       } elseif (!isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
         echo "<a href='../Internaute/Connexion.html' class='connexion'>Connexion</a>";
       } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
@@ -176,5 +176,7 @@ if (true) {
 </html>
 
 <?php 
+
 }
+mysqli_close($link);
 ?>
