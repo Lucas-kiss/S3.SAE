@@ -298,10 +298,10 @@ if (!isset($_SESSION['ine']))
                                     {
                                 ?>
                                         <td>
-                                            <button onclick="update('<?php echo $ine; ?>', 'Refuser')" class="connexion" id="btnRefCand">Refuser</button>
+                                            <button onclick="update('<?php echo $ine; ?>', 'Refusé')" class="connexion" id="btnRefCand">Refuser</button>
                                         </td>
                                         <td> 
-                                            <button onclick="update('<?php echo $ine; ?>', 'Accepter')" class="connexion" id="btnAccCand">Accepter</button>
+                                            <button onclick="update('<?php echo $ine; ?>', 'Accepté')" class="connexion" id="btnAccCand">Accepter</button>
                                         </td>
                                         <script>
                                             function update(id, etat)
