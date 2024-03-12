@@ -53,65 +53,35 @@ session_start();
         }
       </script>
       <?php
-      if ($_POST) {
-        $critBarreRecherche = trim($_POST["barreRecherche"]);
-        $critVille = $_POST["ville"];
-        $critDomaineAct = $_POST["domaineAct"];
-        $critDateDeb = $_POST["dateDeb"];
-        $critDateFin = $_POST["dateFin"];
-        if ($critDateFin == '') {
-          $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
-          FROM Offre O
-          JOIN Entreprise E ON E.siren = O.siren
-          JOIN Ville V ON V.idVille = E.idVille
-          WHERE O.estFinie=0
-          AND O.nomOffre LIKE '%$critBarreRecherche%'
-          AND V.nomVille LIKE '$critVille'
-          AND E.domaineActivite LIKE '$critDomaineAct'
-          AND O.dateDeb >= '$critDateDeb'
-          ORDER BY O.dateDepot DESC";
-        } else {
-          $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
-          FROM Offre O
-          JOIN Entreprise E ON E.siren = O.siren
-          JOIN Ville V ON V.idVille = E.idVille
-          WHERE O.estFinie=0
-          AND O.nomOffre LIKE '%$critBarreRecherche%'
-          AND V.nomVille LIKE '$critVille'
-          AND E.domaineActivite LIKE '$critDomaineAct'
-          AND O.dateDeb >= '$critDateDeb'
-          AND O.dateFin <= '$critDateFin'
-          ORDER BY O.dateDepot DESC";
-        }
+      $ine = $_SESSION['ine'];
+      $queryCandidature = "SELECT C.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, C.dateCand dateCand, C.statut statut, V.nomVille ville, V.codePostal cp
+      FROM Candidater C
+      JOIN Offre O ON C.idOffre = O.idOffre
+      JOIN Entreprise E ON E.siren = O.siren
+      JOIN Ville V ON V.idVille = E.idVille
+      WHERE O.estFinie=0
+      AND C.ine = '$ine'
+      ORDER BY C.dateCand DESC";
 
-      } else {
-        $queryOffre = "SELECT O.idOffre id, O.nomOffre nomOffre, E.nomEntreprise nomEntr, E.domaineActivite domaineAct, O.dateDeb dateDeb, O.dateFin dateFin, V.nomVille ville, V.codePostal cp
-        FROM Offre O
-        JOIN Entreprise E ON E.siren = O.siren
-        JOIN Ville V ON V.idVille = E.idVille
-        WHERE O.estFinie=0
-        ORDER BY O.dateDepot DESC";
-      }
-
-      $resOffre = mysqli_query($link, $queryOffre);
+      $resCandidature = mysqli_query($link, $queryCandidature);
 
       if ($link) {
-        while ($donnees = mysqli_fetch_assoc($resOffre)) {
+        while ($donnees = mysqli_fetch_assoc($resCandidature)) {
           $resIdOffre = $donnees['id'];
           $resNomOffre = $donnees['nomOffre'];
           $resNomEntr = $donnees['nomEntr'];
           $resDomaineAct = $donnees['domaineAct'];
-          $resDateDeb = $donnees['dateDeb'];
-          $resDateFin = $donnees['dateFin'];
-          $resVilleOFfre = $donnees['ville'];
-          $resCPOFfre = $donnees['cp'];
+          $resDateCand = $donnees['dateCand'];
+          $resStatut = $donnees['statut'];
+          $resVilleOffre = $donnees['ville'];
+          $resCPOffre = $donnees['cp'];
           echo "<div class='recapOffre' id='offre$resIdOffre'>
 
                 <h3>Intitulé de l'offre :".utf8_encode($resNomOffre)."</h3>
                 <p>Entreprise : $resNomEntr</p>
                 <p>Domaine d'activité : $resDomaineAct</p>
-                <p>Date de l'offre : $resDateDeb à $resDateFin</p>
-                <p>Localisation de l'offre : $resVilleOFfre $resCPOFfre</p>
+                <p>Date de candidature : $resDateCand</p>
+                <p>Localisation de l'offre : $resVilleOffre $resCPOffre</p>
 
                 <button onclick='passId($resIdOffre)'>Détails</button>
           </div>";
