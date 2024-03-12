@@ -140,7 +140,7 @@ if (isset($_GET['value'])) {
                     $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
                     $result = mysqli_query($link, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
-                        echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion' disabled>Postuler</button>";
+                        echo "<button onclick='passId($monOffre, `../Etudiant/suppCandidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Supprimer ma candidature</button>";
                     } else {
                         echo "</br><button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
                     }

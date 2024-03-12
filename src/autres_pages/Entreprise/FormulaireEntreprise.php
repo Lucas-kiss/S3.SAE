@@ -1,6 +1,30 @@
 <?php
-    require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
-    session_start();
+require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+session_start();
+
+if (isset($_POST['siren'])) {
+
+    $siren = $_POST['siren'];
+    $queryVerifSiren = "SELECT * From Entreprise WHERE siren LIKE $siren";
+    $resVerifSiren = mysqli_query($link, $queryVerifSiren);
+
+    if ($link && $link->affected_rows == 0) {
+        $_SESSION['siren'] = $_POST['siren'];
+        $_SESSION['nom'] = $_POST['nom'];
+        $_SESSION['domaine'] = $_POST['domaine'];
+        $_SESSION['ville'] = $_POST['ville'];
+        $_SESSION['telephone'] = $_POST['telephone'];
+        $_SESSION['nomResp'] = $_POST['nomResp'];
+        $_SESSION['telResp'] = $_POST['telResp'];
+        $_SESSION['MdP'] = hash('sha1', $_SESSION['MdP']);
+        $_SESSION['CP'] = intval($_POST['CP']);
+
+
+        header('location: ../Entreprise/Insert.php');
+    } else {
+        echo "<script>alert('Siren déjà utilisé');</script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +73,7 @@
     </nav>
 
 
-    <form action="Insert.php" method="POST">
+    <form action="FormulaireEntreprise.php" method="POST">
         <div class="fondForm">
             <H1 class="titres">Inscription</H1>
             <table>
@@ -102,7 +126,7 @@
                             <label for="notrobot">Je ne suis pas un robot *</label>
                         </td>
                         <td>
-                            <input type="reset" value="Réinitialiser" class="connexion"/>
+                            <input type="reset" value="Réinitialiser" class="connexion" />
                             <input type="submit" value="S'inscrire" class="connexion">
                         </td>
                     </tr>
