@@ -205,7 +205,7 @@ if (mysqli_connect_errno()) {
           $resDateFin = $donnees['dateFin'];
           $resVilleOFfre = $donnees['ville'];
           $resCPOFfre = $donnees['cp'];
-          echo "<div class='recapOffre' id='offre$resIdOffre'>
+          echo "<div class='recapOffre' style='grid-columns: 1' id='offre$resIdOffre'>
 
                 <h3>Intitulé de l'offre : ".utf8_encode($resNomOffre)."</h3>
                 <p>Entreprise : $resNomEntr</p>

@@ -47,7 +47,7 @@ session_start();
     </div>
   </nav>
 
-  <form action="index.php" method="POST">
+  <form action="AccueilEntreprise.php" method="POST">
     <div class="grilleBoutons">
 
       <div class=infoRechercheOffre>
