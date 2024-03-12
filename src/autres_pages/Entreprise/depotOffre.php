@@ -40,16 +40,7 @@ $dateDeb = $_SESSION["dateDeb"];
 $dateFin = $_SESSION["dateFin"];
 $description = $_SESSION["descrOffre"];
 
-/*var_dump($dateActuelle);
-var_dump($tauxHoraire);
-var_dump($intitOffre);
-var_dump($dateDeb);
-var_dump($dateFin);
-var_dump($description);
-var_dump($nbHeureTotal);
-var_dump($siren);*/
 
-//(idOffre, nomOffre, dateDepot, dateDeb, dateFin, nbHeureTotal, tauxHoraire, description, nbEtudRetenus, estFinie, siren)
 
 $query = "INSERT INTO Offre VALUES ($max, '$intitOffre', '$dateActuelle', '$dateDeb', '$dateFin', $nbHeureTotal, $tauxHoraire, '$description', 0, 0, $siren)";
 $res = mysqli_query($link, $query);
@@ -117,7 +108,7 @@ foreach ($jourSem as &$jour) {
 }
 
 if ($res) {
-    header('location: ../Entreprise.AccueilEntreprise.php');
+    header('location: ../Entreprise/AccueilEntreprise.php');
 } else {
     echo "Insertion n'a pas fonctionné";
 }
