@@ -1,7 +1,7 @@
 <?php
+    session_start();
 
-require("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
-session_start();
+    require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 
 if (isset($_GET['value'])) {
     $monOffre = $_GET['value'];
@@ -145,9 +145,6 @@ if (isset($_GET['value'])) {
                         echo "<button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
                     }
                 } elseif (!isset($_SESSION['ine']) && isset($_SESSION['siren'])) {
-                    $urlModif = "../Internaute/pageOffre.php";
-                    $urlSupp = "../Entreprise/SupprimerOffre.php";
-                    $urlCand = "../Entreprise/candidatureOffre.php";
 
                     echo
                         "<script>
@@ -157,24 +154,25 @@ if (isset($_GET['value'])) {
                         }
                     }
                 </script>
-
+                
                 <button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
                     class='connexion'>Voir les candidatures</button>
-                <button onclick='passId($monOffre, `../Internaute/pageOffre.php`)' id='btnModifier'
+                <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
                     class='connexion'>Modifier l'offre</button>
                 <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer' class='connexion'>Supprimer
                     l'offre</button>";
                 }
 
-                echo "</div>
-            <p class='sous-titre'>Offre déposée le $dateDepot</p>";
-                ?>
-            </div>
-            <script>
-                function passId(id, urlPage) {
-                    window.location.href = urlPage + '?value=' + encodeURIComponent(id);
-                }
-            </script>
+            echo "</div>
+        <p class='sous-titre'>Offre déposée le $dateDepot</p>";
+            ?>
+        </div>
+        <script>
+            function passId(id, urlPage)
+            {
+                window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+            }
+        </script>
 
     </body>
 

@@ -105,8 +105,8 @@ session_start();
                             <label for="notrobot">Je ne suis pas un robot *</label>
                         </td>
                         <td>
-                            <input type="reset" value="Réinitialiser" />
-                            <input type="submit" value="Suivant">
+                            <input type="reset" value="Réinitialiser" class="connexion"/>
+                            <input type="submit" value="Suivant" class="connexion">
                         </td>
                     </tr>
                 </tbody>
