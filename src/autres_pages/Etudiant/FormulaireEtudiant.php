@@ -1,6 +1,30 @@
 <?php
 require_once ("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
+
+if (isset($_POST['ine'])) {
+
+  $ine = $_POST['ine'];
+  $queryVerifIne = "SELECT * From Etudiant WHERE ine LIKE '$ine'";
+  $resVerifIne = mysqli_query($link, $queryVerifIne);
+  if ($link && $link->affected_rows == 0)
+  {
+    $_SESSION['ine'] = $_POST['ine'];
+    $_SESSION['prenom'] = $_POST['prenom'];
+    $_SESSION['nom'] = $_POST['nom'];
+    $_SESSION['naissance'] = $_POST['naissance'];
+    $_SESSION['ville'] = $_POST['ville'];
+    $_SESSION['telephone'] = $_POST['telephone'];
+    $_SESSION['CP'] = $_POST['CP'];
+
+    header ('location: ../Etudiant/Horaire.php');
+  }
+  else {
+    echo "<script>alert('INE déjà utilisé');</script>";
+  }
+
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +73,7 @@ session_start();
   </nav>
 
 
-    <form action="Horaire.php" method="POST">
+    <form action="FormulaireEtudiant.php" method="POST">
         <div class="fondForm">
             <H1 class="titreDepot">Mes Inscriptions</H1>
             <table class="tabOffre">

@@ -3,29 +3,17 @@ session_start();
 
 require_once("../../ressources/donnees/BDD/bdd.php");
 
-$siren = $_POST['siren'];
-$nom = $_POST['nom'];
-$domaine = $_POST['domaine'];
-$ville = $_POST['ville'];
-$telephone = $_POST['telephone'];
-$nomResp = $_POST['nomResp'];
-$telResp = $_POST['telResp'];
+$siren = $_SESSION['siren'];
+$nom = $_SESSION['nom'];
+$domaine = $_SESSION['domaine'];
+$ville = $_SESSION['ville'];
+$telephone = $_SESSION['telephone'];
+$nomResp = $_SESSION['nomResp'];
+$telResp = $_SESSION['telResp'];
 $mail = $_SESSION['mail'];
-$MdP = hash('sha1', $_SESSION['MdP']);
-$CP = intval($_POST['CP']);
+$MdP = $_SESSION['MdP'];
+$CP = $_SESSION['CP'];
 
-$_SESSION['siren'] = $siren;
-
-/*var_dump($siren);
-var_dump($nom);
-var_dump($domaine);
-var_dump($ville);
-var_dump($telephone);
-var_dump($nomResp);
-var_dump($telResp);
-var_dump($mail);
-var_dump($MdP);
-var_dump($CP);*/
 
 $query = "SELECT idVille From Ville where upper(nomVille) like upper(?) and upper(codePostal) like upper(?)";
 
