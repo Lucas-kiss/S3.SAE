@@ -78,5 +78,7 @@
     }
 
     mysqli_close($link);
-    header ('location: ../Internaute/index.php');
+    echo "<script>alert('Candidature enregistrée');
+    window.location.href = '../Internaute/index.php';
+    </script>";
 ?>

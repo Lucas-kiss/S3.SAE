@@ -65,7 +65,15 @@ if ($link) {
     $queryInsertEnt = "INSERT INTO Entreprise (siren, nomEntreprise, domaineActivite, telephoneEntreprise, nomResponsable, telephoneResponsable, mailResponsable, mdpResponsable, idVille) Values ($siren, '$nom', '$domaine', '$telephone', '$nomResp', '$telResp', '$mail', '$MdP', $idVille)";
 
     $res = mysqli_query($link, $queryInsertEnt);
+    mysqli_close($link);
+    echo "<script>alert('Inscription réussie');
+    window.location.href = '../Entreprise/AccueilEntreprise.php';
+    </script>";
 }
-mysqli_close($link);
-header('location: AccueilEntreprise.php');
+else {
+    echo "<script>alert('Inscription non réussi');
+    window.location.href = '../Entreprise/FormulaireEntreprise.php';
+    </script>";
+}
+
 ?>

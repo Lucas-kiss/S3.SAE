@@ -38,7 +38,9 @@ if (isset($_POST['connexion'])) {
             $trouve = true;
             while ($donnees=mysqli_fetch_assoc($resultEtud)) {
                 $_SESSION['ine'] = $donnees["ine"];
-                header ('location: index.php');
+                echo "<script>alert('Connexion réussi');
+                window.location.href = '../Internaute/index.php';
+                </script>";
             }
         } 
     }

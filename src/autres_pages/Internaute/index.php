@@ -175,7 +175,7 @@ if (mysqli_connect_errno()) {
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
-          AND dateFin < '$dateActuelle'
+          AND dateFin > '$dateActuelle'
           AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
@@ -187,7 +187,7 @@ if (mysqli_connect_errno()) {
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
-          AND dateFin < '$dateActuelle'
+          AND dateFin > '$dateActuelle'
           AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
@@ -202,7 +202,7 @@ if (mysqli_connect_errno()) {
         JOIN Entreprise E ON E.siren = O.siren
         JOIN Ville V ON V.idVille = E.idVille
         WHERE O.estFinie=0
-        AND dateFin < '$dateActuelle'
+        AND dateFin > '$dateActuelle'
         ORDER BY O.dateDepot DESC";
       }
 
