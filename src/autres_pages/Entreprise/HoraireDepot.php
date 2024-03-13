@@ -58,18 +58,18 @@ if (isset($_POST['intitOffre'])) {
   <H2>Créneaux de l'offre</H2></br>
   <h4>Veuillez renseigner les créneaux recherchés pour l'offre</h4></br>
 
-  <form action="depotOffre.php" method="POST">
+  <form action="RecapFormDepotOffre.php" method="POST">
     <table class="blackBorder tableHoraire">
       <tbody>
         <?php
         $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
-        echo "  <tr>
-                                <th>
+        echo "  <tr class='noPadding'>
+                                <th class='blackBorder noPadding thJour'>
                                     <label>Jour</label>
                                 </th>";
 
         for ($i = 0; $i < 24; $i++) {
-          echo "  <th class='blackBorder'>
+          echo "  <th class='blackBorder noPadding thJour'>
                                     <label>$i h</label>
                                 </th>";
         }
@@ -93,6 +93,9 @@ if (isset($_POST['intitOffre'])) {
         ?>
       </tbody>
     </table>
+    <td>
+      <input type="button" class="btnSuivant" name="modifier" value="Retour" onclick="history.go(-1)">
+    </td>
     <input type="submit" value="Suivant" class="connexion">
   </form>
 </body>

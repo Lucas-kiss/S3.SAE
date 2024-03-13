@@ -13,7 +13,7 @@ $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'D
 foreach ($jourSem as &$jour) {
     for ($i = 0; $i < 24; $i++) {
         $cle = $jour . $i;
-        if (isset($_POST[$cle]) && $_POST[$cle] == 'on') {
+        if (isset($_SESSION[$cle]) && $_SESSION[$cle] == 'on') {
             $nbHeureTotal++;
         }
     }
@@ -65,7 +65,7 @@ foreach ($jourSem as &$jour) {
         $cle = $jour . $i;
 
         if ($trouve) {
-            if (!isset($_POST[$cle]) || !$_POST[$cle] == 'on') {
+            if (!isset($_SESSION[$cle]) || !$_SESSION[$cle] == 'on') {
 
                 $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, $i)";
 
@@ -84,7 +84,7 @@ foreach ($jourSem as &$jour) {
                 $trouve = false;
             }
         } else {
-            if (isset($_POST[$cle]) && $_POST[$cle] == 'on') {
+            if (isset($_SESSION[$cle]) && $_SESSION[$cle] == 'on') {
                 //echo 'deb ' . $cle . '</br>';
                 $heureDeb = $i;
                 $trouve = true;

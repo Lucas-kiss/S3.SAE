@@ -124,7 +124,7 @@ textarea {
 
 .textAreaRecap {
     resize: none;
-    width: 230%;
+    width: 500px;
     border-radius: 5px;
     background-color: #e8ecf7;
     border: 2px solid #c9c9c9;
@@ -155,7 +155,7 @@ td {
 }
 
 .champsRecap {
-    width: 100%;
+    width: 500px;
     height: 25px;
     border-radius: 5px;
     background-color: #e8ecf7;

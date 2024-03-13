@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <th><label for="CP">Code postal :</label></th>
-                        <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre"
+                        <td><input type="text" class="boiteTexte" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre"
                                 placeholder="64600" required /> *</td>
                     </tr>
                     <tr>

@@ -1,11 +1,28 @@
 <?php
-if (isset($_POST["suivant"])) {
+if (isset($_POST)) {
     require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
     session_start();
 
     $siren = $_SESSION['siren'];
 
-        ?>
+    $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+
+    foreach ($jourSem as &$jour) {
+
+        $trouve = false;
+        for ($i = 0; $i < 24; $i++) {
+            $cle = $jour . $i;
+            if (isset($_POST[$cle]) && $_POST[$cle] == 'on')
+            {
+                $_SESSION[$cle] = 'on';
+            }
+            else
+            {
+                $_SESSION[$cle] = 'off';
+            }
+        }
+    }
+?>
 
         <!DOCTYPE html>
         <html lang="fr">
@@ -56,14 +73,14 @@ if (isset($_POST["suivant"])) {
             <form action="depotOffre.php" method="POST">
 
                 <?php
-                $intitOffre = $_POST["intitOffre"];
-                $dateDeb = $_POST["dateDeb"];
-                $dateFin = $_POST["dateFin"];
-                $tauxHoraire = $_POST["tauxHoraire"];
-                $descrOffre = $_POST["descrOffre"];
+                $intitOffre = $_SESSION["intitOffre"];
+                $dateDeb = $_SESSION["dateDeb"];
+                $dateFin = $_SESSION["dateFin"];
+                $tauxHoraire = $_SESSION["tauxHoraire"];
+                $descrOffre = $_SESSION["descrOffre"];
                 ?>
                 <div class="fondForm">
-                    <H1 class="titres">Dépôt d'offre</H1>
+                    <H1 class="titres">Recapitualtif de l'offre</H1>
                     <div class="separation"></div>
                     <table class="tabOffre">
                         <tr>
@@ -108,14 +125,50 @@ if (isset($_POST["suivant"])) {
                             <label class="etoile">*</label><label class="champsObl">Champs obligatoires<label>
                         </td>
                         <tr>
+                        <table class="tabOffre">
                             <td>
-                                <input type="button" class="btnSuivant" name="modifier" value="Modifier" onclick="history.back()">
+                                <input type="button" class="btnSuivant" name="modifier" value="Modifier" onclick="history.go(-2)">
                             </td>
                             <td>
                                 <input type="submit" class="btnSuivant" name="suivant" value="Valider">
                             </td>
+                        </table>
                         </tr>
                     </table>
+                    <?php
+                        $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+                        echo " <table class='blackBorder'>
+                        <tr class='noPadding'>
+                            <th class='blackBorder noPadding thJour'>
+                                <label>Jour</label>
+                            </th>";
+
+                        for ($i = 0; $i < 24; $i++) {
+                            echo "  <th class='blackBorder'>
+                                            <label>$i h</label>
+                                        </th>";
+                        }
+                        echo "  </tr>";
+                        foreach ($jourSem as &$jour) {
+                            echo "<tr class='noPadding'>";
+                            echo "<th class='blackBorder noPadding thJour'>";
+                            echo "<label>$jour</label>";
+                            echo "</th>";
+                            for ($i = 0; $i < 24; $i++) {
+                                $cle = $jour . $i;
+                                if ($_SESSION[$cle] == 'on')
+                                {
+                                    echo "<td class='blackBorder noPadding caseverte'>";
+                                }
+                                else
+                                {
+                                    echo "<td class='blackBorder noPadding caserouge'>";
+                                }
+                            }
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    ?>
                 </div>
             </form>
             
