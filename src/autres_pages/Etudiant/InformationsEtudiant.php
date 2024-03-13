@@ -96,12 +96,12 @@ if (!isset($_SESSION['ine']))
                                 <tr>
                                     <th><label for="prenom">Prénom :</label></th>
                                     <td><input type="text" class="boiteTexte" id="prenom" name="prenom" pattern="[a-zA-ZÀ-ÿ]+"
-                                            title="Lettres uniquements" placeholder="Xavier" value=<?php echo $prenom ?> /> </td>
+                                        maxlength="50" title="Lettres uniquements" placeholder="Xavier" value=<?php echo $prenom ?> /> </td>
                                 </tr>
                                 <tr>
                                     <th><label for="nom">Nom :</label></th>
                                     <td><input type="text" class="boiteTexte" id="nom" name="nom" pattern="[a-zA-ZÀ-ÿ]+"
-                                            title="Lettres uniquements" placeholder="Dupont" value=<?php echo $nom ?> /></td>
+                                        maxlength="50" title="Lettres uniquements" placeholder="Dupont" value=<?php echo $nom ?> /></td>
                                 </tr>
                                 <tr>
                                     <th><label for="naissance">Date de naissance :</label></th>
@@ -116,7 +116,7 @@ if (!isset($_SESSION['ine']))
                                 <tr>
                                     <th><label for="ville">Ville :</label></th>
                                     <td><input type="text" id="ville" name="ville" pattern="[^0-9]+" class="boiteTexte"
-                                            title="Lettres uniquements (espace et - autorisé)" placeholder="Anglet" value=<?php echo $nomVille ?> />
+                                        maxlength="50" title="Lettres uniquements (espace et - autorisé)" placeholder="Anglet" value=<?php echo $nomVille ?> />
                                     </td>
                                 </tr>
                                 <tr>

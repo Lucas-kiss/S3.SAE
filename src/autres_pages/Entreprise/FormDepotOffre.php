@@ -58,7 +58,7 @@ session_start();
                     <td><label for="intitOffre">Intitulé de l'offre</label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><input class="champs" type="text" name="intitOffre"
+                    <td><input class="champs" type="text" name="intitOffre" maxlength="50"
                             placeholder="Ex : Serveur dans un restaurant" required />
                     </td>
                 </tr>
@@ -90,7 +90,7 @@ session_start();
                     <td><label for="descrOffre">Description de l'offre</label><label class="etoile"> *</label></td>
                 </tr>
                 <tr>
-                    <td><textarea name="descrOffre" required cols="20" rows="12"
+                    <td><textarea name="descrOffre" required cols="20" rows="12" maxlength="10000"
                             placeholder="Ex : Nous recherchons un serveur les soirs de semaine..."></textarea></td>
                 </tr>
                 <td>

@@ -87,7 +87,28 @@ if (isset($_GET['value'])) {
                     echo "<p class='uneInfoOffre'><b>Description de l'offre :</b></p>";
                     echo "<p class='uneInfoOffre'> $description</p>";
                     ?>
+
                 </div>
+                <div>
+                    <?php
+                        if (isset($_SESSION['ine']))
+                        {
+                            $ine = $_SESSION['ine'];
+                            $monOffre = intval($monOffre);
+                            $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
+                            $result = mysqli_query($link, $query);
+                            if ($result && mysqli_num_rows($result) > 0) 
+                            {
+                                while ($donnees = mysqli_fetch_assoc($result))
+                                {
+                                    $statut = $donnees['statut'];
+                                }
+                                echo "<p class='uneInfoOffre'><b>Statut de votre candidature : </b>$statut</p>";
+                            }
+                        }
+                    ?>
+                </div>
+
                 <div class="horaireOffre">
                     <p class='uneInfoOffre'><b>Horaires de l'offre :</b></p>
                     <?php
@@ -144,7 +165,7 @@ if (isset($_GET['value'])) {
 
 
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
-                    echo "<input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='pageAccueil()'>";
+                    echo "<input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='history.back()'>";
                     $urlCand = "../Etudiant/candidatureEtudiant.php";
                     $ine = $_SESSION['ine'];
                     $monOffre = intval($monOffre);

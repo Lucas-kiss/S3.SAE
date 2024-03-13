@@ -84,18 +84,18 @@ if (!isset($_SESSION['siren'])) {
               <tbody>
                 <tr>
                   <th><label for="nom">Nom de l'entreprise :</label></th>
-                  <td><textarea class="boiteTexte" name="nomEntr" cols="10" rows="1" placeholder="E.Leclerc"
+                  <td><textarea class="boiteTexte" name="nomEntr" cols="10" rows="1" placeholder="E.Leclerc" maxlength="50"
                       required><?php echo $nomEntr ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="domaine">Domaine d'activité :</label></th>
                   <td><textarea class="boiteTexte" name="domAct" cols="10" rows="1" placeholder="Grande distribution"
-                      required><?php echo $domAct ?></textarea></td>
+                    maxlength="50" required><?php echo $domAct ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="ville">Ville :</label></th>
                   <td><textarea class="boiteTexte" name="ville" cols="10" rows="1" pattern="[a-zA-ZÀ-ÿ]+"
-                      title="Lettres uniquements" placeholder="Anglet" required><?php echo $nomVille ?></textarea></td>
+                    maxlength="50" title="Lettres uniquements" placeholder="Anglet" required><?php echo $nomVille ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="CP">Code postal :</label></th>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['siren'])) {
                 <tr>
                   <th><label for="nomResp">Nom du responsable :</label></th>
                   <td><textarea class="boiteTexte" name="nomResp" cols="10" rows="1" pattern="[a-zA-ZÀ-ÿ]+"
-                      title="Lettres uniquements" placeholder="Xavier" required><?php echo $nomResp ?></textarea></td>
+                    maxlength="50" title="Lettres uniquements" placeholder="DUPONT" required><?php echo $nomResp ?></textarea></td>
                 </tr>
                 <tr>
                   <th><label for="telResp">Téléphone du responsable :</label></th>

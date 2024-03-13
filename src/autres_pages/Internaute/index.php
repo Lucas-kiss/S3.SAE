@@ -1,6 +1,8 @@
 <?php
 require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 session_start();
+
+$dateActuelle = date('Y-m-d');
 ?>
 
 <!DOCTYPE html>
@@ -88,16 +90,20 @@ if (mysqli_connect_errno()) {
             <select class="boiteTexte" id="ville" name="ville">
               <option value='%'>Non renseignée</option>
               <?php
-              $queryVille = "SELECT DISTINCT(V.nomVille) AS ville FROM Ville V 
+              $queryVille = "SELECT DISTINCT(V.nomVille) AS ville, COUNT(V.nomVille) AS cpt FROM Ville V 
                 JOIN Entreprise E ON V.idVille=E.idVIlle
                 JOIN Offre O ON O.siren = E.siren
-                WHERE O.estFinie=0";
+                WHERE O.estFinie=0
+                AND dateFin < '$dateActuelle'
+                GROUP BY V.nomVille
+                ORDER BY cpt DESC";
 
               $resultVille = mysqli_query($link, $queryVille);
               if ($link) {
                 while ($donnees = mysqli_fetch_assoc($resultVille)) {
                   $resVille = $donnees['ville'];
-                  echo "<option value='$resVille'>$resVille</option>";
+                  $resCpt = $donnees['cpt'];
+                  echo "<option value='$resVille'>[$resCpt] $resVille</option>";
                 }
               }
               ?>
@@ -109,16 +115,20 @@ if (mysqli_connect_errno()) {
             <select class="boiteTexte" name="domaineAct" id="domaineAct">
               <option value='%'>Non renseigné</option>
               <?php
-              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct FROM Entreprise E
+              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct, COUNT (E.domaineActivite) AS cpt FROM Entreprise E
                   JOIN Offre O ON O.siren = E.siren
-                  WHERE O.estFinie=0";
+                  WHERE O.estFinie=0
+                  AND dateFin < '$dateActuelle'
+                  GROUP BY E.domaineActivite
+                  ORDER BY cpt DESC";
 
 
               $resultDomaineAct = mysqli_query($link, $queryDomaineAct);
               if ($link) {
                 while ($donnees = mysqli_fetch_assoc($resultDomaineAct)) {
                   $resDomaineAct = $donnees['domaineAct'];
-                  echo "<option value='$resDomaineAct'>$resDomaineAct</option>";
+                  $resCpt = $donnees['cpt'];
+                  echo "<option value='$resDomaineAct'>[$resCpt] $resDomaineAct</option>";
                 }
               }
               ?>
@@ -165,6 +175,7 @@ if (mysqli_connect_errno()) {
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
+          AND dateFin < '$dateActuelle'
           AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
@@ -176,6 +187,7 @@ if (mysqli_connect_errno()) {
           JOIN Entreprise E ON E.siren = O.siren
           JOIN Ville V ON V.idVille = E.idVille
           WHERE O.estFinie=0
+          AND dateFin < '$dateActuelle'
           AND O.nomOffre LIKE '%$critBarreRecherche%'
           AND V.nomVille LIKE '$critVille'
           AND E.domaineActivite LIKE '$critDomaineAct'
@@ -190,6 +202,7 @@ if (mysqli_connect_errno()) {
         JOIN Entreprise E ON E.siren = O.siren
         JOIN Ville V ON V.idVille = E.idVille
         WHERE O.estFinie=0
+        AND dateFin < '$dateActuelle'
         ORDER BY O.dateDepot DESC";
       }
 
