@@ -672,3 +672,10 @@ filter:drop-shadow(5px 5px 5px rgb(0, 139, 209));
     grid-auto-rows: minmax(100px, auto);
     flex-wrap: wrap;
 }
+
+.descriptionOffre {
+    width: 80%;
+    word-wrap: break-word;
+    line-height: 1;
+    
+}

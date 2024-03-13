@@ -95,7 +95,7 @@
                                 <h3>$nom $prenom</h3>
                                 <p>$age ans,</p><p> Statut : $statut</p>
                                 ".'
-                                <button onclick="passId('."'$ine'".')">Profil</button>
+                                <button class="btnDetails" onclick="passId('."'$ine'".')">Profil</button>
                                 '."</div>";
                         }
                     }
