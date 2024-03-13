@@ -5,8 +5,6 @@ session_start();
 
 if (isset($_POST['connexion'])) {
 
-    $link=mysqli_connect($host, $user, $pass, $bdd) or die( "Impossible de se connecter à la base de données");
-
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
