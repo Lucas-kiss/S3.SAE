@@ -1,15 +1,7 @@
 <?php
 session_start();
 require_once ("../../ressources/donnees/BDD/bdd.php");
-if (isset($_POST['ine'])) {
-  $_SESSION['ine'] = $_POST['ine'];
-  $_SESSION['prenom'] = $_POST['prenom'];
-  $_SESSION['nom'] = $_POST['nom'];
-  $_SESSION['naissance'] = $_POST['naissance'];
-  $_SESSION['ville'] = $_POST['ville'];
-  $_SESSION['telephone'] = $_POST['telephone'];
-  $_SESSION['CP'] = $_POST['CP'];
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -94,7 +86,7 @@ if (isset($_POST['ine'])) {
         ?>
       </tbody>
     </table>
-    <input type="submit" value="Suivant">
+    <input type="submit" value="Suivant" class="connexion">
   </form>
 </body>
 

@@ -84,7 +84,7 @@ session_start();
                 <p>Localisation de l'offre : $resVilleOffre $resCPOffre</p>
                 <p>Statut de la candidature : $resStatut </p>
 
-                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails</button>
+                <button onclick='passId($resIdOffre)' class='btnDetails'>Détails de l'offre</button>
           </div>";
         }
       }
