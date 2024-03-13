@@ -64,8 +64,10 @@ foreach ($jourSem as &$jour) {
     for ($i = 0; $i < 24; $i++) {
         $cle = $jour . $i;
 
-        if ($trouve) {
-            if (!isset($_SESSION[$cle]) || !$_SESSION[$cle] == 'on') {
+        if ($trouve)
+        {
+            if ($_SESSION[$cle] == 'off')
+            {
 
                 $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, $i)";
 
@@ -83,8 +85,11 @@ foreach ($jourSem as &$jour) {
 
                 $trouve = false;
             }
-        } else {
-            if (isset($_SESSION[$cle]) && $_SESSION[$cle] == 'on') {
+        }
+        else
+        {
+            if ($_SESSION[$cle] == 'on')
+            {
                 //echo 'deb ' . $cle . '</br>';
                 $heureDeb = $i;
                 $trouve = true;
@@ -93,7 +98,7 @@ foreach ($jourSem as &$jour) {
     }
 
     if ($trouve) {
-        $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 0)";
+        $query1 = "INSERT INTO Creneau (IdCreneau, jour, heureDeb, heureFin) Values ($IdCreneau, '$jour', $heureDeb, 24)";
 
         $query2 = "INSERT INTO Concerner (idOffre, idCreneau) Values ($max, $IdCreneau)";
 
