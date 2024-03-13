@@ -82,10 +82,10 @@ if (isset($_GET['value'])) {
                 echo "<p class='uneInfoOffre'><b>Date de l'offre :</b> du $dateDeb au $dateFin</p>";
                 echo "<p class='uneInfoOffre'><b>Rémunération :</b> $tauxHoraire euros net par heure</p>";
                 ?>
-                <div class="descriptionOffre">
+                <div >
                     <?php
                     echo "<p class='uneInfoOffre'><b>Description de l'offre :</b></p>";
-                    echo "<p class='uneInfoOffre'> $description</p>";
+                    echo "<p class='uneInfoOffre descriptionOffre'> $description</p>";
                     ?>
 
                 </div>
@@ -172,7 +172,13 @@ if (isset($_GET['value'])) {
                     $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
                     $result = mysqli_query($link, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
-                        echo "<button onclick='passId($monOffre, `../Etudiant/suppCandidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Supprimer ma candidature</button>";
+                        echo "function choixSuppressionCandidature(uneOffre) {
+                            if (confirm('Souhaitez-vous vraiment supprimer votre candidature ? Votre action ne pourra pas être annulée.')) {
+                                passId(uneOffre, `../Etudiant/suppCandidatureEtudiant.php`);
+                            }
+                        }
+                        ";
+                        echo "<button onclick='choixSuppressionCandidature($monOffre)' id='btnPostuler' class='connexion'>Supprimer ma candidature</button>";
                     } else {
                         echo "</br><button onclick='passId($monOffre, `../Etudiant/candidatureEtudiant.php`)' id='btnPostuler' class='connexion'>Postuler</button>";
                     }
@@ -185,6 +191,7 @@ if (isset($_GET['value'])) {
                             passId(uneOffre, `../Entreprise/SupprimerOffre.php`);
                         }
                     }
+    
                 </script>
                 <input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='pageEntreprise()'>
                 </br><button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'

@@ -94,7 +94,7 @@ if (mysqli_connect_errno()) {
                 JOIN Entreprise E ON V.idVille=E.idVIlle
                 JOIN Offre O ON O.siren = E.siren
                 WHERE O.estFinie=0
-                AND dateFin < '$dateActuelle'
+                AND dateFin > '$dateActuelle'
                 GROUP BY V.nomVille
                 ORDER BY cpt DESC";
 
@@ -115,10 +115,10 @@ if (mysqli_connect_errno()) {
             <select class="boiteTexte" name="domaineAct" id="domaineAct">
               <option value='%'>Non renseigné</option>
               <?php
-              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct, COUNT (E.domaineActivite) AS cpt FROM Entreprise E
+              $queryDomaineAct = "SELECT DISTINCT(E.domaineActivite) AS domaineAct, COUNT(E.domaineActivite) AS cpt FROM Entreprise E
                   JOIN Offre O ON O.siren = E.siren
                   WHERE O.estFinie=0
-                  AND dateFin < '$dateActuelle'
+                  AND dateFin > '$dateActuelle'
                   GROUP BY E.domaineActivite
                   ORDER BY cpt DESC";
 
