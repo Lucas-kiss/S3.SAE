@@ -128,13 +128,11 @@ session_start();
     ?>
     <div class='InfoEntreprise'>
       <div class='messagesEntreprise'>
-        <button class='connexion' style='width:100%'>Mes messages</button>
+        <a class='connexion'>Messages</a>
       </div>
 
       <div class='boutonDeposerOffre'>
         <a href="FormDepotOffre.php" class='connexion'>Déposer une offre d'emploi</a>
-
-
       </div>
     </div>
     <?php

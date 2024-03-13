@@ -1,7 +1,7 @@
 <?php
-    session_start();
+session_start();
 
-    require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
+require_once("../../ressources/donnees/BDD/bdd.php"); // connexion à la base de données, bdd.php pour lakartxela, bdd_MAMP.php pour MAMP
 
 if (isset($_GET['value'])) {
     $monOffre = $_GET['value'];
@@ -19,6 +19,7 @@ if (isset($_GET['value'])) {
         $description = str_replace("\n", "<br/>", $donnees["description"]);
         $nomEntr = $donnees["nomEntreprise"];
         $ville = $donnees["nomVille"];
+        $resCPOFfre = $donnees['codePostal'];
     }
     ?>
 
@@ -77,7 +78,7 @@ if (isset($_GET['value'])) {
             <div class="InfosOffre">
                 <?php
                 echo "<p class='uneInfoOffre'><b>Nom de l'entreprise :</b> $nomEntr</p>";
-                echo "<p class='uneInfoOffre'><b>Ville :</b> $ville</p>";
+                echo "<p class='uneInfoOffre'><b>Localisation de l'offre : </b> $ville $resCPOFfre</p>";
                 echo "<p class='uneInfoOffre'><b>Date de l'offre :</b> du $dateDeb au $dateFin</p>";
                 echo "<p class='uneInfoOffre'><b>Rémunération :</b> $tauxHoraire euros net par heure</p>";
                 ?>
@@ -86,7 +87,28 @@ if (isset($_GET['value'])) {
                     echo "<p class='uneInfoOffre'><b>Description de l'offre :</b></p>";
                     echo "<p class='uneInfoOffre'> $description</p>";
                     ?>
+
                 </div>
+                <div>
+                    <?php
+                        if (isset($_SESSION['ine']))
+                        {
+                            $ine = $_SESSION['ine'];
+                            $monOffre = intval($monOffre);
+                            $query = "SELECT * from Candidater where ine = '$ine' AND idOffre = $monOffre";
+                            $result = mysqli_query($link, $query);
+                            if ($result && mysqli_num_rows($result) > 0) 
+                            {
+                                while ($donnees = mysqli_fetch_assoc($result))
+                                {
+                                    $statut = $donnees['statut'];
+                                }
+                                echo "<p class='uneInfoOffre'><b>Statut de votre candidature : </b>$statut</p>";
+                            }
+                        }
+                    ?>
+                </div>
+
                 <div class="horaireOffre">
                     <p class='uneInfoOffre'><b>Horaires de l'offre :</b></p>
                     <?php
@@ -129,11 +151,21 @@ if (isset($_GET['value'])) {
                     echo "</table>";
                     ?>
                 </div>
+                <script>
+                    function pageAccueil() {
+                        window.location.href = '../Internaute/index.php';
+                    }
+                    function pageEntreprise() {
+                        window.location.href = '../Entreprise/AccueilEntreprise.php';
+                    }
+                </script>
                 <?php
 
                 echo "<div class='btnOffre'>";
-                
+
+
                 if (isset($_SESSION['ine']) && !isset($_SESSION['siren'])) {
+                    echo "<input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='history.back()'>";
                     $urlCand = "../Etudiant/candidatureEtudiant.php";
                     $ine = $_SESSION['ine'];
                     $monOffre = intval($monOffre);
@@ -149,30 +181,31 @@ if (isset($_GET['value'])) {
                     echo
                         "<script>
                     function choixSuppressionOffre(uneOffre) {
-                        if (confirm('Souhaitez-vous vraiment supprimer cette offre ? Votre action ne pourra pas être annulée.')) {
+                        if (confirm('Souhaitez-vous vraiment supprimer cette offre ? Les candidatures formulées sur l'offre seront également supprimées. Votre action ne pourra pas être annulée.')) {
                             passId(uneOffre, `../Entreprise/SupprimerOffre.php`);
                         }
                     }
                 </script>
-                
+                <input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='pageEntreprise()'>
                 </br><button onclick='passId($monOffre, `../Entreprise/candidatureOffre.php`)' id='btnCandidater'
                     class='connexion'>Voir les candidatures</button>
                 <button onclick='passId($monOffre, `../Entreprise/modifierOffre.php`)' id='btnModifier'
                     class='connexion'>Modifier l'offre</button>
                 <button onclick='choixSuppressionOffre($monOffre)' id='btnSupprimer' class='connexion'>Supprimer
                     l'offre</button>";
+                } else {
+                    echo "<input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='pageAccueil()'>";
                 }
 
-            echo "</div>
+                echo "</div>
         <p class='sous-titre'>Offre déposée le $dateDepot</p>";
-            ?>
-        </div>
-        <script>
-            function passId(id, urlPage)
-            {
-                window.location.href = urlPage + '?value=' + encodeURIComponent(id);
-            }
-        </script>
+                ?>
+            </div>
+            <script>
+                function passId(id, urlPage) {
+                    window.location.href = urlPage + '?value=' + encodeURIComponent(id);
+                }
+            </script>
 
     </body>
 

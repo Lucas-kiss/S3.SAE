@@ -88,12 +88,12 @@ if (isset($_POST['ine'])) {
                     <tr>
                         <th><label for="prenom">Prénom :</label></th>
                         <td><input type="text" class="boiteTexte" id="prenom" name="prenom" pattern="[a-zA-ZÀ-ÿ]+"
-                                title="Lettres uniquements" placeholder="Xavier" required /> *</td>
+                          maxlength="50" title="Lettres uniquements" placeholder="Xavier" required /> *</td>
                     </tr>
                     <tr>
                         <th><label for="nom">Nom :</label></th>
                         <td><input type="text" class="boiteTexte" id="nom" name="nom" pattern="[a-zA-ZÀ-ÿ]+"
-                                title="Lettres uniquements" placeholder="Dupont" required /> *</td>
+                          maxlength="50" title="Lettres uniquements" placeholder="Dupont" required /> *</td>
                     </tr>
                     <tr>
                         <th><label for="naissance">Date de naissance :</label></th>
@@ -113,7 +113,7 @@ if (isset($_POST['ine'])) {
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="CP">Code postale :</label></th>
+                        <th><label for="CP">Code postal :</label></th>
                         <td><input type="text" id="CP" name="CP" pattern="[0-9]{5}" title="Série de 5 Chiffre"
                                 placeholder="64600" required /> *</td>
                     </tr>

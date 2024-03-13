@@ -251,7 +251,7 @@ label {
 .grilleBoutons {
     font-family: "Roboto", sans-serif;
     display: grid;
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 4fr 2fr;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 30px;
@@ -324,6 +324,7 @@ margin-top: 5px;
 padding: 5px;
 text-align: center;
 width: 25vw;
+min-width: 150px;
 border: solid rgb(0, 139, 209) 1px; 
 filter:drop-shadow(5px 5px 5px rgb(0, 139, 209));
 }
@@ -485,39 +486,50 @@ filter:drop-shadow(5px 5px 5px rgb(0, 139, 209));
     grid-column: 2;
     grid-row: 1;
     display: grid;
-
-
+    grid-auto-rows: minmax(10px, auto);
 }
 
-.btnOffre {
-    text-align: center;
-}
-
-.fondForm > .btnOffre {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1;
-    align-items: center;
-}
-
-.fondForm > .btnOffre > #btnPostuler {
-    grid-column: 2;
+.grilleBoutons > .InfoEntreprise > .messagesEntreprise {
     grid-row: 1;
 }
 
-.fondForm > .btnOffre > #btnCandidater {
+.grilleBoutons > .InfoEntreprise > .boutonDeposerOffre {
+    grid-row: 2;
+}
+
+.fondForm > .InfosOffre > .btnOffre {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    align-items: center;
+}
+
+.fondForm > .InfosOffre > .btnOffre > #btnRetour {
     grid-column: 1;
     grid-row: 1;
 }
 
-.fondForm > .btnOffre > #btnModifier {
-    grid-column: 2;
+.fondForm > .InfosOffre > .btnOffre > #btnPostuler {
+    grid-column: 3;
     grid-row: 1;
 }
 
-.fondForm > .btnOffre > #btnSupprimer {
+
+
+.fondForm > .InfosOffre > .btnOffre > #btnCandidater {
     grid-column: 3;
     grid-row: 1;
+}
+
+.fondForm > .InfosOffre > .btnOffre > #btnModifier {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.fondForm > .InfosOffre > .btnOffre > #btnSupprimer {
+    grid-column: 3;
+    grid-row: 2;
 }
 .caserouge
 {

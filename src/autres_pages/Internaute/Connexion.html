@@ -25,7 +25,7 @@
                     <tr>
                         <th class="noborder"><label for="mail">Adresse e-mail :</label></th>
                         <td class="noborder"><input type="email" id="mail" name="mail" placeholder="exemple@domaine"
-                                required /></td>
+                            maxlength="50" required /></td>
                     </tr>
                     <tr>
                         <th class="noborder"><label for="MdP">Mot de passe :</label></th>
@@ -46,8 +46,16 @@
                     </tr>
                 </tbody>
             </table>
-            <div id="divBtnConnexion"><input  type="submit" class="connexion" name="connexion" id="btnConnexion" value="Se connecter">
+            <div id="divBtnConnexion">
+                <input type="button" class="connexion" name="annuler" value="Retour" id="btnRetourModif" onclick="pageAccueil()">
+                <input  type="submit" class="connexion" name="connexion" id="btnConnexion" value="Se connecter">
             </div>
+            <script>
+                function pageAccueil()
+                {
+                    window.location.href = '../Internaute/index.php';
+                }
+            </script>
             </form>
     </div>
 

@@ -45,7 +45,9 @@ if (isset($_POST['connexion'])) {
     mysqli_close($link);
 
     if (!($trouve)) { 
-        echo "<p>Aucun compte lié au mail et au mot de passe saisis</p>";
+        echo "<script>alert('Informations de connexion incorrect');
+        window.location.href = '../Internaute/Connexion.html';
+        </script>";
     }
 }
     
