@@ -143,7 +143,7 @@ if (isset($_SESSION['ine'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="cv">CV (.pdf)</label></td>
+                        <td><label for="cv">CV (Format accepté : .pdf, Taille max : 400Ko)</label></td>
                     </tr>
                     <tr>
                         <td>
@@ -151,7 +151,7 @@ if (isset($_SESSION['ine'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="lettreMotiv">Lettre de motivation (.pdf)</label></td>
+                        <td><label for="lettreMotiv">Lettre de motivation (Format accepté : .pdf, Taille max : 400Ko)</label></td>
                     </tr>
                     <tr>
                         <td>
@@ -160,6 +160,7 @@ if (isset($_SESSION['ine'])) {
                     </tr>
                     <tr>
                         <td>
+                            <input type='button' class='connexion' name='annuler' value='Retour' id='btnRetour' onclick='history.back()'>
                             <input type="submit" class="btnSuivant" name="postuler" value="Postuler">
                         </td>
                     </tr>

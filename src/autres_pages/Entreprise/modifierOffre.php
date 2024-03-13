@@ -27,7 +27,6 @@ if (isset($_POST["ModifIntitOffre"]))
     $description = $_POST["descrOffre"];
     $monOffre = $_POST["idOffre"];
 
-    // $nbHeureTotal = $_POST['nbHeureTotal'];
     $nbHeureTotal = 0;
     $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
 
@@ -44,11 +43,7 @@ if (isset($_POST["ModifIntitOffre"]))
     WHERE idOffre=$monOffre";
 
     $resModifOffre = mysqli_query($link, $queryModifOffre);
-    // if ($resModifOffre) {
-    //     header('location: ../Entreprise/AccueilEntreprise.php');
-    // } else {
-    //     echo "Insertion n'a pas fonctionné";
-    // }
+
 
     // Créneaux
 
@@ -231,7 +226,6 @@ else {
                             placeholder="Ex : Nous recherchons un serveur les soirs de semaine..."><?php echo $description ?></textarea></td>
                 </tr>
             </table>
-            <!--  -->
             <?php
             $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
             echo "  <table class='blackBorder tabInfoHoraireEt'><tr>

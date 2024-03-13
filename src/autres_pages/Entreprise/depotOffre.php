@@ -108,9 +108,13 @@ foreach ($jourSem as &$jour) {
 }
 mysqli_close($link);
 if ($res) {
-    header('location: ../Entreprise/AccueilEntreprise.php');
+    echo "<script>alert('Dépôt d offre réussi');
+    window.location.href = '../Entreprise/AccueilEntreprise.php';
+    </script>";
 } else {
-    echo "Insertion n'a pas fonctionné";
+    echo "<script>alert('Dépôt d offre non réussi');
+    window.location.href = '../Entreprise/AccueilEntreprise.php';
+    </script>";
 }
 
 ?>

@@ -142,10 +142,14 @@
             }
         }
         mysqli_close($link);
-        header('location: ../Internaute/index.php');
+        echo "<script>alert('Inscription réussie');
+        window.location.href = '../Internaute/index.php';
+        </script>";
     }
     else {
-        echo "problème de connexion à la bd";
+        echo "<script>alert('Inscription non réussi');
+        window.location.href = '../Etudiant/FormulaireEtudiant.php';
+        </script>";
     }
 
 ?>

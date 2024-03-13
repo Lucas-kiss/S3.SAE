@@ -80,17 +80,17 @@ if (isset($_POST['siren'])) {
                 <tbody>
                     <tr>
                         <th><label for="siren">Numéro SIREN :</label></th>
-                        <td><input type="text" class="boiteTexte" id="siren" name="siren" pattern="[12]{1}[0-9]{8}"
-                                title="9 Chiffres qui commence par 1 ou 2" placeholder="123456789" required /> *</td>
+                        <td><input type="text" class="boiteTexte" id="siren" name="siren" pattern="[0-9]{9}"
+                                title="9 Chiffres" placeholder="123456789" required /> *</td>
                     </tr>
                     <tr>
                         <th><label for="nom">Nom de l'entreprise :</label></th>
-                        <td><input type="text" class="boiteTexte" id="nom" name="nom" placeholder="E.Leclerc"
+                        <td><input type="text" class="boiteTexte" id="nom" name="nom" maxlength="50" placeholder="E.Leclerc"
                                 required /> *</td>
                     </tr>
                     <tr>
                         <th><label for="domaine">Domaine d'activité :</label></th>
-                        <td><input type="text" class="boiteTexte" id="domaine" name="domaine"
+                        <td><input type="text" class="boiteTexte" id="domaine" name="domaine" maxlength="50"
                                 placeholder="Grande distribution" required /> *</td>
                     </tr>
                     <tr>
@@ -112,7 +112,7 @@ if (isset($_POST['siren'])) {
                     <tr>
                         <th><label for="nomResp">Nom du responsable :</label></th>
                         <td><input type="text" class="boiteTexte" id="nomResp" name="nomResp" pattern="[a-zA-ZÀ-ÿ]+"
-                                title="Lettres uniquements" placeholder="Xavier" required /> *</td>
+                                title="Lettres uniquements" placeholder="DUPONT" maxlength="50" required /> *</td>
                     </tr>
                     <tr>
                         <th><label for="telResp">Téléphone du responsable :</label></th>
