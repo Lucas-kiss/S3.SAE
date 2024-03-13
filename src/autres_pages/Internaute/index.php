@@ -58,7 +58,7 @@ if (mysqli_connect_errno()) {
 
   <form action="index.php" method="POST">
     <div class="grilleBoutons">
-
+      
       <div class=infoRechercheOffre>
 
         <div class=recherche>

@@ -46,8 +46,16 @@
                     </tr>
                 </tbody>
             </table>
-            <div id="divBtnConnexion"><input  type="submit" class="connexion" name="connexion" id="btnConnexion" value="Se connecter">
+            <div id="divBtnConnexion">
+                <input type="button" class="connexion" name="annuler" value="Retour" id="btnRetourModif" onclick="pageAccueil()">
+                <input  type="submit" class="connexion" name="connexion" id="btnConnexion" value="Se connecter">
             </div>
+            <script>
+                function pageAccueil()
+                {
+                    window.location.href = '../Internaute/index.php';
+                }
+            </script>
             </form>
     </div>
 
