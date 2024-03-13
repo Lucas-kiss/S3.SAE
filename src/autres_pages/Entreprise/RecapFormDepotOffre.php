@@ -80,7 +80,7 @@ if (isset($_POST)) {
                 $descrOffre = $_SESSION["descrOffre"];
                 ?>
                 <div class="fondForm">
-                    <H1 class="titres">Recapitualtif de l'offre</H1>
+                    <H1 class="titres">Récapitulatif de l'offre</H1>
                     <div class="separation"></div>
                     <table class="tabOffre">
                         <tr>
@@ -124,16 +124,6 @@ if (isset($_POST)) {
                         <td>
                             <label class="etoile">*</label><label class="champsObl">Champs obligatoires<label>
                         </td>
-                        <tr>
-                        <table class="tabOffre">
-                            <td>
-                                <input type="button" class="btnSuivant" name="modifier" value="Modifier" onclick="history.go(-2)">
-                            </td>
-                            <td>
-                                <input type="submit" class="btnSuivant" name="suivant" value="Valider">
-                            </td>
-                        </table>
-                        </tr>
                     </table>
                     <?php
                         $jourSem = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
@@ -169,6 +159,14 @@ if (isset($_POST)) {
                         }
                         echo "</table>";
                     ?>
+                    <table class="tabOffre">
+                        <td>
+                            <input type="button" class="btnSuivant" name="modifier" value="Modifier" onclick="history.go(-2)">
+                        </td>
+                        <td>
+                            <input type="submit" class="btnSuivant" name="suivant" value="Valider">
+                        </td>
+                    </table>
                 </div>
             </form>
             
