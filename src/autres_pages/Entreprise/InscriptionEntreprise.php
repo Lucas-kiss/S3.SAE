@@ -41,24 +41,22 @@ if (!$idVille) {
     $result->fetch();
 }
 
-$link = mysqli_connect($host, $user, $pass, $bdd) or die("Impossible de se connecter à la base de données");
-mysqli_set_charset($link, 'utf8');
 
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit();
 }
 
-if ($link) {
-    $queryInsertEntr = "INSERT INTO Entreprise
-        Values ($siren, '$nom', '$domaine', '$telephone', '$nomResp', '$telResp', '$mail', '$MdP', $idVille)";
 
-    $res = mysqli_query($link, $queryInsertEntr);
-    if ($res) {
-        echo 'Insertion fonctionnelle</br>';
-    } else {
-        echo "Insertion n'a pas fonctionnée</br>";
-    }
+$queryInsertEntr = "INSERT INTO Entreprise
+    Values ($siren, '$nom', '$domaine', '$telephone', '$nomResp', '$telResp', '$mail', '$MdP', $idVille)";
+
+$res = mysqli_query($link, $queryInsertEntr);
+if ($res) {
+    echo 'Insertion fonctionnelle</br>';
+} else {
+    echo "Insertion n'a pas fonctionnée</br>";
 }
+
 mysqli_close($link);
 ?>

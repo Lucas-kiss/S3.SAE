@@ -11,7 +11,7 @@ if (isset($_POST)) {
 
         $trouve = false;
         for ($i = 0; $i < 24; $i++) {
-            $cle = $jour . $i;
+            $cle = $jour.$i;
             if (isset($_POST[$cle]) && $_POST[$cle] == 'on')
             {
                 $_SESSION[$cle] = 'on';

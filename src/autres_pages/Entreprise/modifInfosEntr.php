@@ -66,3 +66,4 @@ if (!isset($_SESSION['siren'])) {
 
     header('location: ../Entreprise/InformationsEntreprise.php');
 }
+?>

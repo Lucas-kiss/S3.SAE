@@ -186,14 +186,19 @@ if (!isset($_SESSION['ine']))
                 }
                 else
                 {
-                    ?>
-                    <H1 class="titres">Mes informations</H1>
-                    <div class="separation"><hr><br></div>
-                    <?php
                         if(!isset($_SESSION['siren']))
                         {
                     ?>
+                    <H1 class="titres">Mes informations</H1>
+                    <div class="separation"><hr><br></div>
                     <form action="InformationsEtudiant.php" method="POST">
+                    <?php
+                        }
+                        else
+                        {
+                    ?>
+                    <H1 class="titres">Informations de <?php echo "$nom $prenom";?></H1>
+                    <div class="separation"><hr><br></div>
                     <?php
                         }
                     ?>
@@ -334,9 +339,15 @@ if (!isset($_SESSION['ine']))
                 ?>
                 <br>
       <hr><br>
+      <?php
+      if(!isset($_SESSION['siren']))
+      {
+        ?>
+      
       <div id="divBtnConnexion"><a href=../logout.php class="connexion">Se déconnecter</a></div>
             </div>
             <?php
+      }
         ?>
 
 
